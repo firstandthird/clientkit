@@ -1,0 +1,6 @@
+{
+  "extends": "firstandthird",
+  "rules": {
+    "no-console": 0
+  }
+}
