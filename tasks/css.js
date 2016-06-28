@@ -1,15 +1,21 @@
-const config = require('confi')();
+const fs = require('fs');
+const path = require('path');
+const base = path.join(__dirname, '..');
+
+const config = require('confi')({
+  path: [
+    path.join(base, 'conf'),
+    path.join(process.cwd(), 'conf')
+  ]
+});
+
 const postcss = require('postcss');
 const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
 const cssmixins = require('postcss-mixins');
 const mqpacker = require('css-mqpacker');
 const cssnano = require('cssnano');
-const fs = require('fs');
-const path = require('path');
 const mkdirp = require('mkdirp');
-
-const base = path.join(__dirname, '..');
 
 mkdirp.sync(path.join(base, '.dist'));
 
