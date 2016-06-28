@@ -1,0 +1,25 @@
+spacing:
+  desktop-wide:
+    xl: 80px
+    lg: 50px
+    md: 30px
+    sm: 20px
+    xs: 10px
+  desktop:
+    xl: 80px
+    lg: 50px
+    md: 30px
+    sm: 20px
+    xs: 10px
+  tablet:
+    xl: 80px
+    lg: 50px
+    md: 30px
+    sm: 20px
+    xs: 10px
+  mobile:
+    xl: 80px
+    lg: 50px
+    md: 30px
+    sm: 20px
+    xs: 10px
