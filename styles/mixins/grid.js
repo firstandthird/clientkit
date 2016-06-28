@@ -36,11 +36,11 @@ module.exports = function (config) {
         };
 
         styles[bp][`.col-${colName}-pull-${i}`] = {
-          width: `${(100 / (12 / i))}%`
+          right: `${(100 / (12 / i))}%`
         };
 
         styles[bp][`.col-${colName}-push-${i}`] = {
-          width: `${(100 / (12 / i))}%`
+          left: `${(100 / (12 / i))}%`
         };
 
         styles[bp][`.col-${colName}-offset-${i}`] = {
