@@ -9,7 +9,9 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 
-mkdirp.sync(path.join(process.cwd(), '.dist'));
+const base = path.join(__dirname, '..');
+
+mkdirp.sync(path.join(base, '.dist'));
 
 const cssVars = {};
 
@@ -18,13 +20,13 @@ Object.keys(config.colors).forEach(color => {
 });
 
 const mixins = require('require-all')({
-  dirname: path.join(process.cwd(), 'styles/mixins'),
+  dirname: path.join(base, 'styles/mixins'),
   resolve: m => m(config, postcss)
 });
 
 module.exports = function (cssFile) {
-  const output = path.join(process.cwd(), '.dist', cssFile);
-  const input = path.join(process.cwd(), 'styles', cssFile);
+  const output = path.join(base, '.dist', cssFile);
+  const input = path.join(base, 'styles', cssFile);
 
   postcss([
     cssimport,
