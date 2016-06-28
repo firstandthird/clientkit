@@ -29,9 +29,11 @@
     "stylelint": "^6.7.1"
   },
   "dependencies": {
+    "chokidar": "^1.6.0",
     "confi": "^2.1.0",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.7.1",
+    "lodash.debounce": "^4.0.6",
     "mkdirp": "^0.5.1",
     "postcss": "^5.0.21",
     "postcss-cssnext": "^2.6.0",

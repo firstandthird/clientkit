@@ -1,13 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const base = path.join(__dirname, '..');
-
-const config = require('confi')({
-  path: [
-    path.join(base, 'conf'),
-    path.join(process.cwd(), 'conf')
-  ]
-});
 
 const postcss = require('postcss');
 const cssimport = require('postcss-import');
@@ -15,24 +7,20 @@ const cssnext = require('postcss-cssnext');
 const cssmixins = require('postcss-mixins');
 const mqpacker = require('css-mqpacker');
 const cssnano = require('cssnano');
-const mkdirp = require('mkdirp');
 
-mkdirp.sync(path.join(base, '.dist'));
+module.exports = function (config, base, outputName, input) {
+  const cssVars = {};
 
-const cssVars = {};
+  Object.keys(config.colors).forEach(color => {
+    cssVars[`colors-${color}`] = config.colors[color];
+  });
 
-Object.keys(config.colors).forEach(color => {
-  cssVars[`colors-${color}`] = config.colors[color];
-});
+  const mixins = require('require-all')({
+    dirname: path.join(base, 'styles/mixins'),
+    resolve: m => m(config, postcss)
+  });
 
-const mixins = require('require-all')({
-  dirname: path.join(base, 'styles/mixins'),
-  resolve: m => m(config, postcss)
-});
-
-module.exports = function (cssFile) {
-  const output = path.join(base, '.dist', cssFile);
-  const input = path.join(base, 'styles', cssFile);
+  const output = path.join(base, '.dist', outputName);
 
   postcss([
     cssimport,
