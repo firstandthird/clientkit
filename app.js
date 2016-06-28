@@ -3,7 +3,7 @@ const path = require('path');
 const config = require('confi')({
   path: [
     path.join(__dirname, 'conf'),
-    path.join(process.cwd(), 'conf')
+    path.join(process.cwd(), 'clientkit')
   ]
 });
 const chokidar = require('chokidar');
