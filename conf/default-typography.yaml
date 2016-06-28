@@ -1,0 +1,117 @@
+fonts:
+  primary: sans-serif
+  secondary: serif
+
+fontStyles:
+  desktop-wide:
+    heading-1:
+      font-family: '{{fonts.secondary}}'
+      font-size: 45px
+      line-height: 48px
+      font-weight: 700
+    heading-2:
+      font-size: 30px
+      line-height: 36px
+      font-weight: 600
+    heading-3:
+      font-size: 25px
+      line-height: 32px
+    heading-4:
+      font-size: 16px
+      line-height: 24px
+    heading-5:
+      font-size: 14px
+      line-height: 24px
+    large:
+      font-size: 16px
+      line-height: 24px
+    body:
+      font-size: 14px
+      line-height: 24px
+    small:
+      font-size: 12px
+      line-height: 24px
+  desktop:
+    heading-1:
+      font-family: '{{fonts.secondary}}'
+      font-size: 45px
+      line-height: 48px
+      font-weight: 700
+    heading-2:
+      font-size: 30px
+      line-height: 36px
+      font-weight: 600
+    heading-3:
+      font-size: 25px
+      line-height: 32px
+    heading-4:
+      font-size: 16px
+      line-height: 24px
+    heading-5:
+      font-size: 14px
+      line-height: 24px
+    large:
+      font-size: 16px
+      line-height: 24px
+    body:
+      font-size: 14px
+      line-height: 24px
+    small:
+      font-size: 12px
+      line-height: 24px
+  tablet:
+    heading-1:
+      font-family: '{{fonts.secondary}}'
+      font-size: 45px
+      line-height: 48px
+      font-weight: 700
+    heading-2:
+      font-size: 30px
+      line-height: 36px
+      font-weight: 600
+    heading-3:
+      font-size: 25px
+      line-height: 32px
+    heading-4:
+      font-size: 16px
+      line-height: 24px
+    heading-5:
+      font-size: 14px
+      line-height: 24px
+    large:
+      font-size: 16px
+      line-height: 24px
+    body:
+      font-size: 14px
+      line-height: 24px
+    small:
+      font-size: 12px
+      line-height: 24px
+  mobile:
+    heading-1:
+      font-family: '{{fonts.secondary}}'
+      font-size: 30px
+      line-height: 40px
+      font-weight: 700
+    heading-2:
+      font-size: 25px
+      line-height: 34px
+      font-weight: 600
+    heading-3:
+      font-size: 20px
+      line-height: 26px
+    heading-4:
+      font-size: 14px
+      line-height: 22px
+    heading-5:
+      font-size: 14px
+      line-height: 22px
+    large:
+      font-size: 14px
+      line-height: 22px
+    body:
+      font-size: 14px
+      line-height: 22px
+    small:
+      font-size: 12px
+      line-height: 22px

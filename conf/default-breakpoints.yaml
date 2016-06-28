@@ -1,0 +1,16 @@
+breakpoints:
+  desktop-wide:
+    min-width: 1440px
+    content: 1440px
+  desktop:
+    min-width: 1024px
+    content: 1024px
+    col: lg
+  tablet:
+    min-width: 768px
+    content: 768px
+    col: 'md'
+  mobile:
+    min-width: 320px
+    content: 320px
+    col: 'sm'

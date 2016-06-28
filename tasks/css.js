@@ -3,6 +3,7 @@ const postcss = require('postcss');
 const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
 const cssmixins = require('postcss-mixins');
+const cssnano = require('cssnano');
 const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
@@ -24,27 +25,26 @@ module.exports = function (cssFile) {
   const output = path.join(process.cwd(), '.dist', cssFile);
   const input = path.join(process.cwd(), 'styles', cssFile);
 
-
-
   postcss([
     cssimport,
     cssmixins({
       mixins
     }),
     cssnext({
+      warnForDuplicates: false,
       features: {
         customProperties: {
           variables: cssVars
         }
       }
+    }),
+    cssnano({
+      sourcemap: true
     })
-  ]).process(fs.readFileSync(input), { from: input, to: output })
+  ]).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
     .then(result => {
       fs.writeFileSync(output, result.css);
-
-      if (result.map) {
-        fs.writeFileSync(`${output}.map`, result.map);
-      }
+      fs.writeFileSync(`${output}.map`, result.map);
 
       console.log(`Processed: ${input} → ${output}`);
     });
