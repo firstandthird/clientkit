@@ -1,5 +1,7 @@
-// Based off Bootstrap v4 grid
-// xs and xl have been removed
+/**
+* Based off Bootstrap v4 grid
+* xs and xl have been removed
+**/
 
 .container {
   margin-left: auto;

@@ -3,6 +3,7 @@ const postcss = require('postcss');
 const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
 const cssmixins = require('postcss-mixins');
+const mqpacker = require('css-mqpacker');
 const cssnano = require('cssnano');
 const fs = require('fs');
 const path = require('path');
@@ -38,9 +39,8 @@ module.exports = function (cssFile) {
         }
       }
     }),
-    cssnano({
-      sourcemap: true
-    })
+    mqpacker(),
+    cssnano()
   ]).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
     .then(result => {
       fs.writeFileSync(output, result.css);
