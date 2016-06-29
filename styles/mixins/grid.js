@@ -5,10 +5,11 @@ module.exports = function (config) {
     const cols = 12;
 
     for (const breakpoint of breakpoints) {
-      const bp = `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
+      // Smallest doesn't get wrapped in a mediaquery
+      const bp = config.breakpoints[breakpoint].smallest ? '' : `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
       const colName = config.breakpoints[breakpoint].col;
       styles[bp] = {
-        '.content': {
+        '.container': {
           width: config.breakpoints[breakpoint].content
         }
       };

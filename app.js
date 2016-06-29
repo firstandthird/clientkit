@@ -4,17 +4,20 @@ const config = require('confi')({
   path: [
     path.join(__dirname, 'conf'),
     path.join(process.cwd(), 'clientkit')
-  ]
+  ],
+  context: {
+    CKDIR: __dirname
+  }
 });
 const chokidar = require('chokidar');
 const cssProcessor = require('./tasks/css.js');
 const mkdirp = require('mkdirp');
 const debounce = require('lodash.debounce');
 
-mkdirp.sync(path.join(__dirname, '.dist'));
+mkdirp.sync(path.join(config.CWD, '.dist'));
 
 const watchedFiles = [
-  path.join('styles', '**/*.css'),
+  path.join(__dirname, 'styles', '**/*.css'),
 ];
 const stylesheets = Object.keys(config.stylesheets);
 

@@ -1,6 +1,5 @@
 breakpoints:
   desktop-wide:
-    min-width: 1440px
     content: 1440px
   desktop:
     min-width: 1024px
@@ -14,3 +13,4 @@ breakpoints:
     min-width: 320px
     content: 320px
     col: 'sm'
+    smallest: true # Sets as the base, no media queries applied

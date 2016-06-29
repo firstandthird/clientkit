@@ -4,7 +4,7 @@ module.exports = function (config) {
     const breakpoints = Object.keys(config.breakpoints);
 
     for (const breakpoint of breakpoints) {
-      const bp = `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
+      const bp = config.breakpoints[breakpoint].smallest ? '' : `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
       styles[bp] = {};
 
       const classes = Object.keys(config.fontStyles[breakpoint]);

@@ -1,3 +1,4 @@
+@import '../node_modules/normalize.css/normalize.css';
 @import 'helpers/links.css';
 @import 'helpers/typography.css';
 @import 'helpers/grid.css';

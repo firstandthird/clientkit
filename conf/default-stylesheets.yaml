@@ -1,2 +1,2 @@
 stylesheets:
-  default.css: 'styles/default.css'
+  default.css: '{{CKDIR}}/styles/default.css'
