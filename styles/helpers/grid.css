@@ -6,8 +6,8 @@
 .container {
   margin-left: auto;
   margin-right: auto;
-  padding-left: .9375rem;
-  padding-right: .9375rem;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .container-bleed {
@@ -19,8 +19,8 @@
 }
 
 .row {
-  margin-left: -.9375rem;
-  margin-right: -.9375rem;
+  margin-left: -15px;
+  margin-right: -15px;
 
   @mixin clearfix;
 }
@@ -63,8 +63,13 @@
 .col-sm-9 {
   position: relative;
   min-height: 1px;
-  padding-left: .9375rem;
-  padding-right: .9375rem;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-plain {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @mixin grid;

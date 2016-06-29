@@ -33,7 +33,8 @@ module.exports = function (config) {
 
       for (let i = 1; i <= cols; i++) {
         styles[bp][`.col-${colName}-${i}`] = {
-          width: `${(100 / (12 / i))}%`
+          width: `${(100 / (12 / i))}%`,
+          float: 'left'
         };
 
         styles[bp][`.col-${colName}-pull-${i}`] = {

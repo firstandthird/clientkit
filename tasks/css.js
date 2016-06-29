@@ -35,7 +35,9 @@ module.exports = function (config, base, outputName, input) {
         }
       }
     }),
-    mqpacker(),
+    mqpacker({
+      sort: true
+    }),
     cssnano()
   ]).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
     .then(result => {
