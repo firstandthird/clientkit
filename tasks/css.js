@@ -20,7 +20,7 @@ module.exports = function (config, base, outputName, input) {
     resolve: m => m(config, postcss)
   });
 
-  const output = path.join(base, '.dist', outputName);
+  const output = path.join(config.CWD, '.dist', outputName);
 
   postcss([
     cssimport,
@@ -35,8 +35,10 @@ module.exports = function (config, base, outputName, input) {
         }
       }
     }),
-    mqpacker(),
-    //cssnano()
+    mqpacker({
+      sort: true
+    }),
+    cssnano()
   ]).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
     .then(result => {
       fs.writeFileSync(output, result.css);
