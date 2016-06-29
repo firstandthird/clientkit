@@ -38,7 +38,7 @@ module.exports = function (config, base, outputName, input) {
     mqpacker({
       sort: true
     }),
-    cssnano()
+    // cssnano()
   ]).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
     .then(result => {
       fs.writeFileSync(output, result.css);

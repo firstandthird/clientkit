@@ -18,8 +18,17 @@ module.exports = function (config) {
 
       // If the breakpoint doesn't have a col name we shouldn't do anything
       if (!colName) {
+        styles[bp]['.container-bleed'] = {
+          width: '100%'
+        };
+
         continue;
       }
+
+      // Biggest size is 100% but we dont want that in the media query
+      styles[bp]['.container-bleed'] = {
+        width: config.breakpoints[breakpoint].content
+      };
 
       styles[bp][`.col-${colName}-pull-0`] = {
         right: 'auto'
@@ -52,6 +61,13 @@ module.exports = function (config) {
         };
       }
     }
+
+    // Move items in the '' breakpoint to be root
+    for (const style of Object.keys(styles[''])) {
+      styles[style] = styles[''][style];
+    }
+
+    delete styles[''];
 
     return styles;
   };
