@@ -11,34 +11,29 @@ const config = require('confi')({
     CKDIR: __dirname
   }
 });
-const chokidar = require('chokidar');
+
+const watcher = require('./lib/watcher');
 
 // Tasks
 const cssProcessor = require('./tasks/css.js');
 const jsProcessor = require('./tasks/script.js');
 
+// Prepare output dir
 const mkdirp = require('mkdirp');
-const debounce = require('lodash.debounce');
-
 mkdirp.sync(path.join(config.CWD, '.dist'));
 
-const watchedFiles = [
-  path.join(config.CWD, 'scripts', '**/*.js'),
+const watchedStyleFiles = [
   path.join(config.CWD, '**/styles/**/*.css') // @TODO: make this not sucky
 ];
-const stylesheets = Object.keys(config.stylesheets);
-const scripts = Object.keys(config.scripts);
 
-const watcher = chokidar.watch(watchedFiles, {
-  persistent: true
-});
+watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
+  cssProcessor(config, __dirname, input, output);
+}, config.core.rebuildDelay);
 
-watcher.on('all', debounce(() => {
-  for (const stylesheet of stylesheets) {
-    cssProcessor(config, __dirname, stylesheet, config.stylesheets[stylesheet]);
-  }
 
-  for (const script of scripts) {
-    jsProcessor(config, __dirname, script, config.scripts[script]);
-  }
-}, config.core.rebuildDelay));
+const watchedScriptFiles = [
+  path.join(config.CWD, 'scripts', '**/*.js'),
+];
+watcher(watchedScriptFiles, config.scripts, (input, output) => {
+  jsProcessor(config, __dirname, input, output);
+}, config.core.rebuildDelay);
