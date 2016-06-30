@@ -17,6 +17,12 @@ module.exports = function (config, base, outputName, input) {
     cssVars[`color-${color}`] = config.color[color];
   });
 
+  Object.keys(config.spacing).forEach(breakpoint => {
+    Object.keys(config.spacing[breakpoint]).forEach(spacing => {
+      cssVars[`spacing-${breakpoint}-${spacing}`] = config.spacing[breakpoint][spacing];
+    })
+  });
+
   const mixins = require('require-all')({
     dirname: path.join(base, 'styles/mixins'),
     resolve: m => m(config, postcss)
