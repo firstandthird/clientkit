@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 
@@ -11,8 +13,8 @@ const cssnano = require('cssnano');
 module.exports = function (config, base, outputName, input) {
   const cssVars = {};
 
-  Object.keys(config.colors).forEach(color => {
-    cssVars[`colors-${color}`] = config.colors[color];
+  Object.keys(config.color).forEach(color => {
+    cssVars[`color-${color}`] = config.color[color];
   });
 
   const mixins = require('require-all')({

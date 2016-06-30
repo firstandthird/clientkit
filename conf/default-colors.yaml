@@ -1,8 +1,8 @@
 # All color vairables will be prefixed automatically
-colors:
+color:
   primary: '#333'
   secondary: '#666'
   accent: orange
   background: rgb(200,200,200)
-  link: '{{colors.primary}}'
-  link-hover: '{{colors.secondary}}'
+  link: '{{color.primary}}'
+  link-hover: '{{color.secondary}}'

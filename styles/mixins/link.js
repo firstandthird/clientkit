@@ -5,7 +5,8 @@ module.exports = function () {
         color
       },
       'a:hover': {
-        color: hoverColor
+        color: hoverColor,
+        cursor: 'pointer'
       }
     };
   };
