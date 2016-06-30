@@ -7,8 +7,6 @@ module.exports = function (config) {
 
     for (const breakpoint of breakpoints) {
       const bp = config.breakpoints[breakpoint].smallest ? null : `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
-      styles[bp] = {};
-
       let block = styles;
 
       if (!config.breakpoints[breakpoint].smallest) {
