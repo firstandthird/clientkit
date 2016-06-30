@@ -3,7 +3,7 @@
 * xs and xl have been removed
 **/
 
-.container {
+.container, .container-bleed {
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
@@ -11,11 +11,7 @@
 }
 
 .container-bleed {
-  margin-left: auto;
-  margin-right: auto;
   max-width: 1600px;
-
-  @mixin clearfix;
 }
 
 .row {

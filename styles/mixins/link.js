@@ -2,10 +2,12 @@ module.exports = function () {
   return function (mixin, color, hoverColor) {
     return {
       a: {
-        color
+        color,
+        'text-decoration': 'none'
       },
       'a:hover': {
-        color: hoverColor
+        color: hoverColor,
+        cursor: 'pointer'
       }
     };
   };

@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 
@@ -11,8 +13,16 @@ const cssnano = require('cssnano');
 module.exports = function (config, base, outputName, input) {
   const cssVars = {};
 
-  Object.keys(config.colors).forEach(color => {
-    cssVars[`colors-${color}`] = config.colors[color];
+  Object.keys(config.color).forEach(color => {
+    cssVars[`color-${color}`] = config.color[color];
+  });
+
+  Object.keys(config.breakpoints).forEach(breakpoint => {
+    cssVars[`breakpoint-${breakpoint}`] = config.breakpoints[breakpoint]['min-width'];
+
+    Object.keys(config.spacing[breakpoint]).forEach(spacing => {
+      cssVars[`spacing-${breakpoint}-${spacing}`] = config.spacing[breakpoint][spacing];
+    })
   });
 
   const mixins = require('require-all')({
@@ -38,7 +48,7 @@ module.exports = function (config, base, outputName, input) {
     mqpacker({
       sort: true
     }),
-    cssnano()
+    // cssnano()
   ]).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
     .then(result => {
       fs.writeFileSync(output, result.css);

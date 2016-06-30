@@ -1,5 +1,6 @@
 breakpoints:
   desktop-wide:
+    min-width: 1440px
     content: 1440px
   desktop:
     min-width: 1024px
@@ -8,9 +9,9 @@ breakpoints:
   tablet:
     min-width: 768px
     content: 768px
-    col: 'md'
+    col: md
   mobile:
     min-width: 320px
     content: 320px
-    col: 'sm'
+    col: sm
     smallest: true # Sets as the base, no media queries applied

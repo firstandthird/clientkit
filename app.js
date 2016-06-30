@@ -1,4 +1,6 @@
 #! /usr/bin/env node
+'use strict';
+
 const path = require('path');
 const config = require('confi')({
   path: [
@@ -21,8 +23,8 @@ const debounce = require('lodash.debounce');
 mkdirp.sync(path.join(config.CWD, '.dist'));
 
 const watchedFiles = [
-  path.join(__dirname, 'styles', '**/*.css'),
-  path.join(__dirname, 'scripts', '**/*.js'),
+  path.join(config.CWD, 'scripts', '**/*.js'),
+  path.join(config.CWD, '**/styles/**/*.css') // @TODO: make this not sucky
 ];
 const stylesheets = Object.keys(config.stylesheets);
 const scripts = Object.keys(config.scripts);
