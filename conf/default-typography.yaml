@@ -1,6 +1,6 @@
 fonts:
-  primary: sans-serif
-  secondary: serif
+  primary: '"Open Sans", sans-serif'
+  secondary: 'Arvo, sans'
 
 fontStyles:
   desktop-wide:
@@ -8,11 +8,9 @@ fontStyles:
       font-family: '{{fonts.secondary}}'
       font-size: 45px
       line-height: 48px
-      font-weight: 700
     heading-2:
       font-size: 30px
       line-height: 36px
-      font-weight: 600
     heading-3:
       font-size: 25px
       line-height: 32px
@@ -36,11 +34,9 @@ fontStyles:
       font-family: '{{fonts.secondary}}'
       font-size: 45px
       line-height: 48px
-      font-weight: 700
     heading-2:
       font-size: 30px
       line-height: 36px
-      font-weight: 600
     heading-3:
       font-size: 25px
       line-height: 32px
@@ -64,11 +60,9 @@ fontStyles:
       font-family: '{{fonts.secondary}}'
       font-size: 45px
       line-height: 48px
-      font-weight: 700
     heading-2:
       font-size: 30px
       line-height: 36px
-      font-weight: 600
     heading-3:
       font-size: 25px
       line-height: 32px
@@ -92,11 +86,9 @@ fontStyles:
       font-family: '{{fonts.secondary}}'
       font-size: 30px
       line-height: 40px
-      font-weight: 700
     heading-2:
       font-size: 25px
       line-height: 34px
-      font-weight: 600
     heading-3:
       font-size: 20px
       line-height: 26px

@@ -23,7 +23,7 @@ const mkdirp = require('mkdirp');
 mkdirp.sync(path.join(config.CWD, '.dist'));
 
 const watchedStyleFiles = [
-  path.join(config.CWD, '**/styles/**/*.css') // @TODO: make this not sucky
+  path.join(config.CWD, '**/styles/*.css') // @TODO: make this not sucky
 ];
 
 watcher(watchedStyleFiles, config.stylesheets, (input, output) => {

@@ -1,4 +1,20 @@
+:root {
+  --font-light: 300;
+  --font-regular: 400;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-xbold: 800
+}
+
 @mixin typography;
+
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
 
 .text-left {
   text-align: left;

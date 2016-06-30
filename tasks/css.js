@@ -8,6 +8,9 @@ const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
 const cssmixins = require('postcss-mixins');
 const mqpacker = require('css-mqpacker');
+const cssfonts = require('postcss-font-magician');
+const inlinesvg = require('postcss-inline-svg');
+const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 
 module.exports = function (config, base, outputName, input) {
@@ -15,6 +18,10 @@ module.exports = function (config, base, outputName, input) {
 
   Object.keys(config.color).forEach(color => {
     cssVars[`color-${color}`] = config.color[color];
+  });
+
+  Object.keys(config.fonts).forEach(font => {
+    cssVars[`font-${font}`] = config.fonts[font];
   });
 
   Object.keys(config.breakpoints).forEach(breakpoint => {
@@ -32,11 +39,13 @@ module.exports = function (config, base, outputName, input) {
 
   const output = path.join(config.CWD, '.dist', outputName);
 
-  postcss([
+  const processes = [
     cssimport,
     cssmixins({
       mixins
     }),
+    inlinesvg(),
+    svgo(),
     cssnext({
       warnForDuplicates: false,
       features: {
@@ -47,9 +56,21 @@ module.exports = function (config, base, outputName, input) {
     }),
     mqpacker({
       sort: true
-    }),
-    // cssnano()
-  ]).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
+    })
+  ];
+
+  // Only run fonts against default.css to avoid duplicates
+  if (input.indexOf('default.css') !== -1) {
+    processes.push(cssfonts({
+      foundries: ['custom', 'hosted', 'google']
+    }));
+  }
+
+  if (config.core.minify) {
+    processes.push(cssnano());
+  }
+
+  postcss(processes).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
     .then(result => {
       fs.writeFileSync(output, result.css);
       fs.writeFileSync(`${output}.map`, result.map);

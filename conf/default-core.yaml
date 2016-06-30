@@ -1,2 +1,3 @@
 core:
-  rebuildDelay: 100
+  rebuildDelay: 200
+  minimize: false
