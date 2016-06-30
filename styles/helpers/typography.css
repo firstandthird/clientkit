@@ -8,7 +8,7 @@
 
 @mixin typography;
 
-.font-primary {
+body, .font-primary {
   font-family: var(--font-primary);
 }
 
@@ -26,4 +26,28 @@
 
 .text-right {
   text-align: right;
+}
+
+.font-light {
+  font-weight: var(--font-light);
+}
+
+.font-regular {
+  font-weight: var(--font-regular);
+}
+
+.font-semibold, strong, em {
+  font-weight: var(--font-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-bold);
+}
+
+.font-xbold {
+  font-weight: var(--font-xbold);
+}
+
+p {
+  margin: 0;
 }
