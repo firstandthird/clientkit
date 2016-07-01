@@ -1,6 +1,6 @@
 fonts:
-  primary: '"Open Sans", sans-serif'
-  secondary: 'Arvo, sans'
+  primary: sans-serif
+  secondary: sans
 
 fontStyles:
   desktop-wide:
