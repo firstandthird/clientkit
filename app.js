@@ -38,7 +38,7 @@ mkdirp.sync(config.core.dist);
 
 if (mode === 'dev') {
   const watchedStyleFiles = [
-    path.join(config.CWD, '**/styles/*.css') // @TODO: make this not sucky
+    path.join(config.core.assetPath, '**/*.css') // @TODO: make this not sucky
   ];
 
   watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
@@ -47,7 +47,7 @@ if (mode === 'dev') {
 
 
   const watchedScriptFiles = [
-    path.join(config.CWD, 'scripts', '**/*.js'),
+    path.join(config.core.assetPath, '**/*.js'),
   ];
   watcher(watchedScriptFiles, config.scripts, (input, output) => {
     jsProcessor(config, __dirname, input, output);

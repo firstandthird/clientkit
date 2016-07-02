@@ -2,3 +2,4 @@ core:
   rebuildDelay: 100
   minimize: false
   dist: '{{CWD}}/.dist'
+  assetPath: '{{CWD}}'
