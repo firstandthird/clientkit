@@ -10,7 +10,7 @@ const protoAssign = require('babel-plugin-transform-object-set-prototype-of-to-a
 
 
 module.exports = function(conf, base, outputName, input) {
-  const output = path.join(conf.CWD, '.dist', outputName);
+  const output = path.join(conf.core.dist, outputName);
 
   const fileStream = fs.createWriteStream(output);
   fileStream.on('finish', () => {

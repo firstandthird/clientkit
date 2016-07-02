@@ -20,7 +20,7 @@ const jsProcessor = require('./tasks/script.js');
 
 // Prepare output dir
 const mkdirp = require('mkdirp');
-mkdirp.sync(path.join(config.CWD, '.dist'));
+mkdirp.sync(config.core.dist);
 
 const watchedStyleFiles = [
   path.join(config.CWD, '**/styles/*.css') // @TODO: make this not sucky
