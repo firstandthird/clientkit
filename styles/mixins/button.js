@@ -4,7 +4,8 @@ module.exports = function () {
       'background-color': bgColor,
       color,
       display: 'inline-block',
-      'line-height': 1
+      'line-height': 1,
+      'text-align': 'center'
     };
   };
 };
