@@ -1,2 +1,2 @@
 stylesheets:
-  default.css: '{{CKDIR}}/styles/default.css'
+  clientkit.css: '{{CKDIR}}/styles/default.css'

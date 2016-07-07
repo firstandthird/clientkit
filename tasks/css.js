@@ -37,7 +37,7 @@ module.exports = function (config, base, outputName, input) {
     resolve: m => m(config, postcss)
   });
 
-  const output = path.join(config.CWD, '.dist', outputName);
+  const output = path.join(config.core.dist, outputName);
 
   const processes = [
     cssimport,

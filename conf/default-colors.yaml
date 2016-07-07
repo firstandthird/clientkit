@@ -6,3 +6,5 @@ color:
   background: rgb(200,200,200)
   link: '{{color.primary}}'
   link-hover: '{{color.secondary}}'
+  input-background: '#fff'
+  input-border: '#333'
