@@ -1,0 +1,5 @@
+.btn-primary {
+  @mixin button var(--color-accent), var(--color-link);
+  width: 300px;
+  padding: 10px 0;
+}
