@@ -2,6 +2,7 @@ breakpoints:
   desktop-wide:
     min-width: 1440px
     content: 1440px
+    col: xl
   desktop:
     min-width: 1024px
     content: 1024px
