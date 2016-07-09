@@ -77,9 +77,9 @@ If you're unfamiliar with the Github flow, please [read this guide](https://guid
 ### The Process (for contributors)
 
 1. Fork the repo using the [Fork button](https://github.com/firstandthird/clientkit#fork-destination-box)
-2. Clone the repo (`git clone https://github.com/<github-user>/legion`)
+2. Clone the repo (`git clone https://github.com/<github-user>/clientkit`)
 3. Change into the directory you just cloned.
-4. Add your fork as a remote (`git remote add <github-user> https://github.com/<github-user>/legion`)
+4. Add your fork as a remote (`git remote add <github-user> https://github.com/<github-user>/clientkit`)
 5. Create your feature branch (`git checkout -b feature/my-new-feature`)
 6. Commit your changes (`git commit`), follow the format suggested below.  Please don't use the shortcut flag `git commit -m <message>`.
 7. Push to the branch (`git push <github-user> feature/my-new-feature`)
