@@ -9,3 +9,15 @@
 .pull-right {
   float: right;
 }
+
+.display-block {
+  display: block;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
