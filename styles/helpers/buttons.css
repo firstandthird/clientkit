@@ -14,6 +14,6 @@
 .btn-secondary {
   @mixin button var(--color-button-secondary-bg), var(--color-button-secondary-color);
 }
-.btn-outline {
-  @mixin button-outline var(--color-button-primary-color);
+.btn-primary-outline {
+  @mixin button-outline var(--color-button-primary-outline-color);
 }

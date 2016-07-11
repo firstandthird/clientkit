@@ -2,6 +2,7 @@
 color:
   primary: '#333'
   secondary: '#666'
+  white: '#fff'
   accent: orange
   background: rgb(200,200,200)
   link: '{{color.primary}}'
@@ -9,6 +10,7 @@ color:
   input-background: '#fff'
   input-border: '#333'
   button-primary-bg: 'rgba(75, 157, 249, 1)'
-  button-primary-color: '{{color.accent}}'
+  button-primary-color: '{{color.white}}'
   button-secondary-bg: '{{color.primary}}'
-  button-secondary-color: '{{color.secondary}}'
+  button-secondary-color: '{{color.white}}'
+  button-primary-outline-color: '{{color["button-primary-color"]}}'
