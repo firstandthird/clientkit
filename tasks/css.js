@@ -12,6 +12,7 @@ const cssfonts = require('postcss-font-magician');
 const inlinesvg = require('postcss-inline-svg');
 const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
+const colorFunction = require("postcss-color-function");
 
 module.exports = function (config, base, outputName, input) {
   const cssVars = {};
@@ -54,6 +55,7 @@ module.exports = function (config, base, outputName, input) {
         }
       }
     }),
+    colorFunction(),
     mqpacker({
       sort: true
     })
