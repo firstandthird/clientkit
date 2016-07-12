@@ -1,12 +1,13 @@
 module.exports = function () {
-  return function (mixin, bgColor, color) {
-    const activeBgColor = 'red';
+  return function (mixin, color) {
     const styles = {};
     const state = {
-      'background-color': activeBgColor
+      'background-color': color,
+      color: '#fff'
     };
-    styles['background-color'] = bgColor;
+    styles['background-color'] = 'transparent';
     styles.color = color;
+    styles['border-color'] = color;
     styles['&:hover'] = state;
     styles['&:active, &.active'] = state;
     styles['&:focus'] = state;

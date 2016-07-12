@@ -1,5 +1,19 @@
+.btn {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  font-size: 0.875rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  vertical-align: middle;
+}
 .btn-primary {
-  @mixin button var(--color-accent), var(--color-link);
-  width: 300px;
-  padding: 10px 0;
+  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color);
+}
+.btn-secondary {
+  @mixin button var(--color-button-secondary-bg), var(--color-button-secondary-color);
+}
+.btn-primary-outline {
+  @mixin button-outline var(--color-button-primary-outline-color);
 }
