@@ -6,7 +6,6 @@ const Browserify = require('browserify');
 const babelify = require('babelify');
 
 const bes2015 = require('babel-preset-es2015');
-const protoAssign = require('babel-plugin-transform-object-set-prototype-of-to-assign');
 
 
 module.exports = function(conf, base, outputName, input) {
@@ -22,7 +21,7 @@ module.exports = function(conf, base, outputName, input) {
   });
 
   b
-    .transform(babelify, { global: true, presets: [bes2015], plugins: [protoAssign] })
+    .transform(babelify, { global: true, presets: [bes2015], plugins: [] })
     .bundle()
     .pipe(fileStream);
 };
