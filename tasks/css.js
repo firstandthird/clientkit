@@ -24,14 +24,6 @@ module.exports = function (config, base, outputName, input) {
     cssVars[`font-${font}`] = config.fonts[font];
   });
 
-  Object.keys(config.breakpoints).forEach(breakpoint => {
-    cssVars[`breakpoint-${breakpoint}`] = config.breakpoints[breakpoint]['min-width'];
-
-    Object.keys(config.spacing[breakpoint]).forEach(spacing => {
-      cssVars[`spacing-${breakpoint}-${spacing}`] = config.spacing[breakpoint][spacing];
-    })
-  });
-
   const mixins = require('require-all')({
     dirname: path.join(base, 'styles/mixins'),
     resolve: m => m(config, postcss)

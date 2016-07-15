@@ -1,1 +1,19 @@
-@mixin spacing;
+.spacing-xl {
+  @mixin spacing xl;
+}
+
+.spacing-lg {
+  @mixin spacing lg;
+}
+
+.spacing-md {
+  @mixin spacing md;
+}
+
+.spacing-sm {
+  @mixin spacing sm;
+}
+
+.spacing-xs {
+  @mixin spacing xs;
+}

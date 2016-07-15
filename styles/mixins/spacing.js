@@ -1,8 +1,9 @@
 'use strict';
 
 module.exports = function (config) {
-  return function () {
+  return function (mixin, size, position) {
     const styles = {};
+    position = position || 'bottom';
     const breakpoints = Object.keys(config.breakpoints);
 
     for (const breakpoint of breakpoints) {
@@ -14,13 +15,9 @@ module.exports = function (config) {
         block = styles[bp];
       }
 
-      const spacing = Object.keys(config.spacing[breakpoint]);
+      const spacings = config.spacing[breakpoint] || config.spacing.default;
 
-      for (const space of spacing) {
-        block[`.spacing-${space}`] = {
-          'margin-bottom': config.spacing[breakpoint][space]
-        };
-      }
+      block[`margin-${position}`] = spacings[size];
     }
 
     return styles;

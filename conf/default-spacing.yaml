@@ -1,10 +1,7 @@
 spacing:
-  mobile:
+  default:
     xl: 80px
     lg: 50px
     md: 30px
     sm: 20px
     xs: 10px
-  tablet: '{{spacing.mobile}}'
-  desktop: '{{spacing.mobile}}'
-  desktop-wide: '{{spacing.mobile}}'
