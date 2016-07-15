@@ -3,7 +3,7 @@ inputs:
     input:
       background: '{{color["input-background"]}}'
       border: '1px solid {{color["input-border"]}}'
-      font-size: '{{fontStyles.desktop.body["font-size"]}}'
-      line-height: '{{fontStyles.desktop.body["line-height"]}}'
+      font-size: '{{fontSizes.default.body["font-size"]}}'
+      line-height: '{{fontSizes.default.body["line-height"]}}'
       padding: 0
       margin: 0

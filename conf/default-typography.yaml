@@ -2,80 +2,18 @@ fonts:
   primary: sans-serif
   secondary: sans
 
-fontStyles:
-  desktop-wide:
+fontSizes:
+  default:
     heading-1:
-      font-family: '{{fonts.secondary}}'
       font-size: 45px
       line-height: 48px
     heading-2:
-      font-family: '{{fonts.secondary}}'
       font-size: 30px
       line-height: 36px
     heading-3:
-      font-family: '{{fonts.secondary}}'
       font-size: 25px
       line-height: 32px
     heading-4:
-      font-family: '{{fonts.secondary}}'
-      font-size: 16px
-      line-height: 24px
-    heading-5:
-      font-size: 14px
-      line-height: 24px
-    large:
-      font-size: 16px
-      line-height: 24px
-    body:
-      font-size: 14px
-      line-height: 24px
-    small:
-      font-size: 12px
-      line-height: 24px
-  desktop:
-    heading-1:
-      font-family: '{{fonts.secondary}}'
-      font-size: 45px
-      line-height: 48px
-    heading-2:
-      font-family: '{{fonts.secondary}}'
-      font-size: 30px
-      line-height: 36px
-    heading-3:
-      font-family: '{{fonts.secondary}}'
-      font-size: 25px
-      line-height: 32px
-    heading-4:
-      font-family: '{{fonts.secondary}}'
-      font-size: 16px
-      line-height: 24px
-    heading-5:
-      font-size: 14px
-      line-height: 24px
-    large:
-      font-size: 16px
-      line-height: 24px
-    body:
-      font-size: 14px
-      line-height: 24px
-    small:
-      font-size: 12px
-      line-height: 24px
-  tablet:
-    heading-1:
-      font-family: '{{fonts.secondary}}'
-      font-size: 45px
-      line-height: 48px
-    heading-2:
-      font-family: '{{fonts.secondary}}'
-      font-size: 30px
-      line-height: 36px
-    heading-3:
-      font-family: '{{fonts.secondary}}'
-      font-size: 25px
-      line-height: 32px
-    heading-4:
-      font-family: '{{fonts.secondary}}'
       font-size: 16px
       line-height: 24px
     heading-5:
@@ -92,19 +30,15 @@ fontStyles:
       line-height: 24px
   mobile:
     heading-1:
-      font-family: '{{fonts.secondary}}'
       font-size: 30px
       line-height: 40px
     heading-2:
-      font-family: '{{fonts.secondary}}'
       font-size: 25px
       line-height: 34px
     heading-3:
-      font-family: '{{fonts.secondary}}'
       font-size: 20px
       line-height: 26px
     heading-4:
-      font-family: '{{fonts.secondary}}'
       font-size: 14px
       line-height: 22px
     heading-5:

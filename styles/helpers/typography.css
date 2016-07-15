@@ -6,7 +6,6 @@
   --font-xbold: 800
 }
 
-@mixin typography;
 
 body, .font-primary {
   font-family: var(--font-primary) !important;
@@ -47,6 +46,44 @@ body, .font-primary {
 .font-xbold {
   font-weight: var(--font-xbold);
 }
+
+.heading-1 {
+  font-family: var(--font-secondary);
+  @mixin font-size heading-1;
+}
+
+.heading-2 {
+  font-family: var(--font-secondary);
+  @mixin font-size heading-2;
+}
+
+.heading-3 {
+  font-family: var(--font-secondary);
+  @mixin font-size heading-3;
+}
+
+.heading-4 {
+  font-family: var(--font-secondary);
+  @mixin font-size heading-4;
+}
+
+.heading-5 {
+  font-family: var(--font-secondary);
+  @mixin font-size heading-5;
+}
+
+.font-size-large {
+  @mixin font-size large;
+}
+
+.font-size-body {
+  @mixin font-size body;
+}
+
+.font-size-small {
+  @mixin font-size small;
+}
+
 
 p {
   margin: 0;
