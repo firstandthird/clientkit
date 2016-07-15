@@ -24,6 +24,10 @@ module.exports = function (config, base, outputName, input) {
     cssVars[`font-${font}`] = config.fonts[font];
   });
 
+  Object.keys(config.spacing.default).forEach(spacing => {
+    cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
+  });
+
   const mixins = require('require-all')({
     dirname: path.join(base, 'styles/mixins'),
     resolve: m => m(config, postcss)
