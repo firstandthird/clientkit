@@ -76,5 +76,7 @@ module.exports = function (config, base, outputName, input) {
       fs.writeFileSync(`${output}.map`, result.map);
 
       console.log(`Processed: ${input} → ${output}`);
+    }, (err) => {
+      console.error(err);
     });
 };
