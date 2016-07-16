@@ -24,6 +24,10 @@ module.exports = function (config, base, outputName, input) {
     cssVars[`font-${font}`] = config.fonts[font];
   });
 
+  Object.keys(config.breakpoints).forEach(breakpoint => {
+    cssVars[`breakpoint-${breakpoint}`] = config.breakpoints[breakpoint]['min-width'];
+  });
+
   Object.keys(config.spacing.default).forEach(spacing => {
     cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
   });
