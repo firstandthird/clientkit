@@ -6,6 +6,9 @@
   --font-xbold: 800
 }
 
+body {
+  @mixin font-size body;
+}
 
 body, .font-primary {
   font-family: var(--font-primary) !important;
