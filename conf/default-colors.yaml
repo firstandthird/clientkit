@@ -1,6 +1,7 @@
 # All color vairables will be prefixed automatically
 color:
   primary: '#333'
+  heading: '#333'
   secondary: '#666'
   white: '#fff'
   accent: orange
