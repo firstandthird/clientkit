@@ -6,6 +6,15 @@ const Browserify = require('browserify');
 const babelify = require('babelify');
 
 const bes2015 = require('babel-preset-es2015');
+const Logr = require('logr');
+const log = new Logr({
+  type: 'cli',
+  renderOptions: {
+    cli: {
+      lineColor: 'blue'
+    }
+  }
+});
 
 
 module.exports = function(conf, base, outputName, input) {
@@ -13,7 +22,7 @@ module.exports = function(conf, base, outputName, input) {
 
   const fileStream = fs.createWriteStream(output);
   fileStream.on('finish', () => {
-    console.log(`Processed: ${input} → ${output}`);
+    log(`Processed: ${input} → ${output}`);
   });
 
   const b = new Browserify({
