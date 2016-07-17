@@ -2,6 +2,16 @@
 'use strict';
 
 const path = require('path');
+const Logr = require('logr');
+
+const log = new Logr({
+  type: 'cli',
+  renderOptions: {
+    cli: {
+      lineColor: 'cyan'
+    }
+  }
+});
 
 let mode = 'prod';
 let confPath = path.join(process.cwd(), 'clientkit');
@@ -14,7 +24,12 @@ if (process.argv.indexOf('--config') !== -1 && process.argv.indexOf('--config') 
   confPath = process.argv[process.argv.indexOf('--config') + 1];
 }
 
-console.log(`Using local config directory: ${confPath}`);
+let debug = false;
+if (process.argv.indexOf('--debug') !== -1) {
+  debug = true;
+}
+
+log(`Using local config directory: ${confPath}`);
 
 const config = require('confi')({
   path: [
@@ -25,6 +40,10 @@ const config = require('confi')({
     CKDIR: __dirname
   }
 });
+
+if (debug) {
+  log(JSON.stringify(config, null, '  '));
+}
 
 const watcher = require('./lib/watcher');
 
