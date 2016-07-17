@@ -27,7 +27,6 @@
     "eslint-plugin-import": "^1.9.2",
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-react": "^5.2.2",
-    "logr": "^1.8.0",
     "serve": "^1.4.0",
     "stylelint": "^6.7.1"
   },
@@ -40,6 +39,7 @@
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.7.1",
     "lodash.debounce": "^4.0.6",
+    "logr": "^1.8.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
     "postcss": "^5.0.21",
