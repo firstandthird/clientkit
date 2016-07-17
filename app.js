@@ -24,6 +24,11 @@ if (process.argv.indexOf('--config') !== -1 && process.argv.indexOf('--config') 
   confPath = process.argv[process.argv.indexOf('--config') + 1];
 }
 
+let debug = false;
+if (process.argv.indexOf('--debug') !== -1) {
+  debug = true;
+}
+
 log(`Using local config directory: ${confPath}`);
 
 const config = require('confi')({
@@ -35,6 +40,10 @@ const config = require('confi')({
     CKDIR: __dirname
   }
 });
+
+if (debug) {
+  log(JSON.stringify(config, null, '  '));
+}
 
 const watcher = require('./lib/watcher');
 
