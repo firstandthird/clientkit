@@ -24,6 +24,7 @@ const log = new Logr({
 });
 
 module.exports = function (config, base, outputName, input) {
+  const start = new Date().getTime();
   const cssVars = {};
 
   Object.keys(config.color).forEach(color => {
@@ -86,6 +87,8 @@ module.exports = function (config, base, outputName, input) {
       fs.writeFileSync(output, result.css);
       fs.writeFileSync(`${output}.map`, result.map);
 
-      log(`Processed: ${input} → ${output}`);
+      const end = new Date().getTime();
+      const duration = (end - start) / 1000;
+      log(`Processed: ${input} → ${output} in ${duration} sec`);
     });
 };

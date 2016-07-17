@@ -18,11 +18,14 @@ const log = new Logr({
 
 
 module.exports = function(conf, base, outputName, input) {
+  const start = new Date().getTime();
   const output = path.join(conf.core.dist, outputName);
 
   const fileStream = fs.createWriteStream(output);
   fileStream.on('finish', () => {
-    log(`Processed: ${input} → ${output}`);
+    const end = new Date().getTime();
+    const duration = (end - start) / 1000;
+    log(`Processed: ${input} → ${output} in ${duration} sec`);
   });
 
   const b = new Browserify({
