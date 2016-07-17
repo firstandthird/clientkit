@@ -7,7 +7,8 @@
     "clientkit": "app.js"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "example": "node app.js --config $PWD/examples/clientkit && serve -p 8082 examples"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-react": "^5.2.2",
     "logr": "^1.8.0",
+    "serve": "^1.4.0",
     "stylelint": "^6.7.1"
   },
   "dependencies": {
