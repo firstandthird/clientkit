@@ -77,6 +77,6 @@ if (mode === 'dev') {
   }
 
   if (config.scripts) {
-    Object.keys(config.scripts).forEach(script => cssProcessor(config, __dirname, script, config.scripts[script]));
+    Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
   }
 }
