@@ -13,8 +13,18 @@ const inlinesvg = require('postcss-inline-svg');
 const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 const colorFunction = require("postcss-color-function");
+const Logr = require('logr');
+const log = new Logr({
+  type: 'cli',
+  renderOptions: {
+    cli: {
+      lineColor: 'green'
+    }
+  }
+});
 
 module.exports = function (config, base, outputName, input) {
+  const start = new Date().getTime();
   const cssVars = {};
 
   Object.keys(config.color).forEach(color => {
@@ -77,6 +87,8 @@ module.exports = function (config, base, outputName, input) {
       fs.writeFileSync(output, result.css);
       fs.writeFileSync(`${output}.map`, result.map);
 
-      console.log(`Processed: ${input} → ${output}`);
+      const end = new Date().getTime();
+      const duration = (end - start) / 1000;
+      log(`Processed: ${input} → ${output} in ${duration} sec`);
     });
 };
