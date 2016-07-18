@@ -89,6 +89,8 @@ module.exports = function (config, base, outputName, input) {
       const duration = (end - start) / 1000;
       log(`Processed: ${input} → ${output} in ${duration} sec`);
     }, (err) => {
-      log(['error'], err);
+      if (err) {
+        log(['error'], err.stack);
+      }
     });
 };
