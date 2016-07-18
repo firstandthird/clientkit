@@ -1,19 +1,27 @@
+/*
+ * spacing helpers
+ * m-b-0 - adds margin-bottom: 0
+ * m-r-md - adds margin-bottom: [md]px
+ */
+
+@mixin spacing;
+
 .spacing-xl {
-  @mixin spacing xl;
+  @mixin spacing margin, bottom, xl;
 }
 
 .spacing-lg {
-  @mixin spacing lg;
+  @mixin spacing margin, bottom, lg;
 }
 
 .spacing-md {
-  @mixin spacing md;
+  @mixin spacing margin, bottom, md;
 }
 
 .spacing-sm {
-  @mixin spacing sm;
+  @mixin spacing margin, bottom, sm;
 }
 
 .spacing-xs {
-  @mixin spacing xs;
+  @mixin spacing margin, bottom, xs;
 }
