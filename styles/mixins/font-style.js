@@ -27,15 +27,11 @@ module.exports = function(config) {
   };
 
   return function(mixin, size) {
-    console.log(size);
     if (size) {
       return fontStylesMixin(size);
     }
     const styles = {};
-    console.log('hi');
-    console.log(Object.keys(config.fontStyles.default));
     Object.keys(config.fontStyles.default).forEach((className) => {
-      console.log(className);
       styles[`.${className}`] = fontStylesMixin(className);
     });
     return styles;
