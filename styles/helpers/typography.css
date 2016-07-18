@@ -55,6 +55,10 @@ body {
  */
 @mixin font-style;
 
+.heading--light {
+  color: var(--color-heading-light);
+}
+
 p {
   margin: 0;
 }

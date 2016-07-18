@@ -3,6 +3,7 @@ color:
   primary: '#333'
   body: '#333'
   heading: '#333'
+  heading-light: '#fff'
   secondary: '#666'
   white: '#fff'
   accent: orange
