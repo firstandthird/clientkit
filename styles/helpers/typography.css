@@ -7,10 +7,10 @@
 }
 
 body {
-  @mixin font-size body;
+  @mixin font-style font-body;
 }
 
-body, .font-primary {
+.font-primary {
   font-family: var(--font-primary) !important;
 }
 
@@ -50,48 +50,10 @@ body, .font-primary {
   font-weight: var(--font-xbold);
 }
 
-.heading-1 {
-  font-family: var(--font-secondary);
-  color: var(--color-heading);
-  @mixin font-size heading-1;
-}
-
-.heading-2 {
-  font-family: var(--font-secondary);
-  color: var(--color-heading);
-  @mixin font-size heading-2;
-}
-
-.heading-3 {
-  font-family: var(--font-secondary);
-  color: var(--color-heading);
-  @mixin font-size heading-3;
-}
-
-.heading-4 {
-  font-family: var(--font-secondary);
-  color: var(--color-heading);
-  @mixin font-size heading-4;
-}
-
-.heading-5 {
-  font-family: var(--font-secondary);
-  color: var(--color-heading);
-  @mixin font-size heading-5;
-}
-
-.font-size-large {
-  @mixin font-size large;
-}
-
-.font-size-body {
-  @mixin font-size body;
-}
-
-.font-size-small {
-  @mixin font-size small;
-}
-
+/*
+ * adds helper classes for everything in default-typography fontStyles
+ */
+@mixin font-style;
 
 p {
   margin: 0;
