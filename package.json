@@ -40,7 +40,7 @@
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.7.1",
     "lodash.debounce": "^4.0.6",
-    "logr": "^1.8.0",
+    "logr": "^1.9.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
     "postcss": "^5.0.21",
