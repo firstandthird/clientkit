@@ -1,40 +1,42 @@
-.ugc h1,
-.ugc h2,
-.ugc h3,
-.ugc h4,
-.ugc h5,
-.ugc h6 {
-  @mixin spacing margin, top, 0;
-  @mixin spacing margin, bottom, lg;
-}
-.ugc h1 {
-  @mixin font-style heading-1;
-}
-.ugc h2 {
-  @mixin font-style heading-2;
-}
-.ugc h3 {
-  @mixin font-style heading-3;
-}
-.ugc h4 {
-  @mixin font-style heading-4;
-}
-.ugc h5 {
-  @mixin font-style heading-5;
-}
-.ugc p {
-  @mixin spacing margin, top, 0;
-  @mixin spacing margin, bottom, md;
-  @mixin font-style font-body;
-}
-.ugc ul,
-.ugc ol {
-  padding-left: 15px;
-  @mixin font-style font-body;
-}
-.ugc li {
-  list-style-type: disc;
-}
-.ugc table {
-  width: 100%;
+.ugc {
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    @mixin spacing margin, top, 0;
+    @mixin spacing margin, bottom, lg;
+  }
+  & h1 {
+    @mixin font-style heading-1;
+  }
+  & h2 {
+    @mixin font-style heading-2;
+  }
+  & h3 {
+    @mixin font-style heading-3;
+  }
+  & h4 {
+    @mixin font-style heading-4;
+  }
+  & h5 {
+    @mixin font-style heading-5;
+  }
+  & p {
+    @mixin spacing margin, top, 0;
+    @mixin spacing margin, bottom, md;
+    @mixin font-style font-body;
+  }
+  & ul,
+  & ol {
+    padding-left: 15px;
+    @mixin font-style font-body;
+  }
+  & li {
+    list-style-type: disc;
+  }
+  & table {
+    width: 100%;
+  }
 }
