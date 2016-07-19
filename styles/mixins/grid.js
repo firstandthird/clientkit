@@ -65,6 +65,10 @@ module.exports = function (config) {
         block[`.col-${colName}-offset-${i}`] = {
           'margin-left': `${(100 / (12 / i))}%`
         };
+
+        block[`.col-${colName}-suffix-${i}`] = {
+          'margin-right': `${(100 / (12 / i))}%`
+        };
       }
     }
 
