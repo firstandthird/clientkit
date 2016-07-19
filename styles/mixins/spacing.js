@@ -1,24 +1,17 @@
 'use strict';
 
+const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function (config) {
   const spacingMixin = function(prop, position, size) {
     const styles = {};
     const spacingBreakpoints = Object.keys(config.spacing);
 
     for (const breakpoint of spacingBreakpoints) {
-      let block = styles;
-      if (breakpoint !== 'default') {
-        const mediaquery = `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
-        styles[mediaquery] = {};
-        block = styles[mediaquery];
-      }
-
-      const spacings = config.spacing[breakpoint] || config.spacing.default;
-
-      block[`${prop}-${position}`] = spacings[size];
+      styles[breakpoint] = {};
+      styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][size];
     }
 
-    return styles;
+    return breakpointHelper(styles, config.breakpoints);
   };
 
   return function (mixin, prop, position, size) {
@@ -32,7 +25,7 @@ module.exports = function (config) {
     properties.forEach((property) => {
       positions.forEach((position) => {
         sizes.forEach((size) => {
-          styles[`${property[0]}-${position[0]}-${size}`] = spacingMixin(property, position, size);
+          styles[`.${property[0]}-${position[0]}-${size}`] = spacingMixin(property, position, size);
         });
       });
     });
