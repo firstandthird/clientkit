@@ -25,6 +25,7 @@ const log = new Logr({
 module.exports = function (config, base, outputName, input) {
   const start = new Date().getTime();
   const cssVars = {};
+  const customMedia = {};
 
   Object.keys(config.color).forEach(color => {
     cssVars[`color-${color}`] = config.color[color];
@@ -36,6 +37,8 @@ module.exports = function (config, base, outputName, input) {
 
   Object.keys(config.breakpoints).forEach(breakpoint => {
     cssVars[`breakpoint-${breakpoint}`] = config.breakpoints[breakpoint]['min-width'];
+    const minmax = (config.breakpoints[breakpoint].smallest) ? 'max' : 'min';
+    customMedia[breakpoint] = `(${minmax}-width: ${config.breakpoints[breakpoint]['min-width']})`;
   });
 
   Object.keys(config.spacing.default).forEach(spacing => {
@@ -61,6 +64,9 @@ module.exports = function (config, base, outputName, input) {
       features: {
         customProperties: {
           variables: cssVars
+        },
+        customMedia: {
+          extensions: customMedia
         }
       }
     }),
