@@ -3,27 +3,16 @@
  * @mixin font-style small|body|large|header-X
  *
  */
+const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function(config) {
   const fontStylesMixin = function(size) {
     const styles = {};
     const styleBreakpoints = Object.keys(config.fontStyles);
 
     for (const breakpoint of styleBreakpoints) {
-      let block = styles;
-
-      if (breakpoint !== 'default') {
-        const mediaquery = `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
-        styles[mediaquery] = {};
-        block = styles[mediaquery];
-      }
-
-      const sizes = config.fontStyles[breakpoint] || config.fontStyles.default;
-
-      Object.keys(sizes[size]).forEach((property) => {
-        block[property] = sizes[size][property];
-      });
+      styles[breakpoint] = config.fontStyles[breakpoint][size];
     }
-    return styles;
+    return breakpointHelper(styles, config.breakpoints);
   };
 
   return function(mixin, size) {
