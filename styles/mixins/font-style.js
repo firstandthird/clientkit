@@ -1,6 +1,6 @@
 'use strict';
 /**
- * @mixin font-style small|body|large|header-X
+ * @mixin font-style font-small|font-body|font-large|heading-{1-5}
  *
  */
 const breakpointHelper = require('../../lib/breakpoint-helper');
