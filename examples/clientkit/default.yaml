@@ -5,3 +5,4 @@ stylesheets:
   'clientkit.css': '{{CKDIR}}/styles/default.css'
   'tabs.css': '{{CWD}}/examples/tabs/tabs.css'
   'typography.css': '{{CKDIR}}/styles/helpers/typography.css'
+  'lists.css': '{{CKDIR}}/styles/helpers/lists.css'
