@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "node app.js dev",
-    "example": "node app.js --config $PWD/examples/clientkit && serve -p 8082 examples"
+    "example": "concurrently \"node app.js dev --config $PWD/examples/clientkit\" \"serve -p 8082 examples\""
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/firstandthird/clientkit#readme",
   "devDependencies": {
+    "concurrently": "^2.2.0",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^8.0.0",
     "eslint-config-firstandthird": "^2.0.0",
