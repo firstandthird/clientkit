@@ -25,3 +25,5 @@
 .hide {
   display: none;
 }
+
+@mixin hide;
