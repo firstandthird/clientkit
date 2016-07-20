@@ -4,7 +4,7 @@ breakpoints:
     min-width: 1440px
     content: 1440px
     col: xl
-    default: true
+    default: '{{!core.mobileFirst}}'
     bleed: 1600px
   desktop:
     max-width: 1439px
@@ -21,3 +21,4 @@ breakpoints:
     min-width: 320px
     content: 320px
     col: sm
+    default: '{{core.mobileFirst}}'
