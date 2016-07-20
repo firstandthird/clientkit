@@ -50,32 +50,16 @@ module.exports = function (config) {
           right: `${(100 / (12 / i))}%`
         };
 
-        block[`.${prefix}-pull-${i}`] = {
-          right: 0
-        };
-
         block[`.${prefix}-push-${i}`] = {
           left: `${(100 / (12 / i))}%`
-        };
-
-        block[`.${prefix}-push-${i}`] = {
-          left: 0
         };
 
         block[`.${prefix}-offset-${i}`] = {
           'margin-left': `${(100 / (12 / i))}%`
         };
 
-        block[`.${prefix}-offset-${i}`] = {
-          'margin-left': 0
-        };
-
         block[`.${prefix}-suffix-${i}`] = {
           'margin-right': `${(100 / (12 / i))}%`
-        };
-
-        block[`.${prefix}-suffix-${i}`] = {
-          'margin-right': 0
         };
       }
     }
