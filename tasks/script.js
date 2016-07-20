@@ -35,5 +35,9 @@ module.exports = function(conf, base, outputName, input) {
   b
     .transform(babelify, { global: true, presets: [bes2015], plugins: [] })
     .bundle()
+    .on('error', function (err) {
+      log(['error'], err);
+      this.emit('end');
+    })
     .pipe(fileStream);
 };
