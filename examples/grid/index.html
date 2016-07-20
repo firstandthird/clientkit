@@ -2,94 +2,355 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
-    <title>Grid</title>
-    <link rel="stylesheet" href="../.dist/clientkit.css"/>
+    <!-- ie meta tag, force it to edge compatibility -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1" />
+    <!-- iphone meta tag (width=device-width letterboxes on iphone 5) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../.dist/clientkit.css" />
     <style>
-      code {
-        display: block;
+      .box {
         width: 100%;
-        background-color: #ccc;
-        border: 2px solid #333;
+        box-sizing: border-box;
+        border-radius: 3px;
+        margin: 1rem 0;
+        padding: 1rem;
+        color: rgb(255,255,255);
+        background-color: rgb(2, 117, 216);
         text-align: center;
       }
+      .row .row .box { background-color: rgb(92, 184, 92); }
+      .row .row .row .box { background-color: rgb(240, 173, 78); }
+      .large { height: 8rem; }
+      [class*=col-sm-push-] .box {
+        background-color: rgb(92, 184, 92) !important;
+      }
+      [class*=col-sm-pull-] .box {
+        background-color: rgb(240, 173, 78) !important;
+      }
+      .two-column h4 {
+        text-align: center;
+        color: rgb(255,255,255);
+      }
+      .two-column p {
+        margin: 30px 60px;
+        color: rgb(255,255,255);
+      }
+      .two-column > div:first-child {
+        background-color: rgb(92, 184, 92);
+      }
+      .two-column div:last-child {
+        background-color: rgb(240, 173, 78);
+      }
     </style>
+    <title>Grid Example</title>
   </head>
   <body>
-    <div class="container">
+    <main id="main" class="container" role="main" tabindex="-1">
+      <h1>Grid</h1>
       <div class="row">
-        <div class="col-md-12"><code>.col-md-12</code></div>
+        <div class="col-sm-12 col-md-4 col-lg-6 col-xl-8"><div class="box"></div></div>
+        <div class="col-sm-12 col-md-4 col-lg-2 col-xl-1"><div class="box"></div></div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3"><div class="box"></div></div>
       </div>
       <div class="row">
-        <div class="col-md-11"><code>.col-md-11</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
+        <div class="col-sm-1 col-md-2 col-lg-3 col-xl-4"><div class="box"></div></div>
+        <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4"><div class="box"></div></div>
+        <div class="col-sm-1 col-md-2 col-lg-3 col-xl-4"><div class="box"></div></div>
+      </div>
+
+      <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2 col-md-4 col-lg-6 col-xl-8"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-8 col-md-4 col-lg-2 col-xl-1"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2 col-md-4 col-lg-4 col-xl-3"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-md-2 col-lg-3 col-xl-4"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10 col-md-8 col-lg-6 col-xl-4"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-md-2 col-lg-3 col-xl-4"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+      <h3>Offsets</h3>
+      <h4>Pre/Post</h4>
+      <div class="row">
+
+          <div class="col-sm-1 col-sm-offset-11"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-10 col-sm-suffix-1"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-9 col-sm-suffix-2"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-8 col-sm-suffix-3"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-7 col-sm-suffix-4"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-6 col-sm-suffix-5"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-5 col-sm-suffix-6"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-4 col-sm-suffix-7"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-3 col-sm-suffix-8"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-2 col-sm-suffix-9"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-1 col-sm-suffix-10"><div class="box"></div></div>
+
+          <div class="col-sm-1 col-sm-offset-0 col-sm-suffix-11"><div class="box"></div></div>
+
+      </div>
+
+      <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-11"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-10 col-sm-suffix-1"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-9 col-sm-suffix-2"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-8 col-sm-suffix-3"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-7 col-sm-suffix-4"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-6 col-sm-suffix-5"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-5 col-sm-suffix-6"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-4 col-sm-suffix-7"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-3 col-sm-suffix-8"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-2 col-sm-suffix-9"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-1 col-sm-suffix-10"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-offset-0 col-sm-suffix-11"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+      <h4>Push/Pull</h4>
+      <div class="row">
+        <div class="col-sm-1 col-sm-push-11"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">2</div></div>
+
+          <div class="col-sm-1"><div class="box">3</div></div>
+
+        <div class="col-sm-1 col-sm-push-4"><div class="box">4</div></div>
+        <div class="col-sm-1"><div class="box">5</div></div>
+
+          <div class="col-sm-1"><div class="box">6</div></div>
+
+          <div class="col-sm-1"><div class="box">7</div></div>
+
+        <div class="col-sm-1 col-sm-pull-4"><div class="box">8</div></div>
+        <div class="col-sm-1"><div class="box">9</div></div>
+
+          <div class="col-sm-1"><div class="box">10</div></div>
+
+          <div class="col-sm-1"><div class="box">11</div></div>
+
+        <div class="col-sm-1 col-sm-pull-11"><div class="box">12</div></div>
       </div>
       <div class="row">
-        <div class="col-md-10"><code>.col-md-10</code></div>
-        <div class="col-md-2"><code>.col-md-2</code></div>
+
+          <div class="col-sm-1"><div style="text-align: center">1</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">2</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">3</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">4</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">5</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">6</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">7</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">8</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">9</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">10</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">11</div></div>
+
+          <div class="col-sm-1"><div style="text-align: center">12</div></div>
+
       </div>
+
+      <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-push-11"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-push-4"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>5<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>6<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>7<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-pull-4"</span><span class="nt">&gt;</span>8<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>9<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>11<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1 col-sm-pull-11"</span><span class="nt">&gt;</span>12<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+      <h3>Spacing</h3>
       <div class="row">
-        <div class="col-md-9"><code>.col-md-9</code></div>
-        <div class="col-md-3"><code>.col-md-3</code></div>
+        <div class="col-sm-12"><div class="box">12</div></div>
+
+          <div class="col-sm-6"><div class="box">6</div></div>
+
+          <div class="col-sm-6"><div class="box">6</div></div>
+
+
+          <div class="col-sm-4"><div class="box">4</div></div>
+
+          <div class="col-sm-4"><div class="box">4</div></div>
+
+          <div class="col-sm-4"><div class="box">4</div></div>
+
+
+          <div class="col-sm-3"><div class="box">3</div></div>
+
+          <div class="col-sm-3"><div class="box">3</div></div>
+
+          <div class="col-sm-3"><div class="box">3</div></div>
+
+          <div class="col-sm-3"><div class="box">3</div></div>
+
+
+          <div class="col-sm-2"><div class="box">2</div></div>
+
+          <div class="col-sm-2"><div class="box">2</div></div>
+
+          <div class="col-sm-2"><div class="box">2</div></div>
+
+          <div class="col-sm-2"><div class="box">2</div></div>
+
+          <div class="col-sm-2"><div class="box">2</div></div>
+
+          <div class="col-sm-2"><div class="box">2</div></div>
+
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
+          <div class="col-sm-1"><div class="box">1</div></div>
+
       </div>
+      <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-12"</span><span class="nt">&gt;</span>12<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6"</span><span class="nt">&gt;</span>6<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6"</span><span class="nt">&gt;</span>6<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>4<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-2"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+
+      <h3>Nested</h3>
       <div class="row">
-        <div class="col-md-8"><code>.col-md-8</code></div>
-        <div class="col-md-4"><code>.col-md-4</code></div>
+        <div class="col-sm-7">
+          <div class="box">
+            <div class="row">
+              <div class="col-sm-9">
+                <div class="box">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="box"></div>
+                    </div>
+                    <div class="col-sm-8">
+                      <div class="box"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="box">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="box"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="box">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="box">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="box"></div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="box"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-md-7"><code>.col-md-7</code></div>
-        <div class="col-md-5"><code>.col-md-5</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-6"><code>.col-md-6</code></div>
-        <div class="col-md-6"><code>.col-md-6</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-4"><code>.col-md-4</code></div>
-        <div class="col-md-4"><code>.col-md-4</code></div>
-        <div class="col-md-4"><code>.col-md-4</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-3"><code>.col-md-3</code></div>
-        <div class="col-md-3"><code>.col-md-3</code></div>
-        <div class="col-md-3"><code>.col-md-3</code></div>
-        <div class="col-md-3"><code>.col-md-3</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-2"><code>.col-md-2</code></div>
-        <div class="col-md-2"><code>.col-md-2</code></div>
-        <div class="col-md-2"><code>.col-md-2</code></div>
-        <div class="col-md-2"><code>.col-md-2</code></div>
-        <div class="col-md-2"><code>.col-md-2</code></div>
-        <div class="col-md-2"><code>.col-md-2</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-        <div class="col-md-1"><code>.col-md-1</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-md-push-6"><code>.col-md-push-6</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-md-pull-1"><code>.col-md-pull-1</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-md-offset-2"><code>.col-md-offset-2</code></div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-plain"><code>.col-plain</code></div>
-        <div class="col-md-6 col-plain"><code>.col-plain</code></div>
-      </div>
-    </div>
+      <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-7"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-9"</span><span class="nt">&gt;</span>
+                      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+                          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-8"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+                      <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-3"</span><span class="nt">&gt;</span>
+                      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-12"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+                      <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-12"</span><span class="nt">&gt;</span>
+                      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+                          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+                      <span class="nt">&lt;/div&gt;</span>
+                  <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span></code></pre></div>
+		</main>
   </body>
 </html>
