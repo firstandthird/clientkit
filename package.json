@@ -45,6 +45,7 @@
     "logr": "^1.9.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
+    "path-exists": "^3.0.0",
     "postcss": "^5.0.21",
     "postcss-cssnext": "^2.6.0",
     "postcss-font-magician": "^1.4.0",
