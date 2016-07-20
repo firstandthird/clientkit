@@ -11,7 +11,7 @@ module.exports = function (config) {
       styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][size];
     }
 
-    return breakpointHelper(styles, config.breakpoints);
+    return breakpointHelper(styles, config);
   };
 
   return function (mixin, prop, position, size) {

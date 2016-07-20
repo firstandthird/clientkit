@@ -12,7 +12,7 @@ module.exports = function(config) {
     for (const breakpoint of styleBreakpoints) {
       styles[breakpoint] = config.fontStyles[breakpoint][size];
     }
-    return breakpointHelper(styles, config.breakpoints);
+    return breakpointHelper(styles, config);
   };
 
   return function(mixin, size) {

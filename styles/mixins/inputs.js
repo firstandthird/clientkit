@@ -9,7 +9,7 @@ module.exports = function (config) {
     for (const breakpoint of inputBreakpoints) {
       styles[breakpoint] = config.inputs[breakpoint][input];
     }
-    return breakpointHelper(styles, config.breakpoints);
+    return breakpointHelper(styles, config);
   };
 
   return function (mixin, input) {
