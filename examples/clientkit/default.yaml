@@ -1,6 +1,7 @@
 core:
   dist: '{{CWD}}/examples/.dist'
   assetPath: '{{CWD}}/examples'
+  mobileFirst: false
 stylesheets:
   'clientkit.css': '{{CKDIR}}/styles/default.css'
   'tabs.css': '{{CWD}}/examples/tabs/tabs.css'
