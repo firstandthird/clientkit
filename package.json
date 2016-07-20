@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node app.js",
     "dev": "node app.js dev",
-    "example": "concurrently \"node app.js dev --config $PWD/examples/clientkit\" \"serve -p 8082 examples\""
+    "example:build": "node app.js dev --config $PWD/examples/clientkit",
+    "example:serve": "serve -p 8082 examples",
+    "example": "concurrently \"npm run example:build\" \"npm run example:serve\""
   },
   "repository": {
     "type": "git",
