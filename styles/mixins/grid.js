@@ -1,5 +1,6 @@
 'use strict';
 
+const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function (config) {
   return function () {
     const styles = {};
@@ -7,84 +8,78 @@ module.exports = function (config) {
     const cols = 12;
 
     for (const breakpoint of breakpoints) {
-      const constraint = config.core.mobileFirst ? 'min' : 'max';
-      const width = config.breakpoints[breakpoint][`${constraint}-width`];
-      const bp = config.breakpoints[breakpoint].default ? null : `@media (${constraint}-width: ${width})`;
-
       const colName = config.breakpoints[breakpoint].col;
 
-      let block = styles;
-
-      if (!config.breakpoints[breakpoint].default) {
-        styles[bp] = {};
-        block = styles[bp];
+      let prefix = `col-${colName}`;
+      if (config.breakpoints[breakpoint].default) {
+        prefix = 'col';
       }
 
+      styles[breakpoint] = {};
+      const block = styles[breakpoint];
+
+
       block['.container'] = {
-        width: config.breakpoints[breakpoint].content
+        width: config.breakpoints[breakpoint].content,
+        'box-sizing': 'border-box'
       };
 
       block['.container-bleed'] = {
         'max-width': config.breakpoints[breakpoint].bleed ? config.breakpoints[breakpoint].bleed : config.breakpoints[breakpoint].content
       };
 
-      styles[`.col-${colName}-pull-0`] = {
+      block[`.${prefix}-pull-0`] = {
         right: 'auto'
       };
 
-      styles[`.col-${colName}-push-0`] = {
+      block[`.${prefix}-push-0`] = {
         left: 'auto'
       };
 
-      styles[`.col-${colName}-offset-0`] = {
+      block[`.${prefix}-offset-0`] = {
         'margin-left': 'auto'
       };
 
       for (let i = 1; i <= cols; i++) {
-        styles[`.col-${colName}-${i}`] = {
+        block[`.${prefix}-${i}`] = {
           width: `${(100 / (12 / i))}%`,
           float: 'left'
         };
 
-        block[`.col-${colName}-${i}`] = {
-          width: '100%',
-          float: 'none'
-        };
-
-        styles[`.col-${colName}-pull-${i}`] = {
+        block[`.${prefix}-pull-${i}`] = {
           right: `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-pull-${i}`] = {
+        block[`.${prefix}-pull-${i}`] = {
           right: 0
         };
 
-        styles[`.col-${colName}-push-${i}`] = {
+        block[`.${prefix}-push-${i}`] = {
           left: `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-push-${i}`] = {
+        block[`.${prefix}-push-${i}`] = {
           left: 0
         };
 
-        styles[`.col-${colName}-offset-${i}`] = {
+        block[`.${prefix}-offset-${i}`] = {
           'margin-left': `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-offset-${i}`] = {
+        block[`.${prefix}-offset-${i}`] = {
           'margin-left': 0
         };
 
-        styles[`.col-${colName}-suffix-${i}`] = {
+        block[`.${prefix}-suffix-${i}`] = {
           'margin-right': `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-suffix-${i}`] = {
+        block[`.${prefix}-suffix-${i}`] = {
           'margin-right': 0
         };
       }
     }
 
-    return styles;
+    return breakpointHelper(styles, config);
   };
 };
