@@ -93,7 +93,6 @@
     "media-feature-no-missing-punctuation": true,
     "media-feature-range-operator-space-after": "always",
     "media-feature-range-operator-space-before": "always",
-    "media-query-parentheses-space-inside": "never",
     "media-query-list-comma-newline-after": "always",
     "media-query-list-comma-space-after": "always-single-line",
     "media-query-list-comma-space-before": "never",

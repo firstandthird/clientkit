@@ -7,13 +7,15 @@ module.exports = function (config) {
     const cols = 12;
 
     for (const breakpoint of breakpoints) {
-      // Smallest doesn't get wrapped in a mediaquery
-      const bp = config.breakpoints[breakpoint].smallest ? null : `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
+      const constraint = config.core.mobileFirst ? 'min' : 'max';
+      const width = config.breakpoints[breakpoint][`${constraint}-width`];
+      const bp = config.breakpoints[breakpoint].default ? null : `@media (${constraint}-width: ${width})`;
+
       const colName = config.breakpoints[breakpoint].col;
 
       let block = styles;
 
-      if (!config.breakpoints[breakpoint].smallest) {
+      if (!config.breakpoints[breakpoint].default) {
         styles[bp] = {};
         block = styles[bp];
       }
@@ -22,48 +24,55 @@ module.exports = function (config) {
         width: config.breakpoints[breakpoint].content
       };
 
-      // If the breakpoint doesn't have a col name we shouldn't do anything
-      if (!colName) {
-        block['.container-bleed'] = {
-          width: '100%'
-        };
-
-        continue;
-      }
-
-      // Biggest size is 100% but we dont want that in the media query
       block['.container-bleed'] = {
-        width: config.breakpoints[breakpoint].content
+        'max-width': config.breakpoints[breakpoint].bleed ? config.breakpoints[breakpoint].bleed : config.breakpoints[breakpoint].content
       };
 
-      block[`.col-${colName}-pull-0`] = {
+      styles[`.col-${colName}-pull-0`] = {
         right: 'auto'
       };
 
-      block[`.col-${colName}-push-0`] = {
+      styles[`.col-${colName}-push-0`] = {
         left: 'auto'
       };
 
-      block[`.col-${colName}-offset-0`] = {
+      styles[`.col-${colName}-offset-0`] = {
         'margin-left': 'auto'
       };
 
       for (let i = 1; i <= cols; i++) {
-        block[`.col-${colName}-${i}`] = {
+        styles[`.col-${colName}-${i}`] = {
           width: `${(100 / (12 / i))}%`,
           float: 'left'
         };
 
-        block[`.col-${colName}-pull-${i}`] = {
+        block[`.col-${colName}-${i}`] = {
+          width: '100%',
+          float: 'none'
+        };
+
+        styles[`.col-${colName}-pull-${i}`] = {
           right: `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-push-${i}`] = {
+        block[`.col-${colName}-pull-${i}`] = {
+          right: 0
+        };
+
+        styles[`.col-${colName}-push-${i}`] = {
           left: `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-offset-${i}`] = {
+        block[`.col-${colName}-push-${i}`] = {
+          left: 0
+        };
+
+        styles[`.col-${colName}-offset-${i}`] = {
           'margin-left': `${(100 / (12 / i))}%`
+        };
+
+        block[`.col-${colName}-offset-${i}`] = {
+          'margin-left': 0
         };
       }
     }

@@ -10,10 +10,6 @@
   padding-right: 15px;
 }
 
-.container-bleed {
-  max-width: 1600px;
-}
-
 .row {
   margin-left: -15px;
   margin-right: -15px;
@@ -73,6 +69,7 @@
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  float: left;
 }
 
 .col-plain {
