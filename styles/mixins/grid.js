@@ -5,7 +5,8 @@ module.exports = function (config) {
   return function () {
     const styles = {};
     const breakpoints = Object.keys(config.breakpoints);
-    const cols = 12;
+    const cols = config.grid.columns;
+    const gutters = config.grid.gutters;
 
     for (const breakpoint of breakpoints) {
       const colName = config.breakpoints[breakpoint].col;
@@ -43,7 +44,11 @@ module.exports = function (config) {
       for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-${i}`] = {
           width: `${(100 / (12 / i))}%`,
-          float: 'left'
+          float: 'left',
+          position: 'relative',
+          'min-height': '1px',
+          'padding-left': gutters,
+          'padding-right': gutters
         };
 
         block[`.${prefix}-pull-${i}`] = {
