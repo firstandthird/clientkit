@@ -43,6 +43,10 @@ module.exports = function (config, base, outputName, input) {
     cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
   });
 
+  Object.keys(config.grid).forEach(prop => {
+    cssVars[`grid-${prop}`] = config.grid[prop];
+  });
+
   const mixins = require('require-all')({
     dirname: path.join(base, 'styles/mixins'),
     resolve: m => m(config, postcss)

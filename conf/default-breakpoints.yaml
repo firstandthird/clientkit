@@ -1,18 +1,24 @@
 breakpoints:
   desktop-wide:
+    max-width: 100vw
     min-width: 1440px
     content: 1440px
     col: xl
+    default: '{{!core.mobileFirst}}'
+    bleed: 1600px
   desktop:
+    max-width: 1439px
     min-width: 1024px
     content: 1024px
     col: lg
   tablet:
+    max-width: 1023px
     min-width: 768px
     content: 768px
     col: md
   mobile:
+    max-width: 767px
     min-width: 320px
     content: 320px
     col: sm
-    smallest: true # Sets as the base, no media queries applied
+    default: '{{core.mobileFirst}}'

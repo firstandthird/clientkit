@@ -1,30 +1,25 @@
 'use strict';
 
+const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function (config) {
-  return function () {
+  const inputMixin = function(input) {
     const styles = {};
-    const breakpoints = Object.keys(config.breakpoints);
+    const inputBreakpoints = Object.keys(config.inputs);
 
-    for (const breakpoint of breakpoints) {
-      const bp = config.breakpoints[breakpoint].smallest ? null : `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
-      let block = styles;
-
-      if (!config.breakpoints[breakpoint].smallest) {
-        styles[bp] = {};
-        block = styles[bp];
-      }
-
-      if (!config.inputs[breakpoint]) {
-        continue;
-      }
-
-      const classes = Object.keys(config.inputs[breakpoint]);
-
-      for (const style of classes) {
-        block[`.${style}`] = config.inputs[breakpoint][style];
-      }
+    for (const breakpoint of inputBreakpoints) {
+      styles[breakpoint] = config.inputs[breakpoint][input];
     }
+    return breakpointHelper(styles, config);
+  };
 
+  return function (mixin, input) {
+    if (input) {
+      return inputMixin(input);
+    }
+    const styles = {};
+    Object.keys(config.inputs.default).forEach((className) => {
+      styles[`.${className}`] = inputMixin(className);
+    });
     return styles;
   };
 };

@@ -1,5 +1,5 @@
 inputs:
-  mobile:
+  default:
     input:
       background: '{{color["input-background"]}}'
       border: '1px solid {{color["input-border"]}}'
