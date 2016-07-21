@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- ie meta tag, force it to edge compatibility -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1" />
+    <!-- iphone meta tag (width=device-width letterboxes on iphone 5) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../.dist/tabs.css" />
+    <title>Tabs Example</title>
+  </head>
+  <body>
+    <main id="main">
+
+      <div class="container">
+
+        <h1>CSS Tabs</h1>
+
+        <div class="tabs">
+
+          <!-- active tab on page load gets checked attribute -->
+          <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
+          <label for="tab1">Short</label>
+
+          <input type="radio" id="tab2" name="tabGroup1" class="tab">
+          <label for="tab2">Medium</label>
+
+          <input type="radio" id="tab3" name="tabGroup1" class="tab">
+          <label for="tab3">Long</label>
+
+          <div class="tab-content">
+            <h3>Short Section</h3>
+            <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+          </div>
+
+          <div class="tab-content">
+            <h3>Medium Section</h3>
+            <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+            <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+          </div>
+
+          <div class="tab-content">
+            <h3>Long Section</h3>
+            <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+            <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+
+            <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+            <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+          </div>
+
+        </div>
+        <pre>
+          <code>
+&lt;div class="tabs"&gt;
+  &lt;input type="radio" id="tab1" name="tabGroup1" class="tab" checked&gt;
+  &lt;label for="tab1"&gt;Short&lt;/label&gt;
+
+  &lt;input type="radio" id="tab2" name="tabGroup1" class="tab"&gt;
+  &lt;label for="tab2"&gt;Medium&lt;/label&gt;
+
+  &lt;input type="radio" id="tab3" name="tabGroup1" class="tab"&gt;
+  &lt;label for="tab3"&gt;Long&lt;/label&gt;
+
+  &lt;div class="tab-content"&gt;
+    ...
+  &lt;/div&gt;
+
+  &lt;div class="tab-content"&gt;
+    ...
+  &lt;/div&gt;
+
+  &lt;div class="tab-content"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </div>
+    </main>
+  </body>
+</html>
