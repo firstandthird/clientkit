@@ -1,77 +1,74 @@
 'use strict';
 
+const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function (config) {
   return function () {
     const styles = {};
     const breakpoints = Object.keys(config.breakpoints);
-    const cols = 12;
+    const cols = config.grid.columns;
+    const gutters = config.grid.gutters;
 
     for (const breakpoint of breakpoints) {
-      // Smallest doesn't get wrapped in a mediaquery
-      const bp = config.breakpoints[breakpoint].smallest ? null : `@media (min-width: ${config.breakpoints[breakpoint]['min-width']})`;
       const colName = config.breakpoints[breakpoint].col;
 
-      let block = styles;
-
-      if (!config.breakpoints[breakpoint].smallest) {
-        styles[bp] = {};
-        block = styles[bp];
+      let prefix = `col-${colName}`;
+      if (config.breakpoints[breakpoint].default) {
+        prefix = 'col';
       }
+
+      styles[breakpoint] = {};
+      const block = styles[breakpoint];
+
 
       block['.container'] = {
-        width: config.breakpoints[breakpoint].content
+        width: config.breakpoints[breakpoint].content,
+        'box-sizing': 'border-box'
       };
 
-      // If the breakpoint doesn't have a col name we shouldn't do anything
-      if (!colName) {
-        block['.container-bleed'] = {
-          width: '100%'
-        };
-
-        continue;
-      }
-
-      // Biggest size is 100% but we dont want that in the media query
       block['.container-bleed'] = {
-        width: config.breakpoints[breakpoint].content
+        'max-width': config.breakpoints[breakpoint].bleed ? config.breakpoints[breakpoint].bleed : config.breakpoints[breakpoint].content
       };
 
-      block[`.col-${colName}-pull-0`] = {
+      block[`.${prefix}-pull-0`] = {
         right: 'auto'
       };
 
-      block[`.col-${colName}-push-0`] = {
+      block[`.${prefix}-push-0`] = {
         left: 'auto'
       };
 
-      block[`.col-${colName}-offset-0`] = {
+      block[`.${prefix}-offset-0`] = {
         'margin-left': 'auto'
       };
 
       for (let i = 1; i <= cols; i++) {
-        block[`.col-${colName}-${i}`] = {
+        block[`.${prefix}-${i}`] = {
           width: `${(100 / (12 / i))}%`,
-          float: 'left'
+          float: 'left',
+          position: 'relative',
+          'min-height': '1px',
+          'padding-left': gutters,
+          'padding-right': gutters
         };
 
-        block[`.col-${colName}-pull-${i}`] = {
+        block[`.${prefix}-pull-${i}`] = {
           right: `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-push-${i}`] = {
+        block[`.${prefix}-push-${i}`] = {
           left: `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-offset-${i}`] = {
+        block[`.${prefix}-offset-${i}`] = {
           'margin-left': `${(100 / (12 / i))}%`
         };
 
-        block[`.col-${colName}-suffix-${i}`] = {
+        block[`.${prefix}-suffix-${i}`] = {
           'margin-right': `${(100 / (12 / i))}%`
         };
       }
     }
 
-    return styles;
+    return breakpointHelper(styles, config);
   };
 };

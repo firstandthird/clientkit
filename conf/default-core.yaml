@@ -3,3 +3,4 @@ core:
   minimize: false
   dist: '{{CWD}}/.dist'
   assetPath: '{{CWD}}'
+  mobileFirst: false

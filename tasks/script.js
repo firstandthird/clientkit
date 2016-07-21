@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Browserify = require('browserify');
 const babelify = require('babelify');
+const exorcist = require('exorcist');
 
 const bes2015 = require('babel-preset-es2015');
 const Logr = require('logr');
@@ -29,11 +30,17 @@ module.exports = function(conf, base, outputName, input) {
   });
 
   const b = new Browserify({
-    entries: [input]
+    entries: [input],
+    debug: true
   });
 
   b
     .transform(babelify, { global: true, presets: [bes2015], plugins: [] })
     .bundle()
+    .on('error', function (err) {
+      log(['error'], err.stack);
+      this.emit('end');
+    })
+    .pipe(exorcist(`${output}.map`))
     .pipe(fileStream);
 };

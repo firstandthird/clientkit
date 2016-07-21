@@ -1,6 +1,6 @@
 'use strict';
 /**
- * @mixin font-style small|body|large|header-X
+ * @mixin font-style font-small|font-body|font-large|heading-{1-5}
  *
  */
 const breakpointHelper = require('../../lib/breakpoint-helper');
@@ -12,7 +12,7 @@ module.exports = function(config) {
     for (const breakpoint of styleBreakpoints) {
       styles[breakpoint] = config.fontStyles[breakpoint][size];
     }
-    return breakpointHelper(styles, config.breakpoints);
+    return breakpointHelper(styles, config);
   };
 
   return function(mixin, size) {

@@ -12,6 +12,7 @@ const cssfonts = require('postcss-font-magician');
 const inlinesvg = require('postcss-inline-svg');
 const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
+const pathExists = require('path-exists');
 const Logr = require('logr');
 const log = new Logr({
   type: 'cli',
@@ -45,10 +46,23 @@ module.exports = function (config, base, outputName, input) {
     cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
   });
 
+  Object.keys(config.grid).forEach(prop => {
+    cssVars[`grid-${prop}`] = config.grid[prop];
+  });
+
   const mixins = require('require-all')({
     dirname: path.join(base, 'styles/mixins'),
     resolve: m => m(config, postcss)
   });
+
+  if (pathExists.sync(path.join(config.core.assetPath, 'mixins'))) {
+    const localMixins = require('require-all')({
+      dirname: path.join(config.core.assetPath, 'mixins'),
+      resolve: m => m(config, postcss)
+    });
+
+    Object.assign(mixins, localMixins);
+  }
 
   const output = path.join(config.core.dist, outputName);
 
