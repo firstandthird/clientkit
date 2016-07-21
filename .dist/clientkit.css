@@ -429,10 +429,11 @@ html {
   box-sizing: inherit;
 }
 
-/**
-* Based off Bootstrap v4 grid
-* xs and xl have been removed
-**/
+body {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .container {
   margin-left: auto;
@@ -1463,14 +1464,10 @@ p {
   width: 100%;
 }
 
-.bg-bleed {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1600px;
-  background-size: cover;
-  background-color: #000;
+.bg-image {
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
+  background-size: cover;
 }
 
 @media (max-width: 1439px) {

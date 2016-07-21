@@ -1,21 +1,21 @@
 body {
 }
-@media (min-width: 768px) {
-    body {
-        background: yellow
-    }
-}
-@media (min-width: 1024px) {
-    body {
-        background: orange
-    }
-}
-@media (min-width: 1440px) {
+@media (max-width: 100vw) {
     body {
         background: red
     }
 }
-@media (max-width: 320px) {
+@media (max-width: 1439px) {
+    body {
+        background: orange
+    }
+}
+@media (max-width: 1023px) {
+    body {
+        background: yellow
+    }
+}
+@media (max-width: 767px) {
     body {
         background: green
     }

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../triangles/styles.css"],"names":[],"mappings":"AAAA;EACE,oCAAoC;EACpC,cAAc;EACd,0BAA0B;CAC3B","file":"triangle.css","sourcesContent":[".triangle {\n  triangle: equilateral pointing-down;\n  height: 100px;\n  background-color: #336699;\n}\n"]}

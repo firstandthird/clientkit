@@ -2,6 +2,7 @@ core:
   dist: '{{CWD}}/examples/.dist'
   assetPath: '{{CWD}}/examples'
   mobileFirst: false
+siteMaxWidth: '1600px'
 colors:
   primary: '#336699'
 stylesheets:

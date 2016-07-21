@@ -15,7 +15,11 @@
       <li><a href="tabs/">Tabs</a></li>
       <li><a href="ugc/">UGC</a></li>
       <li><a href="inputs/">Inputs</a></li>
-      <li><a href="bg-image/">Background Image</a></li>
+<<<<<<< HEAD
+      <li><a href="triangles/">Triangles</a></li>
+=======
+      <li><a href="mediaqueries/">Media Queries</a></li>
+>>>>>>> master
     </ul>
   </body>
 </html>
