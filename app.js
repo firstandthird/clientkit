@@ -14,7 +14,7 @@ const log = new Logr({
 
 const argv = yargs
 .option('mode', {
-  describe: 'either "dev" or "prod" mode',
+  describe: 'set to "dev" mode to continuously monitor your files and auto-process when a change is made',
   default: 'prod'
 })
 .option('config', {
@@ -22,7 +22,7 @@ const argv = yargs
   default: path.join(process.cwd(), 'clientkit')
 })
 .option('debug', {
-  describe: 'debug mode',
+  describe: 'debug mode, will print verbose text',
   type: Boolean,
   default: false
 })
