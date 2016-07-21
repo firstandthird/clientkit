@@ -13,7 +13,7 @@ module.exports = function (config) {
       }
     }
 
-    return breakpointHelper(styles, config.breakpoints);
+    return breakpointHelper(styles, config);
   };
 
   return function (mixin, bp) {
