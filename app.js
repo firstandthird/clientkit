@@ -3,6 +3,12 @@
 const path = require('path');
 const yargs = require('yargs');
 const Logr = require('logr');
+const watcher = require('./lib/watcher');
+// Tasks
+const cssProcessor = require('./tasks/css.js');
+const jsProcessor = require('./tasks/script.js');
+const mkdirp = require('mkdirp');
+
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -32,50 +38,59 @@ const argv = yargs
 .argv;
 
 log(`Using local config directory: ${argv.config}`);
-const config = require('confi')({
-  path: [
-    path.join(__dirname, 'conf'),
-    argv.config
-  ],
-  context: {
-    CKDIR: __dirname
+const defaultConf = path.join(__dirname, 'conf');
+
+const runAll = () => {
+  const config = require('confi')({
+    path: [
+      defaultConf,
+      argv.config
+    ],
+    context: {
+      CKDIR: __dirname
+    }
+  });
+
+  if (argv.debug || argv._.indexOf('debug') > -1) {
+    log(JSON.stringify(config, null, '  '));
   }
-});
 
-if (argv.debug || argv._.indexOf('debug') > -1) {
-  log(JSON.stringify(config, null, '  '));
-}
+  mkdirp.sync(config.core.dist);
+  if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+    const watchedStyleFiles = [
+      path.join(config.core.assetPath, '**/*.css') // @TODO: make this not sucky
+    ];
 
-const watcher = require('./lib/watcher');
+    watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
+      cssProcessor(config, __dirname, input, output);
+    }, config.core.rebuildDelay);
 
-// Tasks
-const cssProcessor = require('./tasks/css.js');
-const jsProcessor = require('./tasks/script.js');
+    const watchedScriptFiles = [
+      path.join(config.core.assetPath, '**/*.js'),
+    ];
+    watcher(watchedScriptFiles, config.scripts, (input, output) => {
+      jsProcessor(config, __dirname, input, output);
+    }, config.core.rebuildDelay);
+  } else {
+    if (config.stylesheets) {
+      Object.keys(config.stylesheets).forEach(style => cssProcessor(config, __dirname, style, config.stylesheets[style]));
+    }
 
-// Prepare output dir
-const mkdirp = require('mkdirp');
-mkdirp.sync(config.core.dist);
+    if (config.scripts) {
+      Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
+    }
+  }
+};
+
+// dev mode will watch your conf files and reload everything when they are changed:
 if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-  const watchedStyleFiles = [
-    path.join(config.core.assetPath, '**/*.css') // @TODO: make this not sucky
+  const watchedConfigFiles = [
+    path.join(defaultConf, '*'),
+    path.join(argv.config, '*'),
   ];
-
-  watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
-    cssProcessor(config, __dirname, input, output);
-  }, config.core.rebuildDelay);
-
-  const watchedScriptFiles = [
-    path.join(config.core.assetPath, '**/*.js'),
-  ];
-  watcher(watchedScriptFiles, config.scripts, (input, output) => {
-    jsProcessor(config, __dirname, input, output);
-  }, config.core.rebuildDelay);
+  watcher(watchedConfigFiles, [''], () => {
+    runAll();
+  }, 0);
 } else {
-  if (config.stylesheets) {
-    Object.keys(config.stylesheets).forEach(style => cssProcessor(config, __dirname, style, config.stylesheets[style]));
-  }
-
-  if (config.scripts) {
-    Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
-  }
+  runAll();
 }
