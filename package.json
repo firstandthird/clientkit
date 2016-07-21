@@ -9,9 +9,11 @@
   "scripts": {
     "start": "node app.js",
     "dev": "node app.js dev",
-    "example:build": "node app.js dev --config $PWD/examples/clientkit",
+    "example:build": "node app.js --config $PWD/examples/clientkit",
+    "example:dev": "node app.js dev --config $PWD/examples/clientkit",
     "example:serve": "serve -p 8082 examples",
-    "example": "concurrently \"npm run example:build\" \"npm run example:serve\""
+    "example": "concurrently \"npm run example:dev\" \"npm run example:serve\"",
+    "ghpages": "npm run example:build && node tasks/ghpages.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "eslint-plugin-import": "^1.9.2",
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-react": "^5.2.2",
+    "gh-pages": "^0.11.0",
     "serve": "^1.4.0",
     "stylelint": "^6.7.1"
   },
