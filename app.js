@@ -19,7 +19,7 @@ const argv = yargs
 })
 .option('config', {
   describe: 'a path to your configuration files',
-  default: path.join(process.cwd(), 'conf')
+  default: path.join(process.cwd(), 'clientkit')
 })
 .option('debug', {
   describe: 'debug mode',
@@ -32,6 +32,10 @@ const argv = yargs
 .argv;
 
 log(`Using local config directory: ${argv.config}`);
+// const configPath = [path.join(__dirname, 'conf')];
+// if (argv.config) {
+//   configPath.push(argv.config);
+// }
 const config = require('confi')({
   path: [
     path.join(__dirname, 'conf'),
