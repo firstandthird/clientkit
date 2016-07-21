@@ -10,6 +10,7 @@ const cssmixins = require('postcss-mixins');
 const mqpacker = require('css-mqpacker');
 const cssfonts = require('postcss-font-magician');
 const inlinesvg = require('postcss-inline-svg');
+const triangle = require('postcss-triangle');
 const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 const pathExists = require('path-exists');
@@ -26,6 +27,7 @@ const log = new Logr({
 module.exports = function (config, base, outputName, input) {
   const start = new Date().getTime();
   const cssVars = {};
+  const customMedia = {};
 
   Object.keys(config.color).forEach(color => {
     cssVars[`color-${color}`] = config.color[color];
@@ -36,7 +38,12 @@ module.exports = function (config, base, outputName, input) {
   });
 
   Object.keys(config.breakpoints).forEach(breakpoint => {
-    cssVars[`breakpoint-${breakpoint}`] = config.breakpoints[breakpoint]['min-width'];
+    const constraint = config.core.mobileFirst ? 'min' : 'max';
+    const width = config.breakpoints[breakpoint][`${constraint}-width`];
+    const mediaquery = `(${constraint}-width: ${width})`;
+
+    cssVars[`breakpoint-${breakpoint}`] = width;
+    customMedia[breakpoint] = mediaquery;
   });
 
   Object.keys(config.spacing.default).forEach(spacing => {
@@ -70,11 +77,15 @@ module.exports = function (config, base, outputName, input) {
     }),
     inlinesvg(),
     svgo(),
+    triangle(),
     cssnext({
       warnForDuplicates: false,
       features: {
         customProperties: {
           variables: cssVars
+        },
+        customMedia: {
+          extensions: customMedia
         }
       }
     }),
