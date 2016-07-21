@@ -32,10 +32,6 @@ const argv = yargs
 .argv;
 
 log(`Using local config directory: ${argv.config}`);
-// const configPath = [path.join(__dirname, 'conf')];
-// if (argv.config) {
-//   configPath.push(argv.config);
-// }
 const config = require('confi')({
   path: [
     path.join(__dirname, 'conf'),
