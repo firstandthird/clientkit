@@ -343,6 +343,16 @@
   margin-right: 100%;
 }
 
+.hide-xl {
+  display: none;
+}
+
+.hide-lg {}
+
+.hide-md {}
+
+.hide-sm {}
+
 @media (max-width: 1439px) {
 
   .container {
@@ -660,6 +670,10 @@
 
   .col-lg-suffix-12 {
     margin-right: 100%;
+  }
+
+  .hide-lg {
+    display: none;
   }
 }
 
@@ -981,12 +995,16 @@
   .col-md-suffix-12 {
     margin-right: 100%;
   }
+
+  .hide-md {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
 
   .container {
-    width: 320px;
+    width: 100%;
     box-sizing: border-box;
   }
 
@@ -1300,6 +1318,10 @@
 
   .col-sm-suffix-12 {
     margin-right: 100%;
+  }
+
+  .hide-sm {
+    display: none;
   }
 }
 
