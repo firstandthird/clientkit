@@ -38,7 +38,7 @@ log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
 let jsWatcher = false; // watcher we will use to watch js files
 let cssWatcher = false; // the same, for css
-
+let watchedConfigFiles = false;
 const runAll = () => {
   // Tasks
   const cssProcessor = require('./tasks/css.js');
@@ -52,12 +52,9 @@ const runAll = () => {
       CKDIR: __dirname
     }
   });
-  const watchedScriptFiles = [
-    path.join(config.core.assetPath, '**/*.js'),
-  ];
-  const watchedStyleFiles = [
-    path.join(config.core.assetPath, '**/*.css') // @TODO: make this not sucky
-  ];
+  const watchedScriptFiles = config.core.files.scripts;
+  const watchedStyleFiles = config.core.files.css;
+  watchedConfigFiles = (config.core.files.yaml !== watchedConfigFiles) ? config.core.files.yaml : watchedConfigFiles;
   if (argv.debug || argv._.indexOf('debug') > -1) {
     log(JSON.stringify(config, null, '  '));
   }
@@ -90,10 +87,16 @@ const runAll = () => {
 
 // dev mode will watch your conf files and reload everything when they are changed:
 if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-  const watchedConfigFiles = [
-    path.join(defaultConf, '*'),
-    path.join(argv.config, '*'),
-  ];
+  const config = require('confi')({
+    path: [
+      defaultConf,
+      argv.config
+    ],
+    context: {
+      CKDIR: __dirname
+    }
+  });
+  watchedConfigFiles = config.core.files.yaml;
   watcher(watchedConfigFiles, [''], () => {
     runAll();
   }, 100);

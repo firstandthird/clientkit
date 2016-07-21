@@ -3,4 +3,12 @@ core:
   minimize: false
   dist: '{{CWD}}/.dist'
   assetPath: '{{CWD}}'
+  configPath: '{{CWD}}/conf'
   mobileFirst: false
+  files:
+    css:
+      - '{{CWD}}/styles/**/*.css'
+    scripts:
+      - '{{CWD}}/**/*.js'
+    yaml:
+      - '{{CWD}}/conf/*.yaml'
