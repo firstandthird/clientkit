@@ -59,6 +59,7 @@
     "postcss-mixins": "^4.0.2",
     "postcss-svgo": "^2.1.3",
     "postcss-triangle": "^1.0.1",
-    "require-all": "^2.0.0"
+    "require-all": "^2.0.0",
+    "yargs": "^4.8.1"
   }
 }
