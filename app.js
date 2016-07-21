@@ -1,9 +1,8 @@
 #! /usr/bin/env node
 'use strict';
-
 const path = require('path');
+const yargs = require('yargs');
 const Logr = require('logr');
-
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -13,35 +12,37 @@ const log = new Logr({
   }
 });
 
-let mode = 'prod';
-let confPath = path.join(process.cwd(), 'clientkit');
+const argv = yargs
+.option('mode', {
+  describe: 'either "dev" or "prod" mode',
+  default: 'prod'
+})
+.option('config', {
+  describe: 'a path to your configuration files',
+  default: path.join(process.cwd(), 'conf')
+})
+.option('debug', {
+  describe: 'debug mode',
+  type: Boolean,
+  default: false
+})
+.help('h')
+.alias('h', 'help')
+.env(true)
+.argv;
 
-if (process.argv.indexOf('dev') !== -1) {
-  mode = 'dev';
-}
-
-if (process.argv.indexOf('--config') !== -1 && process.argv.indexOf('--config') !== process.argv.length - 1) {
-  confPath = process.argv[process.argv.indexOf('--config') + 1];
-}
-
-let debug = false;
-if (process.argv.indexOf('--debug') !== -1) {
-  debug = true;
-}
-
-log(`Using local config directory: ${confPath}`);
-
+log(`Using local config directory: ${argv.config}`);
 const config = require('confi')({
   path: [
     path.join(__dirname, 'conf'),
-    confPath
+    argv.config
   ],
   context: {
     CKDIR: __dirname
   }
 });
 
-if (debug) {
+if (argv.debug || argv._.indexOf('debug') > -1) {
   log(JSON.stringify(config, null, '  '));
 }
 
@@ -54,8 +55,7 @@ const jsProcessor = require('./tasks/script.js');
 // Prepare output dir
 const mkdirp = require('mkdirp');
 mkdirp.sync(config.core.dist);
-
-if (mode === 'dev') {
+if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
   const watchedStyleFiles = [
     path.join(config.core.assetPath, '**/*.css') // @TODO: make this not sucky
   ];
@@ -63,7 +63,6 @@ if (mode === 'dev') {
   watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
     cssProcessor(config, __dirname, input, output);
   }, config.core.rebuildDelay);
-
 
   const watchedScriptFiles = [
     path.join(config.core.assetPath, '**/*.js'),
