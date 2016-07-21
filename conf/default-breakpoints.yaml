@@ -19,6 +19,6 @@ breakpoints:
   mobile:
     max-width: 767px
     min-width: 320px
-    content: 320px
+    content: 100%
     col: sm
     default: '{{core.mobileFirst}}'
