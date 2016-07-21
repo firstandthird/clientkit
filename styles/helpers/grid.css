@@ -3,7 +3,7 @@
 * xs and xl have been removed
 **/
 
-.container, .container-bleed {
+.container {
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--grid-gutters);
