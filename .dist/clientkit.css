@@ -434,7 +434,7 @@ html {
 * xs and xl have been removed
 **/
 
-.container, .container-bleed {
+.container {
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
@@ -460,10 +460,6 @@ html {
 .container {
   width: 1440px;
   box-sizing: border-box;
-}
-
-.container-bleed {
-  max-width: 1600px;
 }
 
 .col-pull-0 {
@@ -1467,15 +1463,21 @@ p {
   width: 100%;
 }
 
+.bg-bleed {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
+  background-size: cover;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 @media (max-width: 1439px) {
 
   .container {
     width: 1024px;
     box-sizing: border-box;
-  }
-
-  .container-bleed {
-    max-width: 1024px;
   }
 
   .col-lg-pull-0 {
@@ -1802,10 +1804,6 @@ p {
     box-sizing: border-box;
   }
 
-  .container-bleed {
-    max-width: 768px;
-  }
-
   .col-md-pull-0 {
     right: auto;
   }
@@ -2128,10 +2126,6 @@ p {
   .container {
     width: 320px;
     box-sizing: border-box;
-  }
-
-  .container-bleed {
-    max-width: 320px;
   }
 
   .col-sm-pull-0 {

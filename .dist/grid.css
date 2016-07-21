@@ -3,7 +3,7 @@
 * xs and xl have been removed
 **/
 
-.container, .container-bleed {
+.container {
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
@@ -29,10 +29,6 @@
 .container {
   width: 1440px;
   box-sizing: border-box;
-}
-
-.container-bleed {
-  max-width: 1600px;
 }
 
 .col-pull-0 {
@@ -352,10 +348,6 @@
   .container {
     width: 1024px;
     box-sizing: border-box;
-  }
-
-  .container-bleed {
-    max-width: 1024px;
   }
 
   .col-lg-pull-0 {
@@ -678,10 +670,6 @@
     box-sizing: border-box;
   }
 
-  .container-bleed {
-    max-width: 768px;
-  }
-
   .col-md-pull-0 {
     right: auto;
   }
@@ -1000,10 +988,6 @@
   .container {
     width: 320px;
     box-sizing: border-box;
-  }
-
-  .container-bleed {
-    max-width: 320px;
   }
 
   .col-sm-pull-0 {
