@@ -1,7 +1,6 @@
-/**
-* Based off Bootstrap v4 grid
-* xs and xl have been removed
-**/
+body {
+  @mixin site-max;
+}
 
 .container {
   margin-left: auto;
