@@ -11,3 +11,4 @@ stylesheets:
   'lists.css': '{{CKDIR}}/styles/helpers/lists.css'
   'mediaqueries.css': '{{CWD}}/examples/mediaqueries/styles.css'
   'grid.css': '{{CWD}}/examples/grid/grid.css'
+  'triangle.css': '{{CWD}}/examples/triangles/styles.css'
