@@ -4,9 +4,6 @@ const path = require('path');
 const yargs = require('yargs');
 const Logr = require('logr');
 const watcher = require('./lib/watcher');
-// Tasks
-const cssProcessor = require('./tasks/css.js');
-const jsProcessor = require('./tasks/script.js');
 const mkdirp = require('mkdirp');
 
 const log = new Logr({
@@ -39,8 +36,13 @@ const argv = yargs
 
 log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
+let jsWatcher = false; // watcher we will use to watch js files
+let cssWatcher = false; // the same, for css
 
 const runAll = () => {
+  // Tasks
+  const cssProcessor = require('./tasks/css.js');
+  const jsProcessor = require('./tasks/script.js');
   const config = require('confi')({
     path: [
       defaultConf,
@@ -50,32 +52,36 @@ const runAll = () => {
       CKDIR: __dirname
     }
   });
-
+  const watchedScriptFiles = [
+    path.join(config.core.assetPath, '**/*.js'),
+  ];
+  const watchedStyleFiles = [
+    path.join(config.core.assetPath, '**/*.css') // @TODO: make this not sucky
+  ];
   if (argv.debug || argv._.indexOf('debug') > -1) {
     log(JSON.stringify(config, null, '  '));
   }
 
   mkdirp.sync(config.core.dist);
   if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-    const watchedStyleFiles = [
-      path.join(config.core.assetPath, '**/*.css') // @TODO: make this not sucky
-    ];
-
-    watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
+    // remove any existing css file watchers:
+    if (cssWatcher) {
+      cssWatcher.close();
+    }
+    cssWatcher = watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
       cssProcessor(config, __dirname, input, output);
     }, config.core.rebuildDelay);
-
-    const watchedScriptFiles = [
-      path.join(config.core.assetPath, '**/*.js'),
-    ];
-    watcher(watchedScriptFiles, config.scripts, (input, output) => {
+    // remove any existing js file watchers:
+    if (jsWatcher) {
+      jsWatcher.close();
+    }
+    jsWatcher = watcher(watchedScriptFiles, config.scripts, (input, output) => {
       jsProcessor(config, __dirname, input, output);
     }, config.core.rebuildDelay);
   } else {
     if (config.stylesheets) {
       Object.keys(config.stylesheets).forEach(style => cssProcessor(config, __dirname, style, config.stylesheets[style]));
     }
-
     if (config.scripts) {
       Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
     }
@@ -90,7 +96,7 @@ if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
   ];
   watcher(watchedConfigFiles, [''], () => {
     runAll();
-  }, 0);
+  }, 100);
 } else {
   runAll();
 }
