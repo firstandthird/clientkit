@@ -1,0 +1,24 @@
+body {
+}
+@media (min-width: 768px) {
+    body {
+        background: yellow
+    }
+}
+@media (min-width: 1024px) {
+    body {
+        background: orange
+    }
+}
+@media (min-width: 1440px) {
+    body {
+        background: red
+    }
+}
+@media (max-width: 320px) {
+    body {
+        background: green
+    }
+}
+
+/*# sourceMappingURL=mediaqueries.css.map */

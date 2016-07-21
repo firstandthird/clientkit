@@ -1,0 +1,104 @@
+.tabs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    max-width: 100%;
+    position: relative;
+    list-style: none;
+    border-radius: 6px
+}
+.tab {
+    display: none
+}
+.tab:first-of-type:not(:last-of-type) + label {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+.tab:not(:first-of-type):not(:last-of-type) + label {
+    border-radius: 0
+}
+.tab:last-of-type:not(:first-of-type) + label {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+.tab:checked + label {
+    cursor: default
+}
+.tab + label {
+    box-sizing: border-box;
+    display: block;
+    -webkit-box-flex: 3;
+        -ms-flex-positive: 3;
+            flex-grow: 3;
+    border-radius: 6px 6px 0 0;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none
+}
+.tab-content {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    border-radius: 6px;
+    opacity: 0;
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px)
+}
+.tab:checked:nth-of-type(1) ~ .tab-content:nth-of-type(1) {
+    position: relative;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+    transition: 0.5s opacity ease-in, 0.8s transform ease
+}
+.tab:checked:nth-of-type(2) ~ .tab-content:nth-of-type(2) {
+    position: relative;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+    transition: 0.5s opacity ease-in, 0.8s transform ease
+}
+.tab:checked:nth-of-type(3) ~ .tab-content:nth-of-type(3) {
+    position: relative;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+    transition: 0.5s opacity ease-in, 0.8s transform ease
+}
+.tab:checked:nth-of-type(4) ~ .tab-content:nth-of-type(4) {
+    position: relative;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+    transition: 0.5s opacity ease-in, 0.8s transform ease
+}
+.tab:checked:nth-of-type(5) ~ .tab-content:nth-of-type(5) {
+    position: relative;
+    top: 0;
+    z-index: 100;
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+    transition: 0.5s opacity ease-in, 0.8s transform ease
+}
+
+/*# sourceMappingURL=tabs.css.map */

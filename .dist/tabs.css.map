@@ -1,0 +1,1 @@
+{"version":3,"sources":["../tabs/tabs.css"],"names":[],"mappings":"AAAA;;;;;;;;;;CAAmB;AAAnB;;CAAmB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAnB;;;;;;;;;CAAmB;AAAnB;;;;;;;;;CAAmB;AAAnB;;;;;;;;;CAAmB;AAAnB;;;;;;;;;CAAmB;AAAnB;;;;;;;;;CAAmB","file":"tabs.css","sourcesContent":["@mixin tabs 5, 6px;\n"]}

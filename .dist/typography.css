@@ -1,0 +1,184 @@
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.font-primary {
+  font-family: sans-serif !important;
+}
+
+.font-secondary {
+  font-family: sans !important;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-semibold, strong, em {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-xbold {
+  font-weight: 800;
+}
+
+/*
+ * adds helper classes for everything in default-typography fontStyles
+ */
+
+.heading-1 {
+  color: #333;
+  font-family: sans;
+  font-size: 45px;
+  line-height: 48px;
+}
+
+.heading-2 {
+  color: #333;
+  font-family: sans;
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.heading-3 {
+  color: #333;
+  font-family: sans;
+  font-size: 25px;
+  line-height: 32px;
+}
+
+.heading-4 {
+  color: #333;
+  font-family: sans;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.heading-5 {
+  color: #333;
+  font-family: sans;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.font-large {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.font-body {
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.font-small {
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.heading--light {
+  color: #fff;
+}
+
+p {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+
+  body {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .heading-1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .heading-2 {
+    font-size: 25px;
+    line-height: 34px;
+  }
+
+  .heading-3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .heading-4 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .heading-5 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .font-large {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .font-body {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .font-small {
+    font-size: 12px;
+    line-height: 22px;
+  }
+}
+
+/*# sourceMappingURL=typography.css.map */
