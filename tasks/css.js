@@ -10,6 +10,7 @@ const cssmixins = require('postcss-mixins');
 const mqpacker = require('css-mqpacker');
 const cssfonts = require('postcss-font-magician');
 const inlinesvg = require('postcss-inline-svg');
+const triangle = require('postcss-triangle');
 const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 const pathExists = require('path-exists');
@@ -70,6 +71,7 @@ module.exports = function (config, base, outputName, input) {
     }),
     inlinesvg(),
     svgo(),
+    triangle(),
     cssnext({
       warnForDuplicates: false,
       features: {
