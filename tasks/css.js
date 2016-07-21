@@ -37,9 +37,12 @@ module.exports = function (config, base, outputName, input) {
   });
 
   Object.keys(config.breakpoints).forEach(breakpoint => {
-    cssVars[`breakpoint-${breakpoint}`] = config.breakpoints[breakpoint]['min-width'];
-    const minmax = (config.breakpoints[breakpoint].smallest) ? 'max' : 'min';
-    customMedia[breakpoint] = `(${minmax}-width: ${config.breakpoints[breakpoint]['min-width']})`;
+    const constraint = config.core.mobileFirst ? 'min' : 'max';
+    const width = config.breakpoints[breakpoint][`${constraint}-width`];
+    const mediaquery = `(${constraint}-width: ${width})`;
+
+    cssVars[`breakpoint-${breakpoint}`] = width;
+    customMedia[breakpoint] = mediaquery;
   });
 
   Object.keys(config.spacing.default).forEach(spacing => {
