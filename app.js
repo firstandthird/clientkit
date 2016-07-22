@@ -124,7 +124,6 @@ if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
     printCss(argv.css);
   } else {
     getStdin().then(str => {
-      console.log(str);
       if (str[str.length - 1] === '\n') {
         str = str.replace('\n', '');
       }
