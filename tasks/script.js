@@ -5,7 +5,8 @@ const path = require('path');
 const Browserify = require('browserify');
 const babelify = require('babelify');
 const exorcist = require('exorcist');
-
+const formatter = require('eslint').CLIEngine.getFormatter();
+const CLIEngine = require('eslint').CLIEngine;
 const bes2015 = require('babel-preset-es2015');
 const Logr = require('logr');
 const log = new Logr({
@@ -17,7 +18,6 @@ const log = new Logr({
   }
 });
 
-
 module.exports = function(conf, base, outputName, input) {
   const start = new Date().getTime();
   const output = path.join(conf.core.dist, outputName);
@@ -28,6 +28,11 @@ module.exports = function(conf, base, outputName, input) {
     const duration = (end - start) / 1000;
     log(`Processed: ${input} → ${output} in ${duration} sec`);
   });
+  const cli = new CLIEngine({
+    useEslintrc: false,
+    configFile: conf.core.eslint
+  });
+  log(formatter(cli.executeOnFiles([input]).results));
 
   const b = new Browserify({
     entries: [input],
