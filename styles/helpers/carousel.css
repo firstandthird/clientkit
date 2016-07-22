@@ -1,22 +1,20 @@
 @media (--mobile) {
   .row-sm-carousel {
-    width: 100%;
-    height: 100%;
-    white-space: nowrap;
-    overflow-y: hidden;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: mandatory;
-    /* older spec implementation */
-    scroll-snap-destination: 0% 100%;
-    scroll-snap-points-x: repeat(100%);
-
-    &-page {
-      display: inline-block;
-      float: none;
-      width: 100%;
-      height: 100%;
-      vertical-align: top;
-    }
+    @mixin row-carousel;
+  }
+}
+@media (--tablet) {
+  .row-md-carousel {
+    @mixin row-carousel;
+  }
+}
+@media (--desktop) {
+  .row-lg-carousel {
+    @mixin row-carousel;
+  }
+}
+@media (--desktop-wide) {
+  .row-xl-carousel {
+    @mixin row-carousel;
   }
 }
