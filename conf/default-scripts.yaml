@@ -1,0 +1,2 @@
+scripts:
+  main.js: '{{CKDIR}}/scripts/sample1.js'
