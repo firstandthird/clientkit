@@ -16,6 +16,9 @@ const log = new Logr({
 });
 
 const argv = yargs
+.option('css', {
+  describe: 'can be used to pass in arbitrary css ',
+})
 .option('mode', {
   describe: 'set to "dev" mode to continuously monitor your files and auto-process when a change is made',
   default: 'prod'
@@ -43,15 +46,7 @@ const runAll = () => {
   // Tasks
   const cssProcessor = require('./tasks/css.js');
   const jsProcessor = require('./tasks/script.js');
-  const config = require('confi')({
-    path: [
-      defaultConf,
-      argv.config
-    ],
-    context: {
-      CKDIR: __dirname
-    }
-  });
+  const config = loadConfig();
   const watchedScriptFiles = [
     path.join(config.core.assetPath, '**/*.js'),
   ];
@@ -88,8 +83,18 @@ const runAll = () => {
   }
 };
 
-// dev mode will watch your conf files and reload everything when they are changed:
-if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+const loadConfig = () => {
+  return require('confi')({
+    path: [
+      defaultConf,
+      argv.config
+    ],
+    context: {
+      CKDIR: __dirname
+    }
+  });
+};
+const runDev = () => {
   const watchedConfigFiles = [
     path.join(defaultConf, '*'),
     path.join(argv.config, '*'),
@@ -97,6 +102,26 @@ if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
   watcher(watchedConfigFiles, [''], () => {
     runAll();
   }, 100);
+};
+
+const evalCss = (cssExpression) => {
+  // todo: probably need to actually eval the css expression
+  // right now this just handles simple expressions of the form '@mixin <mixin name>'
+  const tokens = argv.css.split(' ');
+  const config = loadConfig();
+  if (tokens[0] === '@mixin') {
+    const mixinName = argv.css.split(' ')[1];
+    const mixinModule = require(`./styles/mixins/${mixinName}.js`);
+    const mixinString = mixinModule(config);
+    return mixinString;
+  }
+};
+
+// dev mode will watch your conf files and reload everything when they are changed:
+if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+  runDev();
+} else if (argv.css) {
+  log(evalCss(argv.css));
 } else {
   runAll();
 }
