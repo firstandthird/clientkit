@@ -1,0 +1,92 @@
+.ugc h1,
+.ugc h2,
+.ugc h3,
+.ugc h4,
+.ugc h5,
+.ugc h6 {
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+.ugc h1 {
+  color: #333;
+  font-family: sans;
+  font-size: 45px;
+  line-height: 48px;
+}
+.ugc h2 {
+  color: #333;
+  font-family: sans;
+  font-size: 30px;
+  line-height: 36px;
+}
+.ugc h3 {
+  color: #333;
+  font-family: sans;
+  font-size: 25px;
+  line-height: 32px;
+}
+.ugc h4 {
+  color: #333;
+  font-family: sans;
+  font-size: 16px;
+  line-height: 24px;
+}
+.ugc h5 {
+  color: #333;
+  font-family: sans;
+  font-size: 14px;
+  line-height: 24px;
+}
+.ugc p {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+}
+.ugc ul,
+.ugc ol {
+  padding-left: 15px;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+}
+.ugc li {
+  list-style-type: disc;
+}
+.ugc table {
+  width: 100%;
+}
+@media (min-width: 320px) {
+  .ugc h1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .ugc h2 {
+    font-size: 25px;
+    line-height: 34px;
+  }
+  .ugc h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .ugc h4 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .ugc h5 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .ugc p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .ugc ul,
+.ugc ol {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+/*# sourceMappingURL=ugc.css.map */
