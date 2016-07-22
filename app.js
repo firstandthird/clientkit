@@ -5,7 +5,7 @@ const yargs = require('yargs');
 const Logr = require('logr');
 const watcher = require('./lib/watcher');
 const mkdirp = require('mkdirp');
-
+const getStdin = require('get-stdin');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -41,11 +41,24 @@ log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
 let jsWatcher = false; // watcher we will use to watch js files
 let cssWatcher = false; // the same, for css
+const cssProcessor = require('./tasks/css.js');
+const jsProcessor = require('./tasks/script.js');
+
+
+const loadConfig = () => {
+  return require('confi')({
+    path: [
+      defaultConf,
+      argv.config
+    ],
+    context: {
+      CKDIR: __dirname
+    }
+  });
+};
 
 const runAll = () => {
   // Tasks
-  const cssProcessor = require('./tasks/css.js');
-  const jsProcessor = require('./tasks/script.js');
   const config = loadConfig();
   const watchedScriptFiles = [
     path.join(config.core.assetPath, '**/*.js'),
@@ -83,17 +96,6 @@ const runAll = () => {
   }
 };
 
-const loadConfig = () => {
-  return require('confi')({
-    path: [
-      defaultConf,
-      argv.config
-    ],
-    context: {
-      CKDIR: __dirname
-    }
-  });
-};
 const runDev = () => {
   const watchedConfigFiles = [
     path.join(defaultConf, '*'),
@@ -104,24 +106,31 @@ const runDev = () => {
   }, 100);
 };
 
-const evalCss = (cssExpression) => {
-  // todo: probably need to actually eval the css expression
-  // right now this just handles simple expressions of the form '@mixin <mixin name>'
-  const tokens = argv.css.split(' ');
+const printCss = (cssExpression) => {
   const config = loadConfig();
-  if (tokens[0] === '@mixin') {
-    const mixinName = argv.css.split(' ')[1];
-    const mixinModule = require(`./styles/mixins/${mixinName}.js`);
-    const mixinString = mixinModule(config);
-    return mixinString;
-  }
+  config.consoleOnly = true;
+  cssProcessor(config, __dirname, 'none', cssExpression, (result) => {
+    // strips out the little addendum at the bottom of the css:
+    log(result.css.split(`/*# sourceMappingURL=none.map */`)[0]);
+  });
 };
 
 // dev mode will watch your conf files and reload everything when they are changed:
 if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
   runDev();
 } else if (argv.css) {
-  log(evalCss(argv.css));
+  // if they didn't pass a value into argv.css, look in stdin for the css expression or filename:
+  if (typeof argv.css === 'string') {
+    printCss(argv.css);
+  } else {
+    getStdin().then(str => {
+      console.log(str);
+      if (str[str.length - 1] === '\n') {
+        str = str.replace('\n', '');
+      }
+      printCss(str);
+    });
+  }
 } else {
   runAll();
 }
