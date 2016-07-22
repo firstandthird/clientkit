@@ -1,2 +1,2 @@
 scripts:
-  main.js: '{{CKDIR}}/scripts/sample1.js'
+  main.js: '{{CKDIR}}/examples/scripts/sample1.js'
