@@ -32,7 +32,17 @@ module.exports = function(conf, base, outputName, input) {
     useEslintrc: false,
     configFile: conf.core.eslint
   });
-  log(formatter(cli.executeOnFiles([input]).results));
+  const results = cli.executeOnFiles([input]).results;
+  // if any errors, print them:
+  let errorsExist = false;
+  results.forEach((result) => {
+    if (result.errorCount > 0) {
+      errorsExist = true;
+    }
+  });
+  if (errorsExist) {
+    log(['eslint', 'error'], formatter(results));
+  }
 
   const b = new Browserify({
     entries: [input],
