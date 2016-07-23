@@ -35,13 +35,19 @@ module.exports = function(conf, base, outputName, input) {
   const results = cli.executeOnFiles([input]).results;
   // if any errors, print them:
   let errorsExist = false;
+  let warningsExist = false;
   results.forEach((result) => {
     if (result.errorCount > 0) {
       errorsExist = true;
     }
+    if (result.warningCount > 0) {
+      warningsExist = true;
+    }
   });
   if (errorsExist) {
     log(['eslint', 'error'], formatter(results));
+  } else if (warningsExist) {
+    log(['eslint', 'warning'], formatter(results));
   }
 
   const b = new Browserify({
