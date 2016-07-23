@@ -80,7 +80,7 @@ const runAll = () => {
     }, config.core.rebuildDelay);
   } else {
     if (config.stylesheets) {
-      // Object.keys(config.stylesheets).forEach(style => cssProcessor(config, __dirname, style, config.stylesheets[style]));
+      Object.keys(config.stylesheets).forEach(style => cssProcessor(config, __dirname, style, config.stylesheets[style]));
     }
     if (config.scripts) {
       Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
