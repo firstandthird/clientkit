@@ -1,0 +1,20 @@
+@media (--mobile) {
+  .row-sm-carousel {
+    @mixin row-carousel;
+  }
+}
+@media (--tablet) {
+  .row-md-carousel {
+    @mixin row-carousel;
+  }
+}
+@media (--desktop) {
+  .row-lg-carousel {
+    @mixin row-carousel;
+  }
+}
+@media (--desktop-wide) {
+  .row-xl-carousel {
+    @mixin row-carousel;
+  }
+}
