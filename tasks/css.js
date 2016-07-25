@@ -47,8 +47,7 @@ module.exports = function (config, base, outputName, input) {
   });
 
   Object.keys(config.spacing.default).forEach(spacing => {
-    const sizeString = spacing === 'none' ? '0' : spacing;
-    cssVars[`spacing-${sizeString}`] = config.spacing.default[spacing];
+    cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
   });
 
   Object.keys(config.grid).forEach(prop => {
