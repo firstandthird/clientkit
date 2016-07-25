@@ -1,7 +1,7 @@
 /*
  * spacing helpers
  * margin-bottom-none - adds margin-bottom: 0
- * m-r-md - adds margin-bottom: [md]px
+ * margin-right-md - adds margin-right: [md]px
  */
 
 @mixin spacing;
