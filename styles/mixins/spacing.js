@@ -25,7 +25,8 @@ module.exports = function (config) {
     properties.forEach((property) => {
       positions.forEach((position) => {
         sizes.forEach((size) => {
-          styles[`.${property[0]}-${position[0]}-${size}`] = spacingMixin(property, position, size);
+          const sizeString = size === 'none' ? '0' : size;
+          styles[`.${property}-${position}-${sizeString}`] = spacingMixin(property, position, sizeString);
         });
       });
     });
