@@ -20,15 +20,20 @@ module.exports = function (config) {
     }
     const styles = {};
     const properties = ['padding', 'margin'];
-    const positions = ['top', 'left', 'right', 'bottom'];
+    const positions = ['top', 'left', 'right', 'bottom', 'xaxis', 'yaxis'];
     const sizes = Object.keys(config.spacing.default);
     properties.forEach((property) => {
-      positions.forEach((position) => {
+      let addedAllProperty = false;
+      positions.forEach((positionString) => {
         sizes.forEach((size) => {
-          styles[`.${property[0]}-${position[0]}-${size}`] = spacingMixin(property, position, size);
+          if (!addedAllProperty) {
+            addedAllProperty = true;
+            styles[`.${property[0]}-${size}`] = spacingMixin(property, positionString, size);
+          }
+          styles[`.${property[0]}-${positionString[0]}-${size}`] = spacingMixin(property, positionString, size);
         });
       });
     });
     return styles;
-  }
+  };
 };
