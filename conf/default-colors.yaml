@@ -17,3 +17,4 @@ color:
   button-secondary-bg: '{{color.primary}}'
   button-secondary-color: '{{color.white}}'
   button-primary-outline-color: '{{color["button-primary-color"]}}'
+  tooltip-bg: 'rgba(17,17,17,.9)'
