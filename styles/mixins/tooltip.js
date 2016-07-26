@@ -7,7 +7,6 @@ module.exports = function () {
       '&::before': {
         'position': 'absolute',
         'z-index': 10,
-        'background-color': color,
         'opacity': 0,
         'content': '" "',
         'pointer-events': 'none',

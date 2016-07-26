@@ -77,7 +77,6 @@ module.exports = function (config, base, outputName, input) {
     }),
     inlinesvg(),
     svgo(),
-    triangle(),
     cssnext({
       warnForDuplicates: false,
       features: {
@@ -89,6 +88,7 @@ module.exports = function (config, base, outputName, input) {
         }
       }
     }),
+    triangle(),
     mqpacker({
       sort: true
     })
