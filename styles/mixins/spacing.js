@@ -8,11 +8,18 @@ module.exports = function (config) {
 
     for (const breakpoint of spacingBreakpoints) {
       styles[breakpoint] = {};
-      styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][size];
+      if (typeof position === 'string') {
+        styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][size];
+      } else {
+        position.forEach((pos) => {
+          styles[breakpoint][`${prop}-${pos}`] = config.spacing[breakpoint][size];
+        });
+      }
     }
 
     return breakpointHelper(styles, config);
   };
+
 
   return function (mixin, prop, position, size) {
     if (prop && position && size) {
@@ -22,6 +29,10 @@ module.exports = function (config) {
     const properties = ['padding', 'margin'];
     const positions = ['top', 'left', 'right', 'bottom', 'xaxis', 'yaxis'];
     const sizes = Object.keys(config.spacing.default);
+    const axials = {
+      xaxis: ['left', 'right'],
+      yaxis: ['top', 'bottom']
+    };
     properties.forEach((property) => {
       let addedAllProperty = false;
       positions.forEach((positionString) => {
@@ -30,7 +41,11 @@ module.exports = function (config) {
             addedAllProperty = true;
             styles[`.${property[0]}-${size}`] = spacingMixin(property, positionString, size);
           }
-          styles[`.${property[0]}-${positionString[0]}-${size}`] = spacingMixin(property, positionString, size);
+          if (Object.keys(axials).indexOf(positionString) > -1) {
+            styles[`.${property}-${positionString}-${size}`] = spacingMixin(property, axials[positionString], size);
+          } else {
+            styles[`.${property}-${positionString}-${size}`] = spacingMixin(property, positionString, size);
+          }
         });
       });
     });
