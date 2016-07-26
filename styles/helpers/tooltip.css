@@ -23,7 +23,7 @@ button.tooltip {
     &::before {
       triangle: equilateral pointing-down;
       height: 6px;
-      background-color: red;
+      background-color: rgba(0,0,0,.17);
       bottom: 100%;
       left: 50%;
       margin-bottom: 5px;
@@ -33,7 +33,7 @@ button.tooltip {
     &::after {
       bottom: 100%;
       left: 50%;
-      margin-bottom: 5px;
+      margin-bottom: 11px;
       transform: translate(-50%, 10px);
       transform-origin: top;
     }
@@ -52,6 +52,8 @@ button.tooltip {
   &-down {
     &::before {
       triangle: equilateral pointing-up;
+      height: 6px;
+      background-color: rgba(0,0,0,.17);
       left: 50%;
       margin-top: 5px;
       top: 100%;
@@ -59,7 +61,7 @@ button.tooltip {
     }
     &::after {
       left: 50%;
-      margin-top: 5px;
+      margin-top: 11px;
       top: 100%;
       transform: translate(-50%, -10px);
     }
@@ -79,13 +81,15 @@ button.tooltip {
   &-left {
     &::before {
       triangle: equilateral pointing-right;
+      height: 6px;
+      background-color: rgba(0,0,0,.17);
       margin-right: 5px;
       right: 100%;
       top: 50%;
       transform: translate(10px, -50%);
     }
     &::after {
-      margin-right: 5px;
+      margin-right: 11px;
       right: 100%;
       top: 50%;
       transform: translate(10px, -50%);
@@ -105,6 +109,8 @@ button.tooltip {
   &-right {
     &:before {
       triangle: equilateral pointing-left;
+      height: 6px;
+      background-color: rgba(0,0,0,.17);
       left: 100%;
       margin-left: 5px;
       top: 50%;
@@ -112,7 +118,7 @@ button.tooltip {
     }
     &::after {
       left: 100%;
-      margin-left: 5px;
+      margin-left: 11px;
       top: 50%;
       transform: translate(-10px, -50%);
     }
