@@ -42,9 +42,9 @@ module.exports = function (config) {
             styles[`.${property[0]}-${size}`] = spacingMixin(property, positionString, size);
           }
           if (Object.keys(axials).indexOf(positionString) > -1) {
-            styles[`.${property}-${positionString}-${size}`] = spacingMixin(property, axials[positionString], size);
+            styles[`.${property}-${positionString[0]}-${size}`] = spacingMixin(property, axials[positionString], size);
           } else {
-            styles[`.${property}-${positionString}-${size}`] = spacingMixin(property, positionString, size);
+            styles[`.${property}-${positionString[0]}-${size}`] = spacingMixin(property, positionString, size);
           }
         });
       });
