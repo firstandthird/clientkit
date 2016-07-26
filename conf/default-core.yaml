@@ -10,4 +10,4 @@ core:
     scripts:
       - '{{CWD}}/**/*.js'
     yaml:
-      - '{{CWD}}/conf/*.yaml'
+      - '{{CONFIGDIR}}/conf/*.yaml'

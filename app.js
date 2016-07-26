@@ -45,15 +45,15 @@ const runAll = () => {
   const jsProcessor = require('./tasks/script.js');
   const config = require('confi')({
     path: [
-      defaultConf,
-      argv.config
+      defaultConf
     ],
     context: {
-      CKDIR: __dirname
+      CKDIR: __dirname,
+      CONFIGDIR: argv.config
     }
   });
-  const watchedScriptFiles = config.core.files.scripts;
-  const watchedStyleFiles = config.core.files.css;
+  const watchedScriptFiles = config.core.watch.scripts;
+  const watchedStyleFiles = config.core.watch.css;
   if (argv.debug || argv._.indexOf('debug') > -1) {
     log(JSON.stringify(config, null, '  '));
   }
@@ -88,14 +88,14 @@ const runAll = () => {
 if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
   const config = require('confi')({
     path: [
-      defaultConf,
-      argv.config
+      defaultConf
     ],
     context: {
-      CKDIR: __dirname
+      CKDIR: __dirname,
+      CONFIGDIR: argv.config
     }
   });
-  const watchedConfigFiles = config.core.files.yaml;
+  const watchedConfigFiles = config.core.watch.yaml;
   watcher(watchedConfigFiles, [''], () => {
     runAll();
   }, 100);
