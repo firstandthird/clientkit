@@ -35,12 +35,14 @@ module.exports = function (config) {
             addedAllProperty = true;
             styles[`.${property}-${curSize}`] = spacingMixin(property, positionString, curSize);
           }
-          if (Object.keys(axials).indexOf(positionString) > -1) {
-            styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, axials[positionString][0], curSize);
-            const style2 = spacingMixin(property, axials[positionString][1], curSize);
-            Object.keys(style2).forEach((key) => {
-              styles[`.${property}-${positionString}-${curSize}`][key] = style2[key];
-            });
+          if (Object.keys(axials).indexOf(positionString) !== -1) {
+
+            styles[`.${property}-${positionString}-${curSize}`] = axials[positionString].reduce((obj, axisPos, index, array) => {
+              const styles = spacingMixin(property, axisPos, curSize);
+              Object.assign(obj, styles);
+              return obj;
+            }, {});
+
           } else {
             styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, positionString, curSize);
           }
