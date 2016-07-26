@@ -8,8 +8,7 @@ module.exports = function (config) {
 
     for (const breakpoint of spacingBreakpoints) {
       styles[breakpoint] = {};
-      const sizeKey = size === '0' ? 'none' : size;
-      styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][sizeKey];
+      styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][size];
     }
 
     return breakpointHelper(styles, config);
@@ -17,7 +16,8 @@ module.exports = function (config) {
 
   return function (mixin, prop, position, size) {
     if (prop && position && size) {
-      return spacingMixin(prop, position, size);
+      const sizeKey = size === '0' ? 'none' : size;
+      return spacingMixin(prop, position, sizeKey);
     }
     const styles = {};
     const properties = ['padding', 'margin'];
