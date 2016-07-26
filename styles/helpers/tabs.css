@@ -1,1 +1,3 @@
-@mixin tabs 5, 6px;
+.tabs {
+  @mixin tabs 5, 6px;
+}
