@@ -25,16 +25,24 @@ module.exports = function (config) {
     const sizes = Object.keys(config.spacing.default);
     const axials = {
       xaxis: ['left', 'right'],
-      yaxis: ['top', 'bottom']
+      yaxis: ['top', 'bottom'],
+      all: ['top', 'bottom', 'left', 'right']
     };
+    // first add the classes of the form <propery>-<size>:
+    properties.forEach((property) => {
+      sizes.forEach((curSize) => {
+        styles[`.${property}-${curSize}`] = axials.all.reduce((obj, axisPos, index, array) => {
+          const styles = spacingMixin(property, axisPos, curSize);
+          Object.assign(obj, styles);
+          return obj;
+        }, {});
+      });
+    });
+    // then add the ones of the form <property>-<position>-<size>:
     properties.forEach((property) => {
       let addedAllProperty = false;
       positions.forEach((positionString) => {
         sizes.forEach((curSize) => {
-          if (!addedAllProperty) {
-            addedAllProperty = true;
-            styles[`.${property}-${curSize}`] = spacingMixin(property, positionString, curSize);
-          }
           if (Object.keys(axials).indexOf(positionString) !== -1) {
 
             styles[`.${property}-${positionString}-${curSize}`] = axials[positionString].reduce((obj, axisPos, index, array) => {
@@ -47,6 +55,7 @@ module.exports = function (config) {
             styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, positionString, curSize);
           }
         });
+        addedAllProperty = true;
       });
     });
     return styles;
