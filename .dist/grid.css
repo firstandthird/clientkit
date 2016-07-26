@@ -348,11 +348,21 @@ body {
   display: none;
 }
 
+.show-xl {
+  display: block;
+}
+
 .hide-lg {}
+
+.show-lg {}
 
 .hide-md {}
 
+.show-md {}
+
 .hide-sm {}
+
+.show-sm {}
 
 @media (max-width: 1439px) {
 
@@ -675,6 +685,10 @@ body {
 
   .hide-lg {
     display: none;
+  }
+
+  .show-lg {
+    display: block;
   }
 }
 
@@ -1000,6 +1014,10 @@ body {
   .hide-md {
     display: none;
   }
+
+  .show-md {
+    display: block;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1323,6 +1341,10 @@ body {
 
   .hide-sm {
     display: none;
+  }
+
+  .show-sm {
+    display: block;
   }
 }
 

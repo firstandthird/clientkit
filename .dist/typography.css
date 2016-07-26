@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  color: #333;
   font-size: 14px;
   line-height: 24px;
 }
@@ -110,17 +111,22 @@ body {
 }
 
 .font-large {
+  font-family: sans-serif;
+  color: #333;
   font-size: 16px;
   line-height: 24px;
 }
 
 .font-body {
   font-family: sans-serif;
+  color: #333;
   font-size: 14px;
   line-height: 24px;
 }
 
 .font-small {
+  font-family: sans-serif;
+  color: #333;
   font-size: 12px;
   line-height: 24px;
 }
