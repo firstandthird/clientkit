@@ -15,6 +15,3 @@ color:
   input-border: '#333'
   button-primary-bg: 'rgba(75, 157, 249, 1)'
   button-primary-color: '{{color.white}}'
-  button-secondary-bg: '{{color.primary}}'
-  button-secondary-color: '{{color.white}}'
-  button-primary-outline-color: '{{color["button-primary-color"]}}'
