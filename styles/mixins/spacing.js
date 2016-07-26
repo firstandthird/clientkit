@@ -18,6 +18,9 @@ module.exports = function (config) {
     if (prop && position && size) {
       return spacingMixin(prop, position, size);
     }
+    if (prop) {
+      throw new Error('usage: @mixin spacing property, position, size');
+    }
     const styles = {};
     const properties = ['padding', 'margin'];
     const positions = ['top', 'left', 'right', 'bottom'];
