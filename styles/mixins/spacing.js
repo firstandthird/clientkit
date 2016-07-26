@@ -1,7 +1,6 @@
 'use strict';
 
 const breakpointHelper = require('../../lib/breakpoint-helper');
-const _merge = require('lodash.merge');
 module.exports = function (config) {
   const spacingMixin = function(prop, position, size) {
     const styles = {};
@@ -37,11 +36,11 @@ module.exports = function (config) {
             styles[`.${property}-${curSize}`] = spacingMixin(property, positionString, curSize);
           }
           if (Object.keys(axials).indexOf(positionString) > -1) {
-            let style = {};
-            axials[positionString].forEach((direction) => {
-              style = _merge(style, spacingMixin(property, direction, curSize));
+            styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, axials[positionString][0], curSize);
+            const style2 = spacingMixin(property, axials[positionString][1], curSize);
+            Object.keys(style2).forEach((key) => {
+              styles[`.${property}-${positionString}-${curSize}`][key] = style2[key];
             });
-            styles[`.${property}-${positionString}-${curSize}`] = style;
           } else {
             styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, positionString, curSize);
           }

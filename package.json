@@ -47,7 +47,6 @@
     "cssnano": "^3.7.1",
     "exorcist": "^0.4.0",
     "lodash.debounce": "^4.0.6",
-    "lodash.merge": "^4.5.0",
     "logr": "^1.9.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
