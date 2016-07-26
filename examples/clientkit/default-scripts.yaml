@@ -1,0 +1,3 @@
+scripts:
+  main.js: '{{core.assetPath}}/scripts/sample1.js'
+  main2.js: '{{core.assetPath}}/scripts/sample2.js'
