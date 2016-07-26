@@ -1,3 +1,6 @@
+button.tooltip {
+  overflow: visible;
+}
 .tooltip {
   @mixin tooltip;
 
@@ -17,14 +20,17 @@
   }
 
   &-up {
-    &:after {
+    &::before {
+      triangle: equilateral pointing-down;
+      height: 6px;
+      background-color: red;
       bottom: 100%;
       left: 50%;
-      margin-bottom: 5px + $balloon-arrow-height;
+      margin-bottom: 5px;
       transform: translate(-50%, 10px);
       transform-origin: top;
     }
-    &:before {
+    &::after {
       bottom: 100%;
       left: 50%;
       margin-bottom: 5px;
@@ -34,26 +40,24 @@
 
     &:hover,
     &-visible {
-      &:after {
+      &::before {
         transform: translate(-50%, 0);
       }
-
-      &:before {
+      &::after {
         transform: translate(-50%, 0);
       }
     }
   }
 
   &-down {
-    &:after {
+    &::before {
+      triangle: equilateral pointing-up;
       left: 50%;
-      margin-top: 5px + $balloon-arrow-height;
+      margin-top: 5px;
       top: 100%;
       transform: translate(-50%, -10px);
     }
-
-    &:before {
-      @include svg-arrow($balloon-bg, 'down');
+    &::after {
       left: 50%;
       margin-top: 5px;
       top: 100%;
@@ -62,27 +66,25 @@
 
     &:hover,
     &-visible {
-      &:after {
+      &::before {
+        transform: translate(-50%, 0);
+      }
+      &::after {
         transform: translate(-50%, 0);
       }
 
-      &:before {
-        transform: translate(-50%, 0);
-      }
     }
   }
 
   &-left {
-    &:after {
-      margin-right: 5px + $balloon-arrow-height;
+    &::before {
+      triangle: equilateral pointing-right;
+      margin-right: 5px;
       right: 100%;
       top: 50%;
       transform: translate(10px, -50%);
     }
-
-    &:before {
-      @include svg-arrow($balloon-bg, 'left');
-
+    &::after {
       margin-right: 5px;
       right: 100%;
       top: 50%;
@@ -91,28 +93,24 @@
 
     &:hover,
     &-visible {
-      &:after {
+      &::before {
         transform: translate(0, -50%);
       }
-
-      &:before {
+      &::after {
         transform: translate(0, -50%);
       }
     }
   }
 
   &-right {
-    &:after {
-
+    &:before {
+      triangle: equilateral pointing-left;
       left: 100%;
-      margin-left: 5px + $balloon-arrow-height;
+      margin-left: 5px;
       top: 50%;
       transform: translate(-10px, -50%);
     }
-
-    &:before {
-      @include svg-arrow($balloon-bg, 'right');
-
+    &::after {
       left: 100%;
       margin-left: 5px;
       top: 50%;
@@ -121,13 +119,13 @@
 
     &:hover,
     &-visible {
-      &:after {
+      &::before {
+        transform: translate(0, -50%);
+      }
+      &::after {
         transform: translate(0, -50%);
       }
 
-      &:before {
-        transform: translate(0, -50%);
-      }
     }
   }
 }
