@@ -1,6 +1,7 @@
 'use strict';
 
 const breakpointHelper = require('../../lib/breakpoint-helper');
+const _merge = require('lodash.merge');
 module.exports = function (config) {
   const spacingMixin = function(prop, position, size) {
     const styles = {};
@@ -8,13 +9,7 @@ module.exports = function (config) {
 
     for (const breakpoint of spacingBreakpoints) {
       styles[breakpoint] = {};
-      if (typeof position === 'string') {
-        styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][size];
-      } else {
-        position.forEach((pos) => {
-          styles[breakpoint][`${prop}-${pos}`] = config.spacing[breakpoint][size];
-        });
-      }
+      styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][size];
     }
 
     return breakpointHelper(styles, config);
@@ -36,15 +31,19 @@ module.exports = function (config) {
     properties.forEach((property) => {
       let addedAllProperty = false;
       positions.forEach((positionString) => {
-        sizes.forEach((size) => {
+        sizes.forEach((curSize) => {
           if (!addedAllProperty) {
             addedAllProperty = true;
-            styles[`.${property[0]}-${size}`] = spacingMixin(property, positionString, size);
+            styles[`.${property}-${curSize}`] = spacingMixin(property, positionString, curSize);
           }
           if (Object.keys(axials).indexOf(positionString) > -1) {
-            styles[`.${property}-${positionString[0]}-${size}`] = spacingMixin(property, axials[positionString], size);
+            let style = {};
+            axials[positionString].forEach((direction) => {
+              style = _merge(style, spacingMixin(property, direction, curSize));
+            });
+            styles[`.${property}-${positionString}-${curSize}`] = style;
           } else {
-            styles[`.${property}-${positionString[0]}-${size}`] = spacingMixin(property, positionString, size);
+            styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, positionString, curSize);
           }
         });
       });
