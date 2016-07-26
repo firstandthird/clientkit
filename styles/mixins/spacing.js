@@ -24,12 +24,12 @@ module.exports = function (config) {
     const positions = ['top', 'left', 'right', 'bottom'];
     const sizes = Object.keys(config.spacing.default);
     properties.forEach((property) => {
-      positions.forEach((position) => {
-        sizes.forEach((size) => {
-          styles[`.${property}-${position}-${size}`] = spacingMixin(property, position, size);
+      positions.forEach((positionString) => {
+        sizes.forEach((sizeString) => {
+          styles[`.${property}-${positionString}-${sizeString}`] = spacingMixin(property, positionString, sizeString);
         });
       });
     });
     return styles;
-  }
+  };
 };

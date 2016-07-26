@@ -5,7 +5,7 @@
   & h4,
   & h5,
   & h6 {
-    @mixin spacing margin, top, 0;
+    @mixin spacing margin, top, none;
     @mixin spacing margin, bottom, lg;
   }
   & h1 {
@@ -24,7 +24,7 @@
     @mixin font-style heading-5;
   }
   & p {
-    @mixin spacing margin, top, 0;
+    @mixin spacing margin, top, none;
     @mixin spacing margin, bottom, md;
     @mixin font-style font-body;
   }
