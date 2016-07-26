@@ -3,9 +3,8 @@ core:
   minimize: false
   dist: '{{CWD}}/.dist'
   assetPath: '{{CWD}}'
-  configPath: '{{CWD}}/conf'
   mobileFirst: false
-  files:
+  watch:
     css:
       - '{{CWD}}/styles/**/*.css'
     scripts:
