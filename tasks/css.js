@@ -95,7 +95,7 @@ module.exports = function (config, base, outputName, input) {
   ];
 
   // Only run fonts against default.css to avoid duplicates
-  if (input.indexOf('default.css') !== -1) {
+  if (input.match(config.core.fontParsingWhitelist)) {
     processes.push(cssfonts({
       foundries: ['custom', 'hosted', 'google']
     }));
