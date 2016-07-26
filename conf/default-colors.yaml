@@ -1,4 +1,4 @@
-# All color vairables will be prefixed automatically
+# All color variables will be prefixed automatically
 color:
   primary: '#333'
   body: '#333'
