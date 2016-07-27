@@ -6,10 +6,10 @@ core:
   mobileFirst: false
   watch:
     css:
-      - '{{core.assetPath}}/styles/**/*.css'
+      - '{{core.assetPath}}/**/*.css'
     scripts:
       - '{{core.assetPath}}/**/*.js'
     yaml:
-      - '{{CONFIGDIR}}/conf/*.yaml'
+      - '{{CONFIGDIR}}/*.yaml'
   eslint: 'eslint-config-firstandthird'
   fontParsingWhitelist: 'default.css'
