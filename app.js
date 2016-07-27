@@ -5,7 +5,8 @@ const yargs = require('yargs');
 const Logr = require('logr');
 const watcher = require('./lib/watcher');
 const mkdirp = require('mkdirp');
-
+const getStdin = require('get-stdin');
+const confi = require('confi');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -16,6 +17,9 @@ const log = new Logr({
 });
 
 const argv = yargs
+.option('css', {
+  describe: 'can be used to pass in arbitrary css ',
+})
 .option('mode', {
   describe: 'set to "dev" mode to continuously monitor your files and auto-process when a change is made',
   default: 'prod'
@@ -38,11 +42,25 @@ log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
 let jsWatcher = false; // watcher we will use to watch js files
 let cssWatcher = false; // the same, for css
+const cssProcessor = require('./tasks/css.js');
+const jsProcessor = require('./tasks/script.js');
 
-const runAll = (config) => {
+const loadConfig = () => {
+  return confi({
+    path: [
+      defaultConf,
+      argv.config
+    ],
+    context: {
+      CKDIR: __dirname,
+      CONFIGDIR: argv.config
+    }
+  });
+};
+
+const runAll = () => {
   // Tasks
-  const cssProcessor = require('./tasks/css.js');
-  const jsProcessor = require('./tasks/script.js');
+  const config = loadConfig();
   const watchedScriptFiles = config.core.watch.scripts;
   const watchedStyleFiles = config.core.watch.css;
   if (argv.debug || argv._.indexOf('debug') > -1) {
@@ -75,22 +93,34 @@ const runAll = (config) => {
   }
 };
 
-const config = require('confi')({
-  path: [
-    defaultConf,
-    argv.config
-  ],
-  context: {
-    CKDIR: __dirname,
-    CONFIGDIR: argv.config
-  }
-});
+const printCss = (cssExpression) => {
+  const config = loadConfig();
+  config.consoleOnly = true;
+  cssProcessor(config, __dirname, 'none', cssExpression, (result) => {
+    // strips out the little addendum at the bottom of the css:
+    log(result.css.split(`/*# sourceMappingURL=none.map */`)[0]);
+  });
+};
+
 // dev mode will watch your conf files and reload everything when they are changed:
 if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+  const config = loadConfig();
   const watchedConfigFiles = config.core.watch.yaml;
   watcher(watchedConfigFiles, [''], () => {
-    runAll(config);
+    runAll();
   }, 100);
+} else if (argv.css) {
+  // if they didn't pass a value into argv.css, look in stdin for the css expression or filename:
+  if (typeof argv.css === 'string') {
+    printCss(argv.css);
+  } else {
+    getStdin().then(str => {
+      if (str[str.length - 1] === '\n') {
+        str = str.replace('\n', '');
+      }
+      printCss(str);
+    });
+  }
 } else {
-  runAll(config);
+  runAll();
 }
