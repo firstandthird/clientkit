@@ -1,6 +1,6 @@
 spacing:
   default:
-    0: 0
+    none: 0
     xl: 80px
     lg: 50px
     md: 30px
