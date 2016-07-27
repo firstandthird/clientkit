@@ -6,8 +6,8 @@ core:
   mobileFirst: false
   watch:
     css:
-      - '{{CWD}}/styles/**/*.css'
+      - '{{core.assetPath}}/styles/**/*.css'
     scripts:
-      - '{{CWD}}/**/*.js'
+      - '{{core.assetPath}}/**/*.js'
     yaml:
       - '{{CONFIGDIR}}/conf/*.yaml'
