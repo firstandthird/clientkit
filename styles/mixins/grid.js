@@ -63,12 +63,12 @@ module.exports = function (config) {
           'margin-right': `${(100 / (12 / i))}%`
         };
         if ( colName === 'sm' ) {
-          block[`.carousel-peekaboo .${prefix}-${i}`] = {
+          block[`.row-carousel-peekaboo .${prefix}-${i}`] = {
             width: `${(100 / (12 / i) - 15)}%`
           };
         }
         if ( colName === 'md' ) {
-          block[`.carousel-peekaboo .${prefix}-${i}`] = {
+          block[`.row-carousel-peekaboo .${prefix}-${i}`] = {
             width: `${(100 / (12 / i) - 5)}%`
           };
         }
