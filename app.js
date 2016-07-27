@@ -39,19 +39,10 @@ const defaultConf = path.join(__dirname, 'conf');
 let jsWatcher = false; // watcher we will use to watch js files
 let cssWatcher = false; // the same, for css
 
-const runAll = () => {
+const runAll = (config) => {
   // Tasks
   const cssProcessor = require('./tasks/css.js');
   const jsProcessor = require('./tasks/script.js');
-  const config = require('confi')({
-    path: [
-      defaultConf
-    ],
-    context: {
-      CKDIR: __dirname,
-      CONFIGDIR: argv.config
-    }
-  });
   const watchedScriptFiles = config.core.watch.scripts;
   const watchedStyleFiles = config.core.watch.css;
   if (argv.debug || argv._.indexOf('debug') > -1) {
@@ -84,21 +75,22 @@ const runAll = () => {
   }
 };
 
+const config = require('confi')({
+  path: [
+    defaultConf,
+    argv.config
+  ],
+  context: {
+    CKDIR: __dirname,
+    CONFIGDIR: argv.config
+  }
+});
 // dev mode will watch your conf files and reload everything when they are changed:
 if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-  const config = require('confi')({
-    path: [
-      defaultConf
-    ],
-    context: {
-      CKDIR: __dirname,
-      CONFIGDIR: argv.config
-    }
-  });
   const watchedConfigFiles = config.core.watch.yaml;
   watcher(watchedConfigFiles, [''], () => {
-    runAll();
+    runAll(config);
   }, 100);
 } else {
-  runAll();
+  runAll(config);
 }
