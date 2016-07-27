@@ -9,6 +9,7 @@ const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
 const bes2015 = require('babel-preset-es2015');
 const Logr = require('logr');
+
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -55,13 +56,19 @@ module.exports = function(conf, base, outputName, input) {
     debug: true
   });
 
-  b
-    .transform(babelify, { global: true, presets: [bes2015], plugins: [] })
-    .bundle()
-    .on('error', function (err) {
-      log(['error'], err.stack);
-      this.emit('end');
-    })
-    .pipe(exorcist(`${output}.map`))
-    .pipe(fileStream);
+  let currentTransform = b.transform(babelify, { global: true, presets: [bes2015], plugins: [] });
+  if (conf.mode === 'prod') {
+    console.log('prod mode')
+    currentTransform = currentTransform.transform({
+      global: true
+    }, 'uglifyify');
+  }
+  currentTransform
+  .bundle()
+  .on('error', function (err) {
+    log(['error'], err.stack);
+    this.emit('end');
+  })
+  .pipe(exorcist(`${output}.map`))
+  .pipe(fileStream);
 };
