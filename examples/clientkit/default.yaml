@@ -2,6 +2,14 @@ core:
   dist: '{{CWD}}/examples/.dist'
   assetPath: '{{CWD}}/examples'
   mobileFirst: false
+  watch:
+    css:
+      - '{{CKDIR}}/styles/**/*.css'
+      - '{{core.assetPath}}/**/*.css'
+    yaml:
+      - '{{CKDIR}}/conf/*.yaml'
+      - '{{CONFIGDIR}}/*.yaml'
+
 siteMaxWidth: '1600px'
 colors:
   primary: '#336699'
