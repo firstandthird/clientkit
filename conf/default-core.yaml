@@ -4,3 +4,5 @@ core:
   dist: '{{CWD}}/.dist'
   assetPath: '{{CWD}}'
   mobileFirst: false
+  eslint: 'eslint-config-firstandthird'
+  fontParsingWhitelist: 'default.css'
