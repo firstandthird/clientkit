@@ -11,3 +11,5 @@ core:
       - '{{core.assetPath}}/**/*.js'
     yaml:
       - '{{CONFIGDIR}}/conf/*.yaml'
+  eslint: 'eslint-config-firstandthird'
+  fontParsingWhitelist: 'default.css'

@@ -24,7 +24,7 @@ const log = new Logr({
   }
 });
 
-module.exports = function (config, base, outputName, input) {
+module.exports = function (config, base, outputName, input, callback) {
   const start = new Date().getTime();
   const cssVars = {};
   const customMedia = {};
@@ -95,7 +95,7 @@ module.exports = function (config, base, outputName, input) {
   ];
 
   // Only run fonts against default.css to avoid duplicates
-  if (input.indexOf('default.css') !== -1) {
+  if (input.match(config.core.fontParsingWhitelist)) {
     processes.push(cssfonts({
       foundries: ['custom', 'hosted', 'google']
     }));
@@ -104,9 +104,19 @@ module.exports = function (config, base, outputName, input) {
   if (config.core.minify) {
     processes.push(cssnano());
   }
-
-  postcss(processes).process(fs.readFileSync(input), { from: input, to: output, map: { inline: false } })
+  let inputCss;
+  // the input could be either a file path or a CSS expression:
+  const ext = path.extname(input);
+  if (ext === '.css') {
+    inputCss = fs.readFileSync(path.normalize(input));
+  } else {
+    inputCss = input;
+  }
+  postcss(processes).process(inputCss, { from: input, to: output, map: { inline: false } })
     .then(result => {
+      if (config.consoleOnly) {
+        return callback(result);
+      }
       fs.writeFileSync(output, result.css);
       fs.writeFileSync(`${output}.map`, result.map);
 

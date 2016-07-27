@@ -25,10 +25,6 @@ module.exports = function (config) {
         'box-sizing': 'border-box'
       };
 
-      block['.container-bleed'] = {
-        'max-width': config.breakpoints[breakpoint].bleed ? config.breakpoints[breakpoint].bleed : config.breakpoints[breakpoint].content
-      };
-
       block[`.${prefix}-pull-0`] = {
         right: 'auto'
       };
