@@ -46,7 +46,7 @@ const jsProcessor = require('./tasks/script.js');
 
 
 const loadConfig = () => {
-  return require('confi')({
+  const conf = require('confi')({
     path: [
       defaultConf,
       argv.config
@@ -55,6 +55,13 @@ const loadConfig = () => {
       CKDIR: __dirname
     }
   });
+  // will need mode later on:
+  if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+    conf.mode = 'dev';
+  } else {
+    conf.mode = 'prod';
+  }
+  return conf;
 };
 
 const runAll = () => {
