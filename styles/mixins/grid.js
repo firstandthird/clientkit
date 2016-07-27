@@ -62,6 +62,16 @@ module.exports = function (config) {
         block[`.${prefix}-suffix-${i}`] = {
           'margin-right': `${(100 / (12 / i))}%`
         };
+        if ( colName === 'sm' ) {
+          block[`.row-carousel-peekaboo .${prefix}-${i}`] = {
+            width: `${(100 / (12 / i) - 15)}%`
+          };
+        }
+        if ( colName === 'md' ) {
+          block[`.row-carousel-peekaboo .${prefix}-${i}`] = {
+            width: `${(100 / (12 / i) - 5)}%`
+          };
+        }
       }
     }
 

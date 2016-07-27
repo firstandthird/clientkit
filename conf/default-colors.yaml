@@ -7,7 +7,7 @@ color:
   secondary: '#666'
   white: '#fff'
   accent: orange
-  background-default: rgb(200,200,200)
+  background-default: '#fff'
   background-alt: rgb(95, 95, 95)
   link: '{{color.primary}}'
   link-hover: '{{color.secondary}}'

@@ -3,9 +3,10 @@ module.exports = function () {
     return {
       'width': '100%',
       'height': '100%',
-      'white-space': 'nowrap',
       'overflow-y': 'hidden',
       'overflow': 'auto',
+      'margin': '0',
+      'white-space': 'nowrap',
       '-webkit-overflow-scrolling': 'touch',
       'scroll-snap-type': 'mandatory',
       'scroll-snap-destination': '0% 100%',
@@ -14,8 +15,9 @@ module.exports = function () {
       '& [class*="col-"]': {
         'display': 'inline-block',
         'float': 'none',
-        'vertical-align': 'top'
+        'vertical-align': 'top',
+        'white-space': 'normal'
       }
-    }
+    };
   };
 };

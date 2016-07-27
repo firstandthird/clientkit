@@ -101,7 +101,7 @@ module.exports = function (config, base, outputName, input, callback) {
     }));
   }
 
-  if (config.core.minify) {
+  if (config.core.minify || config.mode === 'prod') {
     processes.push(cssnano());
   }
   let inputCss;

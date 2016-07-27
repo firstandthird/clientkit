@@ -61,6 +61,7 @@
     "postcss-svgo": "^2.1.3",
     "postcss-triangle": "^1.0.1",
     "require-all": "^2.0.0",
+    "uglifyify": "^3.0.2",
     "yargs": "^4.8.1"
   }
 }
