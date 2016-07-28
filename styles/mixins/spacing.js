@@ -5,15 +5,25 @@ module.exports = function (config) {
   const spacingMixin = function(prop, position, size) {
     const styles = {};
     const spacingBreakpoints = Object.keys(config.spacing);
-
-    for (const breakpoint of spacingBreakpoints) {
-      styles[breakpoint] = {};
-      styles[breakpoint][`${prop}-${position}`] = config.spacing[breakpoint][size];
+    const axials = {
+      xaxis: ['left', 'right'],
+      yaxis: ['top', 'bottom'],
+      all: ['top', 'bottom', 'left', 'right']
+    };
+    let positions = [position];
+    if (axials[position]) {
+      positions = axials[position];
     }
-
-    return breakpointHelper(styles, config);
+    const allPositions = {};
+    positions.forEach((curPosition, index) => {
+      for (const breakpoint of spacingBreakpoints) {
+        styles[breakpoint] = {};
+        styles[breakpoint][`${prop}-${curPosition}`] = `${config.spacing[breakpoint][size]}`;
+      }
+      Object.assign(allPositions, breakpointHelper(styles, config));
+    });
+    return allPositions;
   };
-
 
   return function (mixin, prop, position, size) {
     if (prop && position && size) {
@@ -26,39 +36,18 @@ module.exports = function (config) {
     const properties = ['padding', 'margin'];
     const positions = ['top', 'left', 'right', 'bottom', 'xaxis', 'yaxis'];
     const sizes = Object.keys(config.spacing.default);
-    const axials = {
-      xaxis: ['left', 'right'],
-      yaxis: ['top', 'bottom'],
-      all: ['top', 'bottom', 'left', 'right']
-    };
     // first add the classes of the form <propery>-<size>:
     properties.forEach((property) => {
       sizes.forEach((curSize) => {
-        styles[`.${property}-${curSize}`] = axials.all.reduce((obj, axisPos, index, array) => {
-          const styles = spacingMixin(property, axisPos, curSize);
-          Object.assign(obj, styles);
-          return obj;
-        }, {});
+        styles[`.${property}-${curSize}`] = spacingMixin(property, 'all', curSize);
       });
     });
     // then add the ones of the form <property>-<position>-<size>:
     properties.forEach((property) => {
-      let addedAllProperty = false;
       positions.forEach((positionString) => {
         sizes.forEach((curSize) => {
-          if (Object.keys(axials).indexOf(positionString) !== -1) {
-
-            styles[`.${property}-${positionString}-${curSize}`] = axials[positionString].reduce((obj, axisPos, index, array) => {
-              const styles = spacingMixin(property, axisPos, curSize);
-              Object.assign(obj, styles);
-              return obj;
-            }, {});
-
-          } else {
-            styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, positionString, curSize);
-          }
+          styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, positionString, curSize);
         });
-        addedAllProperty = true;
       });
     });
     return styles;
