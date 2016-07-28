@@ -14,8 +14,22 @@ module.exports = function (config) {
     return breakpointHelper(styles, config);
   };
 
-
+  const axials = {
+    xaxis: ['left', 'right'],
+    yaxis: ['top', 'bottom'],
+    all: ['top', 'bottom', 'left', 'right']
+  };
+  const generateAxial = (positionString, property, size) => {
+    return axials[positionString].reduce((obj, axisPos, index, array) => {
+      const styles = spacingMixin(property, axisPos, size);
+      Object.assign(obj, styles);
+      return obj;
+    }, {});
+  };
   return function (mixin, prop, position, size) {
+    if (prop && position && size && axials[position]) {
+      return generateAxial(position, prop, size);
+    }
     if (prop && position && size) {
       return spacingMixin(prop, position, size);
     }
@@ -26,19 +40,10 @@ module.exports = function (config) {
     const properties = ['padding', 'margin'];
     const positions = ['top', 'left', 'right', 'bottom', 'xaxis', 'yaxis'];
     const sizes = Object.keys(config.spacing.default);
-    const axials = {
-      xaxis: ['left', 'right'],
-      yaxis: ['top', 'bottom'],
-      all: ['top', 'bottom', 'left', 'right']
-    };
     // first add the classes of the form <propery>-<size>:
     properties.forEach((property) => {
       sizes.forEach((curSize) => {
-        styles[`.${property}-${curSize}`] = axials.all.reduce((obj, axisPos, index, array) => {
-          const styles = spacingMixin(property, axisPos, curSize);
-          Object.assign(obj, styles);
-          return obj;
-        }, {});
+        styles[`.${property}-${curSize}`] = generateAxial('all', property, curSize);
       });
     });
     // then add the ones of the form <property>-<position>-<size>:
@@ -47,13 +52,7 @@ module.exports = function (config) {
       positions.forEach((positionString) => {
         sizes.forEach((curSize) => {
           if (Object.keys(axials).indexOf(positionString) !== -1) {
-
-            styles[`.${property}-${positionString}-${curSize}`] = axials[positionString].reduce((obj, axisPos, index, array) => {
-              const styles = spacingMixin(property, axisPos, curSize);
-              Object.assign(obj, styles);
-              return obj;
-            }, {});
-
+            styles[`.${property}-${positionString}-${curSize}`] = generateAxial(positionString, property, curSize);
           } else {
             styles[`.${property}-${positionString}-${curSize}`] = spacingMixin(property, positionString, curSize);
           }
