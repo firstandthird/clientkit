@@ -46,16 +46,6 @@ describe('buttons mixin', function() {
     done();
   });
 });
-describe('buttons outline mixin', function() {
-  this.timeout(20000);
-  it('generates css outlines for buttons', (done) => {
-    const button = require('../styles/mixins/button-outline.js')(conf);
-    const result = button({}, '#ff0000');
-    expect(result.color).to.equal('#ff0000');
-    expect(result['&:hover'].color).to.equal('#fff');
-    done();
-  });
-});
 
 describe('fancy-underline', function() {
   it('renders a fancy-underline', (done) => {
