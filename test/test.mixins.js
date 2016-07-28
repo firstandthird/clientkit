@@ -11,7 +11,7 @@ const conf = require('confi')({
   ],
   context: {
     CKDIR: __dirname,
-    CONFIGDIR: path.join(process.cwd(), 'clientkit')
+    CONFIGDIR: path.join(process.cwd(), 'examples/clientkit')
   }
 });
 conf.consoleOnly = true;
