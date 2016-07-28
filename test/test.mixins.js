@@ -5,8 +5,7 @@ const expect = require('chai').expect;
 const path = require('path');
 
 // global config object for each test
-let conf;
-conf = require('confi')({
+const conf = require('confi')({
   path: [
     './conf'
   ],
@@ -66,7 +65,7 @@ describe('fancy-underline', function() {
     expect(result.color).to.equal('#111');
     expect(result['&:active'].color).to.equal('#fff');
     expect(result['background-image']).to.include('10px');
-    expect(result['background-image']).to.include(`${10+12}px`);
+    expect(result['background-image']).to.include(`${10 + 12}px`);
     done();
   });
 });
