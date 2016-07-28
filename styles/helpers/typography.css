@@ -30,6 +30,10 @@ body {
   text-align: right;
 }
 
+.text-stretch {
+  @mixin text-stretch 2px;
+}
+
 .text-justify {
   text-align: justify;
 }
