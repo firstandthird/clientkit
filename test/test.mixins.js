@@ -146,22 +146,29 @@ describe('list-inline', function() {
 });
 describe('spacing mixin', function() {
   this.timeout(5000);
-  it('generates basic css spacers', (done) => {
+  it('generates specific css spacers', (done) => {
     const spacing = require('../styles/mixins/spacing.js')(conf);
     const result = spacing({}, 'margin', 'top', 'md');
     expect(result['margin-top']).to.equal(conf.spacing.default.md);
-    const result2 = spacing({}, 'padding', 'bottom', 'none');
-    expect(result2['padding-bottom']).to.equal(0);
+    const result2 = spacing({}, 'padding', 'all', 'md');
+    expect(result2['padding-top']).to.equal(conf.spacing.default.md);
+    expect(result2['padding-bottom']).to.equal(conf.spacing.default.md);
+    expect(result2['padding-left']).to.equal(conf.spacing.default.md);
+    const result3 = spacing({}, 'padding', 'yaxis', 'md');
+    expect(result3['padding-top']).to.equal(conf.spacing.default.md);
+    expect(result3['padding-bottom']).to.equal(conf.spacing.default.md);
     done();
   });
   it('generates multi-axis css spacers', (done) => {
     const spacing = require('../styles/mixins/spacing.js')(conf);
     // xaxis:
     const xaxisResult = spacing({}, 'margin', 'xaxis', 'lg');
-    expect(xaxisResult['margin-xaxis']).to.equal(conf.spacing.default.lg);
+    expect(xaxisResult['margin-left']).to.equal(conf.spacing.default.lg);
+    expect(xaxisResult['margin-right']).to.equal(conf.spacing.default.lg);
     // yaxis:
     const yaxisResult = spacing({}, 'padding', 'yaxis', 'xs');
-    expect(yaxisResult['padding-yaxis']).to.equal(conf.spacing.default.xs);
+    expect(yaxisResult['padding-top']).to.equal(conf.spacing.default.xs);
+    expect(yaxisResult['padding-bottom']).to.equal(conf.spacing.default.xs);
     // all:
     const allResult = spacing({});
     expect(allResult['.margin-xl']['margin-top']).to.equal(conf.spacing.default.xl);
