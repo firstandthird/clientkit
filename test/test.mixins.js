@@ -3,6 +3,7 @@ const describe = require('mocha').describe;
 const it = require('mocha').it;
 const expect = require('chai').expect;
 const path = require('path');
+const fs = require('fs');
 
 // global config object for each test
 const conf = require('confi')({
@@ -16,11 +17,19 @@ const conf = require('confi')({
 });
 conf.consoleOnly = true;
 
+const writeToFile = (cssJson, fileName) => {
+  fs.writeFileSync(`test/expectedOutputs/mixins/${fileName}`, `module.exports=${JSON.stringify(cssJson)};`);
+};
+const compare = (result, fileName) => {
+  const json = require(path.join(process.cwd(), `test/expectedOutputs/mixins/${fileName}`));
+  expect(json).to.deep.equal(result);
+};
+
 describe('bg colors mixin', function() {
   it('generates css bg colors', (done) => {
     const colors = require('../styles/mixins/bg-colors.js')(conf);
     const result = colors({});
-    expect(result['.bg-default']['background-color']).to.equal(conf.color['background-default']);
+    compare(result, 'bg-colors.js');
     done();
   });
 });
@@ -29,7 +38,7 @@ describe('bg image mixin', function() {
   it('generates css bg image', (done) => {
     const image = require('../styles/mixins/bg-image.js')(conf);
     const result = image({}, 'http://nope.com/myImage.jpg');
-    expect(result['background-image']).to.equal('url(http://nope.com/myImage.jpg)');
+    compare(result, 'bg-image.js');
     done();
   });
 });
@@ -40,9 +49,7 @@ describe('buttons mixin', function() {
     const button = require('../styles/mixins/button.js')(conf);
     // mixin, bgColor, fgColor, type
     const result = button({}, '#ff0000', '#00ff00', 'outline');
-    expect(result.color).to.equal('#ff0000');
-    expect(result.border).to.equal('2px solid #ff0000');
-    expect(result['&:hover'].color).to.equal('#00ff00');
+    compare(result, 'button.js');
     done();
   });
 });
@@ -52,10 +59,7 @@ describe('fancy-underline', function() {
     const fancy = require('../styles/mixins/fancy-underline.js')(conf);
     // (rule, backgroundColor, linkColor, hoverColor, offset, width, activeOffset) {
     const result = fancy({}, '#333', '#111', '#fff', 10, 12, 15);
-    expect(result.color).to.equal('#111');
-    expect(result['&:active'].color).to.equal('#fff');
-    expect(result['background-image']).to.include('10px');
-    expect(result['background-image']).to.include(`${10 + 12}px`);
+    compare(result, 'fancy-underline.js');
     done();
   });
 });
@@ -64,9 +68,8 @@ describe('font-style', function() {
   it('generates a group of font classes', (done) => {
     const font = require('../styles/mixins/font-style.js')(conf);
     const result = font({});
-    expect(result['.heading-3']['font-family']).to.equal('sans');
-    expect(result['.heading-3']['font-size']).to.equal(conf.fontStyles.default['heading-3']['font-size']);
-    expect(result['.font-large']['font-size']).to.equal(conf.fontStyles.default['font-large']['font-size']);
+    writeToFile(result, 'font-style.js');
+    compare(result, 'font-style.js');
     done();
   });
 
