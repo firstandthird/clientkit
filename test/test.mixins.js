@@ -133,17 +133,19 @@ describe('spacing mixin', function() {
     const result = spacing({}, 'margin', 'top', 'md');
     expect(result['margin-top']).to.equal(conf.spacing.default.md);
     const result2 = spacing({}, 'padding', 'bottom', 'none');
-    expect(result2['padding-bottom']).to.equal(0);
+    expect(result2['padding-bottom']).to.equal('0');
     done();
   });
   it('generates multi-axis css spacers', (done) => {
     const spacing = require('../styles/mixins/spacing.js')(conf);
     // xaxis:
     const xaxisResult = spacing({}, 'margin', 'xaxis', 'lg');
-    expect(xaxisResult['margin-xaxis']).to.equal(conf.spacing.default.lg);
+    expect(xaxisResult['margin-left']).to.equal(conf.spacing.default.lg);
+    expect(xaxisResult['margin-right']).to.equal(conf.spacing.default.lg);
     // yaxis:
     const yaxisResult = spacing({}, 'padding', 'yaxis', 'xs');
-    expect(yaxisResult['padding-yaxis']).to.equal(conf.spacing.default.xs);
+    expect(yaxisResult['padding-top']).to.equal(conf.spacing.default.xs);
+    expect(yaxisResult['padding-bottom']).to.equal(conf.spacing.default.xs);
     // all:
     const allResult = spacing({});
     compare(allResult, 'spacing.js');

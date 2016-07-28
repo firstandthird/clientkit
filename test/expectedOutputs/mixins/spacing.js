@@ -1,9 +1,9 @@
 module.exports={
   ".padding-none": {
-    "padding-top": 0,
-    "padding-bottom": 0,
-    "padding-left": 0,
-    "padding-right": 0
+    "padding-top": "0",
+    "padding-bottom": "0",
+    "padding-left": "0",
+    "padding-right": "0"
   },
   ".padding-xl": {
     "padding-top": "80px",
@@ -36,10 +36,10 @@ module.exports={
     "padding-right": "10px"
   },
   ".margin-none": {
-    "margin-top": 0,
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0
+    "margin-top": "0",
+    "margin-bottom": "0",
+    "margin-left": "0",
+    "margin-right": "0"
   },
   ".margin-xl": {
     "margin-top": "80px",
@@ -72,7 +72,7 @@ module.exports={
     "margin-right": "10px"
   },
   ".padding-top-none": {
-    "padding-top": 0
+    "padding-top": "0"
   },
   ".padding-top-xl": {
     "padding-top": "80px"
@@ -90,7 +90,7 @@ module.exports={
     "padding-top": "10px"
   },
   ".padding-left-none": {
-    "padding-left": 0
+    "padding-left": "0"
   },
   ".padding-left-xl": {
     "padding-left": "80px"
@@ -108,7 +108,7 @@ module.exports={
     "padding-left": "10px"
   },
   ".padding-right-none": {
-    "padding-right": 0
+    "padding-right": "0"
   },
   ".padding-right-xl": {
     "padding-right": "80px"
@@ -126,7 +126,7 @@ module.exports={
     "padding-right": "10px"
   },
   ".padding-bottom-none": {
-    "padding-bottom": 0
+    "padding-bottom": "0"
   },
   ".padding-bottom-xl": {
     "padding-bottom": "80px"
@@ -144,8 +144,8 @@ module.exports={
     "padding-bottom": "10px"
   },
   ".padding-xaxis-none": {
-    "padding-left": 0,
-    "padding-right": 0
+    "padding-left": "0",
+    "padding-right": "0"
   },
   ".padding-xaxis-xl": {
     "padding-left": "80px",
@@ -168,8 +168,8 @@ module.exports={
     "padding-right": "10px"
   },
   ".padding-yaxis-none": {
-    "padding-top": 0,
-    "padding-bottom": 0
+    "padding-top": "0",
+    "padding-bottom": "0"
   },
   ".padding-yaxis-xl": {
     "padding-top": "80px",
@@ -192,7 +192,7 @@ module.exports={
     "padding-bottom": "10px"
   },
   ".margin-top-none": {
-    "margin-top": 0
+    "margin-top": "0"
   },
   ".margin-top-xl": {
     "margin-top": "80px"
@@ -210,7 +210,7 @@ module.exports={
     "margin-top": "10px"
   },
   ".margin-left-none": {
-    "margin-left": 0
+    "margin-left": "0"
   },
   ".margin-left-xl": {
     "margin-left": "80px"
@@ -228,7 +228,7 @@ module.exports={
     "margin-left": "10px"
   },
   ".margin-right-none": {
-    "margin-right": 0
+    "margin-right": "0"
   },
   ".margin-right-xl": {
     "margin-right": "80px"
@@ -246,7 +246,7 @@ module.exports={
     "margin-right": "10px"
   },
   ".margin-bottom-none": {
-    "margin-bottom": 0
+    "margin-bottom": "0"
   },
   ".margin-bottom-xl": {
     "margin-bottom": "80px"
@@ -264,8 +264,8 @@ module.exports={
     "margin-bottom": "10px"
   },
   ".margin-xaxis-none": {
-    "margin-left": 0,
-    "margin-right": 0
+    "margin-left": "0",
+    "margin-right": "0"
   },
   ".margin-xaxis-xl": {
     "margin-left": "80px",
@@ -288,8 +288,8 @@ module.exports={
     "margin-right": "10px"
   },
   ".margin-yaxis-none": {
-    "margin-top": 0,
-    "margin-bottom": 0
+    "margin-top": "0",
+    "margin-bottom": "0"
   },
   ".margin-yaxis-xl": {
     "margin-top": "80px",
