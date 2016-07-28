@@ -14,14 +14,15 @@ module.exports = function (config) {
     if (axials[position]) {
       positions = axials[position];
     }
-    for (const breakpoint of spacingBreakpoints) {
-      styles[breakpoint] = {};
-      positions.forEach((curPosition) => {
-        styles[breakpoint][`${prop}-${curPosition}`] = config.spacing[breakpoint][size];
-      });
-    }
-
-    return breakpointHelper(styles, config);
+    const allPositions = {};
+    positions.forEach((curPosition, index) => {
+      for (const breakpoint of spacingBreakpoints) {
+        styles[breakpoint] = {};
+        styles[breakpoint][`${prop}-${curPosition}`] = `${config.spacing[breakpoint][size]}`;
+      }
+      Object.assign(allPositions, breakpointHelper(styles, config));
+    });
+    return allPositions;
   };
 
   return function (mixin, prop, position, size) {
