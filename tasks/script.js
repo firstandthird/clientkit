@@ -8,6 +8,7 @@ const exorcist = require('exorcist');
 const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
 const bes2015 = require('babel-preset-es2015');
+const uglifyify = require('uglifyify');
 const Logr = require('logr');
 
 const log = new Logr({
@@ -58,9 +59,7 @@ module.exports = function(conf, base, outputName, input) {
 
   let currentTransform = b.transform(babelify, { global: true, presets: [bes2015], plugins: [] });
   if (conf.mode === 'prod') {
-    currentTransform = currentTransform.transform({
-      global: true
-    }, 'uglifyify');
+    currentTransform = currentTransform.transform(uglifyify, { global: true });
   }
   currentTransform
   .bundle()
