@@ -41,12 +41,14 @@ describe('bg image mixin', function() {
 });
 
 describe('buttons mixin', function() {
-  this.timeout(20000);
   it('generates css for buttons', (done) => {
     const button = require('../styles/mixins/button.js')(conf);
     // mixin, bgColor, fgColor, type
     const result = button({}, '#ff0000', '#00ff00', 'outline');
     compare(result, 'button.js');
+    expect(result['background-color']).to.equal('transparent');
+    const nonOutlineResult = button({}, '#ff0000', '#00ff00');
+    expect(nonOutlineResult['background-color']).to.include('#ff0000');
     done();
   });
 });
@@ -88,14 +90,17 @@ describe('grid', function() {
   });
 });
 
+const writeToFile = (cssJson, fileName) => {
+  fs.writeFileSync(`test/expectedOutputs/mixins/${fileName}`, `module.exports=${JSON.stringify(cssJson, null, 2)};`);
+};
+
 describe('hide', function() {
   it('generates hide classes', (done) => {
     const hide = require('../styles/mixins/hide.js')(conf);
     const result = hide({}, 'sm', 'block');
-    expect(result['@media (max-width: 767px)'].display).to.equal('block');
+    compare(result, 'hide-sm.js');
     const result2 = hide({}, null, 'block');
-    expect(result2['.show-md']['@media (max-width: 1023px)'].display).to.equal('block');
-    expect(result2['.show-sm']['@media (max-width: 767px)'].display).to.equal('block');
+    compare(result2, 'hide-null.js');
     done();
   });
 });
@@ -127,13 +132,13 @@ describe('list-inline', function() {
   });
 });
 describe('spacing mixin', function() {
-  this.timeout(5000);
   it('generates basic css spacers', (done) => {
     const spacing = require('../styles/mixins/spacing.js')(conf);
     const result = spacing({}, 'margin', 'top', 'md');
     expect(result['margin-top']).to.equal(conf.spacing.default.md);
+    compare(result, 'spacing-md.js');
     const result2 = spacing({}, 'padding', 'bottom', 'none');
-    expect(result2['padding-bottom']).to.equal('0');
+    compare(result2, 'spacing-none.js');
     done();
   });
   it('generates multi-axis css spacers', (done) => {
@@ -151,30 +156,10 @@ describe('spacing mixin', function() {
     compare(allResult, 'spacing.js');
     done();
   });
-  // todo: need to test with full css eval:
 });
-/*
-todo: need to eval and verify css expressions
-const executeCss = (cssExpression, callback) => {
-  const cssProcessor = require('../tasks/css.js');
-  // config, base, outputName, input, callback
-  cssProcessor(conf, process.cwd(), 'none', cssExpression, callback);
-};
-it('can be executed as a @mixin', (done) => {
-  // executeCss('@mixin spacing;', function(result) {
-  //   // expect(result.css).to.include('margin-left');
-  //   // expect(result.css).to.include('margin-right');
-  //   return done();
-  // });
-});
-*/
 it('generates basic css tabs', (done) => {
   const tabs = require('../styles/mixins/tabs.js')(conf);
   const result = tabs({}, '3', '12');
-  expect(result['border-radius']).to.equal('12');
-  expect(result['& .tab']['& + label']['border-radius']).to.equal('12 12 0 0');
-  expect(typeof result['& .tab:checked:nth-of-type(1) ~ .tab-content:nth-of-type(1)']).to.equal('object');
-  expect(result['& .tab:checked:nth-of-type(2) ~ .tab-content:nth-of-type(2)'].position).to.equal('relative');
-  expect(result['& .tab:checked:nth-of-type(2) ~ .tab-content:nth-of-type(2)'].transform).to.include('translateY');
+  compare(result, 'tabs.js');
   done();
 });
