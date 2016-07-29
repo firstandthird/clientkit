@@ -105,8 +105,7 @@ class CssTask {
     let inputCss;
     // the input could be either a file path or a CSS expression:
     if (path.extname(input) === '.css') {
-      console.log('input is %s', path.join(this.base, input));
-      inputCss = fs.readFileSync(path.join(this.base, input));
+      inputCss = fs.readFileSync(path.normalize(input));
     } else {
       inputCss = input;
     }
@@ -136,10 +135,9 @@ class CssTask {
   }
 }
 module.exports.CssTask = CssTask;
-module.exports.runTaskAndWrite = function (config, base, input, outputName) {
+module.exports.runTaskAndWrite = function (config, base, outputName, input) {
   const task = new CssTask(config, base);
   task.performTask(input, () => {
-    console.log(this.result.css)
     task.writeToFile(outputName);
   });
 };
