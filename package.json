@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "node app.js dev",
+    "test": "mocha",
     "example:build": "node app.js --config $PWD/examples/clientkit",
     "example:dev": "node app.js dev --config $PWD/examples/clientkit",
     "example:serve": "serve -p 8082 examples",
@@ -26,8 +27,10 @@
   },
   "homepage": "https://github.com/firstandthird/clientkit#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "concurrently": "^2.2.0",
     "gh-pages": "^0.11.0",
+    "mocha": "^2.5.3",
     "serve": "^1.4.0",
     "stylelint": "^6.7.1"
   },
