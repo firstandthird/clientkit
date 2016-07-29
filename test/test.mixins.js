@@ -17,6 +17,11 @@ const conf = require('confi')({
 });
 conf.consoleOnly = true;
 
+// helper function to write sample json to file:
+const writeToFile = (cssJson, fileName) => {
+  fs.writeFileSync(`test/expectedOutputs/mixins/${fileName}`, `module.exports=${JSON.stringify(cssJson, null, 2)};`);
+};
+// helper function to compare to sample json from file:
 const compare = (result, fileName) => {
   const json = require(path.join(process.cwd(), `test/expectedOutputs/mixins/${fileName}`));
   expect(json).to.deep.equal(result);
@@ -89,10 +94,6 @@ describe('grid', function() {
     done();
   });
 });
-
-const writeToFile = (cssJson, fileName) => {
-  fs.writeFileSync(`test/expectedOutputs/mixins/${fileName}`, `module.exports=${JSON.stringify(cssJson, null, 2)};`);
-};
 
 describe('hide', function() {
   it('generates hide classes', (done) => {
