@@ -104,8 +104,8 @@ class CssTask {
         foundries: ['custom', 'hosted', 'google']
       }));
     }
-    // minify if specified by either command line or in config files:
-    if (this.config.core.minify || this.config.minify) {
+    // minify if specified in config files:
+    if (this.config.core.minify) {
       processes.push(cssnano());
     }
     let inputCss;

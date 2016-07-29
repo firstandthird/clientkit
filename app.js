@@ -16,10 +16,6 @@ const log = new Logr({
 });
 
 const argv = yargs
-.option('minify', {
-  describe: 'minify the css/js output. useful when generating production code',
-  default: false
-})
 .option('options', {
   describe: 'shows the css variables and mixins that are available ',
   default: false
@@ -65,9 +61,6 @@ const loadConfig = () => {
     }
   });
   // second, set up the configuration based on any command line options:
-  if (argv.minify || argv._.minify || argv._.indexOf('minify') > -1) {
-    conf.minify = true;
-  }
   if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
     conf.mode = 'dev';
   } else {
