@@ -6,7 +6,6 @@ const Logr = require('logr');
 const watcher = require('./lib/watcher');
 const mkdirp = require('mkdirp');
 const getStdin = require('get-stdin');
-const confi = require('confi');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -17,6 +16,10 @@ const log = new Logr({
 });
 
 const argv = yargs
+.option('options', {
+  describe: 'shows the css variables and mixins that are available ',
+  default: false
+})
 .option('css', {
   describe: 'can be used to pass in arbitrary css ',
 })
@@ -92,8 +95,8 @@ const runAll = () => {
     }, config.core.rebuildDelay);
   } else {
     if (config.stylesheets) {
-      Object.keys(config.stylesheets).forEach(style => cssProcessor.runTaskAndWrite(config, path.join(__dirname, 'styles'), style, config.stylesheets[style]));
-      }
+      Object.keys(config.stylesheets).forEach(style => cssProcessor.runTaskAndWrite(config, __dirname, style, config.stylesheets[style]));
+    }
     if (config.scripts) {
       Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
     }
@@ -103,14 +106,36 @@ const runAll = () => {
 const printCss = (cssExpression) => {
   const config = loadConfig();
   config.consoleOnly = true;
-  cssProcessor(config, __dirname, 'none', cssExpression, (result) => {
+  cssProcessor.processOnly(config, __dirname, cssExpression, (result) => {
     // strips out the little addendum at the bottom of the css:
     log(result.css.split(`/*# sourceMappingURL=none.map */`)[0]);
   });
 };
 
+
 // dev mode will watch your conf files and reload everything when they are changed:
-if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
+  const conf = loadConfig();
+  const obj = new cssProcessor.CssTask(conf, __dirname);
+  log('Available Mixins:');
+  log('------------------------------------------------');
+  Object.keys(obj.mixins).forEach((mixinName) => {
+    log(mixinName);
+  });
+  log('------------------------------------------------');
+  log('Available Variables:');
+  log('------------------------------------------------');
+  Object.keys(obj.cssVars).forEach((varName) => {
+    log(`${varName} : ${obj.cssVars[varName]}`);
+  });
+  log('------------------------------------------------');
+  log('Custom Media:');
+  log('------------------------------------------------');
+  Object.keys(obj.customMedia).forEach((mediaName) => {
+    log(`${mediaName} : ${obj.customMedia[mediaName]}`);
+  });
+  log('------------------------------------------------');
+} else if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
   const config = loadConfig();
   const watchedConfigFiles = config.core.watch.yaml;
   watcher(watchedConfigFiles, [''], () => {
