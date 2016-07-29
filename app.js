@@ -16,6 +16,10 @@ const log = new Logr({
 });
 
 const argv = yargs
+.option('minify', {
+  describe: 'minify the css/js output. useful when generating production code',
+  default: false
+})
 .option('options', {
   describe: 'shows the css variables and mixins that are available ',
   default: false
@@ -49,6 +53,7 @@ const cssProcessor = require('./tasks/css.js');
 const jsProcessor = require('./tasks/script.js');
 
 const loadConfig = () => {
+  // first set up configuration based on the config yamls:
   const conf = require('confi')({
     path: [
       defaultConf,
@@ -59,7 +64,10 @@ const loadConfig = () => {
       CONFIGDIR: argv.config
     }
   });
-  // will need mode later on:
+  // second, set up the configuration based on any command line options:
+  if (argv.minify || argv._.minify || argv._.indexOf('minify') > -1) {
+    conf.minify = true;
+  }
   if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
     conf.mode = 'dev';
   } else {
