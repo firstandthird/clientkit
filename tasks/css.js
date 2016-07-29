@@ -44,6 +44,11 @@ class CssTask {
     Object.keys(config.grid).forEach(prop => {
       this.cssVars[`grid-${prop}`] = config.grid[prop];
     });
+    if (config.vars) {
+      Object.keys(config.vars).forEach(varName => {
+        this.cssVars[varName] = config.vars[varName];
+      });
+    }
     // load spacing variables:
     Object.keys(config.breakpoints).forEach(breakpoint => {
       const constraint = config.core.mobileFirst ? 'min' : 'max';
