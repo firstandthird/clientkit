@@ -5,6 +5,7 @@ const expect = require('chai').expect;
 const cssModule = require('../tasks/css.js');
 const path = require('path');
 const fs = require('fs');
+const mkdirp = require('mkdirp');
 const conf = require('confi')({
   path: [
     './conf'
@@ -14,7 +15,6 @@ const conf = require('confi')({
     CONFIGDIR: path.join(process.cwd(), 'examples/clientkit')
   }
 });
-conf.consoleOnly = true;
 describe('css task', function() {
   this.timeout(15000);
   it('can load the object', (done) => {
@@ -46,6 +46,8 @@ describe('css task', function() {
     });
   });
   it('can parse css and write it to file correctly', (done) => {
+    conf.core.dist = path.join(__dirname, '.dist');
+    mkdirp.sync(conf.core.dist);
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     cssTask.performTask('@mixin spacing', () => {
       cssTask.writeToFile('test.css');
