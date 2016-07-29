@@ -81,7 +81,7 @@ const runAll = () => {
       cssWatcher.close();
     }
     cssWatcher = watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
-      cssProcessor(config, __dirname, input, output);
+      cssProcessor.runTaskAndWrite(config, __dirname, input, output);
     }, config.core.rebuildDelay);
     // remove any existing js file watchers:
     if (jsWatcher) {
@@ -92,8 +92,8 @@ const runAll = () => {
     }, config.core.rebuildDelay);
   } else {
     if (config.stylesheets) {
-      Object.keys(config.stylesheets).forEach(style => cssProcessor(config, __dirname, style, config.stylesheets[style]));
-    }
+      Object.keys(config.stylesheets).forEach(style => cssProcessor.runTaskAndWrite(config, path.join(__dirname, 'styles'), style, config.stylesheets[style]));
+      }
     if (config.scripts) {
       Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
     }
