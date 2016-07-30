@@ -6,6 +6,7 @@ const Logr = require('logr');
 const watcher = require('./lib/watcher');
 const mkdirp = require('mkdirp');
 const getStdin = require('get-stdin');
+const fs = require('fs');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -49,6 +50,13 @@ const cssProcessor = require('./tasks/css.js');
 const jsProcessor = require('./tasks/script.js');
 
 const loadConfig = () => {
+  try {
+    fs.accessSync(argv.config, fs.F_OK);
+  } catch (e) {
+    log(['error'], `Unable to access config directory ${argv.config}`);
+    log(e);
+    process.exit(1);
+  }
   const conf = require('confi')({
     path: [
       defaultConf,
