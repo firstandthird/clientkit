@@ -41,6 +41,22 @@ const argv = yargs
 .env(true)
 .argv;
 
+if (argv.init !== '' || argv._.init !== '') {
+  log(`initializing new project directory ${argv.init}`);
+  mkdirp(argv.init);
+  const mainConfigFiles = [
+    'default-colors.yaml',
+    'default-typography.yaml'
+  ];
+  mainConfigFiles.forEach((fileName) => {
+    try {
+      fs.writeFileSync(targetFile, fs.readFileSync(sourceFile));
+
+    } catch (e) {
+
+    }
+  });
+}
 log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
 let jsWatcher = false; // watcher we will use to watch js files
