@@ -53,8 +53,7 @@ const loadConfig = () => {
   try {
     fs.accessSync(argv.config, fs.F_OK);
   } catch (e) {
-    log(['error'], `Unable to access config directory ${argv.config}`);
-    log(e);
+    log(['error'], e);
     process.exit(1);
   }
   const conf = require('confi')({
