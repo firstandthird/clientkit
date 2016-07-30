@@ -6,6 +6,7 @@ const Logr = require('logr');
 const watcher = require('./lib/watcher');
 const mkdirp = require('mkdirp');
 const getStdin = require('get-stdin');
+const fs = require('fs');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -16,6 +17,11 @@ const log = new Logr({
 });
 
 const argv = yargs
+.option('init', {
+  describe: 'create a new project directory ',
+  default: false,
+  type: 'string'
+})
 .option('options', {
   describe: 'shows the css variables and mixins that are available ',
   default: false
@@ -41,21 +47,27 @@ const argv = yargs
 .env(true)
 .argv;
 
-if (argv.init !== '' || argv._.init !== '') {
-  log(`initializing new project directory ${argv.init}`);
-  mkdirp(argv.init);
+if (argv.init !== false) {
+  let initDir = argv.init ? argv.init : argv._.init;
+  // default project dir is clientkit
+  if (initDir === '' || initDir === undefined) {
+    initDir = path.join(process.cwd(), 'clientkit');
+  }
+  log(`initializing new project directory ${initDir}`);
+  mkdirp(initDir);
   const mainConfigFiles = [
     'default-colors.yaml',
     'default-typography.yaml'
   ];
   mainConfigFiles.forEach((fileName) => {
     try {
-      fs.writeFileSync(targetFile, fs.readFileSync(sourceFile));
-
+      fs.writeFileSync(path.join(initDir, fileName), fs.readFileSync(path.join('./conf', fileName)));
     } catch (e) {
-
+      log(['error'], e);
+      process.exit(1);
     }
   });
+  process.exit(0);
 }
 log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
