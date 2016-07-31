@@ -37,6 +37,15 @@ describe('css task', function() {
       done();
     });
   });
+  it('can parse css and minimze it', (done) => {
+    conf.core.minify = true;
+    const cssTask = new cssModule.CssTask(conf, process.cwd());
+    cssTask.performTask('@mixin spacing', (result) => {
+      expect(result.css).to.include('.padding-none{padding:0}');
+      conf.core.minify = false;
+      done();
+    });
+  });
   it('can parse css files', (done) => {
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     cssTask.performTask('./styles/helpers/spacing.css', (result) => {
