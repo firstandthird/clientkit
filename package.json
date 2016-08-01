@@ -31,6 +31,7 @@
     "concurrently": "^2.2.0",
     "gh-pages": "^0.11.0",
     "mocha": "^2.5.3",
+    "rimraf": "^2.5.4",
     "serve": "^1.4.0",
     "stylelint": "^6.7.1"
   },
@@ -51,7 +52,7 @@
     "exorcist": "^0.4.0",
     "get-stdin": "^5.0.1",
     "lodash.debounce": "^4.0.6",
-    "logr": "^1.9.0",
+    "logr": "^1.10.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
     "path-exists": "^3.0.0",

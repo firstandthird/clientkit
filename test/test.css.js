@@ -17,7 +17,7 @@ const conf = require('confi')({
 });
 describe('css task', function() {
   this.timeout(15000);
-  it('can load the object', (done) => {
+  it('can construct  a new instance of the class', (done) => {
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     expect(typeof cssTask).to.equal('object');
     //todo: should verify more
@@ -28,6 +28,17 @@ describe('css task', function() {
     Object.keys(cssTask.mixins).forEach((mixinName) => {
       expect(typeof cssTask.mixins[mixinName]).to.equal('function');
     });
+    done();
+  });
+  it('throws error if constructed with a non-existent config directory', (done) => {
+    const prevConsole = console.log;
+    let errorThrown = false;
+    try {
+      const cssTask = new cssModule.CssTask(conf, 'hijk/aslkjdf');
+    } catch (exc) {
+      errorThrown = true;
+    }
+    expect(errorThrown).to.equal(true);
     done();
   });
   it('can parse css', (done) => {
