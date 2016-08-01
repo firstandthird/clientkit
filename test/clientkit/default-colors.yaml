@@ -1,0 +1,17 @@
+# All color variables will be prefixed automatically
+color:
+  primary: '#333'
+  body: '#333'
+  heading: '#333'
+  heading-light: '#fff'
+  secondary: '#666'
+  white: '#fff'
+  accent: orange
+  background-default: '#fff'
+  background-alt: rgb(95, 95, 95)
+  link: '{{color.primary}}'
+  link-hover: '{{color.secondary}}'
+  input-background: '#fff'
+  input-border: '#333'
+  button-primary-bg: 'rgba(75, 157, 249, 1)'
+  button-primary-color: '{{color.white}}'

@@ -1,0 +1,9 @@
+inputs:
+  default:
+    input:
+      background: '{{color["input-background"]}}'
+      border: '1px solid {{color["input-border"]}}'
+      font-size: '{{fontStyles.default["font-body"]["font-size"]}}'
+      line-height: '{{fontStyles.default["font-body"]["line-height"]}}'
+      padding: 0
+      margin: 0
