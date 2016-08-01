@@ -20,9 +20,9 @@ module.exports = (argv) => {
   }
   log(`initializing new project directory ${initDir}`);
   try {
-    mkdirp(initDir);
+    mkdirp.sync(initDir);
   } catch (e) {
-    log(['error'], e);
+    log(e);
     return false;
   }
   const mainConfigFiles = fs.readdirSync('conf/');
@@ -30,7 +30,7 @@ module.exports = (argv) => {
     try {
       fs.writeFileSync(path.join(initDir, fileName), fs.readFileSync(path.join('./conf', fileName)));
     } catch (e) {
-      log(['error'], e);
+      log(e);
       return false;
     }
   });
