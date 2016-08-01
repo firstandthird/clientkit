@@ -1,6 +1,6 @@
 core:
   rebuildDelay: 100
-  minimize: false
+  minify: false
   dist: '{{CWD}}/.dist'
   assetPath: '{{CWD}}'
   mobileFirst: false

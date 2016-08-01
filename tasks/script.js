@@ -58,7 +58,7 @@ module.exports = function(conf, base, outputName, input) {
   });
 
   let currentTransform = b.transform(babelify, { global: true, presets: [bes2015], plugins: [] });
-  if (conf.mode === 'prod') {
+  if (conf.core.minify) {
     currentTransform = currentTransform.transform(uglifyify, { global: true });
   }
   currentTransform

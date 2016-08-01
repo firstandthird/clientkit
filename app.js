@@ -77,6 +77,7 @@ const cssProcessor = require('./tasks/css.js');
 const jsProcessor = require('./tasks/script.js');
 
 const loadConfig = () => {
+  // first set up configuration based on the config yamls:
   const conf = require('confi')({
     path: [
       defaultConf,
@@ -87,7 +88,7 @@ const loadConfig = () => {
       CONFIGDIR: argv.config
     }
   });
-  // will need mode later on:
+  // second, set up the configuration based on any command line options:
   if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
     conf.mode = 'dev';
   } else {
