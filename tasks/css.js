@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-
+const _ = require('lodash');
 const postcss = require('postcss');
 const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
@@ -139,12 +139,27 @@ class CssTask {
     log(`Wrote: ${this.input} → ${output}`);
     log(`Wrote: ${this.input}.map → ${output}.map`);
   }
+
+  exportStyleguide(inputName, outputName) {
+    try {
+      const htmlTemplate = require(path.join(process.cwd(), 'lib', 'styleguide.template.js'));
+      const output = htmlTemplate(this.cssVars);
+      fs.writeFileSync(outputName, output);
+    } catch (e) {
+        console.log(e)
+    }
+    log(`styleguide available at ${outputName}`);
+  }
 }
 module.exports.CssTask = CssTask;
 module.exports.runTaskAndWrite = function (config, base, outputName, input) {
   const task = new CssTask(config, base);
   task.performTask(input, () => {
     task.writeToFile(outputName);
+    task.exportStyleguide(
+      path.join(__dirname, 'styleguide.template'),
+      path.join(process.cwd(), 'docs', `${outputName}.styleguide.html`)
+    );
   });
 };
 module.exports.processOnly = function (config, base, input, callback) {
