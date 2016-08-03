@@ -16,6 +16,10 @@ const log = new Logr({
 });
 
 const argv = yargs
+.option('styleguide', {
+  describe: 'generate an html styleguide based on your new css that you can open in your browser ',
+  default: false
+})
 .option('options', {
   describe: 'shows the css variables and mixins that are available ',
   default: false
@@ -43,11 +47,6 @@ const argv = yargs
 
 log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
-let jsWatcher = false; // watcher we will use to watch js files
-let cssWatcher = false; // the same, for css
-const cssProcessor = require('./tasks/css.js');
-const jsProcessor = require('./tasks/script.js');
-
 const loadConfig = () => {
   // first set up configuration based on the config yamls:
   const conf = require('confi')({
@@ -68,6 +67,26 @@ const loadConfig = () => {
   }
   return conf;
 };
+
+
+if (argv.styleguide) {
+  // todo: this should ultimately go in commands/ instead of tasks/ on the init branch:
+  const config = loadConfig();
+  const styleguide = require('./tasks/styleguide.js');
+  styleguide(
+    config,
+    path.join(process.cwd(), 'lib', 'styleguide.template'),
+    path.join(config.core.dist, `styleguide.html`),
+    log
+  );
+  process.exit(0);
+}
+
+let jsWatcher = false; // watcher we will use to watch js files
+let cssWatcher = false; // the same, for css
+const cssProcessor = require('./tasks/css.js');
+const jsProcessor = require('./tasks/script.js');
+
 
 const runAll = () => {
   // Tasks
