@@ -74,7 +74,7 @@ if (argv.styleguide) {
   const styleguide = require('./tasks/styleguide.js');
   styleguide(
     config,
-    path.join(process.cwd(), 'lib', 'styleguide.template'),
+    path.join(__dirname, 'lib', 'styleguide.template'),
     path.join(config.core.dist, 'styleguide.html'),
     log
   );

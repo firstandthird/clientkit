@@ -50,6 +50,7 @@
     "eslint-plugin-react": "^5.2.2",
     "exorcist": "^0.4.0",
     "get-stdin": "^5.0.1",
+    "lodash.capitalize": "^4.2.0",
     "lodash.debounce": "^4.0.6",
     "lodash.reduce": "^4.5.1",
     "logr": "^1.10.0",
