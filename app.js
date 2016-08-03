@@ -68,7 +68,6 @@ const loadConfig = () => {
   return conf;
 };
 
-
 if (argv.styleguide) {
   // todo: this should ultimately go in commands/ instead of tasks/ on the init branch:
   const config = loadConfig();
@@ -76,7 +75,7 @@ if (argv.styleguide) {
   styleguide(
     config,
     path.join(process.cwd(), 'lib', 'styleguide.template'),
-    path.join(config.core.dist, `styleguide.html`),
+    path.join(config.core.dist, 'styleguide.html'),
     log
   );
   process.exit(0);
