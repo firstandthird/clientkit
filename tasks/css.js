@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-
 const postcss = require('postcss');
 const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
@@ -24,108 +23,131 @@ const log = new Logr({
   }
 });
 
-module.exports = function (config, base, outputName, input, callback) {
-  const start = new Date().getTime();
-  const cssVars = {};
-  const customMedia = {};
-
-  Object.keys(config.color).forEach(color => {
-    cssVars[`color-${color}`] = config.color[color];
-  });
-
-  Object.keys(config.fonts).forEach(font => {
-    cssVars[`font-${font}`] = config.fonts[font];
-  });
-
-  Object.keys(config.breakpoints).forEach(breakpoint => {
-    const constraint = config.core.mobileFirst ? 'min' : 'max';
-    const width = config.breakpoints[breakpoint][`${constraint}-width`];
-    const mediaquery = `(${constraint}-width: ${width})`;
-
-    cssVars[`breakpoint-${breakpoint}`] = width;
-    customMedia[breakpoint] = mediaquery;
-  });
-
-  Object.keys(config.spacing.default).forEach(spacing => {
-    cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
-  });
-
-  Object.keys(config.grid).forEach(prop => {
-    cssVars[`grid-${prop}`] = config.grid[prop];
-  });
-
-  const mixins = require('require-all')({
-    dirname: path.join(base, 'styles/mixins'),
-    resolve: m => m(config, postcss)
-  });
-
-  if (pathExists.sync(path.join(config.core.assetPath, 'mixins'))) {
-    const localMixins = require('require-all')({
-      dirname: path.join(config.core.assetPath, 'mixins'),
+class CssTask {
+  // loads config files:
+  constructor(config, base) {
+    this.config = config;
+    this.base = base;
+    this.cssVars = {};
+    this.customMedia = {};
+    // load css variables:
+    Object.keys(config.color).forEach(color => {
+      this.cssVars[`color-${color}`] = config.color[color];
+    });
+    Object.keys(config.fonts).forEach(font => {
+      this.cssVars[`font-${font}`] = config.fonts[font];
+    });
+    Object.keys(config.spacing.default).forEach(spacing => {
+      this.cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
+    });
+    Object.keys(config.grid).forEach(prop => {
+      this.cssVars[`grid-${prop}`] = config.grid[prop];
+    });
+    if (config.vars) {
+      Object.keys(config.vars).forEach(varName => {
+        this.cssVars[varName] = config.vars[varName];
+      });
+    }
+    // load spacing variables:
+    Object.keys(config.breakpoints).forEach(breakpoint => {
+      const constraint = config.core.mobileFirst ? 'min' : 'max';
+      const width = config.breakpoints[breakpoint][`${constraint}-width`];
+      const mediaquery = `(${constraint}-width: ${width})`;
+      this.cssVars[`breakpoint-${breakpoint}`] = width;
+      this.customMedia[breakpoint] = mediaquery;
+    });
+    // load mixins:
+    const globalMixins = require('require-all')({
+      dirname: path.join(base, 'styles/mixins'),
       resolve: m => m(config, postcss)
     });
-
-    Object.assign(mixins, localMixins);
+    if (pathExists.sync(path.join(config.core.assetPath, 'mixins'))) {
+      const localMixins = require('require-all')({
+        dirname: path.join(config.core.assetPath, 'mixins'),
+        resolve: m => m(config, postcss)
+      });
+      Object.assign(globalMixins, localMixins);
+    }
+    this.mixins = globalMixins;
   }
 
-  const output = path.join(config.core.dist, outputName);
-
-  const processes = [
-    cssimport,
-    cssmixins({
-      mixins
-    }),
-    inlinesvg(),
-    svgo(),
-    triangle(),
-    cssnext({
-      warnForDuplicates: false,
-      features: {
-        customProperties: {
-          variables: cssVars
-        },
-        customMedia: {
-          extensions: customMedia
+  performTask(input, callback) {
+    this.input = input;
+    const start = new Date().getTime();
+    const processes = [
+      cssimport,
+      cssmixins({
+        mixins: this.mixins
+      }),
+      inlinesvg(),
+      svgo(),
+      triangle(),
+      cssnext({
+        warnForDuplicates: false,
+        features: {
+          customProperties: {
+            variables: this.cssVars
+          },
+          customMedia: {
+            extensions: this.customMedia
+          }
         }
-      }
-    }),
-    mqpacker({
-      sort: true
-    })
-  ];
-
-  // Only run fonts against default.css to avoid duplicates
-  if (input.match(config.core.fontParsingWhitelist)) {
-    processes.push(cssfonts({
-      foundries: ['custom', 'hosted', 'google']
-    }));
-  }
-
-  if (config.core.minify || config.mode === 'prod') {
-    processes.push(cssnano());
-  }
-  let inputCss;
-  // the input could be either a file path or a CSS expression:
-  const ext = path.extname(input);
-  if (ext === '.css') {
-    inputCss = fs.readFileSync(path.normalize(input));
-  } else {
-    inputCss = input;
-  }
-  postcss(processes).process(inputCss, { from: input, to: output, map: { inline: false } })
+      }),
+      mqpacker({
+        sort: true
+      })
+    ];
+    // Only run fonts against default.css to avoid duplicates
+    if (input.match(this.config.core.fontParsingWhitelist)) {
+      processes.push(cssfonts({
+        foundries: ['custom', 'hosted', 'google']
+      }));
+    }
+    // minify if specified in config files:
+    if (this.config.core.minify) {
+      processes.push(cssnano());
+    }
+    let inputCss;
+    // the input could be either a file path or a CSS expression:
+    if (path.extname(input) === '.css') {
+      inputCss = fs.readFileSync(path.normalize(input));
+    } else {
+      inputCss = input;
+    }
+    postcss(processes).process(inputCss, { from: input, to: 'temp.css', map: { inline: false } })
     .then(result => {
-      if (config.consoleOnly) {
-        return callback(result);
-      }
-      fs.writeFileSync(output, result.css);
-      fs.writeFileSync(`${output}.map`, result.map);
-
+      this.result = result;
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
-      log(`Processed: ${input} → ${output} in ${duration} sec`);
+      log(`Processed ${input} in ${duration} sec`);
+      return callback(result);
     }, (err) => {
       if (err) {
         log(['error'], err.stack);
       }
     });
+  }
+
+  writeToFile(outputName) {
+    if (!this.result) {
+      log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);
+    }
+    const output = path.join(this.config.core.dist, outputName);
+    fs.writeFileSync(output, this.result.css);
+    fs.writeFileSync(`${output}.map`, this.result.map);
+    log(`Wrote: ${this.input} → ${output}`);
+    log(`Wrote: ${this.input}.map → ${output}.map`);
+  }
+
+}
+module.exports.CssTask = CssTask;
+module.exports.runTaskAndWrite = function (config, base, outputName, input) {
+  const task = new CssTask(config, base);
+  task.performTask(input, () => {
+    task.writeToFile(outputName);
+  });
+};
+module.exports.processOnly = function (config, base, input, callback) {
+  const task = new CssTask(config, base);
+  task.performTask(input, callback);
 };

@@ -1,6 +1,6 @@
 fonts:
   primary: sans-serif
-  secondary: sans
+  secondary: serif
   heading: '{{fonts.secondary}}'
 
 fontStyles:
