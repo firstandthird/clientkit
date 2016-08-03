@@ -45,6 +45,7 @@ fontStyles:
       color: '{{color.body}}'
       font-size: 12px
       line-height: 24px
+    text-stretch: 2px
   mobile:
     heading-1:
       font-size: 30px
