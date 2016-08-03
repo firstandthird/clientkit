@@ -7,7 +7,7 @@ module.exports = (config, inputName, outputName, log) => {
     fs.writeFileSync(outputName, output);
     log(`styleguide available at ${outputName}`);
   } catch (e) {
-    console.log(e)
+    console.log(e);
     log(e);
   }
 };
