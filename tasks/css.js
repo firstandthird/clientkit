@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-
 const postcss = require('postcss');
 const cssimport = require('postcss-import');
 const cssnext = require('postcss-cssnext');
@@ -139,6 +138,7 @@ class CssTask {
     log(`Wrote: ${this.input} → ${output}`);
     log(`Wrote: ${this.input}.map → ${output}.map`);
   }
+
 }
 module.exports.CssTask = CssTask;
 module.exports.runTaskAndWrite = function (config, base, outputName, input) {

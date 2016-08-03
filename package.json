@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Client kit for websites",
   "main": "app.js",
   "bin": {
@@ -51,8 +51,10 @@
     "eslint-plugin-react": "^5.2.2",
     "exorcist": "^0.4.0",
     "get-stdin": "^5.0.1",
+    "lodash.capitalize": "^4.2.0",
     "lodash.debounce": "^4.0.6",
-    "logr": "^1.10.0",
+    "lodash.reduce": "^4.5.1",
+    "logr": "^1.11.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
     "path-exists": "^3.0.0",
