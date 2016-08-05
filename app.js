@@ -53,7 +53,7 @@ const argv = yargs
 .env(true)
 .argv;
 
-if (argv.init !== false) {
+if (argv.init || argv._.init || argv._.indexOf('init') > -1) {
   init(argv);
 }
 log(`Using local config directory: ${argv.config}`);

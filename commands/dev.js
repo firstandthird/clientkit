@@ -3,7 +3,6 @@ const mkdirp = require('mkdirp');
 const watcher = require('../lib/watcher');
 const configHandler = require('../lib/config.js');
 const fs = require('fs');
-const reduce = require('lodash.reduce');
 const styleguide = require('../commands/styleguide.js');
 const path = require('path');
 let configWatcher = false;
@@ -13,29 +12,8 @@ let cssProcessor;
 let jsProcessor;
 let currentConfig;
 
-const needsNewCss = (newConfig, oldConfig) => {
-  return true;
-};
 
-const updateCss = (newConfig, oldConfig) => {
-  Object.keys(newConfig.stylesheets).forEach((outputFileName) => {
-    cssProcessor.runTaskAndWrite(newConfig, process.cwd(), outputFileName, newConfig.stylesheets[outputFileName]);
-  });
-};
-
-const needsNewJs = (newConfig, oldConfig) => {
-  if (newConfig.scripts) {
-    return true;
-  }
-};
-
-const updateJs = (newConfig, oldConfig) => {
-  Object.keys(newConfig.scripts).forEach((outputFileName) => {
-    jsProcessor(newConfig, process.cwd(), outputFileName, newConfig.scripts[outputFileName]);
-  });
-};
-
-const updateWatcher = (newWatchList, oldWatchlist, watcher) => {
+const updateWatchedFiles = (newWatchList, oldWatchlist, watcher) => {
   // remove any files from css watcher that are not in newConfig
   oldWatchlist.forEach((watchDirective) => {
     if (newWatchList.indexOf(watchDirective) < 0) {
@@ -50,6 +28,45 @@ const updateWatcher = (newWatchList, oldWatchlist, watcher) => {
   });
 };
 
+const updateCss = (newConfig, oldConfig) => {
+  const newCSSWatchList = newConfig.core.watch.css ? newConfig.core.watch.css : [];
+  const oldCSSWatchList = currentConfig.core.watch.css ? currentConfig.core.watch.css : [];
+  updateWatchedFiles(newCSSWatchList, oldCSSWatchList, cssWatcher);
+  if (newConfig.stylesheets) {
+    Object.keys(newConfig.stylesheets).forEach((outputFileName) => {
+      cssProcessor.runTaskAndWrite(newConfig, process.cwd(), outputFileName, newConfig.stylesheets[outputFileName]);
+    });
+  }
+};
+
+const updateJs = (newConfig, oldConfig) => {
+  let newJSWatchList = newConfig.core.watch.scripts ? newConfig.core.watch.scripts : [];
+  let oldJSWatchList = currentConfig.core.watch.scripts ? currentConfig.core.watch.scripts : [];
+  const isEmpty = (list) => {
+    if (!list) {
+      return true;
+    }
+    if (list.length < 1) {
+      return true;
+    }
+    return false;
+  };
+  // if we had scripts previously and don't now:
+  if (!isEmpty(currentConfig.scripts) && isEmpty(newConfig.scripts)) {
+    newJSWatchList = [];
+  }
+  // if we didn't have scripts previously and do now:
+  if (isEmpty(currentConfig.scripts) && !isEmpty(newConfig.scripts)) {
+    oldJSWatchList = [];
+  }
+  updateWatchedFiles(newJSWatchList, oldJSWatchList, jsWatcher);
+  if (newConfig.scripts) {
+    Object.keys(newConfig.scripts).forEach((outputFileName) => {
+      jsProcessor(newConfig, process.cwd(), outputFileName, newConfig.scripts[outputFileName]);
+    });
+  }
+};
+
 const onUpdateConfig = (newConfig, argv, log) => {
   if (argv.debug || argv._.indexOf('debug') > -1) {
     log(JSON.stringify(newConfig, null, '  '));
@@ -58,19 +75,8 @@ const onUpdateConfig = (newConfig, argv, log) => {
   if (currentConfig.core.dist !== newConfig.core.dist || !fs.existsSync(newConfig.core.dist)) {
     mkdirp.sync(newConfig.core.dist);
   }
-  if (needsNewCss(newConfig, currentConfig)) {
-    updateCss(newConfig, currentConfig);
-  }
-  const newCSSWatchList = newConfig.core.watch.css ? newConfig.core.watch.css : [];
-  const oldCSSWatchList = currentConfig.core.watch.css ? currentConfig.core.watch.css : [];
-  updateWatcher(newCSSWatchList, oldCSSWatchList, cssWatcher);
-
-  if (needsNewJs(newConfig, currentConfig)) {
-    updateJs(newConfig, currentConfig);
-  }
-  const newJSWatchList = newConfig.core.watch.scripts ? newConfig.core.watch.scripts : [];
-  const oldJSWatchList = currentConfig.core.watch.scripts ? currentConfig.core.watch.scripts : [];
-  updateWatcher(newJSWatchList, oldJSWatchList, jsWatcher);
+  updateCss(newConfig, currentConfig);
+  updateJs(newConfig, currentConfig);
   // update the config:
   currentConfig = newConfig;
 };
@@ -104,27 +110,32 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
     if (!newConfig) {
       process.exit(1);
     }
+    if (!cssWatcher) {
+      // set up css watcher to process css
+      cssWatcher = watcher(newConfig.core.watch.css, newConfig.stylesheets, (input, output) => {
+        if (output === '') {
+          return;
+        }
+        cssProcessor.runTaskAndWrite(newConfig, process.cwd(), input, output);
+      }, initialConfig.core.rebuildDelay);
+    }
+    if (!jsWatcher) {
+      // set up js watcher to process js
+      const watchedJSList = newConfig.scripts ? newConfig.scripts : [];
+      const scripts = newConfig.core.watch.scripts ? newConfig.core.watch.scripts : {};
+      jsWatcher = watcher(scripts, watchedJSList, (input, output) => {
+        if (output === '') {
+          return;
+        }
+        jsProcessor(newConfig, process.cwd(), input, output);
+      }, newConfig.core.rebuildDelay);
+    }
+    onUpdateConfig(newConfig, argv, log);
     styleguide(
       newConfig,
       path.join(process.cwd(), 'lib', 'styleguide.template'),
       path.join(newConfig.core.dist, 'styleguide.html'),
       log
     );
-
-    if (!cssWatcher) {
-      // set up css watcher to process css
-      cssWatcher = watcher(initialConfig.core.watch.css, initialConfig.stylesheets, (input, output) => {
-        cssProcessor.runTaskAndWrite(newConfig, process.cwd(), input, output);
-      }, initialConfig.core.rebuildDelay);
-    }
-    if (!jsWatcher) {
-      // set up js watcher to process js
-      const watchedJSList = initialConfig.scripts ? initialConfig.scripts : [];
-      const scripts = initialConfig.core.watch.scripts ? initialConfig.core.watch.scripts : {};
-      jsWatcher = watcher(scripts, watchedJSList, (input, output) => {
-        jsProcessor(newConfig, process.cwd(), input, output);
-      }, initialConfig.core.rebuildDelay);
-    }
-    onUpdateConfig(newConfig, argv, log);
   }, 100);
 };
