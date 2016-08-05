@@ -1,7 +1,7 @@
 module.exports={
   ".heading-1": {
     "color": "#333",
-    "font-family": "sans",
+    "font-family": "serif",
     "font-size": "45px",
     "line-height": "48px",
     "@media (max-width: 767px)": {
@@ -11,7 +11,7 @@ module.exports={
   },
   ".heading-2": {
     "color": "#333",
-    "font-family": "sans",
+    "font-family": "serif",
     "font-size": "30px",
     "line-height": "36px",
     "@media (max-width: 767px)": {
@@ -21,7 +21,7 @@ module.exports={
   },
   ".heading-3": {
     "color": "#333",
-    "font-family": "sans",
+    "font-family": "serif",
     "font-size": "25px",
     "line-height": "32px",
     "@media (max-width: 767px)": {
@@ -31,7 +31,7 @@ module.exports={
   },
   ".heading-4": {
     "color": "#333",
-    "font-family": "sans",
+    "font-family": "serif",
     "font-size": "16px",
     "line-height": "24px",
     "@media (max-width: 767px)": {
@@ -41,7 +41,7 @@ module.exports={
   },
   ".heading-5": {
     "color": "#333",
-    "font-family": "sans",
+    "font-family": "serif",
     "font-size": "14px",
     "line-height": "24px",
     "@media (max-width: 767px)": {
