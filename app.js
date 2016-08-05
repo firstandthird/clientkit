@@ -8,6 +8,7 @@ const configHandler = require('./lib/config');
 const init = require('./commands/init.js');
 const reports = require('./commands/reports.js');
 const run = require('./commands/run.js');
+const dev = require('./commands/dev.js');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -86,18 +87,7 @@ if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
   reports.showCss(conf);
 // dev mode will watch files and update when a change is made:
 } else if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-  const watchedConfigFiles = conf.core.watch.yaml;
-  watcher(watchedConfigFiles, [], () => {
-    conf = configHandler.loadConfig(defaultConf, argv, log);
-    // if we can't load a config, abort:
-    if (!conf) {
-      process.exit(1);
-    }
-    if (argv.debug || argv._.indexOf('debug') > -1) {
-      log(JSON.stringify(conf, null, '  '));
-    }
-    run.runDev(conf, log);
-  }, 100);
+  dev.runDev(defaultConf, conf, argv, log);
 // normal mode will run and output the new css/js dist directory:
 } else {
   if (argv.debug || argv._.indexOf('debug') > -1) {
