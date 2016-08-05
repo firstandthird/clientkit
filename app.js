@@ -3,7 +3,6 @@
 const path = require('path');
 const yargs = require('yargs');
 const Logr = require('logr');
-const watcher = require('./lib/watcher');
 const configHandler = require('./lib/config');
 const init = require('./commands/init.js');
 const reports = require('./commands/reports.js');
@@ -74,7 +73,7 @@ if (argv.styleguide) {
   process.exit(0);
 }
 
-let conf = configHandler.loadConfig(defaultConf, argv, log);
+const conf = configHandler.loadConfig(defaultConf, argv, log);
 if (!conf) {
   process.exit(1);
 }

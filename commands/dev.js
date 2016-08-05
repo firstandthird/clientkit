@@ -13,24 +13,24 @@ let jsProcessor;
 let currentConfig;
 
 
-const updateWatchedFiles = (newWatchList, oldWatchlist, watcher) => {
-  // remove any files from css watcher that are not in newConfig
+const updateWatchedFiles = (newWatchList, oldWatchlist, watcherToUpdate) => {
+  // remove any files from css watcherToUpdate that are not in newConfig
   oldWatchlist.forEach((watchDirective) => {
     if (newWatchList.indexOf(watchDirective) < 0) {
-      watcher.unwatch(watchDirective);
+      watcherToUpdate.unwatch(watchDirective);
     }
   });
-  // add any new files to css watcher
+  // add any new files to css watcherToUpdate
   newWatchList.forEach((watchDirective) => {
     if (oldWatchlist.indexOf(watchDirective) < 0) {
-      watcher.add(watchDirective);
+      watcherToUpdate.add(watchDirective);
     }
   });
 };
 
 const updateCss = (newConfig, oldConfig) => {
   const newCSSWatchList = newConfig.core.watch.css ? newConfig.core.watch.css : [];
-  const oldCSSWatchList = currentConfig.core.watch.css ? currentConfig.core.watch.css : [];
+  const oldCSSWatchList = oldConfig.core.watch.css ? oldConfig.core.watch.css : [];
   updateWatchedFiles(newCSSWatchList, oldCSSWatchList, cssWatcher);
   if (newConfig.stylesheets) {
     Object.keys(newConfig.stylesheets).forEach((outputFileName) => {
@@ -41,7 +41,7 @@ const updateCss = (newConfig, oldConfig) => {
 
 const updateJs = (newConfig, oldConfig) => {
   let newJSWatchList = newConfig.core.watch.scripts ? newConfig.core.watch.scripts : [];
-  let oldJSWatchList = currentConfig.core.watch.scripts ? currentConfig.core.watch.scripts : [];
+  let oldJSWatchList = oldConfig.core.watch.scripts ? oldConfig.core.watch.scripts : [];
   const isEmpty = (list) => {
     if (!list) {
       return true;
@@ -52,11 +52,11 @@ const updateJs = (newConfig, oldConfig) => {
     return false;
   };
   // if we had scripts previously and don't now:
-  if (!isEmpty(currentConfig.scripts) && isEmpty(newConfig.scripts)) {
+  if (!isEmpty(oldConfig.scripts) && isEmpty(newConfig.scripts)) {
     newJSWatchList = [];
   }
   // if we didn't have scripts previously and do now:
-  if (isEmpty(currentConfig.scripts) && !isEmpty(newConfig.scripts)) {
+  if (isEmpty(oldConfig.scripts) && !isEmpty(newConfig.scripts)) {
     oldJSWatchList = [];
   }
   updateWatchedFiles(newJSWatchList, oldJSWatchList, jsWatcher);
@@ -102,7 +102,6 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
   jsProcessor = require('../tasks/script.js');
 
   // set up watcher to process config changes, trigger jss and css watchers, call stylesheet update
-  let call = 0;
   watcher(initialConfig.core.watch.yaml, [], () => {
     // // first get the new updated config:
     newConfig = configHandler.loadConfig(defaultConfDirectory, argv, log);
