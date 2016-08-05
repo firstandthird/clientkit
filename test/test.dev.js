@@ -23,6 +23,7 @@ const argv = {
   config: testDirectoryName,
   _: []
 };
+init({ init: testDirectoryName });
 const conf = configHandler.loadConfig(testDirectoryName, argv, log);
 // helper that will replace a string in a file:
 const replace = (pathToFile, stringToRemove, stringToInsert, callback) => {
@@ -34,7 +35,6 @@ const replace = (pathToFile, stringToRemove, stringToInsert, callback) => {
     log(exc);
   }
 };
-init({ init: testDirectoryName });
 // helpers that check if a file includes or doesn't include a string:
 const includesString = (pathToFile, string) => {
   const text = fs.readFileSync(pathToFile).toString();
