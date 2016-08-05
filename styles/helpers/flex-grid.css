@@ -1,37 +1,5 @@
-.layout,
-.layout-row,
-.layout-row--reverse,
-.layout-columns,
-.layout-columns--reverse {
-  display: flex;
-}
-
-.layout-columns {
-  flex-direction: row;
-}
-
-.layout-row {
-  flex-direction: column;
-}
-
 .flex {
   flex: 1;
-}
-
-.flex-grow {
-  flex-grow: 1;
-}
-
-.flex-nogrow {
-  flex-grow: 0;
-}
-
-.flex-shrink {
-  flex-shrink: 1;
-}
-
-.flex-noshrink {
-  flex-shrink: 0;
 }
 
 @mixin flex-grid;

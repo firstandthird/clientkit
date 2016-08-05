@@ -3,6 +3,7 @@
 @import 'helpers/box-sizing.css';
 @import 'helpers/colors.css';
 @import 'helpers/grid.css';
+@import 'helpers/flex-grid.css';
 @import 'helpers/links.css';
 @import 'helpers/typography.css';
 @import 'helpers/spacing.css';

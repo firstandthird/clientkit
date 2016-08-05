@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- ie meta tag, force it to edge compatibility -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1" />
+    <!-- iphone meta tag (width=device-width letterboxes on iphone 5) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../.dist/clientkit.css"/>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        border-radius: 3px;
+        margin: 1rem;
+        padding: 1rem;
+        color: rgb(255,255,255);
+        transition: all .3s ease;
+        text-align: center;
+      }
+
+      .box.margin-none {
+        margin: 0 -15px;
+      }
+
+      .box-1 {
+        background-color: rgb(2, 117, 216);
+      }
+
+      .box-2 {
+        background-color: rgb(92, 184, 92);
+      }
+
+      .box-3 {
+        background-color: rgb(240, 173, 78);
+      }
+    </style>
+    <title>Flex Grid Example</title>
+  </head>
+  <body>
+    <main id="main" class="container" role="main" tabindex="-1">
+      <h1>Flex Grid</h1>
+      <div class="container">
+        <div class="layout">
+          <div class="flex-8 flex-lg-6 flex-md-4 box box-1"></div>
+          <div class="flex-1 flex-lg-2 flex-md-4 box box-1"></div>
+          <div class="flex-3 flex-lg-4 flex-md-4 box box-1"></div>
+        </div>
+        <div class="layout">
+          <div class="flex-sm-1 flex-md-2 flex-lg-3 flex-4 box box-1"></div>
+          <div class="flex-sm-10 flex-md-8 flex-lg-6 flex-4 box box-1"></div>
+          <div class="flex-sm-1 flex-md-2 flex-lg-3 flex-4 box box-1"></div>
+        </div>
+        <div class="layout layout-sm-columns">
+          <div class="flex-sm-1 flex-md-2 flex-lg-3 flex-4 box box-1"></div>
+          <div class="flex-sm-10 flex-md-8 flex-lg-6 flex-4 box box-1"></div>
+          <div class="flex-sm-1 flex-md-2 flex-lg-3 flex-4 box box-1"></div>
+        </div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;flex-8 flex-lg-6 flex-md-4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flex-1 flex-lg-2 flex-md-4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flex-3 flex-lg-4 flex-md-4&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;flex-sm-1 flex-md-2 flex-lg-3 flex-4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flex-sm-10 flex-md-8 flex-lg-6 flex-4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flex-sm-1 flex-md-2 flex-lg-3 flex-4&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout layout-sm-columns&quot;&gt;
+    &lt;div class=&quot;flex-sm-1 flex-md-2 flex-lg-3 flex-4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flex-sm-10 flex-md-8 flex-lg-6 flex-4&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;flex-sm-1 flex-md-2 flex-lg-3 flex-4&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3>Let the grid figure the sizes</h3>
+      <div class="container">
+        <div class="layout">
+          <div class="flex-1 box box-1"></div>
+          <div class="flex box box-2">No column modifier</div>
+          <div class="flex-1 box box-1"></div>
+        </div>
+      </div>
+
+      <pre>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;<strong>flex</strong>&quot;&gt;No column modifier&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3>Offsets</h3>
+      <h4>Pre/Post</h4>
+      <div class="layout layout-wrap">
+          <div class="flex-1 flex-offset-11"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-10 flex-suffix-1"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-9 flex-suffix-2"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-8 flex-suffix-3"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-7 flex-suffix-4"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-6 flex-suffix-5"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-5 flex-suffix-6"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-4 flex-suffix-7"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-3 flex-suffix-8"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-2 flex-suffix-9"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-1 flex-suffix-10"><div class="box box-1"></div></div>
+          <div class="flex-1 flex-offset-0 flex-suffix-11"><div class="box box-1"></div></div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;layout layout-wrap&quot;&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-11</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-10 flex-suffix-1</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-9 flex-suffix-2</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-8 flex-suffix-3</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-7 flex-suffix-4</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-6 flex-suffix-5</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-5 flex-suffix-6</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-4 flex-suffix-7</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-3 flex-suffix-8</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-2 flex-suffix-9</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-1 flex-suffix-10</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;flex-1 <strong>flex-offset-0 flex-suffix-11</strong>&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h4>Ordering</h4>
+      <h5>Reverse</h5>
+        <div class="container">
+          <div class="layout layout-reverse">
+            <div class="flex-1">
+              <div class="box box-1">1</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">2</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">3</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">4</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">5</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">6</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">7</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">8</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">9</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">10</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">11</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">12</div>
+            </div>
+          </div>
+        </div>
+      <h5>Picking</h5>
+      <p>Order goes from <code>1</code> to <code>12</code> and from <code>-1</code> to <code>-12</code></p>
+        <div class="container">
+          <div class="layout">
+            <div class="flex-1 flex-order--1">
+              <div class="box box-2">1</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">2</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">3</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">4</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">5</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">6</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">7</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">8</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">9</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">10</div>
+            </div>
+            <div class="flex-1">
+              <div class="box box-1">11</div>
+            </div>
+            <div class="flex-1 flex-order---1">
+              <div class="box box-2">12</div>
+            </div>
+          </div>
+        </div>
+
+      <pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;layout <strong>layout-reverse</strong>&quot;&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;layout&quot;&gt;
+    &lt;div class=&quot;flex-1 <strong>flex-order--1</strong>&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-1 <strong>flex-order---1</strong>&quot;&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3>Alignment</h3>
+      <div class="container">
+        <div class="layout margin-none layout-start box box-1">
+          <div class="flex-4 box box-2"><pre>-start</pre></div>
+        </div>
+        <div class="layout margin-none layout-center box box-1">
+          <div class="flex-4 box box-2"><pre>-center</pre></div>
+        </div>
+        <div class="layout margin-none layout-end box box-1">
+          <div class="flex-4 box box-2"><pre>-end</pre></div>
+        </div>
+        <div class="margin-yaxis-md layout box-1 layout-start-start" style="height: 300px;">
+          <div class="box box-2">1</div>
+          <div class="box box-2">2</div>
+          <div class="box box-2">3</div>
+        </div>
+        <div class="margin-yaxis-md layout box-1 layout-start-center" style="height: 300px;">
+          <div class="box box-2">1</div>
+          <div class="box box-2">2</div>
+          <div class="box box-2">3</div>
+        </div>
+        <div class="margin-yaxis-md layout box-1 layout-start-end" style="height: 300px;">
+          <div class="box box-2">1</div>
+          <div class="box box-2">2</div>
+          <div class="box box-2">3</div>
+        </div>
+        <div class="margin-yaxis-md layout box-1 layout-start-stretch" style="height: 300px;">
+          <div class="box box-2">1</div>
+          <div class="box box-2">2</div>
+          <div class="box box-2">3</div>
+        </div>
+      </div>
+
+      <pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;layout <strong>layout-start</strong>&quot;&gt;
+    &lt;div class=&quot;flex-4&quot;&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout <strong>layout-center</strong>&quot;&gt;
+    &lt;div class=&quot;flex-4&quot;&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout <strong>layout-end</strong>&quot;&gt;
+    &lt;div class=&quot;flex-4&quot;&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout <strong>layout-start-start</strong>&quot;&gt;
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout <strong>layout-start-center</strong>&quot;&gt;
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout <strong>layout-start-end</strong>&quot;&gt;
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout <strong>layout-start-stretch</strong>&quot;&gt;
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+    &lt;div&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3>Spacing</h3>
+      <div class="container">
+        <div class="layout margin-none layout-space-around box box-1">
+          <div class="flex-2 box box-2"></div>
+          <div class="flex-2 box box-2"></div>
+          <div class="flex-2 box box-2"></div>
+        </div>
+        <div class="layout margin-none layout-space-between box box-1">
+          <div class="flex-2 box box-2"></div>
+          <div class="flex-2 box box-2"></div>
+          <div class="flex-2 box box-2"></div>
+        </div>
+      </div>
+      <pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;layout <strong>layout-space-around</strong>&quot;&gt;
+    &lt;div class=&quot;flex-2&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-2&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-2&quot;&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layout <strong>layout-space-between</strong>&quot;&gt;
+    &lt;div class=&quot;flex-2&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-2&quot;&gt;...&lt;/div&gt;
+    &lt;div class=&quot;flex-2&quot;&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </main>
+  </body>
+</html>

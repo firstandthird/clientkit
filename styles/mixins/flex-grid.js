@@ -4,6 +4,7 @@ const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function (config) {
   const horizontalAlignments = {
     'start': 'flex-start',
+    'end': 'flex-end',
     'center': 'center',
     'space-around': 'space-around',
     'space-between': 'space-between'
@@ -13,6 +14,21 @@ module.exports = function (config) {
     'center': 'center',
     'end': 'flex-end',
     'stretch': 'stretch'
+  };
+
+  const layouts = {
+    'columns': {
+      'flex-direction': 'column'
+    },
+    'wrap': {
+      'flex-wrap': 'wrap'
+    },
+    'reverse': {
+      'flex-direction': 'row-reverse'
+    },
+    'columns-reverse': {
+      'flex-direction': 'column-reverse'
+    }
   };
 
   return function () {
@@ -36,20 +52,16 @@ module.exports = function (config) {
       const block = styles[breakpoint];
 
       // Layout
-      block[`.${layoutPrefix}-row`] = {
-        'flex-direction': 'row'
-      };
-
-      block[`.${layoutPrefix}-columns`] = {
-        'flex-direction': 'column'
-      };
-
-      block[`.${layoutPrefix}-row--reverse`] = {
-        'flex-direction': 'row-reverse'
-      };
-
-      block[`.${layoutPrefix}-columns--reverse`] = {
-        'flex-direction': 'column-reverse'
+      let layoutSelector = '.layout';
+      for (const layout in layouts) {
+        let selector = `.${layoutPrefix}-${layout}`;
+        layoutSelector += `,\n${selector}`;
+        block[selector] = layouts[layout];
+      }
+      block[layoutSelector] = {
+        'display': 'flex',
+        'margin-left': '-15px',
+        'margin-right': '-15px'
       };
 
       for (const horizontalAlignment of horizontal) {
@@ -80,7 +92,7 @@ module.exports = function (config) {
       }
 
       // Child
-      for (let i = 1; i <= 20; i++) {
+      for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-order--${i}`] = {
           'order': i
         };
@@ -90,9 +102,33 @@ module.exports = function (config) {
         };
       }
 
+      block[`.${prefix}-shrink`] = {
+        'flex-shrink': 1
+      };
+
+      block[`.${prefix}-no-shrink`] = {
+        'flex-shrink': 0
+      };
+
+      block[`.${prefix}-grow`] = {
+        'flex-grow': 1
+      };
+
+      block[`.${prefix}-no-grow`] = {
+        'flex-grow': 0
+      };
+
       for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-${i}`] = {
           'flex-basis': `${(100 / (12 / i))}%`
+        };
+
+        block[`.${prefix}-offset-${i}`] = {
+          'margin-left': `${(100 / (12 / i))}%`
+        };
+
+        block[`.${prefix}-suffix-${i}`] = {
+          'margin-right': `${(100 / (12 / i))}%`
         };
       }
     }
