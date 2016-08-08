@@ -54,6 +54,8 @@ const argv = yargs
 
 if (argv.init || argv._.init || argv._.indexOf('init') > -1) {
   init(argv);
+  log('Done!');
+  process.exit(0);
 }
 log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');

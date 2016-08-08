@@ -25,10 +25,11 @@ module.exports = (argv) => {
     log(e);
     return false;
   }
-  const mainConfigFiles = fs.readdirSync('conf/');
+  const defaultConfigurationPath = path.join(__dirname, '..', 'conf/');
+  const mainConfigFiles = fs.readdirSync(defaultConfigurationPath);
   mainConfigFiles.forEach((fileName) => {
     try {
-      fs.writeFileSync(path.join(initDir, fileName), fs.readFileSync(path.join('./conf', fileName)));
+      fs.writeFileSync(path.join(initDir, fileName), fs.readFileSync(path.join(defaultConfigurationPath, fileName)));
     } catch (e) {
       log(e);
       return false;
