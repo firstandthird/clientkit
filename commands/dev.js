@@ -5,6 +5,7 @@ const configHandler = require('../lib/config.js');
 const fs = require('fs');
 const styleguide = require('../commands/styleguide.js');
 const path = require('path');
+const reduce = require('lodash.reduce');
 let configWatcher = false;
 let jsWatcher = false; // watcher we will use to watch js files
 let cssWatcher = false; // the same, for css
@@ -66,7 +67,7 @@ const updateJs = (newConfig, oldConfig) => {
     });
   }
 };
-
+let firstTime = true;
 const onUpdateConfig = (newConfig, argv, log) => {
   if (argv.debug || argv._.indexOf('debug') > -1) {
     log(JSON.stringify(newConfig, null, '  '));
@@ -75,10 +76,15 @@ const onUpdateConfig = (newConfig, argv, log) => {
   if (currentConfig.core.dist !== newConfig.core.dist || !fs.existsSync(newConfig.core.dist)) {
     mkdirp.sync(newConfig.core.dist);
   }
-  updateCss(newConfig, currentConfig);
-  updateJs(newConfig, currentConfig);
+  if (!firstTime) {
+    updateCss(newConfig, currentConfig);
+    updateJs(newConfig, currentConfig);
+  } else {
+    firstTime = false;
+  }
   // update the config:
   currentConfig = newConfig;
+  configUpdating = false;
 };
 module.exports.stopDev = () => {
   if (cssWatcher) {
@@ -102,7 +108,7 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
   jsProcessor = require('../tasks/script.js');
 
   // set up watcher to process config changes, trigger jss and css watchers, call stylesheet update
-  watcher(initialConfig.core.watch.yaml, [], () => {
+  configWatcher = watcher(initialConfig.core.watch.yaml, [], () => {
     // // first get the new updated config:
     newConfig = configHandler.loadConfig(defaultConfDirectory, argv, log);
     // // if we can't load a config, abort:
@@ -132,9 +138,15 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
     onUpdateConfig(newConfig, argv, log);
     styleguide(
       newConfig,
-      path.join(process.cwd(), 'lib', 'styleguide.template'),
+      path.join(__dirname, '..', 'lib', 'styleguide.template'),
       path.join(newConfig.core.dist, 'styleguide.html'),
       log
     );
+    if (argv.debug || argv._.indexOf('debug') > -1) {
+      const jsFiles = reduce(jsWatcher.getWatched(), (memo, fileList) => { return memo + fileList.length; }, 0);
+      const cssFiles = reduce(cssWatcher.getWatched(), (memo, fileList) => { return memo + fileList.length; }, 0);
+      const configFiles = reduce(configWatcher.getWatched(), (memo, fileList) => { return memo + fileList.length; }, 0);
+      log(`Watching ${jsFiles} JS files, ${cssFiles} CSS files, ${configFiles} config files `);
+    }
   }, 100);
 };
