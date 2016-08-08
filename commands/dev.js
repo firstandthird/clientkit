@@ -141,7 +141,7 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
       log
     );
     if (argv.debug || argv._.indexOf('debug') > -1) {
-      setTimeout(()=> {
+      setTimeout(() => {
         const jsFiles = reduce(jsWatcher.getWatched(), (memo, fileList) => { return memo + fileList.length; }, 0);
         const cssFiles = reduce(cssWatcher.getWatched(), (memo, fileList) => { return memo + fileList.length; }, 0);
         const configFiles = reduce(configWatcher.getWatched(), (memo, fileList) => { return memo + fileList.length; }, 0);
