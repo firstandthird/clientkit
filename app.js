@@ -23,10 +23,6 @@ const argv = yargs
   default: false,
   type: 'string'
 })
-.option('styleguide', {
-  describe: 'generate an html styleguide based on your new css that you can open in your browser ',
-  default: false
-})
 .option('options', {
   describe: 'shows the css variables and mixins that are available ',
   default: false
@@ -59,21 +55,6 @@ if (argv.init || argv._.init || argv._.indexOf('init') > -1) {
 }
 log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
-
-if (argv.styleguide) {
-  const conf = configHandler.loadConfig(defaultConf, argv, log);
-  if (!conf) {
-    process.exit(1);
-  }
-  const styleguide = require('./commands/styleguide.js');
-  styleguide(
-    conf,
-    path.join(__dirname, 'lib', 'styleguide.template'),
-    path.join(conf.core.dist, 'styleguide.html'),
-    log
-  );
-  process.exit(0);
-}
 
 const conf = configHandler.loadConfig(defaultConf, argv, log);
 if (!conf) {

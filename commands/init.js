@@ -7,7 +7,7 @@ const log = new Logr({
   type: 'cli',
   renderOptions: {
     cli: {
-      lineColor: 'cyan'
+      lineColor: 'yellow'
     }
   }
 });
