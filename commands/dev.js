@@ -13,7 +13,6 @@ let cssProcessor;
 let jsProcessor;
 let currentConfig;
 
-
 const updateWatchedFiles = (newWatchList, oldWatchlist, watcherToUpdate) => {
   // remove any files from css watcherToUpdate that are not in newConfig
   oldWatchlist.forEach((watchDirective) => {
@@ -84,7 +83,6 @@ const onUpdateConfig = (newConfig, argv, log) => {
   }
   // update the config:
   currentConfig = newConfig;
-  configUpdating = false;
 };
 module.exports.stopDev = () => {
   if (cssWatcher) {

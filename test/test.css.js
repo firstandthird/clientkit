@@ -30,17 +30,6 @@ describe('css task', function() {
     });
     done();
   });
-  it('throws error if constructed with a non-existent config directory', (done) => {
-    const prevConsole = console.log;
-    let errorThrown = false;
-    try {
-      const cssTask = new cssModule.CssTask(conf, 'hijk/aslkjdf');
-    } catch (exc) {
-      errorThrown = true;
-    }
-    expect(errorThrown).to.equal(true);
-    done();
-  });
   it('can parse css', (done) => {
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     cssTask.performTask('@mixin spacing margin, yaxis, xl', (result) => {
