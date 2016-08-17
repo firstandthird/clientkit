@@ -71,7 +71,7 @@ class CssTask {
     this.mixins = globalMixins;
   }
 
-  performTask(input, callback) {
+  performTask(input, callback, outputName) {
     this.input = input;
     const start = new Date().getTime();
     const processes = [
@@ -114,7 +114,8 @@ class CssTask {
     } else {
       inputCss = input;
     }
-    postcss(processes).process(inputCss, { from: input, to: 'temp.css', map: { inline: false } })
+    const to = outputName ? outputName : 'temp.css';
+    postcss(processes).process(inputCss, { from: input, to: to, map: { inline: false } })
     .then(result => {
       this.result = result;
       const end = new Date().getTime();
@@ -145,9 +146,9 @@ module.exports.runTaskAndWrite = function (config, base, outputName, input) {
   const task = new CssTask(config, base);
   task.performTask(input, () => {
     task.writeToFile(outputName);
-  });
+  }, outputName);
 };
 module.exports.processOnly = function (config, base, input, callback) {
   const task = new CssTask(config, base);
-  task.performTask(input, callback);
+  task.performTask(input, callback, outputName);
 };
