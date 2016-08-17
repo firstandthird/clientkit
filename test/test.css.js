@@ -17,7 +17,7 @@ const conf = require('confi')({
 });
 describe('css task', function() {
   this.timeout(15000);
-  it('can load the object', (done) => {
+  it('can construct  a new instance of the class', (done) => {
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     expect(typeof cssTask).to.equal('object');
     //todo: should verify more

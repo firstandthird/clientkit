@@ -58,7 +58,7 @@ class CssTask {
     });
     // load mixins:
     const globalMixins = require('require-all')({
-      dirname: path.join(base, 'styles/mixins'),
+      dirname: path.join(__dirname, '..', 'styles', 'mixins'),
       resolve: m => m(config, postcss)
     });
     if (pathExists.sync(path.join(config.core.assetPath, 'mixins'))) {
