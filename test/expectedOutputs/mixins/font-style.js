@@ -78,11 +78,5 @@ module.exports={
       "font-size": "12px",
       "line-height": "22px"
     }
-  },
-  ".text-stretch": {
-    "letter-spacing": "2px",
-    "@media (max-width: 767px)": {
-      "letter-spacing": "2px"
-    }
   }
 };
