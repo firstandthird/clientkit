@@ -6,7 +6,7 @@
   & h5,
   & h6 {
     @mixin spacing margin, top, none;
-    @mixin spacing margin, bottom, lg;
+    @mixin spacing margin, bottom, md;
   }
   & h1 {
     @mixin font-style heading-1;
