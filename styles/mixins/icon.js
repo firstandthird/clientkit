@@ -16,6 +16,7 @@ module.exports = function(config) {
       background: `svg-load('${iconpath}', fill=${fill});`,
       'background-size': size,
       display: 'inline-block',
+      'vertical-align': 'middle',
       height: size,
       width: size
     };
