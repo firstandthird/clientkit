@@ -150,5 +150,5 @@ module.exports.runTaskAndWrite = function (config, base, outputName, input) {
 };
 module.exports.processOnly = function (config, base, input, callback) {
   const task = new CssTask(config, base);
-  task.performTask(input, callback, outputName);
+  task.performTask(input, callback);
 };
