@@ -133,7 +133,9 @@ class CssTask {
       log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);
     }
     const output = path.join(this.config.core.dist, outputName);
-    fs.writeFileSync(output, this.result.css);
+    // postcss will have set the source map to 'temp.css', set it to the correct map and write to file:
+    fs.writeFileSync(output, this.result.css.replace('/*# sourceMappingURL=temp.css.map */',
+     `/*# sourceMappingURL=${outputName}.map */`));
     fs.writeFileSync(`${output}.map`, this.result.map);
     log(`Wrote: ${this.input} → ${output}`);
     log(`Wrote: ${this.input}.map → ${output}.map`);
