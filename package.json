@@ -57,6 +57,7 @@
     "logr": "^1.11.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
+    "parse-color": "^1.0.0",
     "path-exists": "^3.0.0",
     "postcss": "^5.0.21",
     "postcss-cssnext": "^2.6.0",
