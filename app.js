@@ -3,9 +3,11 @@
 const path = require('path');
 const yargs = require('yargs');
 const Logr = require('logr');
-const watcher = require('./lib/watcher');
-const mkdirp = require('mkdirp');
-
+const configHandler = require('./lib/config');
+const init = require('./commands/init.js');
+const reports = require('./commands/reports.js');
+const run = require('./commands/run.js');
+const dev = require('./commands/dev.js');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -16,6 +18,18 @@ const log = new Logr({
 });
 
 const argv = yargs
+.option('init', {
+  describe: 'create a new project directory ',
+  default: false,
+  type: 'string'
+})
+.option('options', {
+  describe: 'shows the css variables and mixins that are available ',
+  default: false
+})
+.option('css', {
+  describe: 'can be used to pass in arbitrary css ',
+})
 .option('mode', {
   describe: 'set to "dev" mode to continuously monitor your files and auto-process when a change is made',
   default: 'prod'
@@ -34,69 +48,32 @@ const argv = yargs
 .env(true)
 .argv;
 
+if (argv.init || argv._.init || argv._.indexOf('init') > -1) {
+  init(argv);
+  log('Done!');
+  process.exit(0);
+}
 log(`Using local config directory: ${argv.config}`);
 const defaultConf = path.join(__dirname, 'conf');
-let jsWatcher = false; // watcher we will use to watch js files
-let cssWatcher = false; // the same, for css
 
-const runAll = () => {
-  // Tasks
-  const cssProcessor = require('./tasks/css.js');
-  const jsProcessor = require('./tasks/script.js');
-  const config = require('confi')({
-    path: [
-      defaultConf,
-      argv.config
-    ],
-    context: {
-      CKDIR: __dirname
-    }
-  });
-  const watchedScriptFiles = [
-    path.join(config.core.assetPath, '**/*.js'),
-  ];
-  const watchedStyleFiles = [
-    path.join(config.core.assetPath, '**/*.css') // @TODO: make this not sucky
-  ];
-  if (argv.debug || argv._.indexOf('debug') > -1) {
-    log(JSON.stringify(config, null, '  '));
-  }
-
-  mkdirp.sync(config.core.dist);
-  if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-    // remove any existing css file watchers:
-    if (cssWatcher) {
-      cssWatcher.close();
-    }
-    cssWatcher = watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
-      cssProcessor(config, __dirname, input, output);
-    }, config.core.rebuildDelay);
-    // remove any existing js file watchers:
-    if (jsWatcher) {
-      jsWatcher.close();
-    }
-    jsWatcher = watcher(watchedScriptFiles, config.scripts, (input, output) => {
-      jsProcessor(config, __dirname, input, output);
-    }, config.core.rebuildDelay);
-  } else {
-    if (config.stylesheets) {
-      Object.keys(config.stylesheets).forEach(style => cssProcessor(config, __dirname, style, config.stylesheets[style]));
-    }
-    if (config.scripts) {
-      Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
-    }
-  }
-};
-
-// dev mode will watch your conf files and reload everything when they are changed:
-if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-  const watchedConfigFiles = [
-    path.join(defaultConf, '*'),
-    path.join(argv.config, '*'),
-  ];
-  watcher(watchedConfigFiles, [''], () => {
-    runAll();
-  }, 100);
+const conf = configHandler.loadConfig(defaultConf, argv, log);
+if (!conf) {
+  process.exit(1);
+}
+// show css options:
+if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
+  reports.showOptions(conf);
+// show css only:
+} else if (argv.css) {
+  conf.cssExpression = argv.css;
+  reports.showCss(conf);
+// dev mode will watch files and update when a change is made:
+} else if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+  dev.runDev(defaultConf, conf, argv, log);
+// normal mode will run and output the new css/js dist directory:
 } else {
-  runAll();
+  if (argv.debug || argv._.indexOf('debug') > -1) {
+    log(JSON.stringify(conf, null, '  '));
+  }
+  run.runAll(conf, log);
 }

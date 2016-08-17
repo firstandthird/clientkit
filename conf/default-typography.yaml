@@ -1,42 +1,63 @@
 fonts:
   primary: sans-serif
-  secondary: sans
+  secondary: serif
+  heading: '{{fonts.secondary}}'
 
 fontStyles:
   default:
     heading-1:
       color: '{{color.heading}}'
-      font-family: '{{fonts.secondary}}'
+      font-family: '{{fonts.heading}}'
       font-size: 45px
       line-height: 48px
     heading-2:
       color: '{{color.heading}}'
-      font-family: '{{fonts.secondary}}'
+      font-family: '{{fonts.heading}}'
       font-size: 30px
       line-height: 36px
     heading-3:
       color: '{{color.heading}}'
-      font-family: '{{fonts.secondary}}'
+      font-family: '{{fonts.heading}}'
       font-size: 25px
       line-height: 32px
     heading-4:
       color: '{{color.heading}}'
-      font-family: '{{fonts.secondary}}'
+      font-family: '{{fonts.heading}}'
       font-size: 16px
       line-height: 24px
     heading-5:
       color: '{{color.heading}}'
-      font-family: '{{fonts.secondary}}'
+      font-family: '{{fonts.heading}}'
       font-size: 14px
       line-height: 24px
     font-large:
+      font-family: '{{fonts.primary}}'
+      color: '{{color.body}}'
       font-size: 16px
       line-height: 24px
     font-body:
       font-family: '{{fonts.primary}}'
+      color: '{{color.body}}'
       font-size: 14px
       line-height: 24px
     font-small:
+      font-family: '{{fonts.primary}}'
+      color: '{{color.body}}'
+      font-size: 12px
+      line-height: 24px
+    form-label:
+      font-family: '{{fonts.primary}}'
+      color: '{{color["input-label"]}}'
+      font-size: 12px
+      line-height: 24px
+    form-input:
+      font-family: '{{fonts.primary}}'
+      color: '{{color.body}}'
+      font-size: 16px
+      line-height: 24px
+    form-error:
+      font-family: '{{fonts.primary}}'
+      color: '{{color["input-error"]}}'
       font-size: 12px
       line-height: 24px
   mobile:

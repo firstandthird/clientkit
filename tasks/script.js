@@ -5,9 +5,12 @@ const path = require('path');
 const Browserify = require('browserify');
 const babelify = require('babelify');
 const exorcist = require('exorcist');
-
+const formatter = require('eslint').CLIEngine.getFormatter();
+const CLIEngine = require('eslint').CLIEngine;
 const bes2015 = require('babel-preset-es2015');
+const uglifyify = require('uglifyify');
 const Logr = require('logr');
+
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -16,7 +19,6 @@ const log = new Logr({
     }
   }
 });
-
 
 module.exports = function(conf, base, outputName, input) {
   const start = new Date().getTime();
@@ -28,19 +30,43 @@ module.exports = function(conf, base, outputName, input) {
     const duration = (end - start) / 1000;
     log(`Processed: ${input} → ${output} in ${duration} sec`);
   });
+  const cli = new CLIEngine({
+    useEslintrc: false,
+    configFile: conf.core.eslint
+  });
+  const results = cli.executeOnFiles([input]).results;
+  // if any errors, print them:
+  let errorsExist = false;
+  let warningsExist = false;
+  results.forEach((result) => {
+    if (result.errorCount > 0) {
+      errorsExist = true;
+    }
+    if (result.warningCount > 0) {
+      warningsExist = true;
+    }
+  });
+  if (errorsExist) {
+    log(['eslint', 'error'], formatter(results));
+  } else if (warningsExist) {
+    log(['eslint', 'warning'], formatter(results));
+  }
 
   const b = new Browserify({
     entries: [input],
     debug: true
   });
 
-  b
-    .transform(babelify, { global: true, presets: [bes2015], plugins: [] })
-    .bundle()
-    .on('error', function (err) {
-      log(['error'], err.stack);
-      this.emit('end');
-    })
-    .pipe(exorcist(`${output}.map`))
-    .pipe(fileStream);
+  let currentTransform = b.transform(babelify, { global: true, presets: [bes2015], plugins: [] });
+  if (conf.core.minify) {
+    currentTransform = currentTransform.transform(uglifyify, { global: true });
+  }
+  currentTransform
+  .bundle()
+  .on('error', function (err) {
+    log(['error'], err.stack);
+    this.emit('end');
+  })
+  .pipe(exorcist(`${output}.map`))
+  .pipe(fileStream);
 };

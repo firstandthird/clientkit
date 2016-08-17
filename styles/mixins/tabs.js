@@ -1,15 +1,14 @@
+'use strict';
 module.exports = function () {
   return function (mixin, number, borderRadius) {
-    var styles = {
-      '.tabs': {
-        display: 'flex',
-        'flex-wrap': 'wrap',
-        'max-width': '100%',
-        position: 'relative',
-        'list-style': 'none',
-        'border-radius': borderRadius,
-      },
-      '.tab': {
+    const styles = {
+      display: 'flex',
+      'flex-wrap': 'wrap',
+      'max-width': '100%',
+      position: 'relative',
+      'list-style': 'none',
+      'border-radius': borderRadius,
+      '& .tab': {
         display: 'none',
         '&:first-of-type:not(:last-of-type) + label': {
           'border-top-right-radius': '0',
@@ -29,7 +28,7 @@ module.exports = function () {
           'box-sizing': 'border-box',
           display: 'block',
           'flex-grow': '3',
-          'border-radius': borderRadius + ' ' + borderRadius + ' 0 0',
+          'border-radius': `${borderRadius} ${borderRadius} 0 0`,
           'text-decoration': 'none',
           cursor: 'pointer',
           'user-select': 'none',
@@ -45,7 +44,7 @@ module.exports = function () {
         }
       }
     };
-    var tabStyle = {
+    const tabStyle = {
       position: 'relative',
       top: '0',
       'z-index': '100',
@@ -53,13 +52,10 @@ module.exports = function () {
       transform: 'translateY(0px)',
       transition: '0.5s opacity ease-in, 0.8s transform ease'
     };
-    for (var i = 1; i <= number; i++) {
-      styles['.tab:checked:nth-of-type(' + i + ') ~ .tab-content:nth-of-type(' + i + ')'] = tabStyle;
-    };
+    for (let i = 1; i <= number; i++) {
+      styles[`& .tab:checked:nth-of-type(${i}) ~ .tab-content:nth-of-type(${i})`] = tabStyle;
+    }
 
     return styles;
-
   };
 };
-
-

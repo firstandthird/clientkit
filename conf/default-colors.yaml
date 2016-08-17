@@ -1,4 +1,4 @@
-# All color vairables will be prefixed automatically
+# All color variables will be prefixed automatically
 color:
   primary: '#333'
   body: '#333'
@@ -7,14 +7,16 @@ color:
   secondary: '#666'
   white: '#fff'
   accent: orange
-  background: rgb(200,200,200)
+  background-default: '#fff'
+  background-alt: rgb(95, 95, 95)
   link: '{{color.primary}}'
   link-hover: '{{color.secondary}}'
   input-background: '#fff'
   input-border: '#333'
+  input-border-focus: 'blue'
+  input-label: 'gray'
+  input-error: 'red'
+  input-disabled: 'gray'
   button-primary-bg: 'rgba(75, 157, 249, 1)'
   button-primary-color: '{{color.white}}'
-  button-secondary-bg: '{{color.primary}}'
-  button-secondary-color: '{{color.white}}'
-  button-primary-outline-color: '{{color["button-primary-color"]}}'
   tooltip-bg: 'rgba(17,17,17,.9)'
