@@ -31,7 +31,7 @@
   }
   & ul,
   & ol {
-    padding-left: 15px;
+    padding-left: 25px;
     @mixin font-style font-body;
   }
   & ul li {
