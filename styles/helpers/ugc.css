@@ -33,7 +33,7 @@
     padding-left: 15px;
     @mixin font-style font-body;
   }
-  & li {
+  & ul li {
     list-style-type: disc;
   }
   & table {
