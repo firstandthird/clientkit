@@ -1,5 +1,17 @@
 .close {
-  @mixin close var(--color-body), var(--color-body);
+  float: right;
+  color: var(--color-body);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: .2;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+  }
 }
 
 /* Additional properties for button version
