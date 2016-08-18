@@ -1,1 +1,51 @@
-@mixin inputs;
+.form {
+  & label {
+    @mixin font-style form-label;
+  }
+
+  & input[type~="text"],
+  & input[type="email"],
+  & input[type="password"],
+  & input[type="url"],
+  & input[type="tel"],
+  & input[type="search"],
+  & input[type="number"],
+  & input[type="date"],
+  & input[type="datetime"],
+  & input[type="datetime-local"],
+  & input[type="month"],
+  & input[type="week"],
+  & input[type="time"],
+  & textarea {
+    width: 100%;
+    @mixin input text;
+    @mixin font-style form-input;
+  }
+
+  & small {
+    display: none;
+  }
+
+  & .error {
+    & small {
+      @mixin font-style form-error;
+    }
+
+    & input[type~="text"],
+    & input[type="email"],
+    & input[type="password"],
+    & input[type="url"],
+    & input[type="tel"],
+    & input[type="search"],
+    & input[type="number"],
+    & input[type="date"],
+    & input[type="datetime"],
+    & input[type="datetime-local"],
+    & input[type="month"],
+    & input[type="week"],
+    & input[type="time"],
+    & textarea {
+      @mixin input error;
+    }
+  }
+}

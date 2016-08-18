@@ -1,0 +1,8 @@
+
+.arrow-up {
+  @mixin icon arrow-up-a, 15px, green;
+}
+
+.arrow-down {
+  @mixin icon arrow-down-a, 15px;
+}
