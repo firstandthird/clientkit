@@ -13,6 +13,8 @@ const triangle = require('postcss-triangle');
 const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 const pathExists = require('path-exists');
+const mdcss = require('mdcss');
+const mdcssTheme = require('mdcss-theme-github');
 const Logr = require('logr');
 const log = new Logr({
   type: 'cli',
@@ -103,6 +105,20 @@ class CssTask {
         foundries: ['custom', 'hosted', 'google']
       }));
     }
+
+    if (input.match(this.config.core.styleguideInput)) {
+      processes.push(mdcss({
+        theme: mdcssTheme({
+          title: 'ClientKit',
+          logo: '',
+          examples: {
+            css: ['../clientkit.css']
+          }
+        }),
+        destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
+      }));
+    }
+
     // minify if specified in config files:
     if (this.config.core.minify) {
       processes.push(cssnano());

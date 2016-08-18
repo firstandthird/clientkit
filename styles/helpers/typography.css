@@ -6,14 +6,41 @@
   --font-xbold: 800
 }
 
+/*---
+section: Typography
+title: Body
+---
+
+```example:html
+<p>Body Style</p>
+```
+*/
 body {
   @mixin font-style font-body;
 }
 
+/*---
+section: Typography
+title: Primary
+---
+
+```example:html
+<p class="font-primary">Primary Style</p>
+```
+*/
 .font-primary {
   font-family: var(--font-primary) !important;
 }
 
+/*---
+section: Typography
+title: Secondary
+---
+
+```example:html
+<p class="font-secondary">Secondary Font Style</p>
+```
+*/
 .font-secondary {
   font-family: var(--font-secondary) !important;
 }
@@ -73,9 +100,19 @@ body {
   font-weight: var(--font-xbold);
 }
 
-/*
- * adds helper classes for everything in default-typography fontStyles
- */
+/*---
+section: Typography
+title: Helpers
+---
+
+```example:html
+<div class="heading-1">Heading 1</div>
+<div class="heading-2">Heading 2</div>
+<div class="heading-3">Heading 3</div>
+<div class="heading-4">Heading 4</div>
+<div class="heading-5">Heading 5</div>
+```
+*/
 @mixin font-style;
 
 .heading--light {

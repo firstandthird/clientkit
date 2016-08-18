@@ -13,3 +13,4 @@ core:
       - '{{CONFIGDIR}}/*.yaml'
   eslint: 'eslint-config-firstandthird'
   fontParsingWhitelist: 'default.css'
+  styleguideInput: 'default.css'
