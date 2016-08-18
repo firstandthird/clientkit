@@ -20,3 +20,4 @@ color:
   button-primary-bg: 'rgba(75, 157, 249, 1)'
   button-primary-color: '{{color.white}}'
   tooltip-bg: 'rgba(17,17,17,.9)'
+  icons: '#333'

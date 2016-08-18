@@ -1,20 +1,21 @@
 {
   "name": "clientkit",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "description": "Client kit for websites",
   "main": "app.js",
   "bin": {
     "clientkit": "app.js"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node app.js --config conf",
     "dev": "node app.js dev",
     "test": "mocha",
     "example:build": "node app.js --config $PWD/examples/clientkit",
     "example:dev": "node app.js dev --config $PWD/examples/clientkit",
     "example:serve": "serve -p 8082 examples",
     "example": "concurrently \"npm run example:dev\" \"npm run example:serve\"",
-    "ghpages": "npm run example:build && node tasks/ghpages.js"
+    "ghpages": "npm run example:build && node tasks/ghpages.js",
+    "dockerhub": "./tasks/docker-push"
   },
   "repository": {
     "type": "git",
