@@ -1,4 +1,10 @@
 
+0.6.0 / 2016-08-17
+==================
+
+  * docker push script
+  * updated dockerfile to use node 6
+
 0.5.0 / 2016-08-17
 ==================
 
