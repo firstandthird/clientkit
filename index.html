@@ -1,23 +1,334 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>ClientKit</title>
-    <link rel="stylesheet" href=".dist/clientkit.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="primer.css" rel="stylesheet"><link href="style.css" rel="stylesheet"><link href="octicons/octicons.css" rel="stylesheet">
+    <script>examples={"base":"","target":"_self","css":["clientkit.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
+    
   </head>
   <body>
-    <h1>ClientKit Examples</h1>
-    <ul>
-      <li><a href="buttons/">Buttons</a></li>
-      <li><a href="typography/">Typography</a></li>
-      <li><a href="grid/">Grid</a></li>
-      <li><a href="lists/">Lists</a></li>
-      <li><a href="tabs/">Tabs</a></li>
-      <li><a href="ugc/">UGC</a></li>
-      <li><a href="inputs/">Inputs</a></li>
-      <li><a href="bg-image/">Background Image</a></li>
-      <li><a href="triangles/">Triangles</a></li>
-      <li><a href="mediaqueries/">Media Queries</a></li>
-    </ul>
+    <header class="masthead" style="background-color: #4078c0;">
+      <div class="container">
+        <a href="/" class="masthead-logo">
+          <img src="mdcss-logo.png" alt="ClientKit" height="32"> ClientKit
+        </a>
+        <nav class="masthead-nav">
+            
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="columns docs-layout">
+        <div class="one-fourth column">
+          <nav class="menu docs-menu">
+            
+    
+        <a class="menu-heading" href="#typography"><span>Typography</span></a>
+        
+    
+        <a class="menu-item" href="#body"><span>Body</span></a>
+        
+        
+        <a class="menu-item" href="#primary"><span>Primary</span></a>
+        
+        
+        <a class="menu-item" href="#secondary"><span>Secondary</span></a>
+        
+        
+        <a class="menu-item" href="#helpers"><span>Helpers</span></a>
+        
+        
+  
+        
+        <a class="menu-heading" href="#lists"><span>Lists</span></a>
+        
+    
+        <a class="menu-item" href="#unstyled"><span>Unstyled</span></a>
+        
+        
+        <a class="menu-item" href="#inline"><span>Inline</span></a>
+        
+        
+  
+        
+        <a class="menu-heading" href="#buttons"><span>Buttons</span></a>
+        
+    
+        <a class="menu-item" href="#primary-button"><span>Primary Button</span></a>
+        
+        
+        <a class="menu-item" href="#outline-button"><span>Outline Button</span></a>
+        
+        
+  
+        
+        <a class="menu-heading" href="#components"><span>Components</span></a>
+        
+    
+        <a class="menu-item" href="#tabs"><span>Tabs</span></a>
+        
+        
+  
+        
+  
+          </nav>
+        </div>
+
+        <main class="three-fourths column markdown-body">
+          
+    <section id="typography">
+      <h1 class="page-title">Typography</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="body">
+      <h2 class="page-title">Body</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;p&gt;Body Style&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="primary">
+      <h2 class="page-title">Primary</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;p class=&quot;font-primary&quot;&gt;Primary Style&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="secondary">
+      <h2 class="page-title">Secondary</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;p class=&quot;font-secondary&quot;&gt;Secondary Font Style&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="helpers">
+      <h2 class="page-title">Helpers</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;div class=&quot;heading-1&quot;&gt;Heading 1&lt;/div&gt;
+&lt;div class=&quot;heading-2&quot;&gt;Heading 2&lt;/div&gt;
+&lt;div class=&quot;heading-3&quot;&gt;Heading 3&lt;/div&gt;
+&lt;div class=&quot;heading-4&quot;&gt;Heading 4&lt;/div&gt;
+&lt;div class=&quot;heading-5&quot;&gt;Heading 5&lt;/div&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+    <section id="lists">
+      <h1 class="page-title">Lists</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="unstyled">
+      <h2 class="page-title">Unstyled</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;ul class=&quot;list-unstyled&quot;&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="inline">
+      <h2 class="page-title">Inline</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+    <section id="buttons">
+      <h1 class="page-title">Buttons</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="primary-button">
+      <h2 class="page-title">Primary Button</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;button class=&quot;button&quot;&gt;Primary Button&lt;/button&gt;
+&lt;a class=&quot;button&quot;&gt;Primary Link Button&lt;/a&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="outline-button">
+      <h2 class="page-title">Outline Button</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;button class=&quot;button-outline&quot;&gt;Primary Button&lt;/button&gt;
+&lt;a class=&quot;button-outline&quot;&gt;Primary Link Button&lt;/a&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+    <section id="components">
+      <h1 class="page-title">Components</h1>
+
+      <div class="markdown-body">
+        
+        
+    <section id="tabs">
+      <h2 class="page-title">Tabs</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">
+&lt;div class=&quot;tabs&quot;&gt;
+
+  &lt;!-- active tab on page load gets checked attribute --&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;tab1&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot; checked&gt;
+  &lt;label for=&quot;tab1&quot;&gt;Short&lt;/label&gt;
+
+  &lt;input type=&quot;radio&quot; id=&quot;tab2&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot;&gt;
+  &lt;label for=&quot;tab2&quot;&gt;Medium&lt;/label&gt;
+
+  &lt;input type=&quot;radio&quot; id=&quot;tab3&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot;&gt;
+  &lt;label for=&quot;tab3&quot;&gt;Long&lt;/label&gt;
+
+  &lt;div class=&quot;tab-content&quot;&gt;
+    &lt;h3&gt;Short Section&lt;/h3&gt;
+    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tab-content&quot;&gt;
+    &lt;h3&gt;Medium Section&lt;/h3&gt;
+    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
+
+    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tab-content&quot;&gt;
+    &lt;h3&gt;Long Section&lt;/h3&gt;
+    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
+
+    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
+
+    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
+
+    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+        </main>
+      </div>
+      <footer class="footer">
+        Last modified Thursday, 18 August 2016 16:40
+      </footer>
+    </div>
+    <script src="prism.js?871234"></script>
+    <script src="examples.js?873428"></script>
+    <script src="script.js?02359872"></script>
+    <script src="anchor.min.js?225234"></script>
+    <script src="interact.min.js?8552934"></script>
+    <script>
+     anchors.options = {
+         placement: 'left',
+         visible: 'hover',
+         class: 'anchor-link'
+     };
+     anchors.add('h2, h3');
+
+     /* interact('.docs-resize')
+      *   .resizable({
+      *     edges: {
+      *       left: '.c-resize--left',
+      *       right: '.c-resize--right',
+      *       bottom: false,
+      *       top: false
+      *     },
+      *     onmove: function (e) {
+      *       var width = e.rect.width,
+      *         windowWidth = $(window).width();
+
+      *       if (width < 160) {
+      *         width = 160;
+      *       } else if ((width * 2) + 100 > windowWidth) {
+      *         width = (windowWidth - 100) / 2;
+      *       }
+
+      *       $('.docs-example').find('docs-resize').addClass('resize-overlay');
+      *       $('.docs-resize').style.width = (width * 2) + 'px';
+      *     },
+      *     onend: function () {
+      *       $('.docs-example').find('docs-resize').removeClass('resize-overlay');
+      *     }
+      *   })
+      *   .on('resizemove', function (event) {
+      *     var target = event.target,
+      *         x = (parseFloat(target.getAttribute('data-x')) || 0);
+
+      *     // update the element's style
+      *     target.style.width  = event.rect.width + 'px';
+
+      *     // translate when resizing from top or left edges
+      *     x += event.deltaRect.left;
+
+      *     target.style.webkitTransform = target.style.transform =
+      *       'translateX(' + x + 'px)';
+
+      *     target.setAttribute('data-x', x);
+      *     target.textContent = Math.round(event.rect.width);
+      *   });*/
+    </script>
+    
+  
   </body>
 </html>
+
+
