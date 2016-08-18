@@ -112,10 +112,10 @@ class CssTask {
           title: 'ClientKit',
           logo: '',
           examples: {
-            css: ['../clientkit.css']
+            css: ['clientkit.css']
           }
         }),
-        destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
+        destination: path.join(this.config.core.dist.replace(process.cwd(), ''))
       }));
     }
 
