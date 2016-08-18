@@ -47,10 +47,6 @@ module.exports = function (config) {
           'padding-right': gutters
         };
 
-        block[`.${prefix}-plain`] = {
-          'padding-right': 0,
-          'padding-left': 0
-        };
         block[`.${prefix}-pull-${i}`] = {
           right: `${(100 / (12 / i))}%`
         };
@@ -77,6 +73,10 @@ module.exports = function (config) {
           };
         }
       }
+      block[`.${prefix}-plain`] = {
+        'padding-right': 0,
+        'padding-left': 0
+      };
     }
 
     return breakpointHelper(styles, config);
