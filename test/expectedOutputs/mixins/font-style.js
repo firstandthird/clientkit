@@ -1,4 +1,22 @@
 module.exports={
+  ".form-error": {
+      "color": "red",
+      "font-family": "sans-serif",
+      "font-size": "12px",
+      "line-height": "24px"
+    },
+  ".form-input": {
+    "color": "#333",
+    "font-family": "sans-serif",
+    "font-size": "16px",
+    "line-height": "24px"
+  },
+  ".form-label": {
+    "color": "gray",
+    "font-family": "sans-serif",
+    "font-size": "12px",
+    "line-height": "24px"
+  },
   ".heading-1": {
     "color": "#333",
     "font-family": "serif",
@@ -48,6 +66,9 @@ module.exports={
       "font-size": "14px",
       "line-height": "22px"
     }
+  },
+  ".text-stretch": {
+    "letter-spacing": "2px"
   },
   ".font-large": {
     "font-family": "sans-serif",
