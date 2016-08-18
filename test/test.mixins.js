@@ -106,6 +106,15 @@ describe('hide', function() {
   });
 });
 
+describe('close', function() {
+  it('generates close classes', (done) => {
+    const close = require('../styles/mixins/close.js')(conf);
+    const result = close({});
+    compare(result, 'close.js');
+    done();
+  });
+});
+
 describe('input', function() {
   it('generates input classes', (done) => {
     const inputs = require('../styles/mixins/inputs.js')(conf);

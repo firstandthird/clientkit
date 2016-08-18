@@ -7,7 +7,7 @@
     "clientkit": "app.js"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node app.js --config conf",
     "dev": "node app.js dev",
     "test": "mocha",
     "example:build": "node app.js --config $PWD/examples/clientkit",
