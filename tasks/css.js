@@ -14,7 +14,7 @@ const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 const pathExists = require('path-exists');
 const mdcss = require('mdcss');
-const mdcssTheme = require('mdcss-theme-github');
+const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
 const log = new Logr({
   type: 'cli',
@@ -111,6 +111,8 @@ class CssTask {
         theme: mdcssTheme({
           title: this.config.docs.title,
           logo: '',
+          colors: this.config.color,
+          variables: this.config.vars,
           examples: {
             css: this.config.docs.css
           }
