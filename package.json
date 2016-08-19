@@ -8,12 +8,9 @@
   },
   "scripts": {
     "start": "node app.js --config conf",
-    "dev": "node app.js dev",
+    "dev": "concurrently \"node app.js --config conf dev\" \"npm run serve\"",
     "test": "mocha",
-    "example:build": "node app.js --config $PWD/examples/clientkit",
-    "example:dev": "node app.js dev --config $PWD/examples/clientkit",
-    "example:serve": "serve -p 8082 examples",
-    "example": "concurrently \"npm run example:dev\" \"npm run example:serve\"",
+    "serve": "serve -p 8082 .dist",
     "ghpages": "./tasks/ghpages",
     "dockerhub": "./tasks/docker-push"
   },
