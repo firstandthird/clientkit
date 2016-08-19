@@ -839,6 +839,19 @@ title: Secondary
   font-family: serif !important;
 }
 
+/*---
+section: Typography
+title: Alignment
+---
+
+```example:html
+<p class="text-left">Some Text</p>
+<p class="text-center">Some Text</p>
+<p class="text-right">Some Text</p>
+<p class="text-justify">Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturient faucibus sagittis consequat volutpat condimentum elit enim at primis condimentum torquent a in. A imperdiet vestibulum condimentum a quis nam mi vel hendrerit sem cubilia justo condimentum consectetur adipiscing. Facilisis lacinia ultrices etiam sociosqu ad a parturient ac leo class et potenti volutpat nostra pharetra semper parturient sociosqu suspendisse felis ac adipiscing. Sed commodo venenatis scelerisque a vehicula risus nullam dictumst et cras a suspendisse fusce adipiscing quisque dignissim quis lacinia suspendisse condimentum est mi augue a.</p>
+```
+*/
+
 .text-left {
   text-align: left;
 }
@@ -865,6 +878,18 @@ title: Secondary
   white-space: nowrap;
 }
 
+/*---
+section: Typography
+title: Transform
+---
+
+```example:html
+<p class="text-lowercase">Some Text</p>
+<p class="text-uppercase">Some Text</p>
+<p class="text-capitalize">some text</p>
+```
+*/
+
 .text-lowercase {
   text-transform: lowercase;
 }
@@ -876,6 +901,21 @@ title: Secondary
 .text-capitalize {
   text-transform: capitalize;
 }
+
+/*---
+section: Typography
+title: Weight
+---
+
+```example:html
+<p class="font-light">Some Text</p>
+<strong class="font-regular">Some Text</strong>
+<p class="font-semibold">Some Text</p>
+<strong>Some Text</strong>
+<p class="font-bold">Some Text</p>
+<p class="font-xbold">Some Text</p>
+```
+*/
 
 .font-light {
   font-weight: 300;
@@ -991,6 +1031,16 @@ title: Helpers
 .text-stretch {
   letter-spacing: 2px;
 }
+
+/*---
+section: Typography
+title: Colors
+---
+
+```example:html
+<div style="background: #000" class="heading--light">Light Text</div>
+```
+*/
 
 .heading--light {
   color: #fff;
@@ -1852,6 +1902,46 @@ title: Tabs
 
 .show-sm {
 }
+
+/*---
+section: Typography
+title: UGC
+---
+```example:html
+<div class="ugc">
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <p>Default body font</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <ol>
+    <li>Ordered Item 1</li>
+    <li>Ordered Item 2</li>
+    <li>Ordered Item 3</li>
+  </ol>
+  <table>
+    <thead>
+      <tr>
+        <th>Table Header 1</th>
+        <th>Table Header 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Table Header 1</td>
+        <td>Table Header 2</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+*/
 
 .ugc {
 }
