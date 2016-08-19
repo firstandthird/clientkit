@@ -1,0 +1,30 @@
+vars:
+  #families
+  font-primary: 'sans-serif'
+  font-secondary: 'serif'
+  font-heading: 'serif'
+
+  #sizes
+  font-size-body: 14px
+  font-size-large: 16px
+  font-size-small: 12px
+
+  #weights
+  font-light: 300
+  font-regular: 400
+  font-semibold: 600
+  font-bold: 700
+  font-xbold: 800
+
+  #headings
+  heading-line-height: 120%
+  heading-1-size: 45px
+  heading-1-mobile-size: 30px
+  heading-2-size: 30px
+  heading-2-mobile-size: 25px
+  heading-3-size: 25px
+  heading-3-mobile-size: 20px
+  heading-4-size: 16px
+  heading-4-mobile-size: 14px
+  heading-5-size: 14px
+  heading-5-mobile-size: 14px
