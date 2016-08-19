@@ -106,7 +106,7 @@ class CssTask {
       }));
     }
 
-    if (input.match(this.config.core.styleguideInput)) {
+    if (this.config.docs.enabled && input.match(this.config.docs.input)) {
       processes.push(mdcss({
         theme: mdcssTheme({
           title: this.config.docs.title,
