@@ -45,6 +45,18 @@ title: Secondary
   font-family: var(--font-secondary) !important;
 }
 
+/*---
+section: Typography
+title: Alignment
+---
+
+```example:html
+<p class="text-left">Some Text</p>
+<p class="text-center">Some Text</p>
+<p class="text-right">Some Text</p>
+<p class="text-justify">Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturient faucibus sagittis consequat volutpat condimentum elit enim at primis condimentum torquent a in. A imperdiet vestibulum condimentum a quis nam mi vel hendrerit sem cubilia justo condimentum consectetur adipiscing. Facilisis lacinia ultrices etiam sociosqu ad a parturient ac leo class et potenti volutpat nostra pharetra semper parturient sociosqu suspendisse felis ac adipiscing. Sed commodo venenatis scelerisque a vehicula risus nullam dictumst et cras a suspendisse fusce adipiscing quisque dignissim quis lacinia suspendisse condimentum est mi augue a.</p>
+```
+*/
 .text-left {
   text-align: left;
 }
@@ -69,6 +81,17 @@ title: Secondary
   white-space: nowrap;
 }
 
+/*---
+section: Typography
+title: Transform
+---
+
+```example:html
+<p class="text-lowercase">Some Text</p>
+<p class="text-uppercase">Some Text</p>
+<p class="text-capitalize">some text</p>
+```
+*/
 .text-lowercase {
   text-transform: lowercase;
 }
@@ -80,6 +103,20 @@ title: Secondary
 }
 
 
+/*---
+section: Typography
+title: Weight
+---
+
+```example:html
+<p class="font-light">Some Text</p>
+<strong class="font-regular">Some Text</strong>
+<p class="font-semibold">Some Text</p>
+<strong>Some Text</strong>
+<p class="font-bold">Some Text</p>
+<p class="font-xbold">Some Text</p>
+```
+*/
 .font-light {
   font-weight: var(--font-light);
 }
@@ -115,6 +152,15 @@ title: Helpers
 */
 @mixin font-style;
 
+/*---
+section: Typography
+title: Colors
+---
+
+```example:html
+<div style="background: #000" class="heading--light">Light Text</div>
+```
+*/
 .heading--light {
   color: var(--color-heading-light);
 }
