@@ -1,7 +1,33 @@
+/*---
+section: Lists
+title: Unstyled
+---
+
+```example:html
+<ul class="list-unstyled">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
 .list-unstyled {
   @mixin list-unstyled;
 }
 
+/*---
+section: Lists
+title: Inline
+---
+
+```example:html
+<ul class="list-inline">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
 .list-inline {
   @mixin list-inline;
 }

@@ -1,0 +1,4 @@
+docs:
+  title: 'ClientKit'
+  css:
+    - '../clientkit.css'
