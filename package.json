@@ -14,7 +14,7 @@
     "example:dev": "node app.js dev --config $PWD/examples/clientkit",
     "example:serve": "serve -p 8082 examples",
     "example": "concurrently \"npm run example:dev\" \"npm run example:serve\"",
-    "ghpages": "npm run example:build && node tasks/ghpages.js",
+    "ghpages": "./tasks/ghpages",
     "dockerhub": "./tasks/docker-push"
   },
   "repository": {

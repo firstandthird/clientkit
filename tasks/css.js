@@ -109,13 +109,13 @@ class CssTask {
     if (input.match(this.config.core.styleguideInput)) {
       processes.push(mdcss({
         theme: mdcssTheme({
-          title: 'ClientKit',
+          title: this.config.docs.title,
           logo: '',
           examples: {
-            css: ['clientkit.css']
+            css: this.config.docs.css
           }
         }),
-        destination: path.join(this.config.core.dist.replace(process.cwd(), ''))
+        destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
       }));
     }
 
