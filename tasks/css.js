@@ -112,7 +112,7 @@ class CssTask {
           title: this.config.docs.title,
           logo: '',
           colors: this.config.color,
-          variables: this.config.vars,
+          variables: this.cssVars,
           examples: {
             css: this.config.docs.css
           }
