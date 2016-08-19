@@ -14,7 +14,7 @@ const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 const pathExists = require('path-exists');
 const mdcss = require('mdcss');
-const mdcssTheme = require('mdcss-theme-github');
+const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
 const log = new Logr({
   type: 'cli',
@@ -77,7 +77,11 @@ class CssTask {
     this.input = input;
     const start = new Date().getTime();
     const processes = [
-      cssimport,
+      cssimport({
+        path: [
+          path.resolve(__dirname, '../styles')
+        ]
+      }),
       cssmixins({
         mixins: this.mixins
       }),
@@ -106,11 +110,13 @@ class CssTask {
       }));
     }
 
-    if (input.match(this.config.core.styleguideInput)) {
+    if (this.config.docs.enabled && input.match(this.config.docs.input)) {
       processes.push(mdcss({
         theme: mdcssTheme({
           title: this.config.docs.title,
           logo: '',
+          colors: this.config.color,
+          variables: this.cssVars,
           examples: {
             css: this.config.docs.css
           }

@@ -5,4 +5,4 @@ cp .dist/clientkit.css .dist/styleguide/clientkit.css
 touch .dist/styleguide/.nojekyll
 echo "clientkit.io" > .dist/styleguide/CNAME
 
-gh-pages -d .dist --dotfiles
+gh-pages -d .dist/styleguide --dotfiles

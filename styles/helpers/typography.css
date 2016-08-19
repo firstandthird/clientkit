@@ -8,39 +8,23 @@
 
 /*---
 section: Typography
-title: Body
+title: Fonts
 ---
 
 ```example:html
 <p>Body Style</p>
+<p class="font-primary">Primary Style</p>
+<p class="font-secondary">Secondary Font Style</p>
 ```
 */
 body {
   @mixin font-style font-body;
 }
 
-/*---
-section: Typography
-title: Primary
----
-
-```example:html
-<p class="font-primary">Primary Style</p>
-```
-*/
 .font-primary {
   font-family: var(--font-primary) !important;
 }
 
-/*---
-section: Typography
-title: Secondary
----
-
-```example:html
-<p class="font-secondary">Secondary Font Style</p>
-```
-*/
 .font-secondary {
   font-family: var(--font-secondary) !important;
 }
