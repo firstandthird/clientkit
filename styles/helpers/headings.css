@@ -16,6 +16,9 @@ title: Headings
   color: var(--color-heading);
   line-height: var(--heading-line-height);
   font-size: $size;
+  @media (--mobile) {
+    font-size: @mobileSize;
+  }
 }
 
 .heading-1 {
