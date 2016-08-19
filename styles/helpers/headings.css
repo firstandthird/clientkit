@@ -17,7 +17,7 @@ title: Headings
   line-height: var(--heading-line-height);
   font-size: $size;
   @media (--mobile) {
-    font-size: @mobileSize;
+    font-size: $mobileSize;
   }
 }
 
