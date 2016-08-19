@@ -77,7 +77,11 @@ class CssTask {
     this.input = input;
     const start = new Date().getTime();
     const processes = [
-      cssimport,
+      cssimport({
+        path: [
+          path.resolve(__dirname, '../styles')
+        ]
+      }),
       cssmixins({
         mixins: this.mixins
       }),
