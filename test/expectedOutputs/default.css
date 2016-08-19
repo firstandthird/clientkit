@@ -797,6 +797,16 @@ a:hover {
   cursor: pointer;
 }
 
+/*---
+section: Typography
+title: Body
+---
+
+```example:html
+<p>Body Style</p>
+```
+*/
+
 body {
   font-family: sans-serif;
   color: #333;
@@ -804,13 +814,46 @@ body {
   line-height: 24px;
 }
 
+/*---
+section: Typography
+title: Primary
+---
+
+```example:html
+<p class="font-primary">Primary Style</p>
+```
+*/
+
 .font-primary {
   font-family: sans-serif !important;
 }
 
+/*---
+section: Typography
+title: Secondary
+---
+
+```example:html
+<p class="font-secondary">Secondary Font Style</p>
+```
+*/
+
 .font-secondary {
   font-family: serif !important;
 }
+
+/*---
+section: Typography
+title: Alignment
+---
+
+```example:html
+<p class="text-left">Some Text</p>
+<p class="text-center">Some Text</p>
+<p class="text-right">Some Text</p>
+<p class="text-justify">Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturient faucibus sagittis consequat volutpat condimentum elit enim at primis condimentum torquent a in. A imperdiet vestibulum condimentum a quis nam mi vel hendrerit sem cubilia justo condimentum consectetur adipiscing. Facilisis lacinia ultrices etiam sociosqu ad a parturient ac leo class et potenti volutpat nostra pharetra semper parturient sociosqu suspendisse felis ac adipiscing. Sed commodo venenatis scelerisque a vehicula risus nullam dictumst et cras a suspendisse fusce adipiscing quisque dignissim quis lacinia suspendisse condimentum est mi augue a.</p>
+```
+*/
 
 .text-left {
   text-align: left;
@@ -838,6 +881,18 @@ body {
   white-space: nowrap;
 }
 
+/*---
+section: Typography
+title: Transform
+---
+
+```example:html
+<p class="text-lowercase">Some Text</p>
+<p class="text-uppercase">Some Text</p>
+<p class="text-capitalize">some text</p>
+```
+*/
+
 .text-lowercase {
   text-transform: lowercase;
 }
@@ -849,6 +904,21 @@ body {
 .text-capitalize {
   text-transform: capitalize;
 }
+
+/*---
+section: Typography
+title: Weight
+---
+
+```example:html
+<p class="font-light">Some Text</p>
+<strong class="font-regular">Some Text</strong>
+<p class="font-semibold">Some Text</p>
+<strong>Some Text</strong>
+<p class="font-bold">Some Text</p>
+<p class="font-xbold">Some Text</p>
+```
+*/
 
 .font-light {
   font-weight: 300;
@@ -870,9 +940,19 @@ body {
   font-weight: 800;
 }
 
-/*
- * adds helper classes for everything in default-typography fontStyles
- */
+/*---
+section: Typography
+title: Helpers
+---
+
+```example:html
+<div class="heading-1">Heading 1</div>
+<div class="heading-2">Heading 2</div>
+<div class="heading-3">Heading 3</div>
+<div class="heading-4">Heading 4</div>
+<div class="heading-5">Heading 5</div>
+```
+*/
 
 .heading-1 {
   color: #333;
@@ -954,6 +1034,16 @@ body {
 .text-stretch {
   letter-spacing: 2px;
 }
+
+/*---
+section: Typography
+title: Colors
+---
+
+```example:html
+<div style="background: #000" class="heading--light">Light Text</div>
+```
+*/
 
 .heading--light {
   color: #fff;
@@ -1385,10 +1475,38 @@ p {
   margin-bottom: 10px;
 }
 
+/*---
+section: Lists
+title: Unstyled
+---
+
+```example:html
+<ul class="list-unstyled">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
 }
+
+/*---
+section: Lists
+title: Inline
+---
+
+```example:html
+<ul class="list-inline">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
 
 .list-inline {
   margin-left: -5px;
@@ -1401,6 +1519,16 @@ p {
   padding-right: 5px;
   padding-left: 5px;
 }
+
+/*---
+section: Buttons
+title: Primary Button
+---
+```example:html
+<button class="button">Primary Button</button>
+<a class="button">Primary Link Button</a>
+```
+*/
 
 .button {
   display: inline-block;
@@ -1432,6 +1560,16 @@ p {
   background-color: rgb(74, 135, 204);
   color: #fff;
 }
+
+/*---
+section: Buttons
+title: Outline Button
+---
+```example:html
+<button class="button-outline">Primary Button</button>
+<a class="button-outline">Primary Link Button</a>
+```
+*/
 
 .button-outline {
   display: inline-block;
@@ -1547,6 +1685,52 @@ p {
 .form .error input[type~="text"]:focus, .form .error input[type="email"]:focus, .form .error input[type="password"]:focus, .form .error input[type="url"]:focus, .form .error input[type="tel"]:focus, .form .error input[type="search"]:focus, .form .error input[type="number"]:focus, .form .error input[type="date"]:focus, .form .error input[type="datetime"]:focus, .form .error input[type="datetime-local"]:focus, .form .error input[type="month"]:focus, .form .error input[type="week"]:focus, .form .error input[type="time"]:focus, .form .error textarea:focus {
   box-shadow:  0 2px 0 0 red;
 }
+
+/*---
+section: Components
+title: Tabs
+---
+
+```example:html
+
+<div class="tabs">
+
+  <!-- active tab on page load gets checked attribute -->
+  <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
+  <label for="tab1">Short</label>
+
+  <input type="radio" id="tab2" name="tabGroup1" class="tab">
+  <label for="tab2">Medium</label>
+
+  <input type="radio" id="tab3" name="tabGroup1" class="tab">
+  <label for="tab3">Long</label>
+
+  <div class="tab-content">
+    <h3>Short Section</h3>
+    <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+  </div>
+
+  <div class="tab-content">
+    <h3>Medium Section</h3>
+    <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+    <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+  </div>
+
+  <div class="tab-content">
+    <h3>Long Section</h3>
+    <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+    <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+
+    <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+    <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+  </div>
+
+</div>
+```
+*/
 
 .tabs {
   display: -webkit-box;
@@ -1721,6 +1905,46 @@ p {
 
 .show-sm {
 }
+
+/*---
+section: Typography
+title: UGC
+---
+```example:html
+<div class="ugc">
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <p>Default body font</p>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <ol>
+    <li>Ordered Item 1</li>
+    <li>Ordered Item 2</li>
+    <li>Ordered Item 3</li>
+  </ol>
+  <table>
+    <thead>
+      <tr>
+        <th>Table Header 1</th>
+        <th>Table Header 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Table Header 1</td>
+        <td>Table Header 2</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+*/
 
 .ugc {
 }
@@ -3183,4 +3407,4 @@ p {
   }
 }
 
-/*# sourceMappingURL=testDefault.css.map */
+/*# sourceMappingURL=temp.css.map */

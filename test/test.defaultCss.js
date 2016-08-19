@@ -18,13 +18,14 @@ const conf = require('confi')({
 const expectedCssString = fs.readFileSync('./test/expectedOutputs/default.css').toString();
 
 describe('default css output', function() {
+  this.timeout(3000);
   it('detects dev changes that affect the expected CSS output', (done) => {
     // generate css against ./styles/default.css
-    cssModule.runTaskAndWrite(conf, path.join(process.cwd(), 'test'), 'testDefault.css', './styles/default.css');
-    expect(fs.existsSync(path.join('.dist', 'testDefault.css'))).to.equal(true);
-    const cssString = fs.readFileSync('./.dist/testDefault.css').toString();
-    expect(typeof cssString).to.equal('string');
-    expect(cssString).to.equal(expectedCssString);
-    done();
+    const cssTask = new cssModule.CssTask(conf, process.cwd());
+    cssTask.performTask('./styles/default.css', (result) => {
+      expect(typeof result.css).to.equal('string');
+      expect(result.css).to.equal(expectedCssString);
+      done();
+    });
   });
 });
