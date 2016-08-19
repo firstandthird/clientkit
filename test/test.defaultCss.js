@@ -18,7 +18,7 @@ const conf = require('confi')({
 const expectedCssString = fs.readFileSync('./test/expectedOutputs/default.css').toString();
 
 describe('default css output', function() {
-  this.timeout(3000);
+  this.timeout(15000);
   it('detects dev changes that affect the expected CSS output', (done) => {
     // generate css against ./styles/default.css
     const cssTask = new cssModule.CssTask(conf, process.cwd());
