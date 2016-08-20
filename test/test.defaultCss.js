@@ -23,9 +23,10 @@ describe('default css output', function() {
     // generate css against ./styles/default.css
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     cssTask.performTask('./styles/default.css', (result) => {
-      console.log('cssTask finished...')
       expect(typeof result.css).to.equal('string');
       console.log('result satisfied type condition...')
+      console.log('results were:')
+      console.log(result.css)
       expect(result.css).to.equal(expectedCssString);
       console.log('returning now....')
       done();
