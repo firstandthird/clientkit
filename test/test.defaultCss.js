@@ -15,7 +15,6 @@ const conf = require('confi')({
     CONFIGDIR: path.join(process.cwd(), 'conf')
   }
 });
-const expectedCssString = fs.readFileSync('test/expectedOutputs/default.css').toString();
 
 describe('default css output', function() {
   this.timeout(15000);
@@ -23,11 +22,11 @@ describe('default css output', function() {
     // generate css against ./styles/default.css
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     cssTask.performTask('./styles/default.css', (result) => {
+      const expectedCssString = fs.readFileSync('test/expectedOutputs/default.css').toString();
       expect(typeof result.css).to.equal('string');
       console.log(`first is lenght ${result.css.length}`)
       console.log(`compare to ${expectedCssString.length}`)
       expect(result.css.length).to.equal(expectedCssString.length);
-      console.log('returning now....')
       done();
     });
   });
