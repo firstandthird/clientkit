@@ -24,10 +24,9 @@ describe('default css output', function() {
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     cssTask.performTask('./styles/default.css', (result) => {
       expect(typeof result.css).to.equal('string');
-      console.log('result satisfied type condition...')
-      console.log('results were:')
-      console.log(result.css)
-      expect(result.css).to.equal(expectedCssString);
+      console.log(`first is lenght ${result.css.length}`)
+      console.log(`compare to ${expectedCssString.length}`)
+      expect(result.css.length).to.equal(expectedCssString.length);
       console.log('returning now....')
       done();
     });
