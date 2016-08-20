@@ -15,7 +15,7 @@ const conf = require('confi')({
     CONFIGDIR: path.join(process.cwd(), 'conf')
   }
 });
-const expectedCssString = fs.readFileSync('./test/expectedOutputs/default.css').toString();
+const expectedCssString = fs.readFileSync('test/expectedOutputs/default.css').toString();
 
 describe('default css output', function() {
   this.timeout(60000);
