@@ -18,13 +18,16 @@ const conf = require('confi')({
 const expectedCssString = fs.readFileSync('test/expectedOutputs/default.css').toString();
 
 describe('default css output', function() {
-  this.timeout(60000);
+  this.timeout(15000);
   it('detects dev changes that affect the expected CSS output', (done) => {
     // generate css against ./styles/default.css
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     cssTask.performTask('./styles/default.css', (result) => {
+      console.log('cssTask finished...')
       expect(typeof result.css).to.equal('string');
+      console.log('result satisfied type condition...')
       expect(result.css).to.equal(expectedCssString);
+      console.log('returning now....')
       done();
     });
   });
