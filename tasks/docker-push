@@ -1,0 +1,12 @@
+#!/bin/bash
+
+GITTAG=$(git describe --abbrev=0 --tags)
+
+build() {
+  local tag=$1
+  docker build -t firstandthird/clientkit:$tag .
+  docker push firstandthird/clientkit:$tag
+}
+build $GITTAG
+build latest
+

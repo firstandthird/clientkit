@@ -45,6 +45,23 @@ fontStyles:
       color: '{{color.body}}'
       font-size: 12px
       line-height: 24px
+    form-label:
+      font-family: '{{fonts.primary}}'
+      color: '{{color["input-label"]}}'
+      font-size: 12px
+      line-height: 24px
+    form-input:
+      font-family: '{{fonts.primary}}'
+      color: '{{color.body}}'
+      font-size: 16px
+      line-height: 24px
+    form-error:
+      font-family: '{{fonts.primary}}'
+      color: '{{color["input-error"]}}'
+      font-size: 12px
+      line-height: 24px
+    text-stretch:
+      letter-spacing: 2px
   mobile:
     heading-1:
       font-size: 30px

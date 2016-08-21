@@ -108,8 +108,8 @@ describe('hide', function() {
 
 describe('input', function() {
   it('generates input classes', (done) => {
-    const inputs = require('../styles/mixins/inputs.js')(conf);
-    const result = inputs({});
+    const inputs = require('../styles/mixins/input.js')(conf);
+    const result = inputs('', 'text');
     compare(result, 'inputs.js');
     done();
   });

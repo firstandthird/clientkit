@@ -1,0 +1,6 @@
+docs:
+  input: 'default.css'
+  enabled: true
+  title: 'ClientKit'
+  css:
+    - '../clientkit.css'

@@ -3,9 +3,11 @@
 const path = require('path');
 const yargs = require('yargs');
 const Logr = require('logr');
-const watcher = require('./lib/watcher');
-const mkdirp = require('mkdirp');
-const getStdin = require('get-stdin');
+const configHandler = require('./lib/config');
+const init = require('./commands/init.js');
+const reports = require('./commands/reports.js');
+const run = require('./commands/run.js');
+const dev = require('./commands/dev.js');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -16,9 +18,10 @@ const log = new Logr({
 });
 
 const argv = yargs
-.option('styleguide', {
-  describe: 'generate an html styleguide based on your new css that you can open in your browser ',
-  default: false
+.option('init', {
+  describe: 'create a new project directory ',
+  default: false,
+  type: 'string'
 })
 .option('options', {
   describe: 'shows the css variables and mixins that are available ',
@@ -45,133 +48,32 @@ const argv = yargs
 .env(true)
 .argv;
 
-log(`Using local config directory: ${argv.config}`);
-const defaultConf = path.join(__dirname, 'conf');
-const loadConfig = () => {
-  // first set up configuration based on the config yamls:
-  const conf = require('confi')({
-    path: [
-      defaultConf,
-      argv.config
-    ],
-    context: {
-      CKDIR: __dirname,
-      CONFIGDIR: argv.config
-    }
-  });
-  // second, set up the configuration based on any command line options:
-  if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-    conf.mode = 'dev';
-  } else {
-    conf.mode = 'prod';
-  }
-  return conf;
-};
-
-if (argv.styleguide) {
-  // todo: this should ultimately go in commands/ instead of tasks/ on the init branch:
-  const config = loadConfig();
-  const styleguide = require('./tasks/styleguide.js');
-  styleguide(
-    config,
-    path.join(__dirname, 'lib', 'styleguide.template'),
-    path.join(config.core.dist, 'styleguide.html'),
-    log
-  );
+if (argv.init || argv._.init || argv._.indexOf('init') > -1) {
+  init(argv);
+  log('Done!');
   process.exit(0);
 }
+log(`Using local config directory: ${argv.config}`);
+const defaultConf = path.join(__dirname, 'conf');
 
-let jsWatcher = false; // watcher we will use to watch js files
-let cssWatcher = false; // the same, for css
-const cssProcessor = require('./tasks/css.js');
-const jsProcessor = require('./tasks/script.js');
-
-
-const runAll = () => {
-  // Tasks
-  const config = loadConfig();
-  const watchedScriptFiles = config.core.watch.scripts;
-  const watchedStyleFiles = config.core.watch.css;
-  if (argv.debug || argv._.indexOf('debug') > -1) {
-    log(JSON.stringify(config, null, '  '));
-  }
-
-  mkdirp.sync(config.core.dist);
-  if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-    // remove any existing css file watchers:
-    if (cssWatcher) {
-      cssWatcher.close();
-    }
-    cssWatcher = watcher(watchedStyleFiles, config.stylesheets, (input, output) => {
-      cssProcessor.runTaskAndWrite(config, __dirname, input, output);
-    }, config.core.rebuildDelay);
-    // remove any existing js file watchers:
-    if (jsWatcher) {
-      jsWatcher.close();
-    }
-    jsWatcher = watcher(watchedScriptFiles, config.scripts, (input, output) => {
-      jsProcessor(config, __dirname, input, output);
-    }, config.core.rebuildDelay);
-  } else {
-    if (config.stylesheets) {
-      Object.keys(config.stylesheets).forEach(style => cssProcessor.runTaskAndWrite(config, __dirname, style, config.stylesheets[style]));
-    }
-    if (config.scripts) {
-      Object.keys(config.scripts).forEach(script => jsProcessor(config, __dirname, script, config.scripts[script]));
-    }
-  }
-};
-
-const printCss = (cssExpression) => {
-  const config = loadConfig();
-  config.consoleOnly = true;
-  cssProcessor.processOnly(config, __dirname, cssExpression, (result) => {
-    // strips out the little addendum at the bottom of the css:
-    log(result.css.split(`/*# sourceMappingURL=none.map */`)[0]);
-  });
-};
-
-
-// dev mode will watch your conf files and reload everything when they are changed:
+const conf = configHandler.loadConfig(defaultConf, argv, log);
+if (!conf) {
+  process.exit(1);
+}
+// show css options:
 if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
-  const conf = loadConfig();
-  const obj = new cssProcessor.CssTask(conf, __dirname);
-  log('Available Mixins:');
-  log('------------------------------------------------');
-  Object.keys(obj.mixins).forEach((mixinName) => {
-    log(mixinName);
-  });
-  log('------------------------------------------------');
-  log('Available Variables:');
-  log('------------------------------------------------');
-  Object.keys(obj.cssVars).forEach((varName) => {
-    log(`${varName} : ${obj.cssVars[varName]}`);
-  });
-  log('------------------------------------------------');
-  log('Custom Media:');
-  log('------------------------------------------------');
-  Object.keys(obj.customMedia).forEach((mediaName) => {
-    log(`${mediaName} : ${obj.customMedia[mediaName]}`);
-  });
-  log('------------------------------------------------');
-} else if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-  const config = loadConfig();
-  const watchedConfigFiles = config.core.watch.yaml;
-  watcher(watchedConfigFiles, [''], () => {
-    runAll();
-  }, 100);
+  reports.showOptions(conf);
+// show css only:
 } else if (argv.css) {
-  // if they didn't pass a value into argv.css, look in stdin for the css expression or filename:
-  if (typeof argv.css === 'string') {
-    printCss(argv.css);
-  } else {
-    getStdin().then(str => {
-      if (str[str.length - 1] === '\n') {
-        str = str.replace('\n', '');
-      }
-      printCss(str);
-    });
-  }
+  conf.cssExpression = argv.css;
+  reports.showCss(conf);
+// dev mode will watch files and update when a change is made:
+} else if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+  dev.runDev(defaultConf, conf, argv, log);
+// normal mode will run and output the new css/js dist directory:
 } else {
-  runAll();
+  if (argv.debug || argv._.indexOf('debug') > -1) {
+    log(JSON.stringify(conf, null, '  '));
+  }
+  run.runAll(conf, log);
 }
