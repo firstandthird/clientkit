@@ -57,7 +57,7 @@ module.exports = function(conf, base, outputName, input) {
     debug: true
   });
 
-  let currentTransform = b.transform(babelify, { global: true, presets: [bes2015], plugins: [] });
+  let currentTransform = b.transform(babelify, { global: conf.core.globalBabel, presets: [bes2015], plugins: [] });
   if (conf.core.minify) {
     currentTransform = currentTransform.transform(uglifyify, { global: true });
   }
