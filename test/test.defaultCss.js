@@ -22,8 +22,10 @@ describe('default css output', function() {
     // generate css against ./styles/default.css
     const cssTask = new cssModule.CssTask(conf, process.cwd());
     cssTask.performTask('./styles/default.css', (result) => {
+      // fs.writeFileSync('test/expectedOutputs/default.css', result.css);
       const expectedCssString = fs.readFileSync('test/expectedOutputs/default.css').toString();
       console.log('****************')
+      console.log(conf)
       const diff = require('diff');
       console.log('****************')
       const d = diff.diffWords(expectedCssString, result.css);
