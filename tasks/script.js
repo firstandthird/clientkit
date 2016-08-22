@@ -64,7 +64,7 @@ module.exports = function(conf, base, outputName, input) {
   currentTransform
   .bundle()
   .on('error', function (err) {
-    log(['error'], err.stack);
+    log(['error'], err);
     this.emit('end');
   })
   .pipe(exorcist(`${output}.map`))
