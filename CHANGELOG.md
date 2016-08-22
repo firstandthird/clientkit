@@ -1,4 +1,30 @@
 
+0.8.0 / 2016-08-22
+==================
+
+  * option for running babel globally
+  * better error messages for scripts
+  * Add !important to hide class
+
+0.7.0 / 2016-08-19
+==================
+
+  * add local clientkit folder to import path
+  * added a way to disable docs/styleguide. moved input filename to docs conf
+  * full variable list
+  * better grouping for typography
+  * updated mdcss theme
+  * updated ghpages script
+  * switch mdcss theme to custom clientkit theme
+  * ugc docs
+  * updated run scripts to use new docs
+  * typography docs
+  * updated ghpages scripts
+  * ghpages publish dist instead of examples
+  * update to output styleguide into dist folder
+  * initial work on auto documentation/styleguide with mdcss
+  * updated out-of-date unit tests
+
 0.6.0 / 2016-08-17
 ==================
 

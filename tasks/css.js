@@ -77,7 +77,11 @@ class CssTask {
     this.input = input;
     const start = new Date().getTime();
     const processes = [
-      cssimport,
+      cssimport({
+        path: [
+          path.resolve(__dirname, '../styles')
+        ]
+      }),
       cssmixins({
         mixins: this.mixins
       }),
@@ -106,13 +110,13 @@ class CssTask {
       }));
     }
 
-    if (input.match(this.config.core.styleguideInput)) {
+    if (this.config.docs.enabled && input.match(this.config.docs.input)) {
       processes.push(mdcss({
         theme: mdcssTheme({
           title: this.config.docs.title,
           logo: '',
           colors: this.config.color,
-          variables: this.config.vars,
+          variables: this.cssVars,
           examples: {
             css: this.config.docs.css
           }

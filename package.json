@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "description": "Client kit for websites",
   "main": "app.js",
   "bin": {
@@ -10,7 +10,7 @@
     "start": "node app.js --config conf",
     "dev": "concurrently \"node app.js --config conf dev\" \"npm run serve\"",
     "test": "mocha",
-    "serve": "serve -p 8082 .dist",
+    "serve": "serve -p 8082 dist",
     "ghpages": "./tasks/ghpages",
     "dockerhub": "./tasks/docker-push"
   },
