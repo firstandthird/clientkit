@@ -1859,7 +1859,7 @@ title: Tabs
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .hide-xl {
