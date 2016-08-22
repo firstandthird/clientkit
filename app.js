@@ -38,6 +38,10 @@ const argv = yargs
   describe: 'a path to your configuration files',
   default: path.join(process.cwd(), 'clientkit')
 })
+.option('sourcemap', {
+  describe: 'determines how/whether css/js sourcemaps are generated, can be one of "on", "off" or "inline"',
+  default: 'on'
+})
 .option('debug', {
   describe: 'debug mode, will print verbose text',
   type: Boolean,
@@ -60,6 +64,9 @@ const conf = configHandler.loadConfig(defaultConf, argv, log);
 if (!conf) {
   process.exit(1);
 }
+
+conf.sourcemap = argv.sourcemap;
+
 // show css options:
 if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
   reports.showOptions(conf);

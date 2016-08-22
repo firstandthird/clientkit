@@ -9,6 +9,8 @@ const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
+const removeSourceMap = require('../lib/removeSourceMap.js');
+
 const Logr = require('logr');
 
 const log = new Logr({
@@ -28,7 +30,15 @@ module.exports = function(conf, base, outputName, input) {
   fileStream.on('finish', () => {
     const end = new Date().getTime();
     const duration = (end - start) / 1000;
-    log(`Processed: ${input} → ${output} in ${duration} sec`);
+    if (conf.sourcemap === 'off') {
+      fs.readFile(output, 'utf8', (err, data) => {
+        fs.writeFile(output, removeSourceMap(data.toString(), 'js'), (err) => {
+          log(`Processed: ${input} → ${output} in ${duration} sec`);
+        });
+      });
+    } else {
+      log(`Processed: ${input} → ${output} in ${duration} sec`);
+    }
   });
   const cli = new CLIEngine({
     useEslintrc: false,
@@ -61,12 +71,16 @@ module.exports = function(conf, base, outputName, input) {
   if (conf.core.minify) {
     currentTransform = currentTransform.transform(uglifyify, { global: true });
   }
-  currentTransform
+  const stream = currentTransform
   .bundle()
   .on('error', function (err) {
     log(['error'], err);
     this.emit('end');
-  })
-  .pipe(exorcist(`${output}.map`))
-  .pipe(fileStream);
+  });
+  if (conf.sourcemap === 'on') {
+    stream.pipe(exorcist(`${output}.map`))
+    .pipe(fileStream);
+  } else {
+    stream.pipe(fileStream);
+  }
 };

@@ -16,6 +16,7 @@ const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
+const removeSourceMap = require('../lib/removeSourceMap.js');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -137,8 +138,18 @@ class CssTask {
       inputCss = input;
     }
     const to = outputName ? outputName : 'temp.css';
-    postcss(processes).process(inputCss, { from: input, to: to, map: { inline: false } })
+    const map = {
+      inline: false
+    };
+    if (this.config.sourcemap === 'inline') {
+      map.inline = true;
+    }
+    postcss(processes).process(inputCss, { from: input, to, map })
     .then(result => {
+      // remove reference to sourcemap if it was not generated:
+      if (this.config.sourcemap === 'off') {
+        result.css = removeSourceMap(result.css, 'css');
+      }
       this.result = result;
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
@@ -157,11 +168,12 @@ class CssTask {
     }
     const output = path.join(this.config.core.dist, outputName);
     fs.writeFileSync(output, this.result.css);
-    fs.writeFileSync(`${output}.map`, this.result.map);
     log(`Wrote: ${this.input} → ${output}`);
-    log(`Wrote: ${this.input}.map → ${output}.map`);
+    if (this.config.sourcemap === 'on') {
+      fs.writeFileSync(`${output}.map`, this.result.map);
+      log(`Wrote: ${this.input}.map → ${output}.map`);
+    }
   }
-
 }
 module.exports.CssTask = CssTask;
 module.exports.runTaskAndWrite = function (config, base, outputName, input) {
