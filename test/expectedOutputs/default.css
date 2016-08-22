@@ -1781,8 +1781,10 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+  -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+  transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
+  transition: 0.5s opacity ease-in, 0.8s transform ease, 0.8s -webkit-transform ease;
 }
 
 .tabs .tab:checked:nth-of-type(2) ~ .tab-content:nth-of-type(2) {
@@ -1792,8 +1794,10 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+  -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+  transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
+  transition: 0.5s opacity ease-in, 0.8s transform ease, 0.8s -webkit-transform ease;
 }
 
 .tabs .tab:checked:nth-of-type(3) ~ .tab-content:nth-of-type(3) {
@@ -1803,8 +1807,10 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+  -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+  transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
+  transition: 0.5s opacity ease-in, 0.8s transform ease, 0.8s -webkit-transform ease;
 }
 
 .tabs .tab:checked:nth-of-type(4) ~ .tab-content:nth-of-type(4) {
@@ -1814,8 +1820,10 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+  -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+  transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
+  transition: 0.5s opacity ease-in, 0.8s transform ease, 0.8s -webkit-transform ease;
 }
 
 .tabs .tab:checked:nth-of-type(5) ~ .tab-content:nth-of-type(5) {
@@ -1825,8 +1833,10 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
+  -webkit-transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
+  transition: 0.5s opacity ease-in, 0.8s -webkit-transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
+  transition: 0.5s opacity ease-in, 0.8s transform ease, 0.8s -webkit-transform ease;
 }
 
 .clearfix {
