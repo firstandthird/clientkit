@@ -1,6 +1,9 @@
 .form {
   & label {
-    @mixin font-style form-label;
+    font-family: var(--font-primary);
+    color: var(--color-input-label);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-large);
   }
 
   & input[type~="text"],
@@ -19,7 +22,10 @@
   & textarea {
     width: 100%;
     @mixin input text;
-    @mixin font-style form-input;
+    font-family: var(--font-primary);
+    color: var(--color-body);
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
   }
 
   & small {
@@ -28,7 +34,8 @@
 
   & .error {
     & small {
-      @mixin font-style form-error;
+      color: var(--input-error);
+      font-size: var(--font-size-small);
     }
 
     & input[type~="text"],

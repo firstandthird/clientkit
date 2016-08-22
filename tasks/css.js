@@ -36,9 +36,6 @@ class CssTask {
     Object.keys(config.color).forEach(color => {
       this.cssVars[`color-${color}`] = config.color[color];
     });
-    Object.keys(config.fonts).forEach(font => {
-      this.cssVars[`font-${font}`] = config.fonts[font];
-    });
     Object.keys(config.spacing.default).forEach(spacing => {
       this.cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
     });

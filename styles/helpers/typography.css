@@ -13,7 +13,7 @@ title: Fonts
 body {
   font-family: var(--font-primary);
   font-size: var(--font-size-body);
-  line-height: 1.1;
+  line-height: var(--line-height);
   color: var(--color-body);
 }
 
@@ -136,10 +136,6 @@ title: Size
 }
 
 
-
-/*TODO: remove this when all have been migrated */
-@mixin font-style;
-
 /*---
 section: Typography
 title: Colors
@@ -155,4 +151,18 @@ title: Colors
 
 p {
   margin: 0;
+}
+
+/*---
+section: Typography
+title: Stretch
+---
+
+```example:html
+<div class="text-stretch">Text Stretch</div>
+```
+
+*/
+.text-stretch {
+  letter-spacing: var(--stretch-spacing);
 }

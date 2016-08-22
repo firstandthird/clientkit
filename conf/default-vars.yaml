@@ -9,6 +9,9 @@ vars:
   font-size-large: 16px
   font-size-small: 12px
 
+  line-height: 1.1
+  line-height-large: 1.5
+
   #weights
   font-light: 300
   font-regular: 400
@@ -28,3 +31,5 @@ vars:
   heading-4-mobile-size: 14px
   heading-5-size: 14px
   heading-5-mobile-size: 14px
+
+  stretch-spacing: 2px
