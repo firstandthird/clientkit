@@ -11,15 +11,6 @@ title: Headings
 <div class="heading-6">Heading 5</div>
 ```
  */
-@define-mixin heading $size, $mobileSize {
-  font-family: var(--font-heading);
-  color: var(--color-heading);
-  line-height: var(--heading-line-height);
-  font-size: $size;
-  @media (--mobile) {
-    font-size: $mobileSize;
-  }
-}
 
 .heading-1 {
   @mixin heading var(--heading-1-size), var(--heading-1-mobile-size);

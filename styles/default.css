@@ -1,3 +1,7 @@
+/* mixins */
+@import 'mixins/index.css';
+
+/* helpers */
 @import 'helpers/reset.css';
 @import 'helpers/mediaqueries.css';
 @import 'helpers/box-sizing.css';
