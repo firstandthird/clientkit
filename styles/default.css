@@ -1,3 +1,7 @@
+/* mixins */
+@import 'mixins/index.css';
+
+/* helpers */
 @import 'helpers/reset.css';
 @import 'helpers/mediaqueries.css';
 @import 'helpers/box-sizing.css';
@@ -11,6 +15,7 @@
 @import 'helpers/inputs.css';
 @import 'helpers/tabs.css';
 @import 'helpers/utils.css';
+@import 'helpers/clearfix.css';
 @import 'helpers/ugc.css';
 @import 'helpers/bg-image.css';
 @import 'helpers/carousel.css';
