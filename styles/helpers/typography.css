@@ -125,6 +125,7 @@ title: Size
 ```example:html
 <p class="font-large">Some Text</p>
 <p class="font-small">Some Text</p>
+<p class="font-body">Some Text</p>
 ```
 */
 .font-large {
@@ -133,6 +134,10 @@ title: Size
 
 .font-small {
   font-size: var(--font-size-small);
+}
+
+.font-body {
+  font-size: var(--font-size-body);
 }
 
 
