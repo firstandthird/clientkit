@@ -45,19 +45,6 @@ describe('bg image mixin', function() {
   });
 });
 
-describe('buttons mixin', function() {
-  it('generates css for buttons', (done) => {
-    const button = require('../styles/mixins/button.js')(conf);
-    // mixin, bgColor, fgColor, type
-    const result = button({}, '#ff0000', '#00ff00', 'outline');
-    compare(result, 'button.js');
-    expect(result['background-color']).to.equal('transparent');
-    const nonOutlineResult = button({}, '#ff0000', '#00ff00');
-    expect(nonOutlineResult['background-color']).to.include('#ff0000');
-    done();
-  });
-});
-
 describe('fancy-underline', function() {
   it('renders a fancy-underline', (done) => {
     const fancy = require('../styles/mixins/fancy-underline.js')(conf);
