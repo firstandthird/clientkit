@@ -51,27 +51,23 @@ title: UGC
     @mixin spacing margin, bottom, md;
   }
   & h1 {
-    @mixin font-style heading-1;
+    @mixin heading var(--heading-1-size), var(--heading-1-mobile-size);
   }
   & h2 {
-    @mixin font-style heading-2;
+    @mixin heading var(--heading-2-size), var(--heading-2-mobile-size);
   }
   & h3 {
-    @mixin font-style heading-3;
+    @mixin heading var(--heading-3-size), var(--heading-3-mobile-size);
   }
   & h4 {
-    @mixin font-style heading-4;
+    @mixin heading var(--heading-4-size), var(--heading-4-mobile-size);
   }
   & h5 {
-    @mixin font-style heading-5;
-  }
-  & p {
-    @mixin font-style font-body;
+    @mixin heading var(--heading-5-size), var(--heading-5-mobile-size);
   }
   & ul,
   & ol {
     padding-left: 25px;
-    @mixin font-style font-body;
   }
   & ul li {
     list-style-type: disc;
