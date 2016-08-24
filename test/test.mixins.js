@@ -124,14 +124,6 @@ describe('links', function() {
   });
 });
 
-describe('list-inline', function() {
-  it('renders a list-inline', (done) => {
-    const list = require('../styles/mixins/list-inline.js')(conf);
-    const result = list({}, '10px');
-    compare(result, 'list-inline.js');
-    done();
-  });
-});
 describe('spacing mixin', function() {
   it('generates basic css spacers', (done) => {
     const spacing = require('../styles/mixins/spacing.js')(conf);
