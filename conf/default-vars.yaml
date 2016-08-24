@@ -43,3 +43,5 @@ vars:
   table-border-width: 1px
   table-border-color: '#eceeef'
 
+  #messages
+  message-border-radius: 2px
