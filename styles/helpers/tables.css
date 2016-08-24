@@ -1,0 +1,234 @@
+/*---
+section: Tables
+title: Basic
+---
+
+```example:html
+<table class="table">
+  <thead>
+    <tr>
+      <td>Header 1</td>
+      <td>Header 2</td>
+      <td>Header 3</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Item 1</td>
+      <td>Item 2</td>
+      <td>Item 3</td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: var(--spacing-sm);
+
+  & th,
+  & td {
+    padding: var(--table-cell-padding);
+    line-height: var(--line-height);
+    vertical-align: top;
+    border-top: var(--table-border-width) solid var(--table-border-color);
+  }
+
+  & thead th {
+    vertical-align: bottom;
+    border-bottom: calc(2 * var(--table-border-width) solid var(--table-border-color);
+  }
+
+  & tbody + tbody {
+    border-top: calc(2 * var(--table-border-width) solid var(--table-border-color);
+  }
+
+  & .table {
+    background-color: var(--color-body);
+  }
+}
+
+
+/*---
+section: Tables
+title: Condensed with half padding
+---
+
+```example:html
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <td>Header 1</td>
+      <td>Header 2</td>
+      <td>Header 3</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Item 1</td>
+      <td>Item 2</td>
+      <td>Item 3</td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+
+.table-sm {
+  & th,
+  & td {
+    padding: calc( var(--table-cell-padding / 2);
+  }
+}
+
+
+/*---
+section: Tables
+title: Bordered version
+---
+
+Add borders all around the table and between all the columns.
+
+```example:html
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td>Header 1</td>
+      <td>Header 2</td>
+      <td>Header 3</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Item 1</td>
+      <td>Item 2</td>
+      <td>Item 3</td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+.table-bordered {
+  border: var(--table-border-width) solid var(--table-border-color);
+
+  & th,
+  & td {
+    border: var(--table-border-width) solid var(--table-border-color);
+  }
+
+  & thead {
+    & th,
+    & td {
+      border-bottom-width: calc(2 * var(--table-border-width));
+    }
+  }
+}
+
+
+/*---
+section: Tables
+title: Zebra-striping
+---
+
+Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+```example:html
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Header 1</td>
+      <td>Header 2</td>
+      <td>Header 3</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Item 1</td>
+      <td>Item 2</td>
+      <td>Item 3</td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+.table-striped {
+  & tbody tr:nth-of-type(odd) {
+    background-color: var(--table-bg-accent);
+  }
+}
+
+/*---
+section: Tables
+title: Hover effect
+---
+
+Placed here since it has to come after the potential zebra striping
+
+```example:html
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <td>Header 1</td>
+      <td>Header 2</td>
+      <td>Header 3</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Item 1</td>
+      <td>Item 2</td>
+      <td>Item 3</td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+
+.table-hover {
+  & tbody tr {
+    &:hover {
+      background-color: var(--$table-bg-hover);
+    }
+  }
+}
+
+/*---
+section: Tables
+title: Responsive tables
+---
+
+Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+by enabling horizontal scrolling. Only applies <768px. Everything above that
+will display normally.
+
+min-height: 0.01% is a workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+```example:html
+<div class-"table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <td>Header 1</td>
+      <td>Header 2</td>
+      <td>Header 3</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Item 1</td>
+      <td>Item 2</td>
+      <td>Item 3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+```
+*/
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  min-height: 0.01%;
+  overflow-x: auto;
+}
