@@ -33,3 +33,6 @@ vars:
   heading-5-mobile-size: 14px
 
   stretch-spacing: 2px
+
+  #messages
+  message-border-radius: 2px
