@@ -13,6 +13,8 @@ const triangle = require('postcss-triangle');
 const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 const pathExists = require('path-exists');
+const mdcss = require('mdcss');
+const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
 const log = new Logr({
   type: 'cli',
@@ -33,9 +35,6 @@ class CssTask {
     // load css variables:
     Object.keys(config.color).forEach(color => {
       this.cssVars[`color-${color}`] = config.color[color];
-    });
-    Object.keys(config.fonts).forEach(font => {
-      this.cssVars[`font-${font}`] = config.fonts[font];
     });
     Object.keys(config.spacing.default).forEach(spacing => {
       this.cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
@@ -71,11 +70,15 @@ class CssTask {
     this.mixins = globalMixins;
   }
 
-  performTask(input, callback) {
+  performTask(input, callback, outputName) {
     this.input = input;
     const start = new Date().getTime();
     const processes = [
-      cssimport,
+      cssimport({
+        path: [
+          path.resolve(__dirname, '../styles')
+        ]
+      }),
       cssmixins({
         mixins: this.mixins
       }),
@@ -103,6 +106,22 @@ class CssTask {
         foundries: ['custom', 'hosted', 'google']
       }));
     }
+
+    if (this.config.docs.enabled && input.match(this.config.docs.input)) {
+      processes.push(mdcss({
+        theme: mdcssTheme({
+          title: this.config.docs.title,
+          logo: '',
+          colors: this.config.color,
+          variables: this.cssVars,
+          examples: {
+            css: this.config.docs.css
+          }
+        }),
+        destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
+      }));
+    }
+
     // minify if specified in config files:
     if (this.config.core.minify) {
       processes.push(cssnano());
@@ -114,8 +133,15 @@ class CssTask {
     } else {
       inputCss = input;
     }
-    postcss(processes).process(inputCss, { from: input, to: 'temp.css', map: { inline: false } })
+    const to = outputName ? outputName : 'temp.css';
+    postcss(processes).process(inputCss, { from: input, to: to, map: { inline: false } })
     .then(result => {
+      if (result.messages) {
+        result.messages.forEach(message => {
+          log([message.type], `${message.text} [${message.plugin}]`);
+        });
+      }
+
       this.result = result;
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
@@ -145,7 +171,7 @@ module.exports.runTaskAndWrite = function (config, base, outputName, input) {
   const task = new CssTask(config, base);
   task.performTask(input, () => {
     task.writeToFile(outputName);
-  });
+  }, outputName);
 };
 module.exports.processOnly = function (config, base, input, callback) {
   const task = new CssTask(config, base);

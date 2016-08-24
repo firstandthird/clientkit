@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "0.4.0",
+  "version": "0.8.0",
   "description": "Client kit for websites",
   "main": "app.js",
   "bin": {
@@ -8,13 +8,11 @@
   },
   "scripts": {
     "start": "node app.js --config conf",
-    "dev": "node app.js dev",
+    "dev": "concurrently \"node app.js --config conf dev\" \"npm run serve\"",
     "test": "mocha",
-    "example:build": "node app.js --config $PWD/examples/clientkit",
-    "example:dev": "node app.js dev --config $PWD/examples/clientkit",
-    "example:serve": "serve -p 8082 examples",
-    "example": "concurrently \"npm run example:dev\" \"npm run example:serve\"",
-    "ghpages": "npm run example:build && node tasks/ghpages.js"
+    "serve": "serve -p 8082 dist",
+    "ghpages": "./tasks/ghpages",
+    "dockerhub": "./tasks/docker-push"
   },
   "repository": {
     "type": "git",
@@ -55,6 +53,8 @@
     "lodash.debounce": "^4.0.6",
     "lodash.reduce": "^4.5.1",
     "logr": "^1.11.0",
+    "mdcss": "^1.5.2",
+    "mdcss-theme-clientkit": "^3.2.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
     "path-exists": "^3.0.0",
