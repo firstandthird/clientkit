@@ -75,15 +75,6 @@ describe('hide', function() {
   });
 });
 
-describe('input', function() {
-  it('generates input classes', (done) => {
-    const inputs = require('../styles/mixins/input.js')(conf);
-    const result = inputs('', 'text');
-    compare(result, 'inputs.js');
-    done();
-  });
-});
-
 describe('list-inline', function() {
   it('renders a list-inline', (done) => {
     const list = require('../styles/mixins/list-inline.js')(conf);

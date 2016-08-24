@@ -1,0 +1,30 @@
+/*---
+section: Mixins
+title: Input
+---
+
+```
+@mixin input $background, $color, $colorDisabled, $border, $borderFocus, $borderDisabled;
+```
+*/
+@define-mixin input $background, $color, $colorDisabled, $border, $borderFocus, $borderDisabled {
+  width: 100%;
+  transition: box-shadow ease 250ms;
+  background-color: $background;
+  border: 0;
+  box-shadow: 0 1px 0 0 $border;
+  padding: 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-large);
+  line-height: var(--line-height-large);
+  color: $color;
+  &:focus {
+    outline: none;
+    box-shadow: 0 2px 0 0 $borderFocus;
+  }
+  &:disabled {
+    box-shadow: none;
+    border-bottom: 1px dashed $borderDisabled;
+    color: $colorDisabled;
+  }
+}
