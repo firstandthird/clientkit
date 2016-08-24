@@ -31,7 +31,3 @@ title: Headings
 .heading-5 {
   @mixin heading var(--heading-5-size), var(--heading-5-mobile-size);
 }
-
-.heading-6 {
-  @mixin heading var(--heading-6-size), var(--heading-6-mobile-size);
-}
