@@ -136,6 +136,12 @@ class CssTask {
     const to = outputName ? outputName : 'temp.css';
     postcss(processes).process(inputCss, { from: input, to: to, map: { inline: false } })
     .then(result => {
+      if (result.messages) {
+        result.messages.forEach(message => {
+          log(['error'], message.text);
+        });
+      }
+
       this.result = result;
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
