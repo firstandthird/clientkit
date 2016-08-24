@@ -21,6 +21,7 @@ vars:
 
   #headings
   heading-line-height: 1.2
+  heading-font-weight: bold
   heading-1-size: 45px
   heading-1-mobile-size: 30px
   heading-2-size: 30px
