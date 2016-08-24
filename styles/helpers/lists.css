@@ -1,7 +1,42 @@
+/*---
+section: Lists
+title: Unstyled
+---
+
+```example:html
+<ul class="list-unstyled">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
 .list-unstyled {
-  @mixin list-unstyled;
+  padding-left: 0;
+  list-style: none;
 }
 
+/*---
+section: Lists
+title: Inline
+---
+
+```example:html
+<ul class="list-inline">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
 .list-inline {
-  @mixin list-inline;
+  margin-left: -5px;
+  padding-left: 0;
+  list-style: none;
+
+  & > li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
 }
