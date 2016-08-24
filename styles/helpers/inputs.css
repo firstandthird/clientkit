@@ -61,7 +61,13 @@ title: Form
     <label class="spacing-xs">Time</label>
     <input class="spacing-sm" type="time" placeholder="Time">
     <label class="spacing-xs">Textarea</label>
-    <textarea placeholder="Textarea"></textarea>
+    <textarea class="spacing-sm" placeholder="Textarea"></textarea>
+    <label class="spacing-xs">Select</label>
+    <select>
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Option 3</option>
+    </select>
   </form>
   ```
   */
@@ -80,6 +86,10 @@ title: Form
   & input[type="time"],
   & textarea {
     @mixin input var(--color-input-background), var(--color-body), var(--color-input-disabled), var(--color-input-border), var(--color-input-border-focus), var(--color-input-disabled);
+  }
+
+  & select {
+    width: 100%;
   }
 
   /*---
