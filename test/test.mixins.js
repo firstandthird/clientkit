@@ -97,15 +97,6 @@ describe('input', function() {
   });
 });
 
-describe('links', function() {
-  it('generates links classes', (done) => {
-    const link = require('../styles/mixins/link.js')(conf);
-    const result = link({}, '#444', '#333');
-    compare(result, 'link.js');
-    done();
-  });
-});
-
 describe('list-inline', function() {
   it('renders a list-inline', (done) => {
     const list = require('../styles/mixins/list-inline.js')(conf);
