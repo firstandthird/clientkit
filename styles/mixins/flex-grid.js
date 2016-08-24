@@ -3,16 +3,16 @@
 const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function (config) {
   const horizontalAlignments = {
-    'start': 'flex-start',
-    'end': 'flex-end',
+    'left': 'flex-start',
+    'right': 'flex-end',
     'center': 'center',
     'space-around': 'space-around',
     'space-between': 'space-between'
   };
   const verticalAlignments = {
-    'start': 'flex-start',
+    'top': 'flex-start',
     'center': 'center',
-    'end': 'flex-end',
+    'bottom': 'flex-end',
     'stretch': 'stretch'
   };
 
@@ -41,18 +41,18 @@ module.exports = function (config) {
     for (const breakpoint of breakpoints) {
       const colName = config.breakpoints[breakpoint].col;
 
-      let layoutPrefix = `layout-${colName}`;
+      let layoutPrefix = `flex-row-${colName}`;
       let prefix = `flex-${colName}`;
       if (config.breakpoints[breakpoint].default) {
         prefix = 'flex';
-        layoutPrefix = 'layout';
+        layoutPrefix = 'flex-row';
       }
 
       styles[breakpoint] = {};
       const block = styles[breakpoint];
 
       // Layout
-      let layoutSelector = '.layout';
+      let layoutSelector = '.flex-row';
       for (const layout in layouts) {
         let selector = `.${layoutPrefix}-${layout}`;
         layoutSelector += `,\n${selector}`;
@@ -65,10 +65,10 @@ module.exports = function (config) {
       };
 
       for (const horizontalAlignment of horizontal) {
-        let selector = `.${layoutPrefix}-${horizontalAlignment}`;
+        let selector = `.${prefix}-${horizontalAlignment}`;
 
         for (const verticalAlignment of vertical) {
-          selector += `,\n.${layoutPrefix}-${horizontalAlignment}-${verticalAlignment}`;
+          selector += `,\n.${prefix}-${horizontalAlignment}-${verticalAlignment}`;
         }
 
         block[selector] = {
@@ -80,7 +80,7 @@ module.exports = function (config) {
         let selector = [];
 
         for (const horizontalAlignment of horizontal) {
-          selector.push(`.${layoutPrefix}-${horizontalAlignment}-${verticalAlignment}`);
+          selector.push(`.${prefix}-${horizontalAlignment}-${verticalAlignment}`);
         }
 
         selector = selector.join(',\n');
@@ -92,15 +92,13 @@ module.exports = function (config) {
       }
 
       // Child
-      for (let i = 1; i <= cols; i++) {
-        block[`.${prefix}-order--${i}`] = {
-          'order': i
-        };
+      block[`.${prefix}-order-first`] = {
+        'order': -1
+      };
 
-        block[`.${prefix}-order--${i*-1}`] = {
-          'order': i*-1
-        };
-      }
+      block[`.${prefix}-order-last`] = {
+        'order': 1
+      };
 
       block[`.${prefix}-shrink`] = {
         'flex-shrink': 1
