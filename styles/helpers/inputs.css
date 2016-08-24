@@ -34,7 +34,7 @@
 
   & .error {
     & small {
-      color: var(--input-error);
+      color: var(--color-input-error);
       font-size: var(--font-size-small);
     }
 
