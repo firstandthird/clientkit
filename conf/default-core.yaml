@@ -1,7 +1,7 @@
 core:
   rebuildDelay: 100
   minify: false
-  dist: '{{CWD}}/.dist'
+  dist: '{{CWD}}/dist'
   assetPath: '{{CWD}}'
   mobileFirst: false
   watch:
@@ -13,3 +13,5 @@ core:
       - '{{CONFIGDIR}}/*.yaml'
   eslint: 'eslint-config-firstandthird'
   fontParsingWhitelist: 'default.css'
+  #TODO: put this in a better place
+  globalBabel: true

@@ -1,7 +1,25 @@
+/*---
+section: Buttons
+title: Primary Button
+---
+```example:html
+<button class="button">Primary Button</button>
+<a class="button">Primary Link Button</a>
+```
+*/
 .button {
-  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color);
+  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, color(var(--color-button-primary-bg) blackness(20%)), var(--color-button-primary-color);
 }
 
+/*---
+section: Buttons
+title: Outline Button
+---
+```example:html
+<button class="button-outline">Primary Button</button>
+<a class="button-outline">Primary Link Button</a>
+```
+*/
 .button-outline {
-  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), outline;
+  @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--color-button-primary-bg), var(--color-button-primary-color);
 }

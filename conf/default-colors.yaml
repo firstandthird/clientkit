@@ -21,3 +21,6 @@ color:
   button-primary-color: '{{color.white}}'
   tooltip-bg: 'rgba(17,17,17,.9)'
   icons: '#333'
+  message-info: '#f0f0f0'
+  message-success: '#dff0d8'
+  message-error: '#f2dede'

@@ -1,13 +1,20 @@
-:root {
-  --font-light: 300;
-  --font-regular: 400;
-  --font-semibold: 600;
-  --font-bold: 700;
-  --font-xbold: 800
-}
 
+/*---
+section: Typography
+title: Fonts
+---
+
+```example:html
+<p>Body Style</p>
+<p class="font-primary">Primary Style</p>
+<p class="font-secondary">Secondary Font Style</p>
+```
+*/
 body {
-  @mixin font-style font-body;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height);
+  color: var(--color-body);
 }
 
 .font-primary {
@@ -18,6 +25,18 @@ body {
   font-family: var(--font-secondary) !important;
 }
 
+/*---
+section: Typography
+title: Alignment
+---
+
+```example:html
+<p class="text-left">Some Text</p>
+<p class="text-center">Some Text</p>
+<p class="text-right">Some Text</p>
+<p class="text-justify">Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturient faucibus sagittis consequat volutpat condimentum elit enim at primis condimentum torquent a in. A imperdiet vestibulum condimentum a quis nam mi vel hendrerit sem cubilia justo condimentum consectetur adipiscing. Facilisis lacinia ultrices etiam sociosqu ad a parturient ac leo class et potenti volutpat nostra pharetra semper parturient sociosqu suspendisse felis ac adipiscing. Sed commodo venenatis scelerisque a vehicula risus nullam dictumst et cras a suspendisse fusce adipiscing quisque dignissim quis lacinia suspendisse condimentum est mi augue a.</p>
+```
+*/
 .text-left {
   text-align: left;
 }
@@ -42,6 +61,17 @@ body {
   white-space: nowrap;
 }
 
+/*---
+section: Typography
+title: Transform
+---
+
+```example:html
+<p class="text-lowercase">Some Text</p>
+<p class="text-uppercase">Some Text</p>
+<p class="text-capitalize">some text</p>
+```
+*/
 .text-lowercase {
   text-transform: lowercase;
 }
@@ -53,6 +83,20 @@ body {
 }
 
 
+/*---
+section: Typography
+title: Weight
+---
+
+```example:html
+<p class="font-light">Some Text</p>
+<strong class="font-regular">Some Text</strong>
+<p class="font-semibold">Some Text</p>
+<strong>Some Text</strong>
+<p class="font-bold">Some Text</p>
+<p class="font-xbold">Some Text</p>
+```
+*/
 .font-light {
   font-weight: var(--font-light);
 }
@@ -73,15 +117,52 @@ body {
   font-weight: var(--font-xbold);
 }
 
-/*
- * adds helper classes for everything in default-typography fontStyles
- */
-@mixin font-style;
+/*---
+section: Typography
+title: Size
+---
 
+```example:html
+<p class="font-large">Some Text</p>
+<p class="font-small">Some Text</p>
+```
+*/
+.font-large {
+  font-size: var(--font-size-large);
+}
+
+.font-small {
+  font-size: var(--font-size-small);
+}
+
+
+/*---
+section: Typography
+title: Colors
+---
+
+```example:html
+<div style="background: #000" class="heading--light">Light Text</div>
+```
+*/
 .heading--light {
   color: var(--color-heading-light);
 }
 
 p {
   margin: 0;
+}
+
+/*---
+section: Typography
+title: Stretch
+---
+
+```example:html
+<div class="text-stretch">Text Stretch</div>
+```
+
+*/
+.text-stretch {
+  letter-spacing: var(--stretch-spacing);
 }
