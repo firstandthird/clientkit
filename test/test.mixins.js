@@ -68,24 +68,6 @@ describe('fancy-underline', function() {
   });
 });
 
-describe('font-style', function() {
-  it('generates a group of font classes', (done) => {
-    const font = require('../styles/mixins/font-style.js')(conf);
-    const result = font({});
-    compare(result, 'font-style.js');
-    done();
-  });
-
-  it('generates a sized font class', (done) => {
-    const font = require('../styles/mixins/font-style.js')(conf);
-    const result = font({}, 'font-small');
-    expect(result['font-size']).to.equal(conf.fontStyles.default['font-small']['font-size']);
-    const result2 = font({}, 'font-large');
-    expect(result2['font-size']).to.equal(conf.fontStyles.default['font-large']['font-size']);
-    done();
-  });
-});
-
 describe('grid', function() {
   it('generates grid classes', (done) => {
     const grid = require('../styles/mixins/grid.js')(conf);
