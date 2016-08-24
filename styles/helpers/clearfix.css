@@ -1,0 +1,16 @@
+/*---
+section: Utils
+title: Clearfix
+---
+
+```example:html
+<div class="clearfix">
+  <div class="pull-left">...</div>
+  <div class="pull-left">...</div>
+</div>
+```
+*/
+
+.clearfix {
+  @mixin clearfix;
+}
