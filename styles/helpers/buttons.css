@@ -8,7 +8,7 @@ title: Primary Button
 ```
 */
 .button {
-  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color);
+  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, color(var(--color-button-primary-bg) blackness(20%)), var(--color-button-primary-color);
 }
 
 /*---
@@ -21,5 +21,5 @@ title: Outline Button
 ```
 */
 .button-outline {
-  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), outline;
+  @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--color-button-primary-bg), var(--color-button-primary-color);
 }
