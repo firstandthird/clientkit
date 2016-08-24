@@ -1,4 +1,11 @@
 
+0.8.0 / 2016-08-22
+==================
+
+  * option for running babel globally
+  * better error messages for scripts
+  * Add !important to hide class
+
 0.7.0 / 2016-08-19
 ==================
 
