@@ -138,7 +138,9 @@ class CssTask {
     .then(result => {
       if (result.messages) {
         result.messages.forEach(message => {
-          log([message.type], `${message.text} [${message.plugin}]`);
+          if (message.text) {
+            log([message.type], `${message.text} [${message.plugin}]`);
+          }
         });
       }
 

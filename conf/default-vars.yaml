@@ -21,6 +21,7 @@ vars:
 
   #headings
   heading-line-height: 1.2
+  heading-font-weight: bold
   heading-1-size: 45px
   heading-1-mobile-size: 30px
   heading-2-size: 30px
@@ -33,6 +34,15 @@ vars:
   heading-5-mobile-size: 14px
 
   stretch-spacing: 2px
+
+  table-cell-padding: 10px
+  table-sm-cell-padding: 5px
+  table-bg: transparent
+  table-bg-accent: '#f9f9f9'
+  table-bg-hover: '#f5f5f5'
+  table-bg-active: '#f5f5f5'
+  table-border-width: 1px
+  table-border-color: '#eceeef'
 
   #messages
   message-border-radius: 2px

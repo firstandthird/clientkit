@@ -1,4 +1,61 @@
 
+0.9.0 / 2016-08-24
+==================
+
+  * added helper for font-body
+  * added variable for heading font weight
+  * fixed section name for message mixin
+  * removed example from message mixin
+  * check if message.text before logging
+  * fixed warning
+  * Update to use new helpers style
+  * Update to change to px
+  * Add 100% width to select
+  * removed old examples
+  * use message.type for log tag
+  * added plugin name to message log
+  * fixed some errors
+  * added bottom element to clearfix example to show that it works
+  * added requirement to add a screenshot of docs in PR template
+  * added message helpers and mixins
+  * Remove failing button test
+  * Remove failing link test
+  * Remove broken input test
+  * Convert input mixin
+  * Update; convert row-carousel mixin to use helper
+  * Update gitignore to add test/.dist
+  * Delete broken tests for old font-styles mixin
+  * Delete unneeded tests
+  * Update; convert list mixin to helper
+  * Shows errors and warnings.
+  * Update with new vars and docs
+  * Convert link mixin
+  * Convert button mixin
+  * updated heading line height
+  * Create; helper for table with various properties
+  * Switch clearfix helper to be css
+  * removed typography from examples (now in styleguide)
+  * updated mdcss theme
+  * updates to get rid of typography.yaml
+  * separated headings mixin to separate file
+  * Update all examples to use new dist dir
+  * Update all tasks to point to new dist dir
+  * Update; change configs to use new dist dir
+  * updated ugc to use new mixin
+  * fixed mobile variable in headings
+  * added mobile size for headings
+  * initial work on migrating away from font-styles
+  * Update; order of col-plain matters
+  * Update; add unit tests
+  * Update; set up col-plain to be responsive
+  * Update to include exmaple
+  * Update; convert helper to all mixin based
+  * Update; fix the small spacing on arrow
+  * Update; fix to show the triangle correctly
+  * Update to add in missing styles
+  * Update; checked in wrong file previously
+  * Create; initial version of triangles
+
 0.8.0 / 2016-08-22
 ==================
 

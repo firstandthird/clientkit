@@ -1,8 +1,8 @@
 /*---
-section: Mixin
+section: Mixins
 title: Message
 ---
-```example
+```
 @mixin message red;
 
 ```

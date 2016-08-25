@@ -20,6 +20,10 @@ module.exports={
     "padding-left": "15px",
     "padding-right": "15px"
   },
+  ".col-plain": {
+    "padding-right": 0,
+    "padding-left": 0
+  },
   ".col-pull-1": {
     "right": "8.333333333333334%"
   },
@@ -273,6 +277,10 @@ module.exports={
       "min-height": "1px",
       "padding-left": "15px",
       "padding-right": "15px"
+    },
+    ".col-lg-plain": {
+      "padding-right": 0,
+      "padding-left": 0
     },
     ".col-lg-pull-1": {
       "right": "8.333333333333334%"
@@ -528,6 +536,10 @@ module.exports={
       "min-height": "1px",
       "padding-left": "15px",
       "padding-right": "15px"
+    },
+    ".col-md-plain": {
+      "padding-right": 0,
+      "padding-left": 0
     },
     ".col-md-pull-1": {
       "right": "8.333333333333334%"
@@ -819,6 +831,10 @@ module.exports={
       "min-height": "1px",
       "padding-left": "15px",
       "padding-right": "15px"
+    },
+    ".col-sm-plain": {
+      "padding-right": 0,
+      "padding-left": 0
     },
     ".col-sm-pull-1": {
       "right": "8.333333333333334%"

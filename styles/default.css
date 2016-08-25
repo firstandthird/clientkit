@@ -14,6 +14,7 @@
 @import 'helpers/lists.css';
 @import 'helpers/buttons.css';
 @import 'helpers/inputs.css';
+@import 'helpers/tables.css';
 @import 'helpers/tabs.css';
 @import 'helpers/utils.css';
 @import 'helpers/clearfix.css';
@@ -21,5 +22,6 @@
 @import 'helpers/bg-image.css';
 @import 'helpers/carousel.css';
 @import 'helpers/close.css';
+@import 'helpers/tooltip.css';
 @import 'helpers/print.css';
 @import 'helpers/messages.css';
