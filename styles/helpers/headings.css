@@ -1,0 +1,33 @@
+/*---
+section: Typography
+title: Headings
+
+```example:html
+<div class="heading-1">Heading 1</div>
+<div class="heading-2">Heading 2</div>
+<div class="heading-3">Heading 3</div>
+<div class="heading-4">Heading 4</div>
+<div class="heading-5">Heading 5</div>
+<div class="heading-6">Heading 5</div>
+```
+ */
+
+.heading-1 {
+  @mixin heading var(--heading-1-size), var(--heading-1-mobile-size);
+}
+
+.heading-2 {
+  @mixin heading var(--heading-2-size), var(--heading-2-mobile-size);
+}
+
+.heading-3 {
+  @mixin heading var(--heading-3-size), var(--heading-3-mobile-size);
+}
+
+.heading-4 {
+  @mixin heading var(--heading-4-size), var(--heading-4-mobile-size);
+}
+
+.heading-5 {
+  @mixin heading var(--heading-5-size), var(--heading-5-mobile-size);
+}

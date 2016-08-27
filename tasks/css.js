@@ -36,9 +36,6 @@ class CssTask {
     Object.keys(config.color).forEach(color => {
       this.cssVars[`color-${color}`] = config.color[color];
     });
-    Object.keys(config.fonts).forEach(font => {
-      this.cssVars[`font-${font}`] = config.fonts[font];
-    });
     Object.keys(config.spacing.default).forEach(spacing => {
       this.cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
     });
@@ -153,6 +150,13 @@ class CssTask {
         const replaceEnd = text.indexOf('css.map */') + 10;
         const toReplace = text.substring(replaceStart, replaceEnd);
         result.css = text.replace(toReplace, '');
+      }
+      if (result.messages) {
+        result.messages.forEach(message => {
+          if (message.text) {
+            log([message.type], `${message.text} [${message.plugin}]`);
+          }
+        });
       }
       this.result = result;
       const end = new Date().getTime();

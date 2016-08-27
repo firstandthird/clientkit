@@ -1,0 +1,36 @@
+/*---
+section: Mixins
+title: Headings
+---
+
+```
+@mixin heading $size, $mobileSize;
+@mixin heading var(--heading-1-size), var(--heading-1-mobile-size);
+```
+Outputs
+
+```css
+.heading-1 {
+  font-family: serif;
+  color: #333;
+  line-height: 120%;
+  font-size: 45px;
+}
+@media (--mobile) {
+  .heading-1 {
+    font-size: 30px;
+  }
+}
+```
+*/
+
+@define-mixin heading $size, $mobileSize {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  line-height: var(--heading-line-height);
+  font-weight: var(--heading-font-weight);
+  font-size: $size;
+  @media (--mobile) {
+    font-size: $mobileSize;
+  }
+}

@@ -45,43 +45,12 @@ describe('bg image mixin', function() {
   });
 });
 
-describe('buttons mixin', function() {
-  it('generates css for buttons', (done) => {
-    const button = require('../styles/mixins/button.js')(conf);
-    // mixin, bgColor, fgColor, type
-    const result = button({}, '#ff0000', '#00ff00', 'outline');
-    compare(result, 'button.js');
-    expect(result['background-color']).to.equal('transparent');
-    const nonOutlineResult = button({}, '#ff0000', '#00ff00');
-    expect(nonOutlineResult['background-color']).to.include('#ff0000');
-    done();
-  });
-});
-
 describe('fancy-underline', function() {
   it('renders a fancy-underline', (done) => {
     const fancy = require('../styles/mixins/fancy-underline.js')(conf);
     // (rule, backgroundColor, linkColor, hoverColor, offset, width, activeOffset) {
     const result = fancy({}, '#333', '#111', '#fff', 10, 12, 15);
     compare(result, 'fancy-underline.js');
-    done();
-  });
-});
-
-describe('font-style', function() {
-  it('generates a group of font classes', (done) => {
-    const font = require('../styles/mixins/font-style.js')(conf);
-    const result = font({});
-    compare(result, 'font-style.js');
-    done();
-  });
-
-  it('generates a sized font class', (done) => {
-    const font = require('../styles/mixins/font-style.js')(conf);
-    const result = font({}, 'font-small');
-    expect(result['font-size']).to.equal(conf.fontStyles.default['font-small']['font-size']);
-    const result2 = font({}, 'font-large');
-    expect(result2['font-size']).to.equal(conf.fontStyles.default['font-large']['font-size']);
     done();
   });
 });
@@ -106,32 +75,6 @@ describe('hide', function() {
   });
 });
 
-describe('input', function() {
-  it('generates input classes', (done) => {
-    const inputs = require('../styles/mixins/input.js')(conf);
-    const result = inputs('', 'text');
-    compare(result, 'inputs.js');
-    done();
-  });
-});
-
-describe('links', function() {
-  it('generates links classes', (done) => {
-    const link = require('../styles/mixins/link.js')(conf);
-    const result = link({}, '#444', '#333');
-    compare(result, 'link.js');
-    done();
-  });
-});
-
-describe('list-inline', function() {
-  it('renders a list-inline', (done) => {
-    const list = require('../styles/mixins/list-inline.js')(conf);
-    const result = list({}, '10px');
-    compare(result, 'list-inline.js');
-    done();
-  });
-});
 describe('spacing mixin', function() {
   it('generates basic css spacers', (done) => {
     const spacing = require('../styles/mixins/spacing.js')(conf);

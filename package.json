@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Client kit for websites",
   "main": "app.js",
   "bin": {
@@ -54,7 +54,7 @@
     "lodash.reduce": "^4.5.1",
     "logr": "^1.11.0",
     "mdcss": "^1.5.2",
-    "mdcss-theme-clientkit": "^3.1.0",
+    "mdcss-theme-clientkit": "^3.2.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
     "path-exists": "^3.0.0",

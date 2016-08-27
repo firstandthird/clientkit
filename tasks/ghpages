@@ -2,7 +2,7 @@
 
 NODE_ENV=ghpages node app.js --config conf
 cp dist/clientkit.css dist/styleguide/clientkit.css
-touch .dist/styleguide/.nojekyll
+touch dist/styleguide/.nojekyll
 echo "clientkit.io" > dist/styleguide/CNAME
 
 gh-pages -d dist/styleguide --dotfiles
