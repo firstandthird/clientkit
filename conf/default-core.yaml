@@ -1,5 +1,6 @@
 core:
   rebuildDelay: 100
+  sourcemap: 'on'
   minify: false
   dist: '{{CWD}}/dist'
   assetPath: '{{CWD}}'
