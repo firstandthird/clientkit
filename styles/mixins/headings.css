@@ -28,6 +28,7 @@ Outputs
   font-family: var(--font-heading);
   color: var(--color-heading);
   line-height: var(--heading-line-height);
+  font-weight: var(--heading-font-weight);
   font-size: $size;
   @media (--mobile) {
     font-size: $mobileSize;

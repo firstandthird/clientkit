@@ -1,0 +1,26 @@
+/*---
+section: Mixins
+title: Clearfix
+---
+
+```
+@mixin clearfix;
+```
+Outputs
+
+```css
+&::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+```
+*/
+
+@define-mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

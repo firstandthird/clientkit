@@ -1,0 +1,16 @@
+/*---
+section: Mixins
+title: Message
+---
+```
+@mixin message red;
+
+```
+*/
+@define-mixin message $color {
+  background: $color;
+  border: 1px solid color($color lightness(-10%));
+  border-radius: var(--message-border-radius);
+  color: var(--color-body);
+  padding: 5px 10px;
+}
