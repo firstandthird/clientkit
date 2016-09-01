@@ -1,10 +1,11 @@
 /*---
 section: Mixins
-title: Buttons
+title: Button
 ---
 
 ```
 @mixin button backgroundColor, fontColor, borderColor, hoverBackground, hoverColor;
+```
 
 Outputs
 

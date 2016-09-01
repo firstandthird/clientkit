@@ -2,26 +2,4 @@
 @import 'mixins/index.css';
 
 /* helpers */
-@import 'helpers/reset.css';
-@import 'helpers/mediaqueries.css';
-@import 'helpers/box-sizing.css';
-@import 'helpers/colors.css';
-@import 'helpers/grid.css';
-@import 'helpers/links.css';
-@import 'helpers/headings.css';
-@import 'helpers/typography.css';
-@import 'helpers/spacing.css';
-@import 'helpers/lists.css';
-@import 'helpers/buttons.css';
-@import 'helpers/inputs.css';
-@import 'helpers/tables.css';
-@import 'helpers/tabs.css';
-@import 'helpers/utils.css';
-@import 'helpers/clearfix.css';
-@import 'helpers/ugc.css';
-@import 'helpers/bg-image.css';
-@import 'helpers/carousel.css';
-@import 'helpers/tooltip.css';
-@import 'helpers/print.css';
-@import 'helpers/borders.css';
-@import 'helpers/messages.css';
+@import 'helpers/index.css';
