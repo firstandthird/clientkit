@@ -145,8 +145,23 @@ class CssTask {
       inputCss = input;
     }
     const to = outputName ? outputName : 'temp.css';
-    postcss(processes).process(inputCss, { from: input, to: to, map: { inline: false } })
+    const map = {
+      inline: false
+    };
+    if (this.config.core.sourcemap === 'inline') {
+      map.inline = true;
+    }
+    postcss(processes).process(inputCss, { from: input, to, map })
     .then(result => {
+      // remove reference to sourcemap if it was not generated:
+      if (this.config.core.sourcemap === 'off') {
+        // removes embedded source map info:
+        const text = result.css;
+        const replaceStart = text.indexOf('/*# sourceMappingURL=');
+        const replaceEnd = text.indexOf('css.map */') + 10;
+        const toReplace = text.substring(replaceStart, replaceEnd);
+        result.css = text.replace(toReplace, '');
+      }
       if (result.messages) {
         result.messages.forEach(message => {
           if (message.text) {
@@ -154,7 +169,6 @@ class CssTask {
           }
         });
       }
-
       this.result = result;
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
@@ -173,11 +187,12 @@ class CssTask {
     }
     const output = path.join(this.config.core.dist, outputName);
     fs.writeFileSync(output, this.result.css);
-    fs.writeFileSync(`${output}.map`, this.result.map);
     log(`Wrote: ${this.input} → ${output}`);
-    log(`Wrote: ${this.input}.map → ${output}.map`);
+    if (this.config.core.sourcemap === 'on') {
+      fs.writeFileSync(`${output}.map`, this.result.map);
+      log(`Wrote: ${this.input}.map → ${output}.map`);
+    }
   }
-
 }
 module.exports.CssTask = CssTask;
 module.exports.runTaskAndWrite = function (config, base, outputName, input) {

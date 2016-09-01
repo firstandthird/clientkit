@@ -60,6 +60,7 @@ const conf = configHandler.loadConfig(defaultConf, argv, log);
 if (!conf) {
   process.exit(1);
 }
+
 // show css options:
 if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
   reports.showOptions(conf);

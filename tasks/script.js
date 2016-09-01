@@ -9,6 +9,7 @@ const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
+
 const Logr = require('logr');
 
 const log = new Logr({
@@ -30,6 +31,7 @@ module.exports = function(conf, base, outputName, input) {
     const duration = (end - start) / 1000;
     log(`Processed: ${input} → ${output} in ${duration} sec`);
   });
+
   const cli = new CLIEngine({
     useEslintrc: false,
     configFile: conf.core.eslint
@@ -54,19 +56,23 @@ module.exports = function(conf, base, outputName, input) {
 
   const b = new Browserify({
     entries: [input],
-    debug: true
+    debug: conf.core.sourcemap !== 'off'
   });
 
   let currentTransform = b.transform(babelify, { global: conf.core.globalBabel, presets: [bes2015], plugins: [] });
   if (conf.core.minify) {
     currentTransform = currentTransform.transform(uglifyify, { global: true });
   }
-  currentTransform
+  const stream = currentTransform
   .bundle()
   .on('error', function (err) {
     log(['error'], err);
     this.emit('end');
-  })
-  .pipe(exorcist(`${output}.map`))
-  .pipe(fileStream);
+  });
+  if (conf.core.sourcemap === 'on') {
+    stream.pipe(exorcist(`${output}.map`))
+    .pipe(fileStream);
+  } else {
+    stream.pipe(fileStream);
+  }
 };

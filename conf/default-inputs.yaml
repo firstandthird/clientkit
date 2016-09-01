@@ -1,0 +1,19 @@
+inputs:
+  text:
+    transition: 'box-shadow ease 250ms'
+    background-color: '{{color["input-background"]}}'
+    border: 0
+    box-shadow: ' 0 1px 0 0 {{color["input-border"]}}'
+    padding: 0
+    margin: 0
+    '&:focus':
+      outline: none
+      box-shadow: ' 0 2px 0 0 {{color["input-border-focus"]}}'
+    '&:disabled':
+      box-shadow: none;
+      border-bottom: '1px dashed {{color["input-disabled"]}}'
+      color: '{{color["input-disabled"]}}'
+  error:
+    box-shadow: ' 0 1px 0 0 {{color["input-error"]}}'
+    '&:focus':
+      box-shadow: ' 0 2px 0 0 {{color["input-error"]}}'
