@@ -35,6 +35,11 @@ vars:
 
   stretch-spacing: 2px
 
+  #border
+  border-size: 1px
+  border-radius: 3px
+
+  #tables
   table-cell-padding: 10px
   table-sm-cell-padding: 5px
   table-bg: transparent
