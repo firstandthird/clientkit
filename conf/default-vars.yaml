@@ -47,5 +47,10 @@ vars:
     border-width: 1px
     border-color: '#eceeef'
 
+  border:
+    size: 1px
+    radius: 3px
+
   #messages
-  message-border-radius: 2px
+  message:
+    border-radius: 2px
