@@ -16,9 +16,8 @@ vars:
       body: 14px
       large: 16px
       small: 12px
-  line:
-    height: 1.1
-    height-large: 1.5
+  line-height: 1.1
+  line-height-large: 1.5
 
   #headings
   heading:
