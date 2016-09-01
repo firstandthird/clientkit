@@ -3,8 +3,6 @@ const mkdirp = require('mkdirp');
 const watcher = require('../lib/watcher');
 const configHandler = require('../lib/config.js');
 const fs = require('fs');
-const styleguide = require('../commands/styleguide.js');
-const path = require('path');
 const reduce = require('lodash.reduce');
 let configWatcher = false;
 let jsWatcher = false; // watcher we will use to watch js files
@@ -134,12 +132,6 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
       }, newConfig.core.rebuildDelay);
     }
     onUpdateConfig(newConfig, argv, log);
-    styleguide(
-      newConfig,
-      path.join(__dirname, '..', 'lib', 'styleguide.template'),
-      path.join(newConfig.core.dist, 'styleguide.html'),
-      log
-    );
     if (argv.debug || argv._.indexOf('debug') > -1) {
       setTimeout(() => {
         const jsFiles = reduce(jsWatcher.getWatched(), (memo, fileList) => { return memo + fileList.length; }, 0);
