@@ -25,6 +25,17 @@ const log = new Logr({
   }
 });
 
+const addVarObject = (curVarName, curVarValue, curObject) => {
+  if (typeof curVarValue === 'object') {
+    // for each key in the object, set object recursively:
+    Object.keys(curVarValue).forEach((nextVarName) => {
+      addVarObject(`${curVarName}-${nextVarName}`, curVarValue[nextVarName], curObject);
+    });
+    return;
+  }
+  curObject[curVarName] = curVarValue;
+};
+
 class CssTask {
   // loads config files:
   constructor(config, base) {
@@ -44,7 +55,7 @@ class CssTask {
     });
     if (config.vars) {
       Object.keys(config.vars).forEach(varName => {
-        this.cssVars[varName] = config.vars[varName];
+        addVarObject(varName, config.vars[varName], this.cssVars);
       });
     }
     // load spacing variables:
