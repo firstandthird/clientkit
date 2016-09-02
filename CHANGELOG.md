@@ -1,4 +1,9 @@
 
+0.12.0 / 2016-09-02
+==================
+
+  * update hide/show helper classes to be important
+
 0.11.0 / 2016-09-02
 ==================
 
