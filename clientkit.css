@@ -1,10 +1,10 @@
 /* mixins */
 /*---
-section: Mixins
+section: Development
+title: Mixins
 order: 99
 ---
-```
-```
+Mixins yo!
 */
 /*---
 section: Mixins
@@ -26,11 +26,12 @@ Outputs
 */
 /*---
 section: Mixins
-title: Buttons
+title: Button
 ---
 
 ```
 @mixin button backgroundColor, fontColor, borderColor, hoverBackground, hoverColor;
+```
 
 Outputs
 
@@ -61,7 +62,7 @@ Outputs
 */
 /*---
 section: Mixins
-title: Headings
+title: Heading
 ---
 
 ```
@@ -95,7 +96,7 @@ title: Message
 */
 /*---
 section: Mixins
-title: Links
+title: Link
 ---
 
 ```
@@ -124,6 +125,11 @@ title: Input
 ```
 */
 /* helpers */
+/*---
+section: Helpers
+---
+Here live helpers
+*/
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -459,6 +465,12 @@ textarea {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
 :root {
 }
 html {
@@ -751,69 +763,11 @@ body {
   padding-left: 0;
 }
 /*---
-section: Typography
-title: Links
-
-```example:html
-<a href="#">Link</a>
-```
- */
-a {
-  color: #333;
-  text-decoration: none;
-}
-a:hover {
-  color: #666;
-  cursor: pointer;
-}
-/*---
-section: Typography
-title: Headings
-
-```example:html
-<div class="heading-1">Heading 1</div>
-<div class="heading-2">Heading 2</div>
-<div class="heading-3">Heading 3</div>
-<div class="heading-4">Heading 4</div>
-<div class="heading-5">Heading 5</div>
-<div class="heading-6">Heading 5</div>
-```
- */
-.heading-1 {
-  font-family: serif;
-  color: #333;
-  line-height: 1.2;
-  font-weight: bold;
-  font-size: 45px;
-}
-.heading-2 {
-  font-family: serif;
-  color: #333;
-  line-height: 1.2;
-  font-weight: bold;
-  font-size: 30px;
-}
-.heading-3 {
-  font-family: serif;
-  color: #333;
-  line-height: 1.2;
-  font-weight: bold;
-  font-size: 25px;
-}
-.heading-4 {
-  font-family: serif;
-  color: #333;
-  line-height: 1.2;
-  font-weight: bold;
-  font-size: 16px;
-}
-.heading-5 {
-  font-family: serif;
-  color: #333;
-  line-height: 1.2;
-  font-weight: bold;
-  font-size: 14px;
-}
+section: Helpers
+title: Typography
+---
+Welcome to typography
+*/
 /*---
 section: Typography
 title: Fonts
@@ -950,9 +904,6 @@ title: Colors
 .heading--light {
   color: #fff;
 }
-p {
-  margin: 0;
-}
 /*---
 section: Typography
 title: Stretch
@@ -965,6 +916,70 @@ title: Stretch
 */
 .text-stretch {
   letter-spacing: 2px;
+}
+/*---
+section: Typography
+title: Headings
+
+```example:html
+<div class="heading-1">Heading 1</div>
+<div class="heading-2">Heading 2</div>
+<div class="heading-3">Heading 3</div>
+<div class="heading-4">Heading 4</div>
+<div class="heading-5">Heading 5</div>
+<div class="heading-6">Heading 5</div>
+```
+ */
+.heading-1 {
+  font-family: serif;
+  color: #333;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 45px;
+}
+.heading-2 {
+  font-family: serif;
+  color: #333;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 30px;
+}
+.heading-3 {
+  font-family: serif;
+  color: #333;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 25px;
+}
+.heading-4 {
+  font-family: serif;
+  color: #333;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 16px;
+}
+.heading-5 {
+  font-family: serif;
+  color: #333;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 14px;
+}
+/*---
+section: Typography
+title: Links
+
+```example:html
+<a href="#">Link</a>
+```
+ */
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  color: #666;
+  cursor: pointer;
 }
 /*
  * spacing helpers
@@ -1299,45 +1314,11 @@ title: Stretch
   margin-bottom: 10px;
 }
 /*---
-section: Lists
-title: Unstyled
+section: Helpers
+title: Buttons
 ---
 
-```example:html
-<ul class="list-unstyled">
-  <li>Item 1</li>
-  <li>Item 2</li>
-  <li>Item 3</li>
-</ul>
-```
 */
-.list-unstyled {
-  padding-left: 0;
-  list-style: none;
-}
-/*---
-section: Lists
-title: Inline
----
-
-```example:html
-<ul class="list-inline">
-  <li>Item 1</li>
-  <li>Item 2</li>
-  <li>Item 3</li>
-</ul>
-```
-*/
-.list-inline {
-  margin-left: -5px;
-  padding-left: 0;
-  list-style: none
-}
-.list-inline > li {
-  display: inline-block;
-  padding-right: 5px;
-  padding-left: 5px;
-}
 /*---
 section: Buttons
 title: Primary Button
@@ -1400,6 +1381,56 @@ title: Outline Button
   background-color: rgba(75, 157, 249, 1);
   color: #fff;
 }
+/*---
+section: Helpers
+title: Lists
+---
+*/
+/*---
+section: Lists
+title: Unstyled
+---
+
+```example:html
+<ul class="list-unstyled">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+/*---
+section: Lists
+title: Inline
+---
+
+```example:html
+<ul class="list-inline">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+*/
+.list-inline {
+  margin-left: -5px;
+  padding-left: 0;
+  list-style: none
+}
+.list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+/*---
+section: Helpers
+title: Forms
+---
+*/
 /*---
 section: Forms
 title: Form
@@ -1571,6 +1602,11 @@ title: Form
   border-bottom: 1px dashed red;
   color: gray;
 }
+/*---
+section: Helpers
+title: Tables
+---
+*/
 /*---
 section: Tables
 title: Basic
@@ -1810,7 +1846,7 @@ min-height: 0.01% is a workaround for IE9 bug (see https://github.com/twbs/boots
   overflow-x: auto;
 }
 /*---
-section: Components
+section: Helpers
 title: Tabs
 ---
 
@@ -1993,7 +2029,7 @@ title: Tabs
 .show-sm {
 }
 /*---
-section: Utils
+section: Helpers
 title: Clearfix
 ---
 
@@ -2013,7 +2049,7 @@ title: Clearfix
   clear: both;
 }
 /*---
-section: Typography
+section: Helpers
 title: UGC
 ---
 ```example:html
@@ -2119,14 +2155,16 @@ title: UGC
   background-size: cover;
 }
 /*---
-section: Components
+section: Helpers
 title: Tooltip
 
 ```example:html
-<button class="btn tooltip tooltip-up" data-tooltip-title="Whats up!">Tooltip Up</button>
-<button class="btn tooltip tooltip-right" data-tooltip-title="Whats up!">Tooltip Right</button>
-<button class="btn tooltip tooltip-down" data-tooltip-title="Whats up!">Tooltip Down</button>
-<button class="btn tooltip tooltip-left" data-tooltip-title="Whats up!">Tooltip Left</button>
+<div class="padding-top-md">
+  <button class="btn tooltip tooltip-up" data-tooltip-title="Whats up!">Tooltip Up</button>
+  <button class="btn tooltip tooltip-right" data-tooltip-title="Whats up!">Tooltip Right</button>
+  <button class="btn tooltip tooltip-down" data-tooltip-title="Whats up!">Tooltip Down</button>
+  <button class="btn tooltip tooltip-left" data-tooltip-title="Whats up!">Tooltip Left</button>
+</div>
 ```
 */
 button.tooltip {
@@ -2319,7 +2357,7 @@ button.tooltip {
 .row-print-stacked {
 }
 /*---
-section: Styles
+section: Helpers
 title: Messages
 ---
 ```example:html
@@ -2356,6 +2394,52 @@ title: Messages
   border-radius: 2px;
   color: #333;
   padding: 5px 10px;
+}
+/*---
+section: Helpers
+title: Borders
+---
+
+#### Variables
+```
+  border-size: 1px
+  border-radius: 3px
+  color-border: '#ccc'
+```
+
+#### Example
+```example:html
+<div class="border-all padding-sm margin-sm">Border around everything</div>
+<div class="border-right padding-sm margin-sm">Border on right</div>
+<div class="border-left padding-sm margin-sm">Border on left</div>
+<div class="border-top padding-sm margin-sm">Border on top</div>
+<div class="border-bottom padding-sm margin-sm">Border on bottom</div>
+```
+*/
+.border-all,
+.border-right,
+.border-left,
+.border-top,
+.border-bottom {
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0;
+}
+.border-all {
+  border-width: 1px;
+  border-radius: 3px;
+}
+.border-right {
+  border-right-width: 1px;
+}
+.border-left {
+  border-left-width: 1px;
+}
+.border-top {
+  border-top-width: 1px;
+}
+.border-bottom {
+  border-bottom-width: 1px;
 }
 @media (max-width: 1439px) {
   .container {
