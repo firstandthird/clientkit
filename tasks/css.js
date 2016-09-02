@@ -16,6 +16,7 @@ const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
+const pkg = require('../package.json');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -127,6 +128,9 @@ class CssTask {
           variables: this.cssVars,
           examples: {
             css: this.config.docs.css
+          },
+          info: {
+            clientkitVersion: pkg.version
           }
         }),
         destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
