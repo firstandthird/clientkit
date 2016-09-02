@@ -24,8 +24,8 @@ module.exports = function (config) {
     const styles = {};
     const sizes = Object.keys(config.breakpoints);
     sizes.forEach((size) => {
-      styles[`.hide-${config.breakpoints[size].col}`] = hideMixin(config.breakpoints[size].col, 'none');
-      styles[`.show-${config.breakpoints[size].col}`] = hideMixin(config.breakpoints[size].col, 'block');
+      styles[`.hide-${config.breakpoints[size].col}`] = hideMixin(config.breakpoints[size].col, 'none !important');
+      styles[`.show-${config.breakpoints[size].col}`] = hideMixin(config.breakpoints[size].col, 'block !important');
     });
 
     return styles;
