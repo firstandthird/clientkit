@@ -2011,10 +2011,10 @@ title: Tabs
   display: none !important;
 }
 .hide-xl {
-  display: none;
+  display: none !important;
 }
 .show-xl {
-  display: block;
+  display: block !important;
 }
 .hide-lg {
 }
@@ -2700,10 +2700,10 @@ title: Borders
     padding-left: 0;
   }
   .hide-lg {
-    display: none;
+    display: none !important;
   }
   .show-lg {
-    display: block;
+    display: block !important;
   }
   .row-lg-carousel {
     width: 100%;
@@ -3025,10 +3025,10 @@ title: Borders
     padding-left: 0;
   }
   .hide-md {
-    display: none;
+    display: none !important;
   }
   .show-md {
-    display: block;
+    display: block !important;
   }
   .row-md-carousel {
     width: 100%;
@@ -3365,10 +3365,10 @@ title: Borders
     font-size: 14px;
   }
   .hide-sm {
-    display: none;
+    display: none !important;
   }
   .show-sm {
-    display: block;
+    display: block !important;
   }
   .ugc h1 {
     font-size: 30px;
