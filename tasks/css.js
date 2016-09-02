@@ -124,6 +124,7 @@ class CssTask {
         theme: mdcssTheme({
           title: this.config.docs.title,
           logo: '',
+          mixins: this.mixins,
           colors: this.config.color,
           variables: this.cssVars,
           examples: {
