@@ -85,7 +85,7 @@ const main = () => {
 const handleNotifier = (err, updateResults) => {
   if (!err) {
     if (updateResults.latest !== updateResults.current) {
-      log(`A new version of clientkit is available on npm! Current: ${updateResults.current}  Latest: ${updateResults.latest}`);
+      log(['warning'], `A new version of clientkit is available on npm! Current: ${updateResults.current}  Latest: ${updateResults.latest}`);
     }
   }
   main();
