@@ -1,4 +1,22 @@
 
+0.12.0 / 2016-09-02
+==================
+
+  * update hide/show helper classes to be important
+
+0.11.0 / 2016-09-02
+==================
+
+  * updated mdcss theme
+  * update variable names
+  * css task now passes npm version info to styleguide
+  * line height doesn't need to be nested
+  * lets config.vars be recursively nested and joins the nested keys with '-'
+  * removes 'styleguide' from being generated
+  * reorganized docs
+  * up'd theme
+  * border helpers
+
 0.10.0 / 2016-08-30
 ==================
 
