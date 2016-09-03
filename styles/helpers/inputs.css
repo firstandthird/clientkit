@@ -140,4 +140,56 @@ title: Form
       @mixin input var(--color-input-background), var(--color-body), var(--color-input-disabled), var(--color-input-error), var(--color-input-error), var(--color-input-error);
     }
   }
+
+  /*---
+  section: Forms
+  title: Input group
+
+  ```example:html
+  <form class="form">
+    <div class="input-group">
+      <input type="text" placeholder="Enter your email">
+      <button class="input-group-btn button">Sign Up</button>
+    </div>
+  </form>
+  ```
+  */
+  & .input-group {
+    font-size: 0;
+
+    & input[type="text"],
+    & input[type="email"],
+    & input[type="password"],
+    & input[type="url"],
+    & input[type="tel"],
+    & input[type="search"],
+    & input[type="number"],
+    & input[type="date"],
+    & input[type="datetime"],
+    & input[type="datetime-local"],
+    & input[type="month"],
+    & input[type="week"],
+    & input[type="time"] {
+      display: inline-block;
+      width: inherit;
+      height: 42px;
+      vertical-align: middle;
+      box-shadow: none;
+      margin-right: -1px;
+      padding-right: 14px;
+      padding-left: 14px;
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+      background-color: var(--color-input-group-background);
+      font-size: var(--font-size-body);
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    & .input-group-btn {
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    }
+  }
 }
