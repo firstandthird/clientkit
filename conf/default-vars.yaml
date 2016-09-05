@@ -50,6 +50,11 @@ vars:
     size: 1px
     radius: 3px
 
+  hr:
+    max-width: 3.5em
+    height: 3px
+    color: '{{color.body}}'
+
   #messages
   message:
     border-radius: 2px
