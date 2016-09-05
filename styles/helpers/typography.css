@@ -185,3 +185,29 @@ title: Stretch
 .text-stretch {
   letter-spacing: var(--stretch-spacing);
 }
+
+
+/*---
+section: Typography
+title: hr
+---
+
+#### Variables
+```
+  hr-max-width: 3.5em
+  hr-height: 3px
+  hr-color: #333
+```
+
+```example:html
+<hr />
+```
+*/
+hr {
+	width: 100%;
+	max-width: var(--hr-max-width);
+	height: var(--hr-height);
+	background-color: var(--hr-color);
+	margin: 0;
+	border: 0;
+}
