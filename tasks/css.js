@@ -131,7 +131,8 @@ class CssTask {
           },
           info: {
             clientkitVersion: pkg.version
-          }
+          },
+          sectionOrder: this.config.docs.sectionOrder
         }),
         destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
       }));
