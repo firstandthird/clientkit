@@ -88,7 +88,6 @@ title: Transform
   text-transform: capitalize;
 }
 
-
 /*---
 section: Typography
 title: Weight
@@ -154,11 +153,24 @@ title: Colors
 
 ```example:html
 <div style="background: #000" class="heading--light">Light Text</div>
+<p class="text-color-body">Some Text</p>
+<p class="text-color-heading">Some Text</p>
+<p style="background: #000" class="text-color-light">Some Text</p>
 ```
 */
 .heading--light {
   color: var(--color-heading-light);
 }
+.text-color-body {
+  color: var(--color-body);
+}
+.text-color-heading {
+  color: var(--color-heading);
+}
+.text-color-light {
+  color: var(--color-heading-light);
+}
+
 
 /*---
 section: Typography
