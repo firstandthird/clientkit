@@ -48,7 +48,10 @@ vars:
 
   border:
     size: 1px
-    radius: 3px
+    radius:
+      default: 3px
+      lg: 5px
+      sm: 2px
 
   #messages
   message:

@@ -34,14 +34,14 @@ Outputs
 }
 ```
 */
-@define-mixin button $background, $color, $border, $hoverBackground, $hoverColor {
+@define-mixin button $background, $color, $border, $borderRadius, $hoverBackground, $hoverColor {
   display: inline-block;
   background-color: $background;
   line-height: 1;
   text-align: center;
   font-size: 14px;
   padding: 12px 14px;
-  border-radius: 3px;
+  border-radius: $borderRadius;
   border: 2px solid $border;
   vertical-align: middle;
   cursor: pointer;
@@ -56,3 +56,29 @@ Outputs
     color: $hoverColor;
   }
 }
+
+/*---
+section: Mixins
+title: Button size
+---
+
+```
+@mixin button-size paddingY, paddingX, fontSize, borderRadius;
+```
+
+Outputs
+
+```css
+.button-lg {
+  border-radius: 5px;
+  padding: 16px 20px;
+  font-size: 16px;
+}
+```
+*/
+@define-mixin button-size $paddingY, $paddingX, $fontSize, $borderRadius {
+  border-radius: $borderRadius;
+  padding: $paddingY $paddingX;
+  font-size: $fontSize;
+}
+
