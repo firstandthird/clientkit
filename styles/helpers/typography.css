@@ -88,7 +88,6 @@ title: Transform
   text-transform: capitalize;
 }
 
-
 /*---
 section: Typography
 title: Weight
@@ -154,11 +153,24 @@ title: Colors
 
 ```example:html
 <div style="background: #000" class="heading--light">Light Text</div>
+<p class="text-color-body">Some Text</p>
+<p class="text-color-heading">Some Text</p>
+<p style="background: #000" class="text-color-light">Some Text</p>
 ```
 */
 .heading--light {
   color: var(--color-heading-light);
 }
+.text-color-body {
+  color: var(--color-body);
+}
+.text-color-heading {
+  color: var(--color-heading);
+}
+.text-color-light {
+  color: var(--color-heading-light);
+}
+
 
 /*---
 section: Typography
@@ -172,4 +184,30 @@ title: Stretch
 */
 .text-stretch {
   letter-spacing: var(--stretch-spacing);
+}
+
+
+/*---
+section: Typography
+title: hr
+---
+
+#### Variables
+```
+  hr-max-width: 3.5em
+  hr-height: 3px
+  hr-color: #333
+```
+
+```example:html
+<hr />
+```
+*/
+hr {
+	width: 100%;
+	max-width: var(--hr-max-width);
+	height: var(--hr-height);
+	background-color: var(--hr-color);
+	margin: 0;
+	border: 0;
 }
