@@ -82,16 +82,11 @@ const main = () => {
   }
 };
 
-const handleNotifier = (err, updateResults) => {
-  if (!err) {
-    if (updateResults.latest !== updateResults.current) {
-      log(['warning'], `A new version of clientkit is available on npm! Current: ${updateResults.current}  Latest: ${updateResults.latest}`);
-    }
-  }
-  main();
-};
-
-updateNotifier({
-  callback: handleNotifier,
+main();
+const result = updateNotifier({
+  updateCheckInterval: 1000 * 60 * 60, // check once per hour
   pkg
-});
+}).notify();
+if (result.update && result.update.latest !== result.update.current) {
+  log(['warning'], `A new version of clientkit is available on npm! Current: ${result.update.current}  Latest: ${result.update.latest}`);
+}
