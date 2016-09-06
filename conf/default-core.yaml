@@ -4,6 +4,9 @@ core:
   dist: '{{CWD}}/dist'
   assetPath: '{{CWD}}'
   mobileFirst: false
+  urlHashing:
+    active: true
+    jsonMapping: '{{core.dist}}/assets.json'
   watch:
     css:
       - '{{core.assetPath}}/**/*.css'
