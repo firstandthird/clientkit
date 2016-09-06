@@ -4,3 +4,8 @@ docs:
   title: 'ClientKit'
   css:
     - '../clientkit.css'
+  sectionOrder:
+    Styleguide: 0
+    Helpers: 1
+    Variables: 2
+    Development: 3
