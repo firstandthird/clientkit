@@ -83,10 +83,7 @@ const main = () => {
 };
 
 main();
-const result = updateNotifier({
-  updateCheckInterval: 1000 * 60 * 60, // check once per hour
-  pkg
-}).notify();
+const result = updateNotifier({ pkg }).notify();
 if (result.update && result.update.latest !== result.update.current) {
   log(['warning'], `A new version of clientkit is available on npm! Current: ${result.update.current}  Latest: ${result.update.latest}`);
 }
