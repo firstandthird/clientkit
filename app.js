@@ -33,9 +33,9 @@ const argv = yargs
 .option('css', {
   describe: 'can be used to pass in arbitrary css ',
 })
-.option('mode', {
-  describe: 'set to "dev" mode to continuously monitor your files and auto-process when a change is made',
-  default: 'prod'
+.option('watch', {
+  describe: 'watch mode will continuously monitor your files and recompile your project when a change is made',
+  default: false
 })
 .option('config', {
   describe: 'a path to your configuration files',
@@ -66,12 +66,12 @@ const main = () => {
   // show css options:
   if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
     reports.showOptions(conf);
-  // show css only:
+    // show css only:
   } else if (argv.css) {
     conf.cssExpression = argv.css;
     reports.showCss(conf);
   // dev mode will watch files and update when a change is made:
-  } else if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+  } else if (argv.watch || conf.core.watchActive) {
     dev.runDev(defaultConf, conf, argv, log);
   // normal mode will run and output the new css/js dist directory:
   } else {
