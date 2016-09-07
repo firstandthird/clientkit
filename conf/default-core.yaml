@@ -5,7 +5,7 @@ core:
   assetPath: '{{CWD}}'
   mobileFirst: false
   urlHashing:
-    active: true
+    active: false
     jsonMapping: '{{core.dist}}/assets.json'
   watch:
     css:
