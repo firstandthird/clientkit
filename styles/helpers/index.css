@@ -9,7 +9,6 @@ Here live helpers
 @import 'colors.css';
 @import 'grid.css';
 
-@import 'typography.css';
 @import 'headings.css';
 @import 'links.css';
 @import 'spacing.css';
@@ -29,3 +28,4 @@ Here live helpers
 @import 'print.css';
 @import 'messages.css';
 @import 'borders.css';
+@import 'typography.css';
