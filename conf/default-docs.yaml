@@ -5,7 +5,7 @@ docs:
   css:
     - '../clientkit.css'
   sectionOrder:
-    Styleguide: 0
-    Helpers: 1
-    Variables: 2
-    Development: 3
+    Styleguide: 1
+    Helpers: 2
+    Variables: 3
+    Development: 4
