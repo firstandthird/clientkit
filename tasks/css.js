@@ -16,8 +16,8 @@ const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
+const hashing = require('../lib/urlHashes');
 const pkg = require('../package.json');
-const hash = require('rev-hash');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -175,8 +175,8 @@ class CssTask {
 
   writeToFile(outputName) {
     if (this.config.core.urlHashing.active) {
-      const hashKey = hash(Buffer.from(this.result.css));
-      outputName = outputName.replace('.css', `-${hashKey}.css`);
+      outputName = hashing.hash(outputName, this.result.css);
+      hashing.writeMap(this.config);
     }
     if (!this.result) {
       log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);

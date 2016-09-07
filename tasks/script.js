@@ -9,6 +9,7 @@ const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
+const hashing = require('../lib/urlHashes');
 const Logr = require('logr');
 
 const log = new Logr({
@@ -22,10 +23,16 @@ const log = new Logr({
 
 module.exports = function(conf, base, outputName, input) {
   const start = new Date().getTime();
-  const output = path.join(conf.core.dist, outputName);
+  let output = path.join(conf.core.dist, outputName);
 
   const fileStream = fs.createWriteStream(output);
   fileStream.on('finish', () => {
+    if (conf.core.urlHashing.active) {
+      const newOutput = hashing.hash(output, fs.readFileSync(output));
+      fs.renameSync(output, newOutput);
+      output = newOutput;
+      hashing.writeMap(conf);
+    }
     const end = new Date().getTime();
     const duration = (end - start) / 1000;
     log(`Processed: ${input} → ${output} in ${duration} sec`);
