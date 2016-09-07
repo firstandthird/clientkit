@@ -37,6 +37,8 @@ title: Button sizes
 ```example:html
 <button class="button button-lg">Large Button</button>
 <button class="button button-sm">Small Button</button>
+<button class="button-outline button-lg">Large Button</button>
+<button class="button-outline button-sm">Small Button</button>
 ```
 */
 .button-lg {
