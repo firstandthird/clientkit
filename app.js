@@ -8,6 +8,9 @@ const init = require('./commands/init.js');
 const reports = require('./commands/reports.js');
 const run = require('./commands/run.js');
 const dev = require('./commands/dev.js');
+const updateNotifier = require('update-notifier');
+const pkg = require('./package.json');
+
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -48,32 +51,39 @@ const argv = yargs
 .env(true)
 .argv;
 
-if (argv.init || argv._.init || argv._.indexOf('init') > -1) {
-  init(argv);
-  log('Done!');
-  process.exit(0);
-}
-log(`Using local config directory: ${argv.config}`);
-const defaultConf = path.join(__dirname, 'conf');
-
-const conf = configHandler.loadConfig(defaultConf, argv, log);
-if (!conf) {
-  process.exit(1);
-}
-// show css options:
-if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
-  reports.showOptions(conf);
-// show css only:
-} else if (argv.css) {
-  conf.cssExpression = argv.css;
-  reports.showCss(conf);
-// dev mode will watch files and update when a change is made:
-} else if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
-  dev.runDev(defaultConf, conf, argv, log);
-// normal mode will run and output the new css/js dist directory:
-} else {
-  if (argv.debug || argv._.indexOf('debug') > -1) {
-    log(JSON.stringify(conf, null, '  '));
+const main = () => {
+  if (argv.init || argv._.init || argv._.indexOf('init') > -1) {
+    init(argv);
+    log('Done!');
+    process.exit(0);
   }
-  run.runAll(conf, log);
+  log(`Using local config directory: ${argv.config}`);
+  const defaultConf = path.join(__dirname, 'conf');
+  const conf = configHandler.loadConfig(defaultConf, argv, log);
+  if (!conf) {
+    process.exit(1);
+  }
+  // show css options:
+  if (argv.options || argv._.options || argv._.indexOf('options') > -1) {
+    reports.showOptions(conf);
+  // show css only:
+  } else if (argv.css) {
+    conf.cssExpression = argv.css;
+    reports.showCss(conf);
+  // dev mode will watch files and update when a change is made:
+  } else if (argv.mode === 'dev' || argv._.dev || argv._.indexOf('dev') > -1) {
+    dev.runDev(defaultConf, conf, argv, log);
+  // normal mode will run and output the new css/js dist directory:
+  } else {
+    if (argv.debug || argv._.indexOf('debug') > -1) {
+      log(JSON.stringify(conf, null, '  '));
+    }
+    run.runAll(conf, log);
+  }
+};
+
+main();
+const result = updateNotifier({ pkg }).notify();
+if (result.update && result.update.latest !== result.update.current) {
+  log(['warning'], `A new version of clientkit is available on npm! Current: ${result.update.current}  Latest: ${result.update.latest}`);
 }
