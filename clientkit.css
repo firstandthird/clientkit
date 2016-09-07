@@ -2,7 +2,6 @@
 /*---
 section: Development
 title: Mixins
-order: 99
 ---
 Mixins yo!
 */
@@ -488,6 +487,67 @@ body {
 .bg-alt {
   background-color: rgb(95, 95, 95);
 }
+/*---
+section: Helpers
+title: Grid
+---
+
+#### Variables
+```
+  grid-columns: 12
+  grid-gutters: 15px
+```
+
+#### Breakpoints
+```
+  desktop-wide:
+    max-width: 100vw
+    min-width: 1440px
+    content: 1440px
+    col: xl
+    default: '{{!core.mobileFirst}}'
+    bleed: 1600px
+  desktop:
+    max-width: 1439px
+    min-width: 1024px
+    content: 1024px
+    col: lg
+  tablet:
+    max-width: 1023px
+    min-width: 768px
+    content: 768px
+    col: md
+  mobile:
+    max-width: 767px
+    min-width: 320px
+    content: 100%
+    col: sm
+```
+
+#### Quick Start
+```example:html
+<div class="container">
+  <div class="row">
+    <div class="col-4">1/3 column</div>
+    <div class="col-4">1/3 column</div>
+    <div class="col-4">1/3 column</div>
+  </div>
+</div>
+```
+
+#### Grid Options
+
+ | | Default | Small | Medium | Large | Extra large |
+ | --- | --- | --- | --- | --- | --- |
+ | Container width | None (auto) | 320px - 767px  | 768px - 1023px | 1024px - 1439px | 1440px - 100vw |
+ | Class prefix | `.col-` | `.col-sm-` | `.col-md-` | `.col-lg-` | `.col-xl-` |
+ | # of columns | 12 | 12 | 12 | 12 | 12 |
+ | Gutter width | 15px on each side | 15px on each side | 15px on each side | 15px on each side | 15px on each side |
+ | Nestable | Yes | Yes | Yes | Yes | Yes |
+ | Offsets | Yes | Yes | Yes | Yes | Yes |
+ | Column ordering | Yes | Yes | Yes | Yes | Yes |
+
+*/
 body {
 }
 .container {
@@ -763,161 +823,6 @@ body {
   padding-left: 0;
 }
 /*---
-section: Helpers
-title: Typography
----
-Welcome to typography
-*/
-/*---
-section: Typography
-title: Fonts
----
-
-```example:html
-<p>Body Style</p>
-<p class="font-primary">Primary Style</p>
-<p class="font-secondary">Secondary Font Style</p>
-```
-*/
-body {
-  font-family: sans-serif;
-  font-size: 14px;
-  line-height: 1.1;
-  color: #333;
-}
-.font-primary {
-  font-family: sans-serif !important;
-}
-.font-secondary {
-  font-family: serif !important;
-}
-/*---
-section: Typography
-title: Alignment
----
-
-```example:html
-<p class="text-left">Some Text</p>
-<p class="text-center">Some Text</p>
-<p class="text-right">Some Text</p>
-<p class="text-justify">Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturient faucibus sagittis consequat volutpat condimentum elit enim at primis condimentum torquent a in. A imperdiet vestibulum condimentum a quis nam mi vel hendrerit sem cubilia justo condimentum consectetur adipiscing. Facilisis lacinia ultrices etiam sociosqu ad a parturient ac leo class et potenti volutpat nostra pharetra semper parturient sociosqu suspendisse felis ac adipiscing. Sed commodo venenatis scelerisque a vehicula risus nullam dictumst et cras a suspendisse fusce adipiscing quisque dignissim quis lacinia suspendisse condimentum est mi augue a.</p>
-```
-*/
-.text-left {
-  text-align: left;
-}
-.text-center {
-  text-align: center;
-}
-.text-right {
-  text-align: right;
-}
-.text-justify {
-  text-align: justify;
-}
-.text-nowrap {
-  white-space: nowrap;
-}
-.text-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-/*---
-section: Typography
-title: Transform
----
-
-```example:html
-<p class="text-lowercase">Some Text</p>
-<p class="text-uppercase">Some Text</p>
-<p class="text-capitalize">some text</p>
-```
-*/
-.text-lowercase {
-  text-transform: lowercase;
-}
-.text-uppercase {
-  text-transform: uppercase;
-}
-.text-capitalize {
-  text-transform: capitalize;
-}
-/*---
-section: Typography
-title: Weight
----
-
-```example:html
-<p class="font-light">Some Text</p>
-<strong class="font-regular">Some Text</strong>
-<p class="font-semibold">Some Text</p>
-<strong>Some Text</strong>
-<p class="font-bold">Some Text</p>
-<p class="font-xbold">Some Text</p>
-```
-*/
-.font-light {
-  font-weight: 300;
-}
-.font-regular {
-  font-weight: 400;
-}
-.font-semibold, strong, em {
-  font-weight: 600;
-}
-.font-bold {
-  font-weight: 700;
-}
-.font-xbold {
-  font-weight: 800;
-}
-/*---
-section: Typography
-title: Size
----
-
-```example:html
-<p class="font-large">Some Text</p>
-<p class="font-small">Some Text</p>
-<p class="font-body">Some Text</p>
-```
-*/
-.font-large {
-  font-size: 16px;
-}
-.font-small {
-  font-size: 12px;
-}
-.font-body {
-  font-size: 14px;
-}
-/*---
-section: Typography
-title: Colors
----
-
-```example:html
-<div style="background: #000" class="heading--light">Light Text</div>
-```
-*/
-.heading--light {
-  color: #fff;
-}
-/*---
-section: Typography
-title: Stretch
----
-
-```example:html
-<div class="text-stretch">Text Stretch</div>
-```
-
-*/
-.text-stretch {
-  letter-spacing: 2px;
-}
-/*---
 section: Typography
 title: Headings
 
@@ -981,11 +886,130 @@ a:hover {
   color: #666;
   cursor: pointer;
 }
-/*
- * spacing helpers
- * m-b-0 - adds margin-bottom: 0
- * m-r-md - adds margin-bottom: [md]px
- */
+/*---
+section: Helpers
+title: Spacing
+---
+
+The spacing defaults below allow for the various combinations listed below. Essentially every possible combination of `margin` and `padding` can be combined with `top`, `right`, `bottom` or `left` and the defaults to acheive anything. There are special keywords (`xaxis` and `yaxis`) you can use, in lieu of individual directional attributes when you want spacing options on two different sizes.
+
+#### Defaults
+```
+  none: 0
+  xl: 80px
+  lg: 50px
+  md: 30px
+  sm: 20px
+  xs: 10px
+```
+
+#### Example
+```example:css
+.margin-none { margin: 0; }
+.margin-xl { margin: 80px; }
+.margin-lg { margin: 50px; }
+.margin-md { margin: 30px; }
+.margin-sm { margin: 20px; }
+.margin-xs { margin: 10px; }
+
+.margin-top-none { margin-top: 0; }
+.margin-top-xl { margin-top: 80px; }
+.margin-top-lg { margin-top: 50px; }
+.margin-top-md { margin-top: 30px; }
+.margin-top-sm { margin-top: 20px; }
+.margin-top-xs { margin-top: 10px; }
+
+.margin-left-none { margin-left: 0; }
+.margin-left-xl { margin-left: 80px; }
+.margin-left-lg { margin-left: 50px; }
+.margin-left-md { margin-left: 30px; }
+.margin-left-sm { margin-left: 20px; }
+.margin-left-xs { margin-left: 10px; }
+
+.margin-right-none { margin-right: 0; }
+.margin-right-xl { margin-right: 80px; }
+.margin-right-lg { margin-right: 50px; }
+.margin-right-md { margin-right: 30px; }
+.margin-right-sm { margin-right: 20px; }
+.margin-right-xs { margin-right: 10px; }
+
+.margin-bottom-none { margin-bottom: 0; }
+.margin-bottom-xl { margin-bottom: 80px; }
+.margin-bottom-lg { margin-bottom: 50px; }
+.margin-bottom-md { margin-bottom: 30px; }
+.margin-bottom-sm { margin-bottom: 20px; }
+.margin-bottom-xs { margin-bottom: 10px; }
+
+.margin-xaxis-none { margin-left: 0; margin-right: 0; }
+.margin-xaxis-xl { margin-left: 80px; margin-right: 80px; }
+.margin-xaxis-lg { margin-left: 50px; margin-right: 50px; }
+.margin-xaxis-md { margin-left: 30px; margin-right: 30px; }
+.margin-xaxis-sm { margin-left: 20px; margin-right: 20px; }
+.margin-xaxis-xs { margin-left: 10px; margin-right: 10px; }
+
+.margin-yaxis-none { margin-top: 0; margin-bottom: 0; }
+.margin-yaxis-xl { margin-top: 80px; margin-bottom: 80px; }
+.margin-yaxis-lg { margin-top: 50px; margin-bottom: 50px; }
+.margin-yaxis-md { margin-top: 30px; margin-bottom: 30px; }
+.margin-yaxis-sm { margin-top: 20px; margin-bottom: 20px; }
+.margin-yaxis-xs { margin-top: 10px; margin-bottom: 10px; }
+
+.padding-none { padding: 0; }
+.padding-xl { padding: 80px; }
+.padding-lg { padding: 50px; }
+.padding-md { padding: 30px; }
+.padding-sm { padding: 20px; }
+.padding-xs { padding: 10px; }
+
+.padding-top-none { padding-top: 0; }
+.padding-top-xl { padding-top: 80px; }
+.padding-top-lg { padding-top: 50px; }
+.padding-top-md { padding-top: 30px; }
+.padding-top-sm { padding-top: 20px; }
+.padding-top-xs { padding-top: 10px; }
+
+.padding-left-none { padding-left: 0; }
+.padding-left-xl { padding-left: 80px; }
+.padding-left-lg { padding-left: 50px; }
+.padding-left-md { padding-left: 30px; }
+.padding-left-sm { padding-left: 20px; }
+.padding-left-xs { padding-left: 10px; }
+
+.padding-right-none { padding-right: 0; }
+.padding-right-xl { padding-right: 80px; }
+.padding-right-lg { padding-right: 50px; }
+.padding-right-md { padding-right: 30px; }
+.padding-right-sm { padding-right: 20px; }
+.padding-right-xs { padding-right: 10px; }
+
+.padding-bottom-none { padding-bottom: 0; }
+.padding-bottom-xl { padding-bottom: 80px; }
+.padding-bottom-lg { padding-bottom: 50px; }
+.padding-bottom-md { padding-bottom: 30px; }
+.padding-bottom-sm { padding-bottom: 20px; }
+.padding-bottom-xs { padding-bottom: 10px; }
+
+.padding-xaxis-none { padding-left: 0; padding-right: 0; }
+.padding-xaxis-xl { padding-left: 80px; padding-right: 80px; }
+.padding-xaxis-lg { padding-left: 50px; padding-right: 50px; }
+.padding-xaxis-md { padding-left: 30px; padding-right: 30px; }
+.padding-xaxis-sm { padding-left: 20px; padding-right: 20px; }
+.padding-xaxis-xs { padding-left: 10px; padding-right: 10px; }
+
+.padding-yaxis-none { padding-top: 0; padding-bottom: 0; }
+.padding-yaxis-xl { padding-top: 80px; padding-bottom: 80px; }
+.padding-yaxis-lg { padding-top: 50px; padding-bottom: 50px; }
+.padding-yaxis-md { padding-top: 30px; padding-bottom: 30px; }
+.padding-yaxis-sm { padding-top: 20px; padding-bottom: 20px; }
+.padding-yaxis-xs { padding-top: 10px; padding-bottom: 10px; }
+
+.spacing-xl { margin-bottom: 80px; }
+.spacing-lg { margin-bottom: 50px; }
+.spacing-md { margin-bottom: 30px; }
+.spacing-sm { margin-bottom: 20px; }
+.spacing-xs { margin-bottom: 10px; }
+```
+*/
 .padding-none {
   padding-top: 0;
   padding-bottom: 0;
@@ -1315,7 +1339,60 @@ a:hover {
 }
 /*---
 section: Helpers
+title: Triangle
+---
+
+```example:html
+<b class="triangle-up"></b>
+<b class="triangle-right"></b>
+<b class="triangle-down"></b>
+<b class="triangle-left"></b>
+```
+*/
+.triangle-up {
+display: inline-block;
+width: 0;
+height: 0;
+vertical-align: middle;
+content: "";
+border-bottom: 10px solid;
+border-right: 10px solid transparent;
+border-left: 10px solid transparent;
+}
+.triangle-right {
+display: inline-block;
+width: 0;
+height: 0;
+vertical-align: middle;
+content: "";
+border-left: 10px solid;
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+}
+.triangle-down {
+display: inline-block;
+width: 0;
+height: 0;
+vertical-align: middle;
+content: "";
+border-top: 10px solid;
+border-right: 10px solid transparent;
+border-left: 10px solid transparent;
+}
+.triangle-left {
+display: inline-block;
+width: 0;
+height: 0;
+vertical-align: middle;
+content: "";
+border-right: 10px solid;
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+}
+/*---
+section: Helpers
 title: Buttons
+order: 2
 ---
 
 */
@@ -2339,7 +2416,26 @@ button.tooltip {
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+/*---
+section: Helpers
+title: Print
+---
+
+Printing with Clientkit takes some basic reset from [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css).
+All elements are stripped of color styling, while text links and abbr have their
+attributes printed alongside. Other than a few more elements that get reset,
+there are a few helpers added to allow you to chose which elements are printed
+and which are not.
+
+#### Example
+```example:html
+<p class="show-print-block">print only as block level, won't show on any other media type</p>
+<p class="show-print-inline">print only as inline level, won't show on any other media type</p>
+<p class="show-print-inline-block">print only as inline-block level, won't show on any other media type</p>
+<p class="hide-print">hides print only, will show on any other media type</p>
+```
+
+*/
 /* end html5bp */
 /* custom helpers for clientkit */
 .show-print,
@@ -2440,6 +2536,198 @@ title: Borders
 }
 .border-bottom {
   border-bottom-width: 1px;
+}
+/*---
+section: Helpers
+title: Typography
+order: 1
+---
+Welcome to typography
+*/
+/*---
+section: Typography
+title: Fonts
+---
+
+```example:html
+<p>Body Style</p>
+<p class="font-primary">Primary Style</p>
+<p class="font-secondary">Secondary Font Style</p>
+```
+*/
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #333;
+}
+.font-primary {
+  font-family: sans-serif !important;
+}
+.font-secondary {
+  font-family: serif !important;
+}
+/*---
+section: Typography
+title: Alignment
+---
+
+```example:html
+<p class="text-left">Some Text</p>
+<p class="text-center">Some Text</p>
+<p class="text-right">Some Text</p>
+<p class="text-justify">Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturient faucibus sagittis consequat volutpat condimentum elit enim at primis condimentum torquent a in. A imperdiet vestibulum condimentum a quis nam mi vel hendrerit sem cubilia justo condimentum consectetur adipiscing. Facilisis lacinia ultrices etiam sociosqu ad a parturient ac leo class et potenti volutpat nostra pharetra semper parturient sociosqu suspendisse felis ac adipiscing. Sed commodo venenatis scelerisque a vehicula risus nullam dictumst et cras a suspendisse fusce adipiscing quisque dignissim quis lacinia suspendisse condimentum est mi augue a.</p>
+```
+*/
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*---
+section: Typography
+title: Transform
+---
+
+```example:html
+<p class="text-lowercase">Some Text</p>
+<p class="text-uppercase">Some Text</p>
+<p class="text-capitalize">some text</p>
+```
+*/
+.text-lowercase {
+  text-transform: lowercase;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+/*---
+section: Typography
+title: Weight
+---
+
+```example:html
+<p class="font-light">Some Text</p>
+<strong class="font-regular">Some Text</strong>
+<p class="font-semibold">Some Text</p>
+<strong>Some Text</strong>
+<p class="font-bold">Some Text</p>
+<p class="font-xbold">Some Text</p>
+```
+*/
+.font-light {
+  font-weight: 300;
+}
+.font-regular {
+  font-weight: 400;
+}
+.font-semibold, strong, em {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-xbold {
+  font-weight: 800;
+}
+/*---
+section: Typography
+title: Size
+---
+
+```example:html
+<p class="font-large">Some Text</p>
+<p class="font-small">Some Text</p>
+<p class="font-body">Some Text</p>
+```
+*/
+.font-large {
+  font-size: 16px;
+}
+.font-small {
+  font-size: 12px;
+}
+.font-body {
+  font-size: 14px;
+}
+/*---
+section: Typography
+title: Colors
+---
+
+```example:html
+<div style="background: #000" class="heading--light">Light Text</div>
+<p class="text-color-body">Some Text</p>
+<p class="text-color-heading">Some Text</p>
+<p style="background: #000" class="text-color-light">Some Text</p>
+```
+*/
+.heading--light {
+  color: #fff;
+}
+.text-color-body {
+  color: #333;
+}
+.text-color-heading {
+  color: #333;
+}
+.text-color-light {
+  color: #fff;
+}
+/*---
+section: Typography
+title: Stretch
+---
+
+```example:html
+<div class="text-stretch">Text Stretch</div>
+```
+
+*/
+.text-stretch {
+  letter-spacing: 2px;
+}
+/*---
+section: Typography
+title: hr
+---
+
+#### Variables
+```
+  hr-max-width: 3.5em
+  hr-height: 3px
+  hr-color: #333
+```
+
+```example:html
+<hr />
+```
+*/
+hr {
+  width: 100%;
+  max-width: 3.5em;
+  height: 3px;
+  background-color: #333;
+  margin: 0;
+  border: 0;
 }
 @media (max-width: 1439px) {
   .container {
@@ -3437,7 +3725,9 @@ title: Borders
   }
 }
 @media print {
-  *, *:before, *:after {
+  *,
+  *:before,
+  *:after {
     background: transparent !important;
     color: #000 !important;
     box-shadow: none !important;
