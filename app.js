@@ -37,6 +37,10 @@ const argv = yargs
   describe: 'set to "dev" mode to continuously monitor your files and auto-process when a change is made',
   default: 'prod'
 })
+.option('env', {
+  describe: 'environment (eg "dev", "staging", "prod")',
+  default: 'prod'
+})
 .option('config', {
   describe: 'a path to your configuration files',
   default: path.join(process.cwd(), 'clientkit')
