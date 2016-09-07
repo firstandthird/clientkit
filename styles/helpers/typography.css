@@ -204,10 +204,10 @@ title: hr
 ```
 */
 hr {
-	width: 100%;
-	max-width: var(--hr-max-width);
-	height: var(--hr-height);
-	background-color: var(--hr-color);
-	margin: 0;
-	border: 0;
+  width: 100%;
+  max-width: var(--hr-max-width);
+  height: var(--hr-height);
+  background-color: var(--hr-color);
+  margin: 0;
+  border: 0;
 }
