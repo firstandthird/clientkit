@@ -7,6 +7,7 @@ core:
   urlHashing:
     active: false
     jsonMapping: '{{core.dist}}/assets.json'
+  watchEnabled: false
   watch:
     css:
       - '{{core.assetPath}}/**/*.css'
