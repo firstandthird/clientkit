@@ -6,33 +6,6 @@ title: Button
 ```
 @mixin button backgroundColor, fontColor, borderColor, borderRadius, hoverBackground, hoverColor;
 ```
-
-Outputs
-
-```css
-.button {
-  display: inline-block;
-  background-color: rgba(75, 157, 249, 1);
-  line-height: 1;
-  text-align: center;
-  font-size: 14px;
-  padding: 12px 14px;
-  border-radius: 3px;
-  border: 2px solid transparent;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  color: #fff;
-}
-.button:hover,
-  .button:active,
-  .button.active,
-  .button:focus {
-  background-color: rgb(74, 135, 204);
-  color: #fff;
-}
-```
 */
 @define-mixin button $background, $color, $border, $borderRadius, $hoverBackground, $hoverColor {
   display: inline-block;
