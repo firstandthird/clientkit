@@ -4,7 +4,7 @@ title: Button
 ---
 
 ```
-@mixin button backgroundColor, fontColor, borderColor, hoverBackground, hoverColor;
+@mixin button backgroundColor, fontColor, borderColor, borderRadius, hoverBackground, hoverColor;
 ```
 
 Outputs
@@ -64,16 +64,6 @@ title: Button size
 
 ```
 @mixin button-size paddingY, paddingX, fontSize, borderRadius;
-```
-
-Outputs
-
-```css
-.button-lg {
-  border-radius: 5px;
-  padding: 16px 20px;
-  font-size: 16px;
-}
 ```
 */
 @define-mixin button-size $paddingY, $paddingX, $fontSize, $borderRadius {
