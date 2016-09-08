@@ -71,7 +71,7 @@ const main = () => {
     conf.cssExpression = argv.css;
     reports.showCss(conf);
   // dev mode will watch files and update when a change is made:
-  } else if (argv.watch || conf.core.watchActive) {
+  } else if (argv.watch || conf.core.watchEnabled) {
     dev.runDev(defaultConf, conf, argv, log);
   // normal mode will run and output the new css/js dist directory:
   } else {
