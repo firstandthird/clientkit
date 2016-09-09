@@ -25,3 +25,4 @@ color:
   message-info: '#f0f0f0'
   message-success: '#dff0d8'
   message-error: '#f2dede'
+  text-color-error: 'red'
