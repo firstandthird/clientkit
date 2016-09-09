@@ -16,6 +16,8 @@ const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
+const hashing = require('../lib/urlHashes');
+const pkg = require('../package.json');
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -24,6 +26,17 @@ const log = new Logr({
     }
   }
 });
+
+const addVarObject = (curVarName, curVarValue, curObject) => {
+  if (typeof curVarValue === 'object') {
+    // for each key in the object, set object recursively:
+    Object.keys(curVarValue).forEach((nextVarName) => {
+      addVarObject(`${curVarName}-${nextVarName}`, curVarValue[nextVarName], curObject);
+    });
+    return;
+  }
+  curObject[curVarName] = curVarValue;
+};
 
 class CssTask {
   // loads config files:
@@ -44,7 +57,7 @@ class CssTask {
     });
     if (config.vars) {
       Object.keys(config.vars).forEach(varName => {
-        this.cssVars[varName] = config.vars[varName];
+        addVarObject(varName, config.vars[varName], this.cssVars);
       });
     }
     // load spacing variables:
@@ -116,7 +129,11 @@ class CssTask {
           variables: this.cssVars,
           examples: {
             css: this.config.docs.css
-          }
+          },
+          info: {
+            clientkitVersion: pkg.version
+          },
+          sectionOrder: this.config.docs.sectionOrder
         }),
         destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
       }));
@@ -138,7 +155,9 @@ class CssTask {
     .then(result => {
       if (result.messages) {
         result.messages.forEach(message => {
-          log([message.type], `${message.text} [${message.plugin}]`);
+          if (message.text) {
+            log([message.type], `${message.text} [${message.plugin}]`);
+          }
         });
       }
 
@@ -155,6 +174,10 @@ class CssTask {
   }
 
   writeToFile(outputName) {
+    if (this.config.core.urlHashing.active) {
+      outputName = hashing.hash(outputName, this.result.css);
+      hashing.writeMap(this.config);
+    }
     if (!this.result) {
       log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);
     }

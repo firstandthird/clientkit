@@ -1,9 +1,13 @@
 /*---
-section: Mixins
-order: 99
+section: Development
+title: Mixins
 ---
+Mixins yo!
 */
 @import 'clearfix.css';
 @import 'button.css';
 @import 'headings.css';
+@import 'message.css';
+@import 'row-carousel.css';
 @import 'link.css';
+@import 'input.css';
