@@ -64,6 +64,15 @@ describe('grid', function() {
   });
 });
 
+describe('flex-grid', function() {
+  it('generates flex classes', (done) => {
+    const grid = require('../styles/mixins/flex-grid.js')(conf);
+    const result = grid({});
+    compare(result, 'flex-grid.js');
+    done();
+  });
+});
+
 describe('hide', function() {
   it('generates hide classes', (done) => {
     const hide = require('../styles/mixins/hide.js')(conf);

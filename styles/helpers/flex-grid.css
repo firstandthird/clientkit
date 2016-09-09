@@ -1,0 +1,5 @@
+.flex {
+  flex: 1;
+}
+
+@mixin flex-grid;
