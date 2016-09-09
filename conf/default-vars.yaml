@@ -48,7 +48,16 @@ vars:
 
   border:
     size: 1px
-    radius: 3px
+    radius:
+      default: 3px
+      lg: 5px
+      sm: 2px
+
+  button:
+    radius:
+      default: 3px
+      lg: 5px
+      sm: 2px
 
   hr:
     max-width: 3.5em
