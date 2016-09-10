@@ -68,19 +68,6 @@ class CssTask {
       this.cssVars[`breakpoint-${breakpoint}`] = width;
       this.customMedia[breakpoint] = mediaquery;
     });
-    // load mixins:
-    const globalMixins = require('require-all')({
-      dirname: path.join(__dirname, '..', 'styles', 'mixins'),
-      resolve: m => m(config, postcss)
-    });
-    if (pathExists.sync(path.join(config.core.assetPath, 'mixins'))) {
-      const localMixins = require('require-all')({
-        dirname: path.join(config.core.assetPath, 'mixins'),
-        resolve: m => m(config, postcss)
-      });
-      Object.assign(globalMixins, localMixins);
-    }
-    this.mixins = globalMixins;
   }
 
   performTask(input, callback, outputName) {
@@ -93,7 +80,7 @@ class CssTask {
         ]
       }),
       cssmixins({
-        mixins: this.mixins
+        mixinsDir: path.resolve(__dirname, '../styles/mixins')
       }),
       inlinesvg(),
       svgo(),
