@@ -18,7 +18,7 @@ title: Button
   border: 2px solid $border;
   vertical-align: middle;
   cursor: pointer;
-  transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: color 250ms var(--easing-out), background-color 250ms var(--easing-out);
   color: $color;
 
   &:hover,
@@ -44,4 +44,3 @@ title: Button size
   padding: $paddingY $paddingX;
   font-size: $fontSize;
 }
-
