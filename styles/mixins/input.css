@@ -9,7 +9,7 @@ title: Input
 */
 @define-mixin input $background, $color, $colorDisabled, $border, $borderFocus, $borderDisabled {
   width: 100%;
-  transition: box-shadow ease 250ms;
+  transition: box-shadow var(--easing-out) 250ms;
   background-color: $background;
   border: 0;
   box-shadow: 0 1px 0 0 $border;
