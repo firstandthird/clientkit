@@ -1,0 +1,23 @@
+/*---
+section: Helpers
+title: Mobile Menu
+---
+```example:html
+<div class="mobile-menu">
+  <input id="header-menu" class="menu-btn" type="checkbox" />
+  <label for="header-menu"></label>
+  <div class="menu-container text-right">
+    <nav class="menu-header-container">
+      <a href="">Menu 1</a>
+      <a href="">Menu 2</a>
+      <a href="">Menu 3</a>
+      <a href="">Menu 4</a>
+    </nav>
+  </div>
+</div>
+```
+*/
+.mobile-menu {
+  @mixin mobile-menu var(--color-primary) var(--color-white);
+}
+
