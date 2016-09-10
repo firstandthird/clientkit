@@ -63,6 +63,10 @@ const main = () => {
   }
   log(`Using local config directory: ${argv.config}`);
   const defaultConf = path.join(__dirname, 'conf');
+  if (argv._.indexOf('dev') !== -1) {
+    log(['warning'], 'dev is going to be deprecated, use --env dev');
+    argv.env = 'dev';
+  }
   const conf = configHandler.loadConfig(defaultConf, argv, log);
   if (!conf) {
     process.exit(1);
