@@ -18,6 +18,6 @@ title: Mobile Menu
 ```
 */
 .mobile-menu {
-  @mixin mobile-menu var(--color-primary) var(--color-white);
+  @mixin mobile-menu var(--color-primary), var(--color-white);
 }
 
