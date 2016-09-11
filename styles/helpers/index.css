@@ -9,10 +9,10 @@ Here live helpers
 @import 'colors.css';
 @import 'grid.css';
 
-@import 'typography.css';
 @import 'headings.css';
 @import 'links.css';
 @import 'spacing.css';
+@import 'triangle.css';
 
 @import 'buttons.css';
 @import 'lists.css';
@@ -29,3 +29,4 @@ Here live helpers
 @import 'messages.css';
 @import 'borders.css';
 @import 'dropdown.css';
+@import 'typography.css';

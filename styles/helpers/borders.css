@@ -6,7 +6,7 @@ title: Borders
 #### Variables
 ```
   border-size: 1px
-  border-radius: 3px
+  border-radius-default: 3px
   color-border: '#ccc'
 ```
 
@@ -32,7 +32,7 @@ title: Borders
 
 .border-all {
   border-width: var(--border-size);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-default);
 }
 
 .border-right {

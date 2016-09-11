@@ -1,6 +1,7 @@
 /*---
 section: Helpers
 title: Buttons
+order: 2
 ---
 
 */
@@ -14,7 +15,7 @@ title: Primary Button
 ```
 */
 .button {
-  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, color(var(--color-button-primary-bg) blackness(20%)), var(--color-button-primary-color);
+  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, var(--button-radius-default), color(var(--color-button-primary-bg) blackness(20%)), var(--color-button-primary-color);
 }
 
 /*---
@@ -27,5 +28,24 @@ title: Outline Button
 ```
 */
 .button-outline {
-  @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--color-button-primary-bg), var(--color-button-primary-color);
+  @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--button-radius-default), var(--color-button-primary-bg), var(--color-button-primary-color);
+}
+
+/*---
+section: Buttons
+title: Button sizes
+---
+```example:html
+<button class="button button-lg">Large Button</button>
+<button class="button button-sm">Small Button</button>
+<button class="button-outline button-lg">Large Button</button>
+<button class="button-outline button-sm">Small Button</button>
+```
+*/
+.button-lg {
+  @mixin button-size 16px, 20px, var(--font-size-large), var(--button-radius-lg)
+}
+
+.button-sm {
+  @mixin button-size 8px, 12px, var(--font-size-small), var(--button-radius-sm)
 }

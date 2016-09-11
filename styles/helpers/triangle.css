@@ -1,0 +1,25 @@
+/*---
+section: Helpers
+title: Triangle
+---
+
+```example:html
+<b class="triangle-up"></b>
+<b class="triangle-right"></b>
+<b class="triangle-down"></b>
+<b class="triangle-left"></b>
+```
+*/
+
+.triangle-up {
+@mixin triangle 10px, up;
+}
+.triangle-right {
+@mixin triangle 10px, right;
+}
+.triangle-down {
+@mixin triangle 10px;
+}
+.triangle-left {
+@mixin triangle 10px, left;
+}

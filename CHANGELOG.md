@@ -1,4 +1,20 @@
 
+0.13.0 / 2016-09-06
+==================
+
+  * update doc order
+  * updated mdcss theme
+  * moved typography last
+  * hashes output urls
+  * Create default style helper for <hr />
+  * supports 'sectionOrder' for docs
+  * Create triangle mixin and helper
+  * Update grid to include docs
+  * Create color helpers for text
+  * Update to add spacing docs
+  * Update; add in docs for print
+  * notifies user of any new updates to clientkit
+
 0.12.0 / 2016-09-02
 ==================
 
