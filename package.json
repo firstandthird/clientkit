@@ -60,7 +60,7 @@
     "postcss-font-magician": "^1.4.0",
     "postcss-import": "^8.1.2",
     "postcss-inline-svg": "^2.0.1",
-    "postcss-mixins": "^4.0.2",
+    "postcss-mixins": "5.2.0",
     "postcss-svgo": "^2.1.3",
     "postcss-triangle": "^1.0.1",
     "require-all": "^2.0.0",

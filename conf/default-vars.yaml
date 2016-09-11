@@ -70,3 +70,7 @@ vars:
 
   dropdown:
     bg: '#fff'
+
+  easing:
+    out: 'cubic-bezier(0.35, 0.97, 0.57, 0.99)'
+    in-out: 'ease-in-out'
