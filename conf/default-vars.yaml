@@ -29,10 +29,12 @@ vars:
     2-mobile-size: 25px
     3-size: 25px
     3-mobile-size: 20px
-    4-size: 16px
-    4-mobile-size: 14px
-    5-size: 14px
+    4-size: 20px
+    4-mobile-size: 16px
+    5-size: 16px
     5-mobile-size: 14px
+    6-size: 14px
+    6-mobile-size: 12px
 
   stretch-spacing: 2px
 
