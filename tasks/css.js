@@ -93,7 +93,8 @@ class CssTask {
         ]
       }),
       cssmixins({
-        mixins: this.mixins
+        mixins: this.mixins,
+        mixinsFiles: path.resolve(__dirname, '../styles/mixins/*.css')
       }),
       inlinesvg(),
       svgo(),
