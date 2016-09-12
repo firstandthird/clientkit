@@ -27,7 +27,7 @@ title: Menu Slide
 
 ```example:html
 <div class="col-plain">
-  <div class="menu-slide left">
+  <div class="menu-slide menu-left">
     <input id="header-menu" class="menu-btn" type="checkbox" />
     <label for="header-menu"></label>
     <div class="menu-container">

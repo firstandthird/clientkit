@@ -33,9 +33,6 @@ title: Mobile Menu
 
       &::after {
         display: inline-block;
-        position: absolute;
-        top: 0;
-        right: 0;
         vertical-align: middle;
         border: 0;
         padding: 0;
@@ -49,8 +46,8 @@ title: Mobile Menu
     }
     &:checked {
       & + label::after {
-        top: var(--spacing-xs);
-        right: var(--spacing-xs);
+        margin-top: var(--spacing-xs);
+        margin-right: var(--spacing-xs);
         border: 1px solid $closeColor;
         border-radius: 50%;
         padding: 2px 8px 0;
@@ -58,14 +55,14 @@ title: Mobile Menu
         content: '\00d7';
       }
       & ~ .menu-container {
-        right: 63%;
+        right: 60%;
         overflow-y: auto;
       }
     }
     & ~ .menu-container {
       position: fixed;
       top: 0;
-      right: -65%;
+      right: -60%;
       z-index: 10;
       width: 60%;
       height: 100%;
@@ -73,12 +70,12 @@ title: Mobile Menu
       padding: var(--spacing-sm) 0 var(--spacing-lg);
       padding-top: 80px;
       background-color: $menuColor;
-      transform: translate3d(103%, 0, 0);
+      transform: translate3d(100%, 0, 0);
       transition: transform 250ms var(--easing-out),
                   right 250ms var(--easing-out) 300ms;
     }
   }
-  &.left {
+  &.menu-left {
     & .menu-btn {
       & + label {
         float: left;
@@ -93,13 +90,14 @@ title: Mobile Menu
           left: var(--spacing-xs);
         }
         & ~ .menu-container {
-          left: 63%;
+          left: 60%;
         }
       }
       & ~ .menu-container {
         right: auto;
-        left: -65%;
-        transform: translate3d(-103%, 0, 0);
+        left: -60%;
+        box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.25);
+        transform: translate3d(-100%, 0, 0);
         transition: transform 250ms var(--easing-out),
                     left 250ms var(--easing-out) 300ms;
       }
