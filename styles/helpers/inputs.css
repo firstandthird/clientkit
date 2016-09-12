@@ -8,7 +8,7 @@ title: Forms
 section: Forms
 title: Form
 
-```example:html
+```html
 <form class="form">
 </form>
 ```
@@ -19,6 +19,7 @@ title: Form
   /*---
   section: Forms
   title: Labels
+  height: 70px
 
   ```example:html
   <form class="form">
@@ -37,6 +38,7 @@ title: Form
   /*---
   section: Forms
   title: Inputs
+  height: 1000px
 
   ```example:html
   <form class="form">
@@ -101,6 +103,7 @@ title: Form
   /*---
   section: Forms
   title: Error Text
+  height: 85px
 
   ```example:html
   <form class="form">
@@ -144,6 +147,7 @@ title: Form
   /*---
   section: Forms
   title: Input group
+  height: 60px
 
   ```example:html
   <form class="form">

@@ -8,6 +8,7 @@ title: Lists
 /*---
 section: Lists
 title: Unstyled
+height: 60px
 ---
 
 ```example:html
@@ -26,6 +27,7 @@ title: Unstyled
 /*---
 section: Lists
 title: Inline
+height: 30px
 ---
 
 ```example:html
