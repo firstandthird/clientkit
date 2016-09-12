@@ -1,9 +1,9 @@
 /*---
 section: Helpers
-title: Mobile Menu
+title: Menu Slide
 ---
 ```example:html
-<div class="mobile-menu">
+<div class="menu-slide">
   <input id="header-menu" class="menu-btn" type="checkbox" />
   <label for="header-menu"></label>
   <div class="menu-container text-right">
@@ -17,7 +17,7 @@ title: Mobile Menu
 </div>
 ```
 */
-.mobile-menu {
+.menu-slide {
   @mixin mobile-menu var(--color-primary), var(--color-white);
 }
 
