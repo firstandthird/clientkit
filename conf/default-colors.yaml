@@ -14,6 +14,7 @@ color:
   input-background: '#fff'
   input-border: '#333'
   input-border-focus: 'blue'
+  input-group-background: 'rgb(241,241,241)'
   input-label: 'gray'
   input-error: 'red'
   input-disabled: 'gray'
