@@ -29,7 +29,6 @@ title: Mobile Menu
       cursor: pointer;
       user-select:none;
 
-
       &::after {
         display: inline-block;
         position: absolute;
@@ -73,6 +72,30 @@ title: Mobile Menu
       transform: translate3d(103%, 0, 0);
       transition: transform 250ms var(--easing-out),
                   right 250ms var(--easing-out) 300ms;
+    }
+  }
+  &.left {
+    & .menu-btn {
+      & + label {
+        float: left;
+
+        &::after {
+          right: auto;
+          left: 0;
+        }
+      }
+      &:checked {
+        & ~ .menu-container {
+          left: 63%;
+        }
+      }
+      & ~ .menu-container {
+        right: auto;
+        left: -65%;
+        transform: translate3d(-103%, 0, 0);
+        transition: transform 250ms var(--easing-out),
+                    left 250ms var(--easing-out) 300ms;
+      }
     }
   }
 }

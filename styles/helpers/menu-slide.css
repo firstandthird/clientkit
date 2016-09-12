@@ -16,6 +16,20 @@ title: Menu Slide
   </div>
 </div>
 ```
+```example:html
+<div class="menu-slide left">
+  <input id="header-menu" class="menu-btn" type="checkbox" />
+  <label for="header-menu"></label>
+  <div class="menu-container">
+    <nav class="menu-header-container">
+      <a href="">Menu 1</a>
+      <a href="">Menu 2</a>
+      <a href="">Menu 3</a>
+      <a href="">Menu 4</a>
+    </nav>
+  </div>
+</div>
+```
 */
 .menu-slide {
   @mixin mobile-menu var(--color-primary), var(--color-white);
