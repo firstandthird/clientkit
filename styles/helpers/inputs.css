@@ -178,7 +178,7 @@ title: Form
       margin-right: -1px;
       padding-right: 14px;
       padding-left: 14px;
-      border-radius: var(--border-radius) 0 0 var(--border-radius);
+      border-radius: var(--border-radius-default) 0 0 var(--border-radius-default);
       background-color: var(--color-input-group-background);
       font-size: var(--font-size-body);
 
@@ -189,7 +189,7 @@ title: Form
     & .input-group-btn {
       display: inline-block;
       vertical-align: middle;
-      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      border-radius: 0 var(--border-radius-default) var(--border-radius-default) 0;
     }
   }
 }
