@@ -12,9 +12,20 @@ title: Dropdown
 ```example:html
 <div class="dropdown open">
   <button class="button dropdown-toggle">Dropdown Button</button>
-  <div class="dropdown-menu">
-    <button class="dropdown-item">Button item</button>
-    <button class="dropdown-item">Button item</button>
+  <div class="dropdown-menu" style="min-width: 125px;">
+    <button class="dropdown-item disabled">Disabled Button item</button>
+    <button class="dropdown-item active">Active Button item</button>
+    <a href="" class="dropdown-item">Link item</a>
+    <a href="" class="dropdown-item">Link item</a>
+  </div>
+</div>
+```
+```example:html
+<div class="dropdown open">
+  <button class="button dropdown-toggle">Dropdown Button</button>
+  <div class="dropdown-menu dropdown-menu-right" style="min-width: 125px;">
+    <button class="dropdown-item disabled">Disabled Button item</button>
+    <button class="dropdown-item active">Active Button item</button>
     <a href="" class="dropdown-item">Link item</a>
     <a href="" class="dropdown-item">Link item</a>
   </div>
@@ -35,7 +46,8 @@ title: Dropdown
     height: 1em;
     margin-left: .25rem;
     vertical-align: middle;
-    // triangle mixin here
+    @mixin triangle 8px;
+    border-bottom: none;
     content: '';
   }
 
@@ -54,9 +66,9 @@ title: Dropdown
   min-width: 160px;
   margin: 2px 0 0;
   border: var(--border-size) solid var(--color-border);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-default);
   padding: 0;
-	background-color: var(--dropdown-bg);
+  background-color: var(--dropdown-bg);
   background-clip: padding-box;
   font-size: var(--font-size-body);
   text-align: left;
@@ -85,6 +97,7 @@ title: Dropdown
     color: var(--color-link-hover);
     text-decoration: none;
     background-color: var(--dropdown-bg);
+    cursor: pointer;
   }
 
   &:active {
@@ -104,8 +117,8 @@ title: Dropdown
 
 .open {
   & > .dropdown-toggle::after {
-    // triangle mixin here
-    border: 1px solid black;
+    @mixin triangle 8px, up;
+    border-top: none;
   }
 
   & > .dropdown-menu {
