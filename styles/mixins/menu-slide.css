@@ -21,6 +21,8 @@ title: Mobile Menu
 
     & + label {
       display: block;
+      width: 28px;
+      height: 28px;
       position: relative;
       z-index: 1000;
       float: right;
@@ -47,6 +49,8 @@ title: Mobile Menu
     }
     &:checked {
       & + label::after {
+        top: var(--spacing-xs);
+        right: var(--spacing-xs);
         border: 1px solid $closeColor;
         border-radius: 50%;
         padding: 2px 8px 0;
@@ -55,7 +59,7 @@ title: Mobile Menu
       }
       & ~ .menu-container {
         right: 63%;
-        overflow-y: scroll;
+        overflow-y: auto;
       }
     }
     & ~ .menu-container {
@@ -85,6 +89,9 @@ title: Mobile Menu
         }
       }
       &:checked {
+        & + label::after {
+          left: var(--spacing-xs);
+        }
         & ~ .menu-container {
           left: 63%;
         }
