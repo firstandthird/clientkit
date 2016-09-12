@@ -20,7 +20,7 @@ title: Mobile Menu
     -webkit-appearance: none;
 
     & + label {
-      display: none;
+      display: block;
       position: relative;
       z-index: 1000;
       float: right;
@@ -29,9 +29,6 @@ title: Mobile Menu
       cursor: pointer;
       user-select:none;
 
-      @media (--tablet) {
-        display: block;
-      }
 
       &::after {
         display: inline-block;
@@ -61,22 +58,20 @@ title: Mobile Menu
         right: 63%;
       }
     }
-    @media (--tablet) {
-      & ~ .menu-container {
-        position: fixed;
-        top: 0;
-        right: -65%;
-        z-index: 10;
-        width: 60%;
-        height: 100%;
-        box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.25);
-        padding: var(--spacing-sm) 0 var(--spacing-lg);
-        padding-top: 80px;
-        background-color: $menuColor;
-        transform: translate3d(103%, 0, 0);
-        transition: transform 250ms var(--easing-out),
-                    right 250ms var(--easing-out) 300ms;
-      }
+    & ~ .menu-container {
+      position: fixed;
+      top: 0;
+      right: -65%;
+      z-index: 10;
+      width: 60%;
+      height: 100%;
+      box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.25);
+      padding: var(--spacing-sm) 0 var(--spacing-lg);
+      padding-top: 80px;
+      background-color: $menuColor;
+      transform: translate3d(103%, 0, 0);
+      transition: transform 250ms var(--easing-out),
+                  right 250ms var(--easing-out) 300ms;
     }
   }
 }
