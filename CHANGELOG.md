@@ -1,4 +1,49 @@
 
+0.13.0 / 2016-09-06
+==================
+
+  * update doc order
+  * updated mdcss theme
+  * moved typography last
+  * hashes output urls
+  * Create default style helper for <hr />
+  * supports 'sectionOrder' for docs
+  * Create triangle mixin and helper
+  * Update grid to include docs
+  * Create color helpers for text
+  * Update to add spacing docs
+  * Update; add in docs for print
+  * notifies user of any new updates to clientkit
+
+0.12.0 / 2016-09-02
+==================
+
+  * update hide/show helper classes to be important
+
+0.11.0 / 2016-09-02
+==================
+
+  * updated mdcss theme
+  * update variable names
+  * css task now passes npm version info to styleguide
+  * line height doesn't need to be nested
+  * lets config.vars be recursively nested and joins the nested keys with '-'
+  * removes 'styleguide' from being generated
+  * reorganized docs
+  * up'd theme
+  * border helpers
+
+0.10.0 / 2016-08-30
+==================
+
+  * reset h tags to 0 margin
+
+0.9.1 / 2016-08-30
+==================
+
+  * updated eslint config
+  * fixed ghpages script
+
 0.9.0 / 2016-08-24
 ==================
 

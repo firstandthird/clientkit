@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "0.9.0",
+  "version": "0.13.0",
   "description": "Client kit for websites",
   "main": "app.js",
   "bin": {
@@ -41,12 +41,9 @@
     "confi": "^2.3.0",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.7.1",
-    "eslint": "^2.13.1",
-    "eslint-config-airbnb": "^8.0.0",
-    "eslint-config-firstandthird": "^2.0.0",
-    "eslint-plugin-import": "^1.9.2",
-    "eslint-plugin-jsx-a11y": "^1.5.3",
-    "eslint-plugin-react": "^5.2.2",
+    "eslint": "3.4.0",
+    "eslint-config-firstandthird": "3.0.1",
+    "eslint-plugin-import": "1.14.0",
     "exorcist": "^0.4.0",
     "get-stdin": "^5.0.1",
     "lodash.capitalize": "^4.2.0",
@@ -54,7 +51,7 @@
     "lodash.reduce": "^4.5.1",
     "logr": "^1.11.0",
     "mdcss": "^1.5.2",
-    "mdcss-theme-clientkit": "^3.2.0",
+    "mdcss-theme-clientkit": "3.8.0",
     "mkdirp": "^0.5.1",
     "normalize.css": "^4.1.1",
     "path-exists": "^3.0.0",
@@ -63,11 +60,13 @@
     "postcss-font-magician": "^1.4.0",
     "postcss-import": "^8.1.2",
     "postcss-inline-svg": "^2.0.1",
-    "postcss-mixins": "^4.0.2",
+    "postcss-mixins": "5.2.0",
     "postcss-svgo": "^2.1.3",
     "postcss-triangle": "^1.0.1",
     "require-all": "^2.0.0",
+    "rev-hash": "^1.0.0",
     "uglifyify": "^3.0.2",
+    "update-notifier": "^1.0.2",
     "yargs": "^4.8.1"
   }
 }

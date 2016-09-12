@@ -8,7 +8,7 @@ title: Headings
 <div class="heading-3">Heading 3</div>
 <div class="heading-4">Heading 4</div>
 <div class="heading-5">Heading 5</div>
-<div class="heading-6">Heading 5</div>
+<div class="heading-6">Heading 6</div>
 ```
  */
 
@@ -30,4 +30,7 @@ title: Headings
 
 .heading-5 {
   @mixin heading var(--heading-5-size), var(--heading-5-mobile-size);
+}
+.heading-6 {
+  @mixin heading var(--heading-6-size), var(--heading-6-mobile-size);
 }

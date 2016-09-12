@@ -1,12 +1,14 @@
 /*---
-section: Components
+section: Helpers
 title: Tooltip
 
 ```example:html
-<button class="btn tooltip tooltip-up" data-tooltip-title="Whats up!">Tooltip Up</button>
-<button class="btn tooltip tooltip-right" data-tooltip-title="Whats up!">Tooltip Right</button>
-<button class="btn tooltip tooltip-down" data-tooltip-title="Whats up!">Tooltip Down</button>
-<button class="btn tooltip tooltip-left" data-tooltip-title="Whats up!">Tooltip Left</button>
+<div class="padding-top-md">
+  <button class="btn tooltip tooltip-up" data-tooltip-title="Whats up!">Tooltip Up</button>
+  <button class="btn tooltip tooltip-right" data-tooltip-title="Whats up!">Tooltip Right</button>
+  <button class="btn tooltip tooltip-down" data-tooltip-title="Whats up!">Tooltip Down</button>
+  <button class="btn tooltip tooltip-left" data-tooltip-title="Whats up!">Tooltip Left</button>
+</div>
 ```
 */
 button.tooltip {
@@ -62,15 +64,15 @@ button.tooltip {
       border: 6px solid transparent;
       border-bottom-width: 0;
       border-top-color: var(--color-tooltip-bg);
-      transform: translate(-50%; 10px);
-      transform-origin: top;
+      transform: translate(-50%, -10px);
+      transform-origin: bottom;
     }
     &::after {
       bottom: 100%;
       left: 50%;
       margin-bottom: 10px;
-      transform: translate(-50%; 10px);
-      transform-origin: top;
+      transform: translate(-50%, -10px);
+      transform-origin: bottom;
     };
     &:hover,
     &-visible {
@@ -90,13 +92,13 @@ button.tooltip {
       border: 6px solid transparent;
       border-top-width: 0;
       border-bottom-color: var(--color-tooltip-bg);
-      transform: translate(-50%; -10px);
+      transform: translate(-50%, 10px);
     }
     &::after {
       top: 100%;
       left: 50%;
       margin-top: 10px;
-      transform: translate(-50%; -10px);
+      transform: translate(-50%, 10px);
     }
     &:hover,
     &-visible {
@@ -116,13 +118,13 @@ button.tooltip {
       border: 6px solid transparent;
       border-right-width: 0;
       border-left-color: var(--color-tooltip-bg);
-      transform: translate(10px; -50%);
+      transform: translate(-10px, -50%);
     };
     &::after {
       top: 50%;
       right: 100%;
       margin-right: 10px;
-      transform: translate(10px; -50%);
+      transform: translate(-10px, -50%);
     };
     &:hover,
     &-visible {
@@ -141,13 +143,13 @@ button.tooltip {
       border: 6px solid transparent;
       border-left-width: 0;
       border-right-color: var(--color-tooltip-bg);
-      transform: translate(-10px; -50%);
+      transform: translate(10px, -50%);
     };
     &::after {
       top: 50%;
       left: 100%;
       margin-left: 10px;
-      transform: translate(-10px; -50%);
+      transform: translate(10px, -50%);
     };
     &:hover,
     &-visible {

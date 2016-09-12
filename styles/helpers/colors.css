@@ -3,3 +3,4 @@ body {
 }
 
 @mixin bg-colors;
+@mixin text-colors;

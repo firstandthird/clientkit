@@ -4,6 +4,10 @@ core:
   dist: '{{CWD}}/dist'
   assetPath: '{{CWD}}'
   mobileFirst: false
+  urlHashing:
+    active: false
+    jsonMapping: '{{core.dist}}/assets.json'
+  watchEnabled: false
   watch:
     css:
       - '{{core.assetPath}}/**/*.css'
