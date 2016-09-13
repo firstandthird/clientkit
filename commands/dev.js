@@ -9,6 +9,7 @@ let jsWatcher = false; // watcher we will use to watch js files
 let cssWatcher = false; // the same, for css
 let cssProcessor;
 let jsProcessor;
+let lintProcessor;
 let currentConfig;
 
 const updateWatchedFiles = (newWatchList, oldWatchlist, watcherToUpdate) => {
@@ -59,6 +60,7 @@ const updateJs = (newConfig, oldConfig) => {
   }
   updateWatchedFiles(newJSWatchList, oldJSWatchList, jsWatcher);
   if (newConfig.scripts) {
+    lintProcessor(newConfig, process.cwd());
     Object.keys(newConfig.scripts).forEach((outputFileName) => {
       jsProcessor(newConfig, process.cwd(), outputFileName, newConfig.scripts[outputFileName]);
     });
@@ -102,6 +104,7 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
   currentConfig = initialConfig;
   cssProcessor = require('../tasks/css.js');
   jsProcessor = require('../tasks/script.js');
+  lintProcessor = require('../tasks/eslint.js');
 
   // set up watcher to process config changes, trigger jss and css watchers, call stylesheet update
   configWatcher = watcher(initialConfig.core.watch.yaml, [], () => {
@@ -128,6 +131,7 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
         if (output === '') {
           return;
         }
+        lintProcessor(newConfig, process.cwd());
         jsProcessor(newConfig, process.cwd(), input, output);
       }, newConfig.core.rebuildDelay);
     }

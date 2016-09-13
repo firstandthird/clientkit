@@ -4,6 +4,7 @@ const mkdirp = require('mkdirp');
 module.exports.runAll = (config) => {
   const cssProcessor = require('../tasks/css.js');
   const jsProcessor = require('../tasks/script.js');
+  const lintProcessor = require('../tasks/eslint.js');
   // Tasks
   mkdirp.sync(config.core.dist);
   if (config.stylesheets) {
@@ -11,5 +12,6 @@ module.exports.runAll = (config) => {
   }
   if (config.scripts) {
     Object.keys(config.scripts).forEach(script => jsProcessor(config, process.cwd(), script, config.scripts[script]));
+    lintProcessor(config, process.cwd());
   }
 };
