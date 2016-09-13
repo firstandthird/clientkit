@@ -1,4 +1,28 @@
 
+0.14.0 / 2016-09-13
+==================
+
+  * updated theme to 4.0.0
+  * added some text so clientkit doesn't output warnings
+  * splits eslint process into its own task
+  * added modal helper
+  * added heights to examples
+  * Move transitions to vars
+  * Create mobile menu helper/mixin
+  * update postcss-mixins, make mixins/*.css global
+  * watch files in dev
+  * backwards compatible for dev
+  * Update mixin docs for buttons
+  * Update to fix tooltip animations
+  * uses --watch or core.watchActive to determine whether to use 'watch' mode
+  * add --env option for loading env
+  * Create a text color mixin
+  * Create button sizes
+  * Create dropdown helper
+  * Create input group
+  * Update to fix the heading sizes, add in a new one
+  * Creating flex-grid
+
 0.13.0 / 2016-09-06
 ==================
 
