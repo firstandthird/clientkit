@@ -6,6 +6,7 @@ title: Tables
 /*---
 section: Tables
 title: Basic
+height: 100px
 ---
 
 ```example:html
@@ -79,6 +80,7 @@ th {
 /*---
 section: Tables
 title: Condensed with half padding
+height: 100px
 ---
 
 ```example:html
@@ -111,6 +113,7 @@ title: Condensed with half padding
 /*---
 section: Tables
 title: Bordered version
+height: 100px
 ---
 
 Add borders all around the table and between all the columns.
@@ -153,6 +156,7 @@ Add borders all around the table and between all the columns.
 /*---
 section: Tables
 title: Zebra-striping
+height: 100px
 ---
 
 Default zebra-stripe styles (alternating gray and transparent backgrounds)
@@ -185,6 +189,7 @@ Default zebra-stripe styles (alternating gray and transparent backgrounds)
 /*---
 section: Tables
 title: Hover effect
+height: 100px
 ---
 
 Placed here since it has to come after the potential zebra striping
@@ -220,6 +225,7 @@ Placed here since it has to come after the potential zebra striping
 /*---
 section: Tables
 title: Responsive tables
+height: 100px
 ---
 
 Wrap your tables in `.table-responsive` and we'll make them mobile friendly

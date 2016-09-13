@@ -5,8 +5,6 @@ const path = require('path');
 const Browserify = require('browserify');
 const babelify = require('babelify');
 const exorcist = require('exorcist');
-const formatter = require('eslint').CLIEngine.getFormatter();
-const CLIEngine = require('eslint').CLIEngine;
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
 const hashing = require('../lib/urlHashes');
@@ -37,27 +35,6 @@ module.exports = function(conf, base, outputName, input) {
     const duration = (end - start) / 1000;
     log(`Processed: ${input} → ${output} in ${duration} sec`);
   });
-  const cli = new CLIEngine({
-    useEslintrc: false,
-    configFile: conf.core.eslint
-  });
-  const results = cli.executeOnFiles([input]).results;
-  // if any errors, print them:
-  let errorsExist = false;
-  let warningsExist = false;
-  results.forEach((result) => {
-    if (result.errorCount > 0) {
-      errorsExist = true;
-    }
-    if (result.warningCount > 0) {
-      warningsExist = true;
-    }
-  });
-  if (errorsExist) {
-    log(['eslint', 'error'], formatter(results));
-  } else if (warningsExist) {
-    log(['eslint', 'warning'], formatter(results));
-  }
 
   const b = new Browserify({
     entries: [input],

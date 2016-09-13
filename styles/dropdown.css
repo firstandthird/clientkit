@@ -1,0 +1,137 @@
+/*---
+section: Helpers
+title: Dropdown
+---
+
+#### Variables
+```
+  dropdown-bg: '#fff'
+```
+
+#### Example
+```example:html
+<div class="dropdown open">
+  <button class="button dropdown-toggle">Dropdown Button</button>
+  <div class="dropdown-menu" style="min-width: 125px;">
+    <button class="dropdown-item disabled">Disabled Button item</button>
+    <button class="dropdown-item active">Active Button item</button>
+    <a href="" class="dropdown-item">Link item</a>
+    <a href="" class="dropdown-item">Link item</a>
+  </div>
+</div>
+```
+```example:html
+<div class="dropdown open">
+  <button class="button dropdown-toggle">Dropdown Button</button>
+  <div class="dropdown-menu dropdown-menu-right" style="min-width: 125px;">
+    <button class="dropdown-item disabled">Disabled Button item</button>
+    <button class="dropdown-item active">Active Button item</button>
+    <a href="" class="dropdown-item">Link item</a>
+    <a href="" class="dropdown-item">Link item</a>
+  </div>
+</div>
+```
+*/
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-toggle {
+  transition: all ease .5s;
+
+  &::after {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: .25rem;
+    vertical-align: middle;
+    @mixin triangle 8px;
+    border-bottom: none;
+    content: '';
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  min-width: 160px;
+  margin: 2px 0 0;
+  border: var(--border-size) solid var(--color-border);
+  border-radius: var(--border-radius-default);
+  padding: 0;
+  background-color: var(--dropdown-bg);
+  background-clip: padding-box;
+  font-size: var(--font-size-body);
+  text-align: left;
+  list-style: none;
+}
+
+.dropdown-item {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: calc(var(--spacing-xs) / 2) var(--spacing-xs);
+  clear: both;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: normal;
+  line-height: var(--line-height);
+  color: var(--color-link);
+  text-align: inherit;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--color-link-hover);
+    text-decoration: none;
+    background-color: var(--dropdown-bg);
+    cursor: pointer;
+  }
+
+  &:active {
+    outline: 0;
+  }
+
+  &.disabled {
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      background-image: none;
+      text-decoration: none;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.open {
+  & > .dropdown-toggle::after {
+    @mixin triangle 8px, up;
+    border-top: none;
+  }
+
+  & > .dropdown-menu {
+    display: block;
+  }
+
+  & > a {
+    outline: 0;
+  }
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
