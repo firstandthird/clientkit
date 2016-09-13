@@ -17,7 +17,7 @@ module.exports = function(conf, base) {
     useEslintrc: false,
     configFile: conf.core.eslint
   });
-  const results = cli.executeOnFiles(['**/*.js']).results;
+  const results = cli.executeOnFiles(['!(dist)**/*.js']).results;
   // if any errors, print them:
   let errorsExist = false;
   let warningsExist = false;
