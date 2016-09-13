@@ -128,6 +128,10 @@ class CssTask {
           logo: '',
           colors: this.config.color,
           variables: this.cssVars,
+          css: [
+            'style.css',
+            '../clientkit.css'
+          ],
           examples: {
             css: this.config.docs.css
           },
