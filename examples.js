@@ -70,10 +70,10 @@ examples.lang = {
 	html: function (pre, value, conf) {
 		// get wrap
 		var wrap = pre.parentNode;
-    pre.className = 'highlight';
+    pre.className = 'highlight border-all';
 
     var preview = wrap.insertBefore(document.createElement('div'), pre);
-    preview.className  = 'docs-example clearfix';
+    preview.className  = 'docs-example clearfix border-all padding-sm margin-bottom-sm';
 
     var resize = preview.appendChild(document.createElement('div'));
     resize.className = 'docs-resize';
@@ -146,7 +146,7 @@ examples.lang = {
 		}
 
     iwin.addEventListener('load', function () {
-      resize();
+      //resize();
     });
 	}
 };

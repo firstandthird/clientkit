@@ -5,128 +5,240 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>ClientKit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="primer.css" rel="stylesheet"><link href="style.css" rel="stylesheet">
-    <script>examples={"base":"","target":"_self","css":["clientkit.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
+    <link href="style.css" rel="stylesheet"><link href="../clientkit.css" rel="stylesheet">
+    <script>examples={"base":"","target":"_self","css":["../clientkit.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
     
+    <style>
+    
+      #triangle iframe{
+        max-height: 20px;
+        min-height: 20px;
+      }
+    
+      #unstyled iframe{
+        max-height: 60px;
+        min-height: 60px;
+      }
+    
+      #inline iframe{
+        max-height: 30px;
+        min-height: 30px;
+      }
+    
+      #labels iframe{
+        max-height: 70px;
+        min-height: 70px;
+      }
+    
+      #inputs iframe{
+        max-height: 1000px;
+        min-height: 1000px;
+      }
+    
+      #error-text iframe{
+        max-height: 85px;
+        min-height: 85px;
+      }
+    
+      #input-group iframe{
+        max-height: 60px;
+        min-height: 60px;
+      }
+    
+      #basic iframe{
+        max-height: 100px;
+        min-height: 100px;
+      }
+    
+      #condensed-with-half-padding iframe{
+        max-height: 100px;
+        min-height: 100px;
+      }
+    
+      #bordered-version iframe{
+        max-height: 100px;
+        min-height: 100px;
+      }
+    
+      #zebra-striping iframe{
+        max-height: 100px;
+        min-height: 100px;
+      }
+    
+      #hover-effect iframe{
+        max-height: 100px;
+        min-height: 100px;
+      }
+    
+      #responsive-tables iframe{
+        max-height: 100px;
+        min-height: 100px;
+      }
+    
+      #clearfix iframe{
+        max-height: 50px;
+        min-height: 50px;
+      }
+    
+      #ugc iframe{
+        max-height: 510px;
+        min-height: 510px;
+      }
+    
+      #modal iframe{
+        max-height: 500px;;
+        min-height: 500px;;
+      }
+    
+      #tooltip iframe{
+        max-height: 100px;
+        min-height: 100px;
+      }
+    
+      #print iframe{
+        max-height: 40px;
+        min-height: 40px;
+      }
+    
+      #messages iframe{
+        max-height: 230px;
+        min-height: 230px;
+      }
+    
+      #borders iframe{
+        max-height: 400px;
+        min-height: 400px;
+      }
+    
+    </style>
   </head>
   <body>
     <header class="masthead" style="background-color: #4078c0;">
       <div class="container">
-        <a href="/" class="masthead-logo">
-          ClientKit
-        </a>
-        <nav class="masthead-nav">
-            
-        </nav>
+        <div class="menu-slide menu-left">
+          <input id="header-menu" class="menu-btn" type="checkbox" />
+          <label for="header-menu"></label>
+          <div class="menu-container">
+            <div class="menu-header-container">
+              
+    
+        <a class="display-block text-color-light menu-heading" href="#styleguide"><span>Styleguide</span></a>
+        
+    
+        <a class="display-block text-color-light menu-item" href="#colors"><span>Colors</span></a>
+        
+        
+  
+        
+        <a class="display-block text-color-light menu-heading" href="#helpers"><span>Helpers</span></a>
+        
+    
+        <a class="display-block text-color-light menu-item" href="#clearfix"><span>Clearfix</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#flexbox-grid"><span>Flexbox Grid</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#spacing"><span>Spacing</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#triangle"><span>Triangle</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#dropdown"><span>Dropdown</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#lists"><span>Lists</span></a>
+        
+    
+  
+        
+        <a class="display-block text-color-light menu-item" href="#forms"><span>Forms</span></a>
+        
+    
+  
+        
+        <a class="display-block text-color-light menu-item" href="#tables"><span>Tables</span></a>
+        
+    
+  
+        
+        <a class="display-block text-color-light menu-item" href="#tabs"><span>Tabs</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#grid"><span>Grid</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#ugc"><span>UGC</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#modal"><span>Modal</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#tooltip"><span>Tooltip</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#print"><span>Print</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#messages"><span>Messages</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#borders"><span>Borders</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#menu-slide"><span>Menu Slide</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#typography"><span>Typography</span></a>
+        
+    
+  
+        
+        <a class="display-block text-color-light menu-item" href="#buttons"><span>Buttons</span></a>
+        
+    
+  
+        
+  
+        
+        <a class="display-block text-color-light menu-heading" href="#variables"><span>Variables</span></a>
+        
+    
+        <a class="display-block text-color-light menu-item" href="#css"><span>CSS</span></a>
+        
+        
+  
+        
+        <a class="display-block text-color-light menu-heading" href="#development"><span>Development</span></a>
+        
+    
+        <a class="display-block text-color-light menu-item" href="#mixins"><span>Mixins</span></a>
+        
+    
+  
+        
+  
+        
+  
+            </div>
+          </div>
+        </div>
+
+        <h1 class="heading-1 text-color-light">ClientKit</h1>
       </div>
     </header>
 
-    <div class="container">
-      <div class="columns docs-layout">
-        <div class="one-fourth column menu-container">
-          <nav class="menu docs-menu">
-            
-    
-        <a class="menu-heading" href="#styleguide"><span>Styleguide </span></a>
-        
-    
-        <a class="menu-item" href="#colors"><span>Colors </span></a>
-        
-        
-  
-        
-        <a class="menu-heading" href="#helpers"><span>Helpers </span></a>
-        
-    
-        <a class="menu-item" href="#typography"><span>Typography </span></a>
-        
-    
-  
-        
-        <a class="menu-item" href="#buttons"><span>Buttons </span></a>
-        
-    
-  
-        
-        <a class="menu-item" href="#spacing"><span>Spacing </span></a>
-        
-        
-        <a class="menu-item" href="#triangle"><span>Triangle </span></a>
-        
-        
-        <a class="menu-item" href="#lists"><span>Lists </span></a>
-        
-    
-  
-        
-        <a class="menu-item" href="#forms"><span>Forms </span></a>
-        
-    
-  
-        
-        <a class="menu-item" href="#tables"><span>Tables </span></a>
-        
-    
-  
-        
-        <a class="menu-item" href="#grid"><span>Grid </span></a>
-        
-        
-        <a class="menu-item" href="#clearfix"><span>Clearfix </span></a>
-        
-        
-        <a class="menu-item" href="#ugc"><span>UGC </span></a>
-        
-        
-        <a class="menu-item" href="#tooltip"><span>Tooltip </span></a>
-        
-        
-        <a class="menu-item" href="#print"><span>Print </span></a>
-        
-        
-        <a class="menu-item" href="#messages"><span>Messages </span></a>
-        
-        
-        <a class="menu-item" href="#borders"><span>Borders </span></a>
-        
-        
-        <a class="menu-item" href="#tabs"><span>Tabs </span></a>
-        
-        
-  
-        
-        <a class="menu-heading" href="#variables"><span>Variables </span></a>
-        
-    
-        <a class="menu-item" href="#css"><span>CSS </span></a>
-        
-        
-  
-        
-        <a class="menu-heading" href="#development"><span>Development </span></a>
-        
-    
-        <a class="menu-item" href="#mixins"><span>Mixins </span></a>
-        
-    
-  
-        
-  
-        
-  
-          </nav>
-        </div>
-
-        <main class="three-fourths column markdown-body">
-          
+    <div class="container markdown-body ugc">
+      
     <section id="styleguide">
-      <h1 class="page-title">Styleguide</h1>
+      <h1>Styleguide</h1>
 
       <div class="markdown-body">
         
         
     <section id="colors">
-      <h2 class="page-title">Colors</h2>
+      <h2>Colors</h2>
 
       <div class="markdown-body">
         <div class="color-swatch" style="background-color: #333; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
@@ -134,67 +246,72 @@
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                primary<br>body<br>heading<br>link<br>input-border<br>icons
             </div>
-           </div>,<div class="color-swatch" style="background-color: #fff; color: #000000; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: #fff; color: #000000; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">#fff</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                heading-light<br>white<br>background-default<br>input-background<br>button-primary-color
             </div>
-           </div>,<div class="color-swatch" style="background-color: #666; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: #666; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">#666</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                secondary<br>link-hover
             </div>
-           </div>,<div class="color-swatch" style="background-color: orange; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: orange; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">orange</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                accent
             </div>
-           </div>,<div class="color-swatch" style="background-color: rgb(95, 95, 95); color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: rgb(95, 95, 95); color: #ffffff; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">rgb(95, 95, 95)</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                background-alt
             </div>
-           </div>,<div class="color-swatch" style="background-color: blue; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: blue; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">blue</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                input-border-focus
             </div>
-           </div>,<div class="color-swatch" style="background-color: gray; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: rgb(241,241,241); color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+            <div class="color-value">rgb(241,241,241)</div>
+            <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
+               input-group-background
+            </div>
+           </div><div class="color-swatch" style="background-color: gray; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">gray</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                input-label<br>input-disabled
             </div>
-           </div>,<div class="color-swatch" style="background-color: red; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: red; color: #ffffff; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">red</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
-               input-error
+               input-error<br>text-color-error
             </div>
-           </div>,<div class="color-swatch" style="background-color: rgba(75, 157, 249, 1); color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: rgba(75, 157, 249, 1); color: #ffffff; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">rgba(75, 157, 249, 1)</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                button-primary-bg
             </div>
-           </div>,<div class="color-swatch" style="background-color: #ccc; color: #000000; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: #ccc; color: #000000; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">#ccc</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                border
             </div>
-           </div>,<div class="color-swatch" style="background-color: rgba(17,17,17,.9); color: #ffffff; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: rgba(17,17,17,.9); color: #ffffff; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">rgba(17,17,17,.9)</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                tooltip-bg
             </div>
-           </div>,<div class="color-swatch" style="background-color: #f0f0f0; color: #000000; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: #f0f0f0; color: #000000; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">#f0f0f0</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                message-info
             </div>
-           </div>,<div class="color-swatch" style="background-color: #dff0d8; color: #000000; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: #dff0d8; color: #000000; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">#dff0d8</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                message-success
             </div>
-           </div>,<div class="color-swatch" style="background-color: #f2dede; color: #000000; display: inline-block; height: 200px; width: 200px;">
+           </div><div class="color-swatch" style="background-color: #f2dede; color: #000000; display: inline-block; height: 200px; width: 200px;">
             <div class="color-value">#f2dede</div>
             <div class="color-name" style="display: table-cell;  vertical-align:bottom; ">
                message-error
@@ -208,192 +325,242 @@
     </section>
     
     <section id="helpers">
-      <h1 class="page-title">Helpers</h1>
+      <h1>Helpers</h1>
 
       <div class="markdown-body">
         
         
-    <section id="typography">
-      <h2 class="page-title">Typography</h2>
-
-      <div class="markdown-body">
-        <p>Welcome to typography</p>
-
-        
-    <section id="headings">
-      <h3 class="page-title">Headings</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;div class=&quot;heading-1&quot;&gt;Heading 1&lt;/div&gt;
-&lt;div class=&quot;heading-2&quot;&gt;Heading 2&lt;/div&gt;
-&lt;div class=&quot;heading-3&quot;&gt;Heading 3&lt;/div&gt;
-&lt;div class=&quot;heading-4&quot;&gt;Heading 4&lt;/div&gt;
-&lt;div class=&quot;heading-5&quot;&gt;Heading 5&lt;/div&gt;
-&lt;div class=&quot;heading-6&quot;&gt;Heading 5&lt;/div&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="links">
-      <h3 class="page-title">Links</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="fonts">
-      <h3 class="page-title">Fonts</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;p&gt;Body Style&lt;/p&gt;
-&lt;p class=&quot;font-primary&quot;&gt;Primary Style&lt;/p&gt;
-&lt;p class=&quot;font-secondary&quot;&gt;Secondary Font Style&lt;/p&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="alignment">
-      <h3 class="page-title">Alignment</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;p class=&quot;text-left&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;text-center&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;text-right&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;text-justify&quot;&gt;Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturient faucibus sagittis consequat volutpat condimentum elit enim at primis condimentum torquent a in. A imperdiet vestibulum condimentum a quis nam mi vel hendrerit sem cubilia justo condimentum consectetur adipiscing. Facilisis lacinia ultrices etiam sociosqu ad a parturient ac leo class et potenti volutpat nostra pharetra semper parturient sociosqu suspendisse felis ac adipiscing. Sed commodo venenatis scelerisque a vehicula risus nullam dictumst et cras a suspendisse fusce adipiscing quisque dignissim quis lacinia suspendisse condimentum est mi augue a.&lt;/p&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="transform">
-      <h3 class="page-title">Transform</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;p class=&quot;text-lowercase&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;text-uppercase&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;text-capitalize&quot;&gt;some text&lt;/p&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="weight">
-      <h3 class="page-title">Weight</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;p class=&quot;font-light&quot;&gt;Some Text&lt;/p&gt;
-&lt;strong class=&quot;font-regular&quot;&gt;Some Text&lt;/strong&gt;
-&lt;p class=&quot;font-semibold&quot;&gt;Some Text&lt;/p&gt;
-&lt;strong&gt;Some Text&lt;/strong&gt;
-&lt;p class=&quot;font-bold&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;font-xbold&quot;&gt;Some Text&lt;/p&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="size">
-      <h3 class="page-title">Size</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;p class=&quot;font-large&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;font-small&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;font-body&quot;&gt;Some Text&lt;/p&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="colors">
-      <h3 class="page-title">Colors</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;div style=&quot;background: #000&quot; class=&quot;heading--light&quot;&gt;Light Text&lt;/div&gt;
-&lt;p class=&quot;text-color-body&quot;&gt;Some Text&lt;/p&gt;
-&lt;p class=&quot;text-color-heading&quot;&gt;Some Text&lt;/p&gt;
-&lt;p style=&quot;background: #000&quot; class=&quot;text-color-light&quot;&gt;Some Text&lt;/p&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="stretch">
-      <h3 class="page-title">Stretch</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;div class=&quot;text-stretch&quot;&gt;Text Stretch&lt;/div&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="hr">
-      <h3 class="page-title">hr</h3>
+    <section id="grid">
+      <h2>Grid</h2>
 
       <div class="markdown-body">
         <h4 id="variables">Variables</h4>
-<pre><code>  hr-max-width: 3.5em
-  hr-height: 3px
-  hr-color: #333
-</code></pre><pre><code class="lang-example:html">&lt;hr /&gt;
+<pre><code>  grid-columns: 12
+  grid-gutters: 15px
+</code></pre><h4 id="breakpoints">Breakpoints</h4>
+<pre><code>  desktop-wide:
+    max-width: 100vw
+    min-width: 1440px
+    content: 1440px
+    col: xl
+    default: &#39;{{!core.mobileFirst}}&#39;
+    bleed: 1600px
+  desktop:
+    max-width: 1439px
+    min-width: 1024px
+    content: 1024px
+    col: lg
+  tablet:
+    max-width: 1023px
+    min-width: 768px
+    content: 768px
+    col: md
+  mobile:
+    max-width: 767px
+    min-width: 320px
+    content: 100%
+    col: sm
+</code></pre><h4 id="quick-start">Quick Start</h4>
+<pre><code class="lang-example:html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-4&quot;&gt;1/3 column&lt;/div&gt;
+    &lt;div class=&quot;col-4&quot;&gt;1/3 column&lt;/div&gt;
+    &lt;div class=&quot;col-4&quot;&gt;1/3 column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="grid-options">Grid Options</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Default</th>
+<th>Small</th>
+<th>Medium</th>
+<th>Large</th>
+<th>Extra large</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Container width</td>
+<td>None (auto)</td>
+<td>320px - 767px</td>
+<td>768px - 1023px</td>
+<td>1024px - 1439px</td>
+<td>1440px - 100vw</td>
+</tr>
+<tr>
+<td>Class prefix</td>
+<td><code>.col-</code></td>
+<td><code>.col-sm-</code></td>
+<td><code>.col-md-</code></td>
+<td><code>.col-lg-</code></td>
+<td><code>.col-xl-</code></td>
+</tr>
+<tr>
+<td># of columns</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Gutter width</td>
+<td>15px on each side</td>
+<td>15px on each side</td>
+<td>15px on each side</td>
+<td>15px on each side</td>
+<td>15px on each side</td>
+</tr>
+<tr>
+<td>Nestable</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Offsets</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Column ordering</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+
+        
+      </div>
+    </section>
+    
+    <section id="clearfix">
+      <h2>Clearfix</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Some text below&lt;/p&gt;
 </code></pre>
 
         
       </div>
     </section>
     
-      </div>
-    </section>
-    
-    <section id="buttons">
-      <h2 class="page-title">Buttons</h2>
+    <section id="flexbox-grid">
+      <h2>Flexbox Grid</h2>
 
       <div class="markdown-body">
-        
-        
-    <section id="primary-button">
-      <h3 class="page-title">Primary Button</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;button class=&quot;button&quot;&gt;Primary Button&lt;/button&gt;
-&lt;a class=&quot;button&quot;&gt;Primary Link Button&lt;/a&gt;
+        <h4 id="quick-start">Quick Start</h4>
+<pre><code class="lang-example:html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;flex-row&quot;&gt;
+    &lt;div class=&quot;flex-4&quot;&gt;1/3 column&lt;/div&gt;
+    &lt;div class=&quot;flex-4&quot;&gt;1/3 column&lt;/div&gt;
+    &lt;div class=&quot;flex-4&quot;&gt;1/3 column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="outline-button">
-      <h3 class="page-title">Outline Button</h3>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;button class=&quot;button-outline&quot;&gt;Primary Button&lt;/button&gt;
-&lt;a class=&quot;button-outline&quot;&gt;Primary Link Button&lt;/a&gt;
+<h4 id="auto-sizing">Auto Sizing</h4>
+<p>Add as many to this example and they will size accordingly</p>
+<pre><code class="lang-example:html">&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;flex-row&quot;&gt;
+    &lt;div class=&quot;flex-grow flex-no-shrink&quot;&gt;1/3 column&lt;/div&gt;
+    &lt;div class=&quot;flex-grow flex-no-shrink&quot;&gt;1/3 column&lt;/div&gt;
+    &lt;div class=&quot;flex-grow flex-no-shrink&quot;&gt;1/3 column&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
+<h4 id="grid-options">Grid Options</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Default</th>
+<th>Small</th>
+<th>Medium</th>
+<th>Large</th>
+<th>Extra large</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Container width</td>
+<td>None (auto)</td>
+<td>320px - 767px</td>
+<td>768px - 1023px</td>
+<td>1024px - 1439px</td>
+<td>1440px - 100vw</td>
+</tr>
+<tr>
+<td>Class prefix</td>
+<td><code>.flex-</code></td>
+<td><code>.flex-sm-</code></td>
+<td><code>.flex-md-</code></td>
+<td><code>.flex-lg-</code></td>
+<td><code>.flex-xl-</code></td>
+</tr>
+<tr>
+<td># of columns</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Gutter width</td>
+<td>15px on each side</td>
+<td>15px on each side</td>
+<td>15px on each side</td>
+<td>15px on each side</td>
+<td>15px on each side</td>
+</tr>
+<tr>
+<td>Nestable</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Offsets</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Column ordering</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
 
         
-      </div>
-    </section>
-    
       </div>
     </section>
     
     <section id="spacing">
-      <h2 class="page-title">Spacing</h2>
+      <h2>Spacing</h2>
 
       <div class="markdown-body">
         <p>The spacing defaults below allow for the various combinations listed below. Essentially every possible combination of <code>margin</code> and <code>padding</code> can be combined with <code>top</code>, <code>right</code>, <code>bottom</code> or <code>left</code> and the defaults to acheive anything. There are special keywords (<code>xaxis</code> and <code>yaxis</code>) you can use, in lieu of individual directional attributes when you want spacing options on two different sizes.</p>
@@ -515,7 +682,7 @@
     </section>
     
     <section id="triangle">
-      <h2 class="page-title">Triangle</h2>
+      <h2>Triangle</h2>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">&lt;b class=&quot;triangle-up&quot;&gt;&lt;/b&gt;
@@ -528,24 +695,47 @@
       </div>
     </section>
     
-    <section>
-      
+    <section id="dropdown">
+      <h2>Dropdown</h2>
 
       <div class="markdown-body">
-        <p>Here live helpers</p>
+        <h4 id="variables">Variables</h4>
+<pre><code>  dropdown-bg: &#39;#fff&#39;
+</code></pre><h4 id="example">Example</h4>
+<pre><code class="lang-example:html">&lt;div class=&quot;dropdown open&quot;&gt;
+  &lt;button class=&quot;button dropdown-toggle&quot;&gt;Dropdown Button&lt;/button&gt;
+  &lt;div class=&quot;dropdown-menu&quot; style=&quot;min-width: 125px;&quot;&gt;
+    &lt;button class=&quot;dropdown-item disabled&quot;&gt;Disabled Button item&lt;/button&gt;
+    &lt;button class=&quot;dropdown-item active&quot;&gt;Active Button item&lt;/button&gt;
+    &lt;a href=&quot;&quot; class=&quot;dropdown-item&quot;&gt;Link item&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;dropdown-item&quot;&gt;Link item&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-example:html">&lt;div class=&quot;dropdown open&quot;&gt;
+  &lt;button class=&quot;button dropdown-toggle&quot;&gt;Dropdown Button&lt;/button&gt;
+  &lt;div class=&quot;dropdown-menu dropdown-menu-right&quot; style=&quot;min-width: 125px;&quot;&gt;
+    &lt;button class=&quot;dropdown-item disabled&quot;&gt;Disabled Button item&lt;/button&gt;
+    &lt;button class=&quot;dropdown-item active&quot;&gt;Active Button item&lt;/button&gt;
+    &lt;a href=&quot;&quot; class=&quot;dropdown-item&quot;&gt;Link item&lt;/a&gt;
+    &lt;a href=&quot;&quot; class=&quot;dropdown-item&quot;&gt;Link item&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
         
       </div>
     </section>
     
     <section id="lists">
-      <h2 class="page-title">Lists</h2>
+      <h2>Lists</h2>
 
       <div class="markdown-body">
-        
+        <p>Lists</p>
+
         
     <section id="unstyled">
-      <h3 class="page-title">Unstyled</h3>
+      <h3>Unstyled</h3>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">&lt;ul class=&quot;list-unstyled&quot;&gt;
@@ -560,7 +750,7 @@
     </section>
     
     <section id="inline">
-      <h3 class="page-title">Inline</h3>
+      <h3>Inline</h3>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">&lt;ul class=&quot;list-inline&quot;&gt;
@@ -578,16 +768,17 @@
     </section>
     
     <section id="forms">
-      <h2 class="page-title">Forms</h2>
+      <h2>Forms</h2>
 
       <div class="markdown-body">
-        
+        <p>Forms and Inputs</p>
+
         
     <section id="form">
-      <h3 class="page-title">Form</h3>
+      <h3>Form</h3>
 
       <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;form class=&quot;form&quot;&gt;
+        <pre><code class="lang-html">&lt;form class=&quot;form&quot;&gt;
 &lt;/form&gt;
 </code></pre>
 
@@ -596,7 +787,7 @@
     </section>
     
     <section id="labels">
-      <h3 class="page-title">Labels</h3>
+      <h3>Labels</h3>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">  &lt;form class=&quot;form&quot;&gt;
@@ -610,7 +801,7 @@
     </section>
     
     <section id="inputs">
-      <h3 class="page-title">Inputs</h3>
+      <h3>Inputs</h3>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">  &lt;form class=&quot;form&quot;&gt;
@@ -656,7 +847,7 @@
     </section>
     
     <section id="error-text">
-      <h3 class="page-title">Error Text</h3>
+      <h3>Error Text</h3>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">  &lt;form class=&quot;form&quot;&gt;
@@ -672,17 +863,34 @@
       </div>
     </section>
     
+    <section id="input-group">
+      <h3>Input group</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">  &lt;form class=&quot;form&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Enter your email&quot;&gt;
+      &lt;button class=&quot;input-group-btn button&quot;&gt;Sign Up&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
       </div>
     </section>
     
     <section id="tables">
-      <h2 class="page-title">Tables</h2>
+      <h2>Tables</h2>
 
       <div class="markdown-body">
-        
+        <p>Tables</p>
+
         
     <section id="basic">
-      <h3 class="page-title">Basic</h3>
+      <h3>Basic</h3>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">&lt;table class=&quot;table&quot;&gt;
@@ -708,7 +916,7 @@
     </section>
     
     <section id="condensed-with-half-padding">
-      <h3 class="page-title">Condensed with half padding</h3>
+      <h3>Condensed with half padding</h3>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">&lt;table class=&quot;table table-sm&quot;&gt;
@@ -734,7 +942,7 @@
     </section>
     
     <section id="bordered-version">
-      <h3 class="page-title">Bordered version</h3>
+      <h3>Bordered version</h3>
 
       <div class="markdown-body">
         <p>Add borders all around the table and between all the columns.</p>
@@ -761,7 +969,7 @@
     </section>
     
     <section id="zebra-striping">
-      <h3 class="page-title">Zebra-striping</h3>
+      <h3>Zebra-striping</h3>
 
       <div class="markdown-body">
         <p>Default zebra-stripe styles (alternating gray and transparent backgrounds)</p>
@@ -788,7 +996,7 @@
     </section>
     
     <section id="hover-effect">
-      <h3 class="page-title">Hover effect</h3>
+      <h3>Hover effect</h3>
 
       <div class="markdown-body">
         <p>Placed here since it has to come after the potential zebra striping</p>
@@ -815,7 +1023,7 @@
     </section>
     
     <section id="responsive-tables">
-      <h3 class="page-title">Responsive tables</h3>
+      <h3>Responsive tables</h3>
 
       <div class="markdown-body">
         <p>Wrap your tables in <code>.table-responsive</code> and we&#39;ll make them mobile friendly
@@ -850,7 +1058,7 @@ will display normally.</p>
     </section>
     
     <section id="tabs">
-      <h2 class="page-title">Tabs</h2>
+      <h2>Tabs</h2>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">
@@ -896,23 +1104,18 @@ will display normally.</p>
       </div>
     </section>
     
-    <section id="clearfix">
-      <h2 class="page-title">Clearfix</h2>
+    <section>
+      
 
       <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;div class=&quot;clearfix&quot;&gt;
-  &lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Some text below&lt;/p&gt;
-</code></pre>
+        <p>Here live helpers</p>
 
         
       </div>
     </section>
     
     <section id="ugc">
-      <h2 class="page-title">UGC</h2>
+      <h2>UGC</h2>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">&lt;div class=&quot;ugc&quot;&gt;
@@ -953,8 +1156,29 @@ will display normally.</p>
       </div>
     </section>
     
+    <section id="modal">
+      <h2>Modal</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;a href=&quot;#modal-example&quot; class=&quot;margin-top-sm button&quot;&gt;Show Modal&lt;/a&gt;
+&lt;div id=&quot;modal-example&quot; class=&quot;modal&quot;&gt;
+  &lt;a href=&quot;#!&quot; class=&quot;modal-close&quot;&gt;&lt;/a&gt; &lt;!-- if you want overlay to close on click --&gt;
+  &lt;div class=&quot;modal-content&quot;&gt;
+    &lt;a href=&quot;#!&quot; class=&quot;modal-close&quot;&gt;&amp;times&lt;/a&gt;
+    &lt;h2 class=&quot;heading-2 margin-bottom-sm&quot;&gt;This is some title&lt;/h2&gt;
+    &lt;p class=&quot;margin-bottom-sm&quot;&gt;This is the modal content&lt;/p&gt;
+    &lt;p class=&quot;margin-bottom-sm&quot;&gt;Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturi&lt;/p&gt;
+    &lt;a href=&quot;#!&quot; class=&quot;button&quot;&gt;Close Me!&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
     <section id="tooltip">
-      <h2 class="page-title">Tooltip</h2>
+      <h2>Tooltip</h2>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">&lt;div class=&quot;padding-top-md&quot;&gt;
@@ -970,7 +1194,7 @@ will display normally.</p>
     </section>
     
     <section id="print">
-      <h2 class="page-title">Print</h2>
+      <h2>Print</h2>
 
       <div class="markdown-body">
         <p>Printing with Clientkit takes some basic reset from <a href="https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css">HTML5 Boilerplate</a>.
@@ -990,7 +1214,7 @@ and which are not.</p>
     </section>
     
     <section id="messages">
-      <h2 class="page-title">Messages</h2>
+      <h2>Messages</h2>
 
       <div class="markdown-body">
         <pre><code class="lang-example:html">&lt;div class=&quot;message-info margin-bottom-sm&quot;&gt;This is an info message&lt;/div&gt;
@@ -1010,12 +1234,12 @@ and which are not.</p>
     </section>
     
     <section id="borders">
-      <h2 class="page-title">Borders</h2>
+      <h2>Borders</h2>
 
       <div class="markdown-body">
         <h4 id="variables">Variables</h4>
 <pre><code>  border-size: 1px
-  border-radius: 3px
+  border-radius-default: 3px
   color-border: &#39;#ccc&#39;
 </code></pre><h4 id="example">Example</h4>
 <pre><code class="lang-example:html">&lt;div class=&quot;border-all padding-sm margin-sm&quot;&gt;Border around everything&lt;/div&gt;
@@ -1029,118 +1253,240 @@ and which are not.</p>
       </div>
     </section>
     
-    <section id="grid">
-      <h2 class="page-title">Grid</h2>
+    <section id="menu-slide">
+      <h2>Menu Slide</h2>
 
       <div class="markdown-body">
-        <h4 id="variables">Variables</h4>
-<pre><code>  grid-columns: 12
-  grid-gutters: 15px
-</code></pre><h4 id="breakpoints">Breakpoints</h4>
-<pre><code>  desktop-wide:
-    max-width: 100vw
-    min-width: 1440px
-    content: 1440px
-    col: xl
-    default: &#39;{{!core.mobileFirst}}&#39;
-    bleed: 1600px
-  desktop:
-    max-width: 1439px
-    min-width: 1024px
-    content: 1024px
-    col: lg
-  tablet:
-    max-width: 1023px
-    min-width: 768px
-    content: 768px
-    col: md
-  mobile:
-    max-width: 767px
-    min-width: 320px
-    content: 100%
-    col: sm
-</code></pre><h4 id="quick-start">Quick Start</h4>
-<pre><code class="lang-example:html">&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;col-4&quot;&gt;1/3 column&lt;/div&gt;
-    &lt;div class=&quot;col-4&quot;&gt;1/3 column&lt;/div&gt;
-    &lt;div class=&quot;col-4&quot;&gt;1/3 column&lt;/div&gt;
+        <h3 id="right-side-default-">Right Side (default)</h3>
+<pre><code class="lang-example:html">&lt;div class=&quot;col-9&quot;&gt;&lt;h1&gt;ClientKit&lt;/h1&gt;&lt;/div&gt;
+&lt;div class=&quot;col-3&quot;&gt;
+  &lt;div class=&quot;menu-slide&quot;&gt;
+    &lt;input id=&quot;header-menu&quot; class=&quot;menu-btn&quot; type=&quot;checkbox&quot; /&gt;
+    &lt;label for=&quot;header-menu&quot;&gt;&lt;/label&gt;
+    &lt;div class=&quot;menu-container text-right&quot;&gt;
+      &lt;nav class=&quot;menu-header-container&quot;&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 1&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 2&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 3&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 4&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<h4 id="grid-options">Grid Options</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Default</th>
-<th>Small</th>
-<th>Medium</th>
-<th>Large</th>
-<th>Extra large</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Container width</td>
-<td>None (auto)</td>
-<td>320px - 767px</td>
-<td>768px - 1023px</td>
-<td>1024px - 1439px</td>
-<td>1440px - 100vw</td>
-</tr>
-<tr>
-<td>Class prefix</td>
-<td><code>.col-</code></td>
-<td><code>.col-sm-</code></td>
-<td><code>.col-md-</code></td>
-<td><code>.col-lg-</code></td>
-<td><code>.col-xl-</code></td>
-</tr>
-<tr>
-<td># of columns</td>
-<td>12</td>
-<td>12</td>
-<td>12</td>
-<td>12</td>
-<td>12</td>
-</tr>
-<tr>
-<td>Gutter width</td>
-<td>15px on each side</td>
-<td>15px on each side</td>
-<td>15px on each side</td>
-<td>15px on each side</td>
-<td>15px on each side</td>
-</tr>
-<tr>
-<td>Nestable</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Offsets</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Column ordering</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
+<h3 id="left-side">Left Side</h3>
+<pre><code class="lang-example:html">&lt;div class=&quot;col-plain&quot;&gt;
+  &lt;div class=&quot;menu-slide menu-left&quot;&gt;
+    &lt;input id=&quot;header-menu&quot; class=&quot;menu-btn&quot; type=&quot;checkbox&quot; /&gt;
+    &lt;label for=&quot;header-menu&quot;&gt;&lt;/label&gt;
+    &lt;div class=&quot;menu-container&quot;&gt;
+      &lt;nav class=&quot;menu-header-container&quot;&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 1&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 2&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 3&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 4&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-11&quot;&gt;&lt;h1&gt;ClientKit&lt;/h1&gt;&lt;/div&gt;
+</code></pre>
 
         
+      </div>
+    </section>
+    
+    <section id="typography">
+      <h2>Typography</h2>
+
+      <div class="markdown-body">
+        <p>Welcome to typography</p>
+
+        
+    <section id="headings">
+      <h3>Headings</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;div class=&quot;heading-1&quot;&gt;Heading 1&lt;/div&gt;
+&lt;div class=&quot;heading-2&quot;&gt;Heading 2&lt;/div&gt;
+&lt;div class=&quot;heading-3&quot;&gt;Heading 3&lt;/div&gt;
+&lt;div class=&quot;heading-4&quot;&gt;Heading 4&lt;/div&gt;
+&lt;div class=&quot;heading-5&quot;&gt;Heading 5&lt;/div&gt;
+&lt;div class=&quot;heading-6&quot;&gt;Heading 6&lt;/div&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="links">
+      <h3>Links</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;a href=&quot;#&quot;&gt;Link&lt;/a&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="fonts">
+      <h3>Fonts</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;p&gt;Body Style&lt;/p&gt;
+&lt;p class=&quot;font-primary&quot;&gt;Primary Style&lt;/p&gt;
+&lt;p class=&quot;font-secondary&quot;&gt;Secondary Font Style&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="alignment">
+      <h3>Alignment</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;p class=&quot;text-left&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;text-right&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;text-justify&quot;&gt;Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturient faucibus sagittis consequat volutpat condimentum elit enim at primis condimentum torquent a in. A imperdiet vestibulum condimentum a quis nam mi vel hendrerit sem cubilia justo condimentum consectetur adipiscing. Facilisis lacinia ultrices etiam sociosqu ad a parturient ac leo class et potenti volutpat nostra pharetra semper parturient sociosqu suspendisse felis ac adipiscing. Sed commodo venenatis scelerisque a vehicula risus nullam dictumst et cras a suspendisse fusce adipiscing quisque dignissim quis lacinia suspendisse condimentum est mi augue a.&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="transform">
+      <h3>Transform</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;p class=&quot;text-lowercase&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;text-uppercase&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;text-capitalize&quot;&gt;some text&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="weight">
+      <h3>Weight</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;p class=&quot;font-light&quot;&gt;Some Text&lt;/p&gt;
+&lt;strong class=&quot;font-regular&quot;&gt;Some Text&lt;/strong&gt;
+&lt;p class=&quot;font-semibold&quot;&gt;Some Text&lt;/p&gt;
+&lt;strong&gt;Some Text&lt;/strong&gt;
+&lt;p class=&quot;font-bold&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;font-xbold&quot;&gt;Some Text&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="size">
+      <h3>Size</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;p class=&quot;font-large&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;font-small&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;font-body&quot;&gt;Some Text&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="colors">
+      <h3>Colors</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;div style=&quot;background: #000&quot; class=&quot;heading--light&quot;&gt;Light Text&lt;/div&gt;
+&lt;p class=&quot;text-color-body&quot;&gt;Some Text&lt;/p&gt;
+&lt;p class=&quot;text-color-heading&quot;&gt;Some Text&lt;/p&gt;
+&lt;p style=&quot;background: #000&quot; class=&quot;text-color-light&quot;&gt;Some Text&lt;/p&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="stretch">
+      <h3>Stretch</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;div class=&quot;text-stretch&quot;&gt;Text Stretch&lt;/div&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="hr">
+      <h3>hr</h3>
+
+      <div class="markdown-body">
+        <h4 id="variables">Variables</h4>
+<pre><code>  hr-max-width: 3.5em
+  hr-height: 3px
+  hr-color: #333
+</code></pre><pre><code class="lang-example:html">&lt;hr /&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+      </div>
+    </section>
+    
+    <section id="buttons">
+      <h2>Buttons</h2>
+
+      <div class="markdown-body">
+        <p>Site Buttons</p>
+
+        
+    <section id="primary-button">
+      <h3>Primary Button</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;button class=&quot;button&quot;&gt;Primary Button&lt;/button&gt;
+&lt;a class=&quot;button&quot;&gt;Primary Link Button&lt;/a&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="outline-button">
+      <h3>Outline Button</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;button class=&quot;button-outline&quot;&gt;Primary Button&lt;/button&gt;
+&lt;a class=&quot;button-outline&quot;&gt;Primary Link Button&lt;/a&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
+    <section id="button-sizes">
+      <h3>Button sizes</h3>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;button class=&quot;button button-lg&quot;&gt;Large Button&lt;/button&gt;
+&lt;button class=&quot;button button-sm&quot;&gt;Small Button&lt;/button&gt;
+&lt;button class=&quot;button-outline button-lg&quot;&gt;Large Button&lt;/button&gt;
+&lt;button class=&quot;button-outline button-sm&quot;&gt;Small Button&lt;/button&gt;
+</code></pre>
+
+        
+      </div>
+    </section>
+    
       </div>
     </section>
     
@@ -1148,13 +1494,13 @@ and which are not.</p>
     </section>
     
     <section id="variables">
-      <h1 class="page-title">Variables</h1>
+      <h1>Variables</h1>
 
       <div class="markdown-body">
         
         
     <section id="css">
-      <h2 class="page-title">CSS</h2>
+      <h2>CSS</h2>
 
       <div class="markdown-body">
         <pre class="highlight"><code>color-primary: #333
@@ -1171,6 +1517,7 @@ color-link-hover: #666
 color-input-background: #fff
 color-input-border: #333
 color-input-border-focus: blue
+color-input-group-background: rgb(241,241,241)
 color-input-label: gray
 color-input-error: red
 color-input-disabled: gray
@@ -1182,6 +1529,7 @@ color-icons: #333
 color-message-info: #f0f0f0
 color-message-success: #dff0d8
 color-message-error: #f2dede
+color-text-color-error: red
 spacing-none: 0
 spacing-xl: 80px
 spacing-lg: 50px
@@ -1211,10 +1559,12 @@ heading-2-size: 30px
 heading-2-mobile-size: 25px
 heading-3-size: 25px
 heading-3-mobile-size: 20px
-heading-4-size: 16px
-heading-4-mobile-size: 14px
-heading-5-size: 14px
+heading-4-size: 20px
+heading-4-mobile-size: 16px
+heading-5-size: 16px
 heading-5-mobile-size: 14px
+heading-6-size: 14px
+heading-6-mobile-size: 12px
 stretch-spacing: 2px
 table-cell-padding: 10px
 table-sm-cell-padding: 5px
@@ -1225,11 +1575,19 @@ table-bg-active: #f5f5f5
 table-border-width: 1px
 table-border-color: #eceeef
 border-size: 1px
-border-radius: 3px
+border-radius-default: 3px
+border-radius-lg: 5px
+border-radius-sm: 2px
+button-radius-default: 3px
+button-radius-lg: 5px
+button-radius-sm: 2px
 hr-max-width: 3.5em
 hr-height: 3px
 hr-color: #333
 message-border-radius: 2px
+dropdown-bg: #fff
+easing-out: cubic-bezier(0.35, 0.97, 0.57, 0.99)
+easing-in-out: ease-in-out
 breakpoint-desktop-wide: 100vw
 breakpoint-desktop: 1439px
 breakpoint-tablet: 1023px
@@ -1242,20 +1600,20 @@ breakpoint-mobile: 767px</code></pre>
     </section>
     
     <section id="development">
-      <h1 class="page-title">Development</h1>
+      <h1>Development</h1>
 
       <div class="markdown-body">
         
         
     <section id="mixins">
-      <h2 class="page-title">Mixins</h2>
+      <h2>Mixins</h2>
 
       <div class="markdown-body">
         <p>Mixins yo!</p>
 
         
     <section id="clearfix">
-      <h3 class="page-title">Clearfix</h3>
+      <h3>Clearfix</h3>
 
       <div class="markdown-body">
         <pre><code>@mixin clearfix;
@@ -1272,41 +1630,27 @@ breakpoint-mobile: 767px</code></pre>
     </section>
     
     <section id="button">
-      <h3 class="page-title">Button</h3>
+      <h3>Button</h3>
 
       <div class="markdown-body">
-        <pre><code>@mixin button backgroundColor, fontColor, borderColor, hoverBackground, hoverColor;
-</code></pre><p>Outputs</p>
-<pre><code class="lang-css">.button {
-  display: inline-block;
-  background-color: rgba(75, 157, 249, 1);
-  line-height: 1;
-  text-align: center;
-  font-size: 14px;
-  padding: 12px 14px;
-  border-radius: 3px;
-  border: 2px solid transparent;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  color: #fff;
-}
-.button:hover,
-  .button:active,
-  .button.active,
-  .button:focus {
-  background-color: rgb(74, 135, 204);
-  color: #fff;
-}
+        <pre><code>@mixin button backgroundColor, fontColor, borderColor, borderRadius, hoverBackground, hoverColor;
 </code></pre>
+        
+      </div>
+    </section>
+    
+    <section id="button-size">
+      <h3>Button size</h3>
 
+      <div class="markdown-body">
+        <pre><code>@mixin button-size paddingY, paddingX, fontSize, borderRadius;
+</code></pre>
         
       </div>
     </section>
     
     <section id="heading">
-      <h3 class="page-title">Heading</h3>
+      <h3>Heading</h3>
 
       <div class="markdown-body">
         <pre><code>@mixin heading $size, $mobileSize;
@@ -1330,7 +1674,7 @@ breakpoint-mobile: 767px</code></pre>
     </section>
     
     <section id="message">
-      <h3 class="page-title">Message</h3>
+      <h3>Message</h3>
 
       <div class="markdown-body">
         <pre><code>@mixin message red;
@@ -1340,7 +1684,7 @@ breakpoint-mobile: 767px</code></pre>
     </section>
     
     <section id="link">
-      <h3 class="page-title">Link</h3>
+      <h3>Link</h3>
 
       <div class="markdown-body">
         <pre><code>@mixin link $color, $hoverColor;
@@ -1360,10 +1704,20 @@ a:hover {
     </section>
     
     <section id="input">
-      <h3 class="page-title">Input</h3>
+      <h3>Input</h3>
 
       <div class="markdown-body">
         <pre><code>@mixin input $background, $color, $colorDisabled, $border, $borderFocus, $borderDisabled;
+</code></pre>
+        
+      </div>
+    </section>
+    
+    <section id="mobile-menu">
+      <h3>Mobile Menu</h3>
+
+      <div class="markdown-body">
+        <pre><code>@mixin mobile-menu $menuColor, $closeColor
 </code></pre>
         
       </div>
@@ -1375,8 +1729,6 @@ a:hover {
       </div>
     </section>
     
-        </main>
-      </div>
     </div>
     <script src="prism.js?871234"></script>
     <script src="examples.js?873428"></script>
@@ -1390,54 +1742,12 @@ a:hover {
          class: 'anchor-link'
      };
      anchors.add('h2, h3');
-
-     /* interact('.docs-resize')
-      *   .resizable({
-      *     edges: {
-      *       left: '.c-resize--left',
-      *       right: '.c-resize--right',
-      *       bottom: false,
-      *       top: false
-      *     },
-      *     onmove: function (e) {
-      *       var width = e.rect.width,
-      *         windowWidth = $(window).width();
-
-      *       if (width < 160) {
-      *         width = 160;
-      *       } else if ((width * 2) + 100 > windowWidth) {
-      *         width = (windowWidth - 100) / 2;
-      *       }
-
-      *       $('.docs-example').find('docs-resize').addClass('resize-overlay');
-      *       $('.docs-resize').style.width = (width * 2) + 'px';
-      *     },
-      *     onend: function () {
-      *       $('.docs-example').find('docs-resize').removeClass('resize-overlay');
-      *     }
-      *   })
-      *   .on('resizemove', function (event) {
-      *     var target = event.target,
-      *         x = (parseFloat(target.getAttribute('data-x')) || 0);
-
-      *     // update the element's style
-      *     target.style.width  = event.rect.width + 'px';
-
-      *     // translate when resizing from top or left edges
-      *     x += event.deltaRect.left;
-
-      *     target.style.webkitTransform = target.style.transform =
-      *       'translateX(' + x + 'px)';
-
-      *     target.setAttribute('data-x', x);
-      *     target.textContent = Math.round(event.rect.width);
-      *   });*/
     </script>
     
   
     
-      <footer style="margin-top: 40px; border-top: 1px solid #ccc; padding: 20px 5px">
-        Generated by clientkit 0.13.0</div>
+      <footer class="container">
+        <div class="border-top margin-top-lg padding-yaxis-md padding-xaxis-sm">Generated by clientkit 0.14.0</div>
       </footer>
     
   </body>

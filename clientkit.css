@@ -29,34 +29,16 @@ title: Button
 ---
 
 ```
-@mixin button backgroundColor, fontColor, borderColor, hoverBackground, hoverColor;
+@mixin button backgroundColor, fontColor, borderColor, borderRadius, hoverBackground, hoverColor;
 ```
+*/
+/*---
+section: Mixins
+title: Button size
+---
 
-Outputs
-
-```css
-.button {
-  display: inline-block;
-  background-color: rgba(75, 157, 249, 1);
-  line-height: 1;
-  text-align: center;
-  font-size: 14px;
-  padding: 12px 14px;
-  border-radius: 3px;
-  border: 2px solid transparent;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  color: #fff;
-}
-.button:hover,
-  .button:active,
-  .button.active,
-  .button:focus {
-  background-color: rgb(74, 135, 204);
-  color: #fff;
-}
+```
+@mixin button-size paddingY, paddingX, fontSize, borderRadius;
 ```
 */
 /*---
@@ -121,6 +103,15 @@ title: Input
 
 ```
 @mixin input $background, $color, $colorDisabled, $border, $borderFocus, $borderDisabled;
+```
+*/
+/*---
+section: Mixins
+title: Mobile Menu
+---
+
+```
+@mixin mobile-menu $menuColor, $closeColor
 ```
 */
 /* helpers */
@@ -487,6 +478,9 @@ body {
 .bg-alt {
   background-color: rgb(95, 95, 95);
 }
+.text-error {
+  color: red;
+}
 /*---
 section: Helpers
 title: Grid
@@ -823,6 +817,326 @@ body {
   padding-left: 0;
 }
 /*---
+section: Helpers
+title: Flexbox Grid
+---
+
+#### Quick Start
+```example:html
+<div class="container">
+  <div class="flex-row">
+    <div class="flex-4">1/3 column</div>
+    <div class="flex-4">1/3 column</div>
+    <div class="flex-4">1/3 column</div>
+  </div>
+</div>
+```
+
+#### Auto Sizing
+
+Add as many to this example and they will size accordingly
+```example:html
+<div class="container">
+  <div class="flex-row">
+    <div class="flex-grow flex-no-shrink">1/3 column</div>
+    <div class="flex-grow flex-no-shrink">1/3 column</div>
+    <div class="flex-grow flex-no-shrink">1/3 column</div>
+  </div>
+</div>
+```
+
+#### Grid Options
+
+ | | Default | Small | Medium | Large | Extra large |
+ | --- | --- | --- | --- | --- | --- |
+ | Container width | None (auto) | 320px - 767px  | 768px - 1023px | 1024px - 1439px | 1440px - 100vw |
+ | Class prefix | `.flex-` | `.flex-sm-` | `.flex-md-` | `.flex-lg-` | `.flex-xl-` |
+ | # of columns | 12 | 12 | 12 | 12 | 12 |
+ | Gutter width | 15px on each side | 15px on each side | 15px on each side | 15px on each side | 15px on each side |
+ | Nestable | Yes | Yes | Yes | Yes | Yes |
+ | Offsets | Yes | Yes | Yes | Yes | Yes |
+ | Column ordering | Yes | Yes | Yes | Yes | Yes |
+
+*/
+.flex {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.flex-row-columns {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.flex-row-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.flex-row-reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.flex-row-columns-reverse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+.flex-row,
+.flex-row-columns,
+.flex-row-wrap,
+.flex-row-reverse,
+.flex-row-columns-reverse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.flex-left,
+.flex-left-top,
+.flex-left-center,
+.flex-left-bottom,
+.flex-left-stretch {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.flex-right,
+.flex-right-top,
+.flex-right-center,
+.flex-right-bottom,
+.flex-right-stretch {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.flex-center,
+.flex-center-top,
+.flex-center-center,
+.flex-center-bottom,
+.flex-center-stretch {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flex-space-around,
+.flex-space-around-top,
+.flex-space-around-center,
+.flex-space-around-bottom,
+.flex-space-around-stretch {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.flex-space-between,
+.flex-space-between-top,
+.flex-space-between-center,
+.flex-space-between-bottom,
+.flex-space-between-stretch {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.flex-left-top,
+.flex-right-top,
+.flex-center-top,
+.flex-space-around-top,
+.flex-space-between-top {
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+              -ms-grid-row-align: flex-start;
+          align-items: flex-start;
+}
+.flex-left-center,
+.flex-right-center,
+.flex-center-center,
+.flex-space-around-center,
+.flex-space-between-center {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+              -ms-grid-row-align: center;
+          align-items: center;
+}
+.flex-left-bottom,
+.flex-right-bottom,
+.flex-center-bottom,
+.flex-space-around-bottom,
+.flex-space-between-bottom {
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+              -ms-grid-row-align: flex-end;
+          align-items: flex-end;
+}
+.flex-left-stretch,
+.flex-right-stretch,
+.flex-center-stretch,
+.flex-space-around-stretch,
+.flex-space-between-stretch {
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+              -ms-grid-row-align: stretch;
+          align-items: stretch;
+}
+.flex-order-first {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+}
+.flex-order-last {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.flex-shrink {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+.flex-no-shrink {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.flex-grow {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.flex-no-grow {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+.flex-1 {
+  -ms-flex-preferred-size: 8.333333333333334%;
+      flex-basis: 8.333333333333334%;
+}
+.flex-offset-1 {
+  margin-left: 8.333333333333334%;
+}
+.flex-suffix-1 {
+  margin-right: 8.333333333333334%;
+}
+.flex-2 {
+  -ms-flex-preferred-size: 16.666666666666668%;
+      flex-basis: 16.666666666666668%;
+}
+.flex-offset-2 {
+  margin-left: 16.666666666666668%;
+}
+.flex-suffix-2 {
+  margin-right: 16.666666666666668%;
+}
+.flex-3 {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+}
+.flex-offset-3 {
+  margin-left: 25%;
+}
+.flex-suffix-3 {
+  margin-right: 25%;
+}
+.flex-4 {
+  -ms-flex-preferred-size: 33.333333333333336%;
+      flex-basis: 33.333333333333336%;
+}
+.flex-offset-4 {
+  margin-left: 33.333333333333336%;
+}
+.flex-suffix-4 {
+  margin-right: 33.333333333333336%;
+}
+.flex-5 {
+  -ms-flex-preferred-size: 41.66666666666667%;
+      flex-basis: 41.66666666666667%;
+}
+.flex-offset-5 {
+  margin-left: 41.66666666666667%;
+}
+.flex-suffix-5 {
+  margin-right: 41.66666666666667%;
+}
+.flex-6 {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+.flex-offset-6 {
+  margin-left: 50%;
+}
+.flex-suffix-6 {
+  margin-right: 50%;
+}
+.flex-7 {
+  -ms-flex-preferred-size: 58.333333333333336%;
+      flex-basis: 58.333333333333336%;
+}
+.flex-offset-7 {
+  margin-left: 58.333333333333336%;
+}
+.flex-suffix-7 {
+  margin-right: 58.333333333333336%;
+}
+.flex-8 {
+  -ms-flex-preferred-size: 66.66666666666667%;
+      flex-basis: 66.66666666666667%;
+}
+.flex-offset-8 {
+  margin-left: 66.66666666666667%;
+}
+.flex-suffix-8 {
+  margin-right: 66.66666666666667%;
+}
+.flex-9 {
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+}
+.flex-offset-9 {
+  margin-left: 75%;
+}
+.flex-suffix-9 {
+  margin-right: 75%;
+}
+.flex-10 {
+  -ms-flex-preferred-size: 83.33333333333334%;
+      flex-basis: 83.33333333333334%;
+}
+.flex-offset-10 {
+  margin-left: 83.33333333333334%;
+}
+.flex-suffix-10 {
+  margin-right: 83.33333333333334%;
+}
+.flex-11 {
+  -ms-flex-preferred-size: 91.66666666666667%;
+      flex-basis: 91.66666666666667%;
+}
+.flex-offset-11 {
+  margin-left: 91.66666666666667%;
+}
+.flex-suffix-11 {
+  margin-right: 91.66666666666667%;
+}
+.flex-12 {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+.flex-offset-12 {
+  margin-left: 100%;
+}
+.flex-suffix-12 {
+  margin-right: 100%;
+}
+/*---
 section: Typography
 title: Headings
 
@@ -832,7 +1146,7 @@ title: Headings
 <div class="heading-3">Heading 3</div>
 <div class="heading-4">Heading 4</div>
 <div class="heading-5">Heading 5</div>
-<div class="heading-6">Heading 5</div>
+<div class="heading-6">Heading 6</div>
 ```
  */
 .heading-1 {
@@ -861,9 +1175,16 @@ title: Headings
   color: #333;
   line-height: 1.2;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
 }
 .heading-5 {
+  font-family: serif;
+  color: #333;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 16px;
+}
+.heading-6 {
   font-family: serif;
   color: #333;
   line-height: 1.2;
@@ -1340,6 +1661,7 @@ The spacing defaults below allow for the various combinations listed below. Esse
 /*---
 section: Helpers
 title: Triangle
+height: 20px
 ---
 
 ```example:html
@@ -1394,6 +1716,7 @@ section: Helpers
 title: Buttons
 order: 2
 ---
+Site Buttons
 
 */
 /*---
@@ -1416,8 +1739,8 @@ title: Primary Button
   border: 2px solid transparent;
   vertical-align: middle;
   cursor: pointer;
-  -webkit-transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
+  transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   color: #fff;
 }
 .button:hover,
@@ -1447,8 +1770,8 @@ title: Outline Button
   border: 2px solid rgba(75, 157, 249, 1);
   vertical-align: middle;
   cursor: pointer;
-  -webkit-transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
+  transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   color: rgba(75, 157, 249, 1);
 }
 .button-outline:hover,
@@ -1459,13 +1782,34 @@ title: Outline Button
   color: #fff;
 }
 /*---
+section: Buttons
+title: Button sizes
+---
+```example:html
+<button class="button button-lg">Large Button</button>
+<button class="button button-sm">Small Button</button>
+<button class="button-outline button-lg">Large Button</button>
+<button class="button-outline button-sm">Small Button</button>
+```
+*/
+.button-lg {
+  border-radius: 5px;
+  padding: 16px 20px;
+  font-size: 16px}
+.button-sm {
+  border-radius: 2px;
+  padding: 8px 12px;
+  font-size: 12px}
+/*---
 section: Helpers
 title: Lists
 ---
+Lists
 */
 /*---
 section: Lists
 title: Unstyled
+height: 60px
 ---
 
 ```example:html
@@ -1483,6 +1827,7 @@ title: Unstyled
 /*---
 section: Lists
 title: Inline
+height: 30px
 ---
 
 ```example:html
@@ -1507,12 +1852,13 @@ title: Inline
 section: Helpers
 title: Forms
 ---
+Forms and Inputs
 */
 /*---
 section: Forms
 title: Form
 
-```example:html
+```html
 <form class="form">
 </form>
 ```
@@ -1522,6 +1868,7 @@ title: Form
   /*---
   section: Forms
   title: Labels
+  height: 70px
 
   ```example:html
   <form class="form">
@@ -1534,6 +1881,7 @@ title: Form
   /*---
   section: Forms
   title: Inputs
+  height: 1000px
 
   ```example:html
   <form class="form">
@@ -1578,6 +1926,7 @@ title: Form
   /*---
   section: Forms
   title: Error Text
+  height: 85px
 
   ```example:html
   <form class="form">
@@ -1585,6 +1934,21 @@ title: Form
       <label class="spacing-xs">Some input</label>
       <input class="spacing-xs" type="text" placeholder="Error">
       <small>This field is required</small>
+    </div>
+  </form>
+  ```
+  */
+
+  /*---
+  section: Forms
+  title: Input group
+  height: 60px
+
+  ```example:html
+  <form class="form">
+    <div class="input-group">
+      <input type="text" placeholder="Enter your email">
+      <button class="input-group-btn button">Sign Up</button>
     </div>
   </form>
   ```
@@ -1611,8 +1975,8 @@ title: Form
   .form input[type="time"],
   .form textarea {
   width: 100%;
-  -webkit-transition: box-shadow ease 250ms;
-  transition: box-shadow ease 250ms;
+  -webkit-transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
+  transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
   background-color: #fff;
   border: 0;
   box-shadow: 0 1px 0 0 #333;
@@ -1659,8 +2023,8 @@ title: Form
     .form .error input[type="time"],
     .form .error textarea {
   width: 100%;
-  -webkit-transition: box-shadow ease 250ms;
-  transition: box-shadow ease 250ms;
+  -webkit-transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
+  transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
   background-color: #fff;
   border: 0;
   box-shadow: 0 1px 0 0 red;
@@ -1679,14 +2043,52 @@ title: Form
   border-bottom: 1px dashed red;
   color: gray;
 }
+.form .input-group {
+  font-size: 0;
+}
+.form .input-group input[type="text"],
+    .form .input-group input[type="email"],
+    .form .input-group input[type="password"],
+    .form .input-group input[type="url"],
+    .form .input-group input[type="tel"],
+    .form .input-group input[type="search"],
+    .form .input-group input[type="number"],
+    .form .input-group input[type="date"],
+    .form .input-group input[type="datetime"],
+    .form .input-group input[type="datetime-local"],
+    .form .input-group input[type="month"],
+    .form .input-group input[type="week"],
+    .form .input-group input[type="time"] {
+  display: inline-block;
+  width: inherit;
+  height: 42px;
+  vertical-align: middle;
+  box-shadow: none;
+  margin-right: -1px;
+  padding-right: 14px;
+  padding-left: 14px;
+  border-radius: 3px 0 0 3px;
+  background-color: rgb(241,241,241);
+  font-size: 14px;
+}
+.form .input-group input[type="text"]:focus, .form .input-group input[type="email"]:focus, .form .input-group input[type="password"]:focus, .form .input-group input[type="url"]:focus, .form .input-group input[type="tel"]:focus, .form .input-group input[type="search"]:focus, .form .input-group input[type="number"]:focus, .form .input-group input[type="date"]:focus, .form .input-group input[type="datetime"]:focus, .form .input-group input[type="datetime-local"]:focus, .form .input-group input[type="month"]:focus, .form .input-group input[type="week"]:focus, .form .input-group input[type="time"]:focus {
+  box-shadow: none;
+}
+.form .input-group .input-group-btn {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 0 3px 3px 0;
+}
 /*---
 section: Helpers
 title: Tables
 ---
+Tables
 */
 /*---
 section: Tables
 title: Basic
+height: 100px
 ---
 
 ```example:html
@@ -1754,6 +2156,7 @@ th {
 /*---
 section: Tables
 title: Condensed with half padding
+height: 100px
 ---
 
 ```example:html
@@ -1784,6 +2187,7 @@ title: Condensed with half padding
 /*---
 section: Tables
 title: Bordered version
+height: 100px
 ---
 
 Add borders all around the table and between all the columns.
@@ -1823,6 +2227,7 @@ Add borders all around the table and between all the columns.
 /*---
 section: Tables
 title: Zebra-striping
+height: 100px
 ---
 
 Default zebra-stripe styles (alternating gray and transparent backgrounds)
@@ -1854,6 +2259,7 @@ Default zebra-stripe styles (alternating gray and transparent backgrounds)
 /*---
 section: Tables
 title: Hover effect
+height: 100px
 ---
 
 Placed here since it has to come after the potential zebra striping
@@ -1887,6 +2293,7 @@ Placed here since it has to come after the potential zebra striping
 /*---
 section: Tables
 title: Responsive tables
+height: 100px
 ---
 
 Wrap your tables in `.table-responsive` and we'll make them mobile friendly
@@ -2108,6 +2515,7 @@ title: Tabs
 /*---
 section: Helpers
 title: Clearfix
+height: 50px
 ---
 
 ```example:html
@@ -2128,6 +2536,7 @@ title: Clearfix
 /*---
 section: Helpers
 title: UGC
+height: 510px
 ---
 ```example:html
 <div class="ugc">
@@ -2204,14 +2613,14 @@ title: UGC
   color: #333;
   line-height: 1.2;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
 }
 .ugc h5 {
   font-family: serif;
   color: #333;
   line-height: 1.2;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
 }
 .ugc ul,
   .ugc ol {
@@ -2233,7 +2642,89 @@ title: UGC
 }
 /*---
 section: Helpers
+title: Modal
+height: 500px;
+---
+```example:html
+<a href="#modal-example" class="margin-top-sm button">Show Modal</a>
+<div id="modal-example" class="modal">
+  <a href="#!" class="modal-close"></a> <!-- if you want overlay to close on click -->
+  <div class="modal-content">
+    <a href="#!" class="modal-close">&times</a>
+    <h2 class="heading-2 margin-bottom-sm">This is some title</h2>
+    <p class="margin-bottom-sm">This is the modal content</p>
+    <p class="margin-bottom-sm">Curabitur a fusce hendrerit potenti mi vestibulum volutpat ullamcorper ac mollis ad nunc condimentum dolor a a suscipit ad vestibulum erat netus est id a condimentum vestibulum phasellus. Vestibulum litora lacus ante vitae non scelerisque vivamus facilisi curabitur in feugiat volutpat mus ut suspendisse nostra commodo elementum a fames augue libero mi bibendum. Mattis auctor a facilisi tristique dui class parturi</p>
+    <a href="#!" class="button">Close Me!</a>
+  </div>
+</div>
+
+```
+*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  visibility: hidden;
+  opacity: 0
+}
+.modal .modal-close {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+.modal-content {
+  max-width: 100%;
+  max-height: 100%;
+
+  position: fixed;
+
+  z-index: 100;
+
+  left: 50%;
+  top: 50%;
+
+  /* Use this for centering if unknown width/height */
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 0 60px 10px rgba(0,0,0,0.6);
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px
+}
+.modal-content .modal-close {
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+  opacity: 0.8;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #666;
+}
+.modal-content .modal-close:hover {
+  opacity: 1;
+}
+/*---
+section: Helpers
 title: Tooltip
+height: 100px
 
 ```example:html
 <div class="padding-top-md">
@@ -2300,19 +2791,19 @@ button.tooltip {
   border: 6px solid transparent;
   border-bottom-width: 0;
   border-top-color: rgba(17,17,17,.9);
-  -webkit-transform: translate(-50%; 10px);
-          transform: translate(-50%; 10px);
-  -webkit-transform-origin: top;
-          transform-origin: top;
+  -webkit-transform: translate(-50%, -10px);
+          transform: translate(-50%, -10px);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
 }
 .tooltip-up::after {
   bottom: 100%;
   left: 50%;
   margin-bottom: 10px;
-  -webkit-transform: translate(-50%; 10px);
-          transform: translate(-50%; 10px);
-  -webkit-transform-origin: top;
-          transform-origin: top;
+  -webkit-transform: translate(-50%, -10px);
+          transform: translate(-50%, -10px);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
 }
 .tooltip-up:hover,
     .tooltip-up-visible {
@@ -2335,15 +2826,15 @@ button.tooltip {
   border: 6px solid transparent;
   border-top-width: 0;
   border-bottom-color: rgba(17,17,17,.9);
-  -webkit-transform: translate(-50%; -10px);
-          transform: translate(-50%; -10px);
+  -webkit-transform: translate(-50%, 10px);
+          transform: translate(-50%, 10px);
 }
 .tooltip-down::after {
   top: 100%;
   left: 50%;
   margin-top: 10px;
-  -webkit-transform: translate(-50%; -10px);
-          transform: translate(-50%; -10px);
+  -webkit-transform: translate(-50%, 10px);
+          transform: translate(-50%, 10px);
 }
 .tooltip-down:hover,
     .tooltip-down-visible {
@@ -2366,15 +2857,15 @@ button.tooltip {
   border: 6px solid transparent;
   border-right-width: 0;
   border-left-color: rgba(17,17,17,.9);
-  -webkit-transform: translate(10px; -50%);
-          transform: translate(10px; -50%);
+  -webkit-transform: translate(-10px, -50%);
+          transform: translate(-10px, -50%);
 }
 .tooltip-left::after {
   top: 50%;
   right: 100%;
   margin-right: 10px;
-  -webkit-transform: translate(10px; -50%);
-          transform: translate(10px; -50%);
+  -webkit-transform: translate(-10px, -50%);
+          transform: translate(-10px, -50%);
 }
 .tooltip-left:hover,
     .tooltip-left-visible {
@@ -2396,15 +2887,15 @@ button.tooltip {
   border: 6px solid transparent;
   border-left-width: 0;
   border-right-color: rgba(17,17,17,.9);
-  -webkit-transform: translate(-10px; -50%);
-          transform: translate(-10px; -50%);
+  -webkit-transform: translate(10px, -50%);
+          transform: translate(10px, -50%);
 }
 .tooltip-right::after {
   top: 50%;
   left: 100%;
   margin-left: 10px;
-  -webkit-transform: translate(-10px; -50%);
-          transform: translate(-10px; -50%);
+  -webkit-transform: translate(10px, -50%);
+          transform: translate(10px, -50%);
 }
 .tooltip-right:hover,
     .tooltip-right-visible {
@@ -2419,6 +2910,7 @@ button.tooltip {
 /*---
 section: Helpers
 title: Print
+height: 40px
 ---
 
 Printing with Clientkit takes some basic reset from [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css).
@@ -2455,6 +2947,7 @@ and which are not.
 /*---
 section: Helpers
 title: Messages
+height: 230px
 ---
 ```example:html
 <div class="message-info margin-bottom-sm">This is an info message</div>
@@ -2494,12 +2987,13 @@ title: Messages
 /*---
 section: Helpers
 title: Borders
+height: 400px
 ---
 
 #### Variables
 ```
   border-size: 1px
-  border-radius: 3px
+  border-radius-default: 3px
   color-border: '#ccc'
 ```
 
@@ -2536,6 +3030,146 @@ title: Borders
 }
 .border-bottom {
   border-bottom-width: 1px;
+}
+/*---
+section: Helpers
+title: Dropdown
+---
+
+#### Variables
+```
+  dropdown-bg: '#fff'
+```
+
+#### Example
+```example:html
+<div class="dropdown open">
+  <button class="button dropdown-toggle">Dropdown Button</button>
+  <div class="dropdown-menu" style="min-width: 125px;">
+    <button class="dropdown-item disabled">Disabled Button item</button>
+    <button class="dropdown-item active">Active Button item</button>
+    <a href="" class="dropdown-item">Link item</a>
+    <a href="" class="dropdown-item">Link item</a>
+  </div>
+</div>
+```
+```example:html
+<div class="dropdown open">
+  <button class="button dropdown-toggle">Dropdown Button</button>
+  <div class="dropdown-menu dropdown-menu-right" style="min-width: 125px;">
+    <button class="dropdown-item disabled">Disabled Button item</button>
+    <button class="dropdown-item active">Active Button item</button>
+    <a href="" class="dropdown-item">Link item</a>
+    <a href="" class="dropdown-item">Link item</a>
+  </div>
+</div>
+```
+*/
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-toggle {
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s
+}
+.dropdown-toggle::after {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 4px;
+  margin-left: .25rem;
+  vertical-align: middle;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  content: "";
+  border-top: 8px solid;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-bottom: none;
+  content: '';
+}
+.dropdown-toggle:focus {
+  outline: 0;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  min-width: 160px;
+  margin: 2px 0 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 0;
+  background-color: #fff;
+  background-clip: padding-box;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+}
+.dropdown-item {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  clear: both;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: normal;
+  line-height: 1.1;
+  color: #333;
+  text-align: inherit;
+  white-space: nowrap;
+  background: none;
+  border: 0
+}
+.dropdown-item:hover,
+  .dropdown-item:focus,
+  .dropdown-item:active {
+  color: #666;
+  text-decoration: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+.dropdown-item:active {
+  outline: 0;
+}
+.dropdown-item.disabled {
+}
+.dropdown-item.disabled:hover,
+    .dropdown-item.disabled:focus {
+  background-color: transparent;
+  background-image: none;
+  text-decoration: none;
+  cursor: not-allowed;
+}
+.open {
+}
+.open > .dropdown-toggle::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  content: "";
+  border-bottom: 8px solid;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-top: none;
+}
+.open > .dropdown-menu {
+  display: block;
+}
+.open > a {
+  outline: 0;
+}
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
 }
 /*---
 section: Helpers
@@ -2728,6 +3362,162 @@ hr {
   background-color: #333;
   margin: 0;
   border: 0;
+}
+/*---
+section: Helpers
+title: Menu Slide
+---
+
+### Right Side (default)
+
+```example:html
+<div class="col-9"><h1>ClientKit</h1></div>
+<div class="col-3">
+  <div class="menu-slide">
+    <input id="header-menu" class="menu-btn" type="checkbox" />
+    <label for="header-menu"></label>
+    <div class="menu-container text-right">
+      <nav class="menu-header-container">
+        <a href="">Menu 1</a>
+        <a href="">Menu 2</a>
+        <a href="">Menu 3</a>
+        <a href="">Menu 4</a>
+      </nav>
+    </div>
+  </div>
+</div>
+```
+
+### Left Side
+
+```example:html
+<div class="col-plain">
+  <div class="menu-slide menu-left">
+    <input id="header-menu" class="menu-btn" type="checkbox" />
+    <label for="header-menu"></label>
+    <div class="menu-container">
+      <nav class="menu-header-container">
+        <a href="">Menu 1</a>
+        <a href="">Menu 2</a>
+        <a href="">Menu 3</a>
+        <a href="">Menu 4</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="col-11"><h1>ClientKit</h1></div>
+```
+*/
+.menu-slide {
+}
+.menu-slide .menu-btn {
+  position: absolute;
+  visibility: hidden;
+  width: 28px;
+  height: 28px;
+  margin-left: -999em;
+  -webkit-appearance: none;
+}
+.menu-slide .menu-btn + label {
+  display: block;
+  float: right;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  -webkit-transition: color .3s ease-in-out;
+  transition: color .3s ease-in-out;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.menu-slide .menu-btn + label::after {
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #333;
+  font-family: Arial;
+  font-size: 36px;
+  line-height: 1;
+  content: '\2261';
+}
+.menu-slide .menu-btn:checked {
+}
+.menu-slide .menu-btn:checked + label {
+}
+.menu-slide .menu-btn:checked + label::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  margin: 10px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  padding: 2px 8px 0;
+  color: #fff;
+  content: '\00d7';
+}
+.menu-slide .menu-btn:checked ~ .menu-container {
+  right: 60%;
+  overflow-y: auto;
+}
+.menu-slide .menu-btn ~ .menu-container {
+  position: fixed;
+  top: 0;
+  right: -60%;
+  z-index: 10;
+  width: 60%;
+  height: 100%;
+  box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.25);
+  padding: 20px 0 50px;
+  padding-top: 80px;
+  background-color: #333;
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+  -webkit-transition: right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
+                  -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
+  transition: right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
+                  -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
+  transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
+                  right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms;
+  transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
+                  right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
+                  -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
+}
+.menu-slide.menu-left {
+}
+.menu-slide.menu-left .menu-btn {
+}
+.menu-slide.menu-left .menu-btn + label {
+  float: left;
+}
+.menu-slide.menu-left .menu-btn:checked {
+}
+.menu-slide.menu-left .menu-btn:checked + label::after {
+  right: auto;
+  left: 0;
+}
+.menu-slide.menu-left .menu-btn:checked ~ .menu-container {
+  left: 60%;
+}
+.menu-slide.menu-left .menu-btn ~ .menu-container {
+  right: auto;
+  left: -60%;
+  box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.25);
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+  -webkit-transition: left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
+                    -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
+  transition: left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
+                    -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
+  transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
+                    left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms;
+  transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
+                    left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
+                    -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
 }
 @media (max-width: 1439px) {
   .container {
@@ -2986,6 +3776,279 @@ hr {
   .col-lg-plain {
     padding-right: 0;
     padding-left: 0;
+  }
+  .flex-row-lg-columns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .flex-row-lg-wrap {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .flex-row-lg-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+  .flex-row-lg-columns-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+  .flex-row,
+.flex-row-lg-columns,
+.flex-row-lg-wrap,
+.flex-row-lg-reverse,
+.flex-row-lg-columns-reverse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .flex-lg-left,
+.flex-lg-left-top,
+.flex-lg-left-center,
+.flex-lg-left-bottom,
+.flex-lg-left-stretch {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  .flex-lg-right,
+.flex-lg-right-top,
+.flex-lg-right-center,
+.flex-lg-right-bottom,
+.flex-lg-right-stretch {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+  .flex-lg-center,
+.flex-lg-center-top,
+.flex-lg-center-center,
+.flex-lg-center-bottom,
+.flex-lg-center-stretch {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .flex-lg-space-around,
+.flex-lg-space-around-top,
+.flex-lg-space-around-center,
+.flex-lg-space-around-bottom,
+.flex-lg-space-around-stretch {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  .flex-lg-space-between,
+.flex-lg-space-between-top,
+.flex-lg-space-between-center,
+.flex-lg-space-between-bottom,
+.flex-lg-space-between-stretch {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  .flex-lg-left-top,
+.flex-lg-right-top,
+.flex-lg-center-top,
+.flex-lg-space-around-top,
+.flex-lg-space-between-top {
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;
+    align-items: flex-start;
+  }
+  .flex-lg-left-center,
+.flex-lg-right-center,
+.flex-lg-center-center,
+.flex-lg-space-around-center,
+.flex-lg-space-between-center {
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+  }
+  .flex-lg-left-bottom,
+.flex-lg-right-bottom,
+.flex-lg-center-bottom,
+.flex-lg-space-around-bottom,
+.flex-lg-space-between-bottom {
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+  }
+  .flex-lg-left-stretch,
+.flex-lg-right-stretch,
+.flex-lg-center-stretch,
+.flex-lg-space-around-stretch,
+.flex-lg-space-between-stretch {
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-items: stretch;
+  }
+  .flex-lg-order-first {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+  }
+  .flex-lg-order-last {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .flex-lg-shrink {
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+  .flex-lg-no-shrink {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+  .flex-lg-grow {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+  .flex-lg-no-grow {
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+  }
+  .flex-lg-1 {
+    -ms-flex-preferred-size: 8.333333333333334%;
+    flex-basis: 8.333333333333334%;
+  }
+  .flex-lg-offset-1 {
+    margin-left: 8.333333333333334%;
+  }
+  .flex-lg-suffix-1 {
+    margin-right: 8.333333333333334%;
+  }
+  .flex-lg-2 {
+    -ms-flex-preferred-size: 16.666666666666668%;
+    flex-basis: 16.666666666666668%;
+  }
+  .flex-lg-offset-2 {
+    margin-left: 16.666666666666668%;
+  }
+  .flex-lg-suffix-2 {
+    margin-right: 16.666666666666668%;
+  }
+  .flex-lg-3 {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+  }
+  .flex-lg-offset-3 {
+    margin-left: 25%;
+  }
+  .flex-lg-suffix-3 {
+    margin-right: 25%;
+  }
+  .flex-lg-4 {
+    -ms-flex-preferred-size: 33.333333333333336%;
+    flex-basis: 33.333333333333336%;
+  }
+  .flex-lg-offset-4 {
+    margin-left: 33.333333333333336%;
+  }
+  .flex-lg-suffix-4 {
+    margin-right: 33.333333333333336%;
+  }
+  .flex-lg-5 {
+    -ms-flex-preferred-size: 41.66666666666667%;
+    flex-basis: 41.66666666666667%;
+  }
+  .flex-lg-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .flex-lg-suffix-5 {
+    margin-right: 41.66666666666667%;
+  }
+  .flex-lg-6 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+  .flex-lg-offset-6 {
+    margin-left: 50%;
+  }
+  .flex-lg-suffix-6 {
+    margin-right: 50%;
+  }
+  .flex-lg-7 {
+    -ms-flex-preferred-size: 58.333333333333336%;
+    flex-basis: 58.333333333333336%;
+  }
+  .flex-lg-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .flex-lg-suffix-7 {
+    margin-right: 58.333333333333336%;
+  }
+  .flex-lg-8 {
+    -ms-flex-preferred-size: 66.66666666666667%;
+    flex-basis: 66.66666666666667%;
+  }
+  .flex-lg-offset-8 {
+    margin-left: 66.66666666666667%;
+  }
+  .flex-lg-suffix-8 {
+    margin-right: 66.66666666666667%;
+  }
+  .flex-lg-9 {
+    -ms-flex-preferred-size: 75%;
+    flex-basis: 75%;
+  }
+  .flex-lg-offset-9 {
+    margin-left: 75%;
+  }
+  .flex-lg-suffix-9 {
+    margin-right: 75%;
+  }
+  .flex-lg-10 {
+    -ms-flex-preferred-size: 83.33333333333334%;
+    flex-basis: 83.33333333333334%;
+  }
+  .flex-lg-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .flex-lg-suffix-10 {
+    margin-right: 83.33333333333334%;
+  }
+  .flex-lg-11 {
+    -ms-flex-preferred-size: 91.66666666666667%;
+    flex-basis: 91.66666666666667%;
+  }
+  .flex-lg-offset-11 {
+    margin-left: 91.66666666666667%;
+  }
+  .flex-lg-suffix-11 {
+    margin-right: 91.66666666666667%;
+  }
+  .flex-lg-12 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .flex-lg-offset-12 {
+    margin-left: 100%;
+  }
+  .flex-lg-suffix-12 {
+    margin-right: 100%;
   }
   .hide-lg {
     display: none !important;
@@ -3312,6 +4375,279 @@ hr {
     padding-right: 0;
     padding-left: 0;
   }
+  .flex-row-md-columns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .flex-row-md-wrap {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .flex-row-md-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+  .flex-row-md-columns-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+  .flex-row,
+.flex-row-md-columns,
+.flex-row-md-wrap,
+.flex-row-md-reverse,
+.flex-row-md-columns-reverse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .flex-md-left,
+.flex-md-left-top,
+.flex-md-left-center,
+.flex-md-left-bottom,
+.flex-md-left-stretch {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  .flex-md-right,
+.flex-md-right-top,
+.flex-md-right-center,
+.flex-md-right-bottom,
+.flex-md-right-stretch {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+  .flex-md-center,
+.flex-md-center-top,
+.flex-md-center-center,
+.flex-md-center-bottom,
+.flex-md-center-stretch {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .flex-md-space-around,
+.flex-md-space-around-top,
+.flex-md-space-around-center,
+.flex-md-space-around-bottom,
+.flex-md-space-around-stretch {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  .flex-md-space-between,
+.flex-md-space-between-top,
+.flex-md-space-between-center,
+.flex-md-space-between-bottom,
+.flex-md-space-between-stretch {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  .flex-md-left-top,
+.flex-md-right-top,
+.flex-md-center-top,
+.flex-md-space-around-top,
+.flex-md-space-between-top {
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;
+    align-items: flex-start;
+  }
+  .flex-md-left-center,
+.flex-md-right-center,
+.flex-md-center-center,
+.flex-md-space-around-center,
+.flex-md-space-between-center {
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+  }
+  .flex-md-left-bottom,
+.flex-md-right-bottom,
+.flex-md-center-bottom,
+.flex-md-space-around-bottom,
+.flex-md-space-between-bottom {
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+  }
+  .flex-md-left-stretch,
+.flex-md-right-stretch,
+.flex-md-center-stretch,
+.flex-md-space-around-stretch,
+.flex-md-space-between-stretch {
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-items: stretch;
+  }
+  .flex-md-order-first {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+  }
+  .flex-md-order-last {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .flex-md-shrink {
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+  .flex-md-no-shrink {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+  .flex-md-grow {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+  .flex-md-no-grow {
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+  }
+  .flex-md-1 {
+    -ms-flex-preferred-size: 8.333333333333334%;
+    flex-basis: 8.333333333333334%;
+  }
+  .flex-md-offset-1 {
+    margin-left: 8.333333333333334%;
+  }
+  .flex-md-suffix-1 {
+    margin-right: 8.333333333333334%;
+  }
+  .flex-md-2 {
+    -ms-flex-preferred-size: 16.666666666666668%;
+    flex-basis: 16.666666666666668%;
+  }
+  .flex-md-offset-2 {
+    margin-left: 16.666666666666668%;
+  }
+  .flex-md-suffix-2 {
+    margin-right: 16.666666666666668%;
+  }
+  .flex-md-3 {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+  }
+  .flex-md-offset-3 {
+    margin-left: 25%;
+  }
+  .flex-md-suffix-3 {
+    margin-right: 25%;
+  }
+  .flex-md-4 {
+    -ms-flex-preferred-size: 33.333333333333336%;
+    flex-basis: 33.333333333333336%;
+  }
+  .flex-md-offset-4 {
+    margin-left: 33.333333333333336%;
+  }
+  .flex-md-suffix-4 {
+    margin-right: 33.333333333333336%;
+  }
+  .flex-md-5 {
+    -ms-flex-preferred-size: 41.66666666666667%;
+    flex-basis: 41.66666666666667%;
+  }
+  .flex-md-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .flex-md-suffix-5 {
+    margin-right: 41.66666666666667%;
+  }
+  .flex-md-6 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+  .flex-md-offset-6 {
+    margin-left: 50%;
+  }
+  .flex-md-suffix-6 {
+    margin-right: 50%;
+  }
+  .flex-md-7 {
+    -ms-flex-preferred-size: 58.333333333333336%;
+    flex-basis: 58.333333333333336%;
+  }
+  .flex-md-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .flex-md-suffix-7 {
+    margin-right: 58.333333333333336%;
+  }
+  .flex-md-8 {
+    -ms-flex-preferred-size: 66.66666666666667%;
+    flex-basis: 66.66666666666667%;
+  }
+  .flex-md-offset-8 {
+    margin-left: 66.66666666666667%;
+  }
+  .flex-md-suffix-8 {
+    margin-right: 66.66666666666667%;
+  }
+  .flex-md-9 {
+    -ms-flex-preferred-size: 75%;
+    flex-basis: 75%;
+  }
+  .flex-md-offset-9 {
+    margin-left: 75%;
+  }
+  .flex-md-suffix-9 {
+    margin-right: 75%;
+  }
+  .flex-md-10 {
+    -ms-flex-preferred-size: 83.33333333333334%;
+    flex-basis: 83.33333333333334%;
+  }
+  .flex-md-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .flex-md-suffix-10 {
+    margin-right: 83.33333333333334%;
+  }
+  .flex-md-11 {
+    -ms-flex-preferred-size: 91.66666666666667%;
+    flex-basis: 91.66666666666667%;
+  }
+  .flex-md-offset-11 {
+    margin-left: 91.66666666666667%;
+  }
+  .flex-md-suffix-11 {
+    margin-right: 91.66666666666667%;
+  }
+  .flex-md-12 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .flex-md-offset-12 {
+    margin-left: 100%;
+  }
+  .flex-md-suffix-12 {
+    margin-right: 100%;
+  }
   .hide-md {
     display: none !important;
   }
@@ -3637,6 +4973,279 @@ hr {
     padding-right: 0;
     padding-left: 0;
   }
+  .flex-row-sm-columns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .flex-row-sm-wrap {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .flex-row-sm-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+  .flex-row-sm-columns-reverse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+  .flex-row,
+.flex-row-sm-columns,
+.flex-row-sm-wrap,
+.flex-row-sm-reverse,
+.flex-row-sm-columns-reverse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .flex-sm-left,
+.flex-sm-left-top,
+.flex-sm-left-center,
+.flex-sm-left-bottom,
+.flex-sm-left-stretch {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  .flex-sm-right,
+.flex-sm-right-top,
+.flex-sm-right-center,
+.flex-sm-right-bottom,
+.flex-sm-right-stretch {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+  .flex-sm-center,
+.flex-sm-center-top,
+.flex-sm-center-center,
+.flex-sm-center-bottom,
+.flex-sm-center-stretch {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .flex-sm-space-around,
+.flex-sm-space-around-top,
+.flex-sm-space-around-center,
+.flex-sm-space-around-bottom,
+.flex-sm-space-around-stretch {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  .flex-sm-space-between,
+.flex-sm-space-between-top,
+.flex-sm-space-between-center,
+.flex-sm-space-between-bottom,
+.flex-sm-space-between-stretch {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  .flex-sm-left-top,
+.flex-sm-right-top,
+.flex-sm-center-top,
+.flex-sm-space-around-top,
+.flex-sm-space-between-top {
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;
+    align-items: flex-start;
+  }
+  .flex-sm-left-center,
+.flex-sm-right-center,
+.flex-sm-center-center,
+.flex-sm-space-around-center,
+.flex-sm-space-between-center {
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+  }
+  .flex-sm-left-bottom,
+.flex-sm-right-bottom,
+.flex-sm-center-bottom,
+.flex-sm-space-around-bottom,
+.flex-sm-space-between-bottom {
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+  }
+  .flex-sm-left-stretch,
+.flex-sm-right-stretch,
+.flex-sm-center-stretch,
+.flex-sm-space-around-stretch,
+.flex-sm-space-between-stretch {
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    -ms-grid-row-align: stretch;
+    align-items: stretch;
+  }
+  .flex-sm-order-first {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+  }
+  .flex-sm-order-last {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .flex-sm-shrink {
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+  .flex-sm-no-shrink {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+  .flex-sm-grow {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+  .flex-sm-no-grow {
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+  }
+  .flex-sm-1 {
+    -ms-flex-preferred-size: 8.333333333333334%;
+    flex-basis: 8.333333333333334%;
+  }
+  .flex-sm-offset-1 {
+    margin-left: 8.333333333333334%;
+  }
+  .flex-sm-suffix-1 {
+    margin-right: 8.333333333333334%;
+  }
+  .flex-sm-2 {
+    -ms-flex-preferred-size: 16.666666666666668%;
+    flex-basis: 16.666666666666668%;
+  }
+  .flex-sm-offset-2 {
+    margin-left: 16.666666666666668%;
+  }
+  .flex-sm-suffix-2 {
+    margin-right: 16.666666666666668%;
+  }
+  .flex-sm-3 {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+  }
+  .flex-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .flex-sm-suffix-3 {
+    margin-right: 25%;
+  }
+  .flex-sm-4 {
+    -ms-flex-preferred-size: 33.333333333333336%;
+    flex-basis: 33.333333333333336%;
+  }
+  .flex-sm-offset-4 {
+    margin-left: 33.333333333333336%;
+  }
+  .flex-sm-suffix-4 {
+    margin-right: 33.333333333333336%;
+  }
+  .flex-sm-5 {
+    -ms-flex-preferred-size: 41.66666666666667%;
+    flex-basis: 41.66666666666667%;
+  }
+  .flex-sm-offset-5 {
+    margin-left: 41.66666666666667%;
+  }
+  .flex-sm-suffix-5 {
+    margin-right: 41.66666666666667%;
+  }
+  .flex-sm-6 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+  }
+  .flex-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .flex-sm-suffix-6 {
+    margin-right: 50%;
+  }
+  .flex-sm-7 {
+    -ms-flex-preferred-size: 58.333333333333336%;
+    flex-basis: 58.333333333333336%;
+  }
+  .flex-sm-offset-7 {
+    margin-left: 58.333333333333336%;
+  }
+  .flex-sm-suffix-7 {
+    margin-right: 58.333333333333336%;
+  }
+  .flex-sm-8 {
+    -ms-flex-preferred-size: 66.66666666666667%;
+    flex-basis: 66.66666666666667%;
+  }
+  .flex-sm-offset-8 {
+    margin-left: 66.66666666666667%;
+  }
+  .flex-sm-suffix-8 {
+    margin-right: 66.66666666666667%;
+  }
+  .flex-sm-9 {
+    -ms-flex-preferred-size: 75%;
+    flex-basis: 75%;
+  }
+  .flex-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .flex-sm-suffix-9 {
+    margin-right: 75%;
+  }
+  .flex-sm-10 {
+    -ms-flex-preferred-size: 83.33333333333334%;
+    flex-basis: 83.33333333333334%;
+  }
+  .flex-sm-offset-10 {
+    margin-left: 83.33333333333334%;
+  }
+  .flex-sm-suffix-10 {
+    margin-right: 83.33333333333334%;
+  }
+  .flex-sm-11 {
+    -ms-flex-preferred-size: 91.66666666666667%;
+    flex-basis: 91.66666666666667%;
+  }
+  .flex-sm-offset-11 {
+    margin-left: 91.66666666666667%;
+  }
+  .flex-sm-suffix-11 {
+    margin-right: 91.66666666666667%;
+  }
+  .flex-sm-12 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .flex-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .flex-sm-suffix-12 {
+    margin-right: 100%;
+  }
   .heading-1 {
     font-size: 30px;
   }
@@ -3647,10 +5256,13 @@ hr {
     font-size: 20px;
   }
   .heading-4 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .heading-5 {
     font-size: 14px;
+  }
+  .heading-6 {
+    font-size: 12px;
   }
   .hide-sm {
     display: none !important;
@@ -3668,10 +5280,24 @@ hr {
     font-size: 20px;
   }
   .ugc h4 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .ugc h5 {
     font-size: 14px;
+  }
+  .modal-content {
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .modal-content .modal-close {
+    top: 2px;
+    right: 2px;
   }
   .row-sm-carousel {
     width: 100%;
