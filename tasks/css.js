@@ -151,8 +151,8 @@ class CssTask {
     } else {
       inputCss = input;
     }
-    const to = outputName ? outputName : 'temp.css';
-    postcss(processes).process(inputCss, { from: input, to: to, map: { inline: false } })
+    const to = outputName || 'temp.css';
+    postcss(processes).process(inputCss, { from: input, to, map: { inline: false } })
     .then(result => {
       if (result.messages) {
         result.messages.forEach(message => {
