@@ -1,3 +1,4 @@
+'use strict';
 const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
 const Logr = require('logr');
@@ -6,18 +7,18 @@ const log = new Logr({
   type: 'cli',
   renderOptions: {
     cli: {
-      lineColor: 'blue'
+      lineColor: 'red'
     }
   }
 });
 
 module.exports = function(conf, base) {
-  const start = new Date().getTime();
   const cli = new CLIEngine({
     useEslintrc: false,
-    configFile: conf.core.eslint
+    configFile: conf.core.eslint,
+    ignorePattern: conf.core.eslintIgnore
   });
-  const results = cli.executeOnFiles(['!(dist)**/*.js']).results;
+  const results = cli.executeOnFiles(conf.core.watch.scripts).results;
   // if any errors, print them:
   let errorsExist = false;
   let warningsExist = false;

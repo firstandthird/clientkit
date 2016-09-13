@@ -16,6 +16,9 @@ core:
     yaml:
       - '{{CONFIGDIR}}/*.yaml'
   eslint: 'eslint-config-firstandthird'
+  eslintIgnore:
+    - 'node_modules'
+    - '{{core.dist}}'
   fontParsingWhitelist: 'default.css'
   #TODO: put this in a better place
   globalBabel: true
