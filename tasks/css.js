@@ -1,5 +1,6 @@
 'use strict';
 
+const bytesize = require('bytesize');
 const fs = require('fs');
 const path = require('path');
 const postcss = require('postcss');
@@ -189,8 +190,8 @@ class CssTask {
     const output = path.join(this.config.core.dist, outputName);
     fs.writeFileSync(output, this.result.css);
     fs.writeFileSync(`${output}.map`, this.result.map);
-    log(`Wrote: ${this.input} → ${output}`);
-    log(`Wrote: ${this.input}.map → ${output}.map`);
+    log(`Wrote: ${this.input} → ${output} (${bytesize.stringSize(this.result.css, true)}), `);
+    log(`Wrote: ${this.input}.map → ${output}.map (${bytesize.stringSize(this.result.map, true)})`);
   }
 
 }
