@@ -191,7 +191,7 @@ class CssTask {
     fs.writeFileSync(output, this.result.css);
     fs.writeFileSync(`${output}.map`, this.result.map);
     log(`Wrote: ${this.input} → ${output} (${bytesize.stringSize(this.result.css, true)}), `);
-    log(`Wrote: ${this.input}.map → ${output}.map (${bytesize.stringSize(this.result.map, true)})`);
+    log(`Wrote: ${this.input}.map → ${output}.map`);
   }
 
 }
