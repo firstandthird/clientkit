@@ -1,5 +1,6 @@
 'use strict';
 
+const bytesize = require('bytesize');
 const fs = require('fs');
 const path = require('path');
 const Browserify = require('browserify');
@@ -33,7 +34,9 @@ module.exports = function(conf, base, outputName, input) {
     }
     const end = new Date().getTime();
     const duration = (end - start) / 1000;
-    log(`Processed: ${input} → ${output} in ${duration} sec`);
+    bytesize.fileSize(output, true, function(err, size) {
+      log(`Processed: ${input} → ${output} (${size}) in ${duration} sec, `);
+    });
   });
 
   const b = new Browserify({
