@@ -1,4 +1,10 @@
 
+0.15.0 / 2016-09-16
+==================
+
+  * added option for setting autoprefixer browsers. added ios 8,9 by default
+  * shows file size in bytes for output files
+
 0.14.0 / 2016-09-13
 ==================
 
