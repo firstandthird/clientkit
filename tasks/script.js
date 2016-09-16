@@ -35,7 +35,10 @@ module.exports = function(conf, base, outputName, input) {
     }
     const end = new Date().getTime();
     const duration = (end - start) / 1000;
-    bytesize.fileSize(output, true, function(err, size) {
+    bytesize.fileSize(output, true, (err, size) => {
+      if (err) {
+        throw err;
+      }
       log(`Processed: ${input} → ${output} (${size}) in ${duration} sec, `);
     });
   });
@@ -59,12 +62,13 @@ module.exports = function(conf, base, outputName, input) {
   if (conf.core.minify) {
     currentTransform = currentTransform.transform(uglifyify, { global: true });
   }
+
   currentTransform
-  .bundle()
-  .on('error', function (err) {
-    log(['error'], err);
-    this.emit('end');
-  })
-  .pipe(exorcist(`${output}.map`))
-  .pipe(fileStream);
+    .bundle()
+    .on('error', function (err) {
+      log(['error'], err);
+      this.emit('end');
+    })
+    .pipe(exorcist(`${output}.map`))
+    .pipe(fileStream);
 };
