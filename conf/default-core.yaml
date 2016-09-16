@@ -29,3 +29,6 @@ autoprefixer:
     - 'iOS 8'
     - 'iOS 9'
 
+scriptConfig:
+  shim: false
+  babelIgnore: null

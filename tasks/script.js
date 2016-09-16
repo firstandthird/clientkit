@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const Browserify = require('browserify');
 const babelify = require('babelify');
+const shim = require('browserify-shim');
 const exorcist = require('exorcist');
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
@@ -44,7 +45,17 @@ module.exports = function(conf, base, outputName, input) {
     debug: true
   });
 
-  let currentTransform = b.transform(babelify, { global: conf.core.globalBabel, presets: [bes2015], plugins: [] });
+  if (conf.scriptConfig.shim) {
+    b.transform(shim);
+  }
+
+  let currentTransform = b.transform(babelify, {
+    global: conf.core.globalBabel,
+    presets: [bes2015],
+    plugins: [],
+    ignore: conf.scriptConfig.babelIgnore
+  });
+
   if (conf.core.minify) {
     currentTransform = currentTransform.transform(uglifyify, { global: true });
   }
