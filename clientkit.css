@@ -859,29 +859,27 @@ Add as many to this example and they will size accordingly
 
 */
 .flex {
-  -webkit-box-flex: 1;
+  -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 .flex-row-columns {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 .flex-row-wrap {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 .flex-row-reverse {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
 }
 .flex-row-columns-reverse {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
+  -webkit-flex-direction: column-reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
 }
@@ -890,7 +888,7 @@ Add as many to this example and they will size accordingly
 .flex-row-wrap,
 .flex-row-reverse,
 .flex-row-columns-reverse {
-  display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin-left: -15px;
@@ -901,7 +899,7 @@ Add as many to this example and they will size accordingly
 .flex-left-center,
 .flex-left-bottom,
 .flex-left-stretch {
-  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
@@ -910,7 +908,7 @@ Add as many to this example and they will size accordingly
 .flex-right-center,
 .flex-right-bottom,
 .flex-right-stretch {
-  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
@@ -919,7 +917,7 @@ Add as many to this example and they will size accordingly
 .flex-center-center,
 .flex-center-bottom,
 .flex-center-stretch {
-  -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
@@ -928,15 +926,16 @@ Add as many to this example and they will size accordingly
 .flex-space-around-center,
 .flex-space-around-bottom,
 .flex-space-around-stretch {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
 }
 .flex-space-between,
 .flex-space-between-top,
 .flex-space-between-center,
 .flex-space-between-bottom,
 .flex-space-between-stretch {
-  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
@@ -945,9 +944,10 @@ Add as many to this example and they will size accordingly
 .flex-center-top,
 .flex-space-around-top,
 .flex-space-between-top {
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
-  -webkit-box-align: start;
+  -webkit-align-content: flex-start;
+      -ms-flex-line-pack: start;
+          align-content: flex-start;
+  -webkit-align-items: flex-start;
       -ms-flex-align: start;
               -ms-grid-row-align: flex-start;
           align-items: flex-start;
@@ -957,9 +957,10 @@ Add as many to this example and they will size accordingly
 .flex-center-center,
 .flex-space-around-center,
 .flex-space-between-center {
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+  -webkit-align-items: center;
       -ms-flex-align: center;
               -ms-grid-row-align: center;
           align-items: center;
@@ -969,9 +970,10 @@ Add as many to this example and they will size accordingly
 .flex-center-bottom,
 .flex-space-around-bottom,
 .flex-space-between-bottom {
-  -ms-flex-line-pack: end;
-      align-content: flex-end;
-  -webkit-box-align: end;
+  -webkit-align-content: flex-end;
+      -ms-flex-line-pack: end;
+          align-content: flex-end;
+  -webkit-align-items: flex-end;
       -ms-flex-align: end;
               -ms-grid-row-align: flex-end;
           align-items: flex-end;
@@ -981,44 +983,48 @@ Add as many to this example and they will size accordingly
 .flex-center-stretch,
 .flex-space-around-stretch,
 .flex-space-between-stretch {
-  -ms-flex-line-pack: stretch;
-      align-content: stretch;
-  -webkit-box-align: stretch;
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+  -webkit-align-items: stretch;
       -ms-flex-align: stretch;
               -ms-grid-row-align: stretch;
           align-items: stretch;
 }
 .flex-order-first {
-  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
       -ms-flex-order: -1;
           order: -1;
 }
 .flex-order-last {
-  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
       -ms-flex-order: 1;
           order: 1;
 }
 .flex-shrink {
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
 }
 .flex-no-shrink {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
 }
 .flex-grow {
-  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
 .flex-no-grow {
-  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
 }
 .flex-1 {
-  -ms-flex-preferred-size: 8.333333333333334%;
-      flex-basis: 8.333333333333334%;
+  -webkit-flex-basis: 8.333333333333334%;
+      -ms-flex-preferred-size: 8.333333333333334%;
+          flex-basis: 8.333333333333334%;
 }
 .flex-offset-1 {
   margin-left: 8.333333333333334%;
@@ -1027,8 +1033,9 @@ Add as many to this example and they will size accordingly
   margin-right: 8.333333333333334%;
 }
 .flex-2 {
-  -ms-flex-preferred-size: 16.666666666666668%;
-      flex-basis: 16.666666666666668%;
+  -webkit-flex-basis: 16.666666666666668%;
+      -ms-flex-preferred-size: 16.666666666666668%;
+          flex-basis: 16.666666666666668%;
 }
 .flex-offset-2 {
   margin-left: 16.666666666666668%;
@@ -1037,8 +1044,9 @@ Add as many to this example and they will size accordingly
   margin-right: 16.666666666666668%;
 }
 .flex-3 {
-  -ms-flex-preferred-size: 25%;
-      flex-basis: 25%;
+  -webkit-flex-basis: 25%;
+      -ms-flex-preferred-size: 25%;
+          flex-basis: 25%;
 }
 .flex-offset-3 {
   margin-left: 25%;
@@ -1047,8 +1055,9 @@ Add as many to this example and they will size accordingly
   margin-right: 25%;
 }
 .flex-4 {
-  -ms-flex-preferred-size: 33.333333333333336%;
-      flex-basis: 33.333333333333336%;
+  -webkit-flex-basis: 33.333333333333336%;
+      -ms-flex-preferred-size: 33.333333333333336%;
+          flex-basis: 33.333333333333336%;
 }
 .flex-offset-4 {
   margin-left: 33.333333333333336%;
@@ -1057,8 +1066,9 @@ Add as many to this example and they will size accordingly
   margin-right: 33.333333333333336%;
 }
 .flex-5 {
-  -ms-flex-preferred-size: 41.66666666666667%;
-      flex-basis: 41.66666666666667%;
+  -webkit-flex-basis: 41.66666666666667%;
+      -ms-flex-preferred-size: 41.66666666666667%;
+          flex-basis: 41.66666666666667%;
 }
 .flex-offset-5 {
   margin-left: 41.66666666666667%;
@@ -1067,8 +1077,9 @@ Add as many to this example and they will size accordingly
   margin-right: 41.66666666666667%;
 }
 .flex-6 {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -webkit-flex-basis: 50%;
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
 }
 .flex-offset-6 {
   margin-left: 50%;
@@ -1077,8 +1088,9 @@ Add as many to this example and they will size accordingly
   margin-right: 50%;
 }
 .flex-7 {
-  -ms-flex-preferred-size: 58.333333333333336%;
-      flex-basis: 58.333333333333336%;
+  -webkit-flex-basis: 58.333333333333336%;
+      -ms-flex-preferred-size: 58.333333333333336%;
+          flex-basis: 58.333333333333336%;
 }
 .flex-offset-7 {
   margin-left: 58.333333333333336%;
@@ -1087,8 +1099,9 @@ Add as many to this example and they will size accordingly
   margin-right: 58.333333333333336%;
 }
 .flex-8 {
-  -ms-flex-preferred-size: 66.66666666666667%;
-      flex-basis: 66.66666666666667%;
+  -webkit-flex-basis: 66.66666666666667%;
+      -ms-flex-preferred-size: 66.66666666666667%;
+          flex-basis: 66.66666666666667%;
 }
 .flex-offset-8 {
   margin-left: 66.66666666666667%;
@@ -1097,8 +1110,9 @@ Add as many to this example and they will size accordingly
   margin-right: 66.66666666666667%;
 }
 .flex-9 {
-  -ms-flex-preferred-size: 75%;
-      flex-basis: 75%;
+  -webkit-flex-basis: 75%;
+      -ms-flex-preferred-size: 75%;
+          flex-basis: 75%;
 }
 .flex-offset-9 {
   margin-left: 75%;
@@ -1107,8 +1121,9 @@ Add as many to this example and they will size accordingly
   margin-right: 75%;
 }
 .flex-10 {
-  -ms-flex-preferred-size: 83.33333333333334%;
-      flex-basis: 83.33333333333334%;
+  -webkit-flex-basis: 83.33333333333334%;
+      -ms-flex-preferred-size: 83.33333333333334%;
+          flex-basis: 83.33333333333334%;
 }
 .flex-offset-10 {
   margin-left: 83.33333333333334%;
@@ -1117,8 +1132,9 @@ Add as many to this example and they will size accordingly
   margin-right: 83.33333333333334%;
 }
 .flex-11 {
-  -ms-flex-preferred-size: 91.66666666666667%;
-      flex-basis: 91.66666666666667%;
+  -webkit-flex-basis: 91.66666666666667%;
+      -ms-flex-preferred-size: 91.66666666666667%;
+          flex-basis: 91.66666666666667%;
 }
 .flex-offset-11 {
   margin-left: 91.66666666666667%;
@@ -1127,8 +1143,9 @@ Add as many to this example and they will size accordingly
   margin-right: 91.66666666666667%;
 }
 .flex-12 {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
 }
 .flex-offset-12 {
   margin-left: 100%;
@@ -1739,7 +1756,6 @@ title: Primary Button
   border: 2px solid transparent;
   vertical-align: middle;
   cursor: pointer;
-  -webkit-transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   color: #fff;
 }
@@ -1770,7 +1786,6 @@ title: Outline Button
   border: 2px solid rgba(75, 157, 249, 1);
   vertical-align: middle;
   cursor: pointer;
-  -webkit-transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   color: rgba(75, 157, 249, 1);
 }
@@ -1975,7 +1990,6 @@ title: Form
   .form input[type="time"],
   .form textarea {
   width: 100%;
-  -webkit-transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
   transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
   background-color: #fff;
   border: 0;
@@ -2023,7 +2037,6 @@ title: Form
     .form .error input[type="time"],
     .form .error textarea {
   width: 100%;
-  -webkit-transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
   transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
   background-color: #fff;
   border: 0;
@@ -2375,11 +2388,12 @@ title: Tabs
 ```
 */
 .tabs {
-  display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   max-width: 100%;
   position: relative;
   list-style: none;
@@ -2405,7 +2419,7 @@ title: Tabs
 .tabs .tab + label {
   box-sizing: border-box;
   display: block;
-  -webkit-box-flex: 3;
+  -webkit-flex-grow: 3;
       -ms-flex-positive: 3;
           flex-grow: 3;
   border-radius: 6px 6px 0 0;
@@ -2433,7 +2447,6 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
 }
 .tabs .tab:checked:nth-of-type(2) ~ .tab-content:nth-of-type(2) {
@@ -2443,7 +2456,6 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
 }
 .tabs .tab:checked:nth-of-type(3) ~ .tab-content:nth-of-type(3) {
@@ -2453,7 +2465,6 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
 }
 .tabs .tab:checked:nth-of-type(4) ~ .tab-content:nth-of-type(4) {
@@ -2463,7 +2474,6 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
 }
 .tabs .tab:checked:nth-of-type(5) ~ .tab-content:nth-of-type(5) {
@@ -2473,7 +2483,6 @@ title: Tabs
   opacity: 1;
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
-  -webkit-transition: 0.5s opacity ease-in, 0.8s transform ease;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
 }
 .pull-left {
@@ -2667,7 +2676,6 @@ height: 500px;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.5);
-  -webkit-transition: opacity 200ms;
   transition: opacity 200ms;
   visibility: hidden;
   opacity: 0
@@ -2711,7 +2719,6 @@ height: 500px;
   top: 10px;
   right: 10px;
   opacity: 0.8;
-  -webkit-transition: opacity 200ms;
   transition: opacity 200ms;
   font-size: 24px;
   font-weight: bold;
@@ -2747,7 +2754,6 @@ button.tooltip {
   opacity: 0;
   content: ' ';
   pointer-events: none;
-  -webkit-transition: all .18s ease-out .18s;
   transition: all .18s ease-out .18s;
 }
 .tooltip::after {
@@ -2762,7 +2768,6 @@ button.tooltip {
   white-space: nowrap;
   content: attr(data-tooltip-title);
   pointer-events: none;
-  -webkit-transition: all .18s ease-out .18s;
   transition: all .18s ease-out .18s;
 }
 .tooltip:hover,
@@ -3070,7 +3075,6 @@ title: Dropdown
   position: relative;
 }
 .dropdown-toggle {
-  -webkit-transition: all ease .5s;
   transition: all ease .5s
 }
 .dropdown-toggle::after {
@@ -3424,7 +3428,6 @@ title: Menu Slide
   width: 28px;
   height: 28px;
   margin: 0;
-  -webkit-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
   cursor: pointer;
   -webkit-user-select: none;
@@ -3477,8 +3480,6 @@ title: Menu Slide
   background-color: #333;
   -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
-  -webkit-transition: right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
-                  -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   transition: right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
                   -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
@@ -3509,8 +3510,6 @@ title: Menu Slide
   box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.25);
   -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
-  -webkit-transition: left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
-                    -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   transition: left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
                     -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
   transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
@@ -3778,24 +3777,22 @@ title: Menu Slide
     padding-left: 0;
   }
   .flex-row-lg-columns {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
   }
   .flex-row-lg-wrap {
+    -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
   .flex-row-lg-reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
   }
   .flex-row-lg-columns-reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
@@ -3804,7 +3801,7 @@ title: Menu Slide
 .flex-row-lg-wrap,
 .flex-row-lg-reverse,
 .flex-row-lg-columns-reverse {
-    display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     margin-left: -15px;
@@ -3815,7 +3812,7 @@ title: Menu Slide
 .flex-lg-left-center,
 .flex-lg-left-bottom,
 .flex-lg-left-stretch {
-    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
     justify-content: flex-start;
   }
@@ -3824,7 +3821,7 @@ title: Menu Slide
 .flex-lg-right-center,
 .flex-lg-right-bottom,
 .flex-lg-right-stretch {
-    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
     justify-content: flex-end;
   }
@@ -3833,7 +3830,7 @@ title: Menu Slide
 .flex-lg-center-center,
 .flex-lg-center-bottom,
 .flex-lg-center-stretch {
-    -webkit-box-pack: center;
+    -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
@@ -3842,6 +3839,7 @@ title: Menu Slide
 .flex-lg-space-around-center,
 .flex-lg-space-around-bottom,
 .flex-lg-space-around-stretch {
+    -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around;
   }
@@ -3850,7 +3848,7 @@ title: Menu Slide
 .flex-lg-space-between-center,
 .flex-lg-space-between-bottom,
 .flex-lg-space-between-stretch {
-    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
@@ -3859,9 +3857,10 @@ title: Menu Slide
 .flex-lg-center-top,
 .flex-lg-space-around-top,
 .flex-lg-space-between-top {
+    -webkit-align-content: flex-start;
     -ms-flex-line-pack: start;
     align-content: flex-start;
-    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
     -ms-flex-align: start;
     -ms-grid-row-align: flex-start;
     align-items: flex-start;
@@ -3871,9 +3870,10 @@ title: Menu Slide
 .flex-lg-center-center,
 .flex-lg-space-around-center,
 .flex-lg-space-between-center {
+    -webkit-align-content: center;
     -ms-flex-line-pack: center;
     align-content: center;
-    -webkit-box-align: center;
+    -webkit-align-items: center;
     -ms-flex-align: center;
     -ms-grid-row-align: center;
     align-items: center;
@@ -3883,9 +3883,10 @@ title: Menu Slide
 .flex-lg-center-bottom,
 .flex-lg-space-around-bottom,
 .flex-lg-space-between-bottom {
+    -webkit-align-content: flex-end;
     -ms-flex-line-pack: end;
     align-content: flex-end;
-    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
     -ms-flex-align: end;
     -ms-grid-row-align: flex-end;
     align-items: flex-end;
@@ -3895,42 +3896,46 @@ title: Menu Slide
 .flex-lg-center-stretch,
 .flex-lg-space-around-stretch,
 .flex-lg-space-between-stretch {
+    -webkit-align-content: stretch;
     -ms-flex-line-pack: stretch;
     align-content: stretch;
-    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     -ms-grid-row-align: stretch;
     align-items: stretch;
   }
   .flex-lg-order-first {
-    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
     -ms-flex-order: -1;
     order: -1;
   }
   .flex-lg-order-last {
-    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
     -ms-flex-order: 1;
     order: 1;
   }
   .flex-lg-shrink {
+    -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
   }
   .flex-lg-no-shrink {
+    -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
   }
   .flex-lg-grow {
-    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
   .flex-lg-no-grow {
-    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
   }
   .flex-lg-1 {
+    -webkit-flex-basis: 8.333333333333334%;
     -ms-flex-preferred-size: 8.333333333333334%;
     flex-basis: 8.333333333333334%;
   }
@@ -3941,6 +3946,7 @@ title: Menu Slide
     margin-right: 8.333333333333334%;
   }
   .flex-lg-2 {
+    -webkit-flex-basis: 16.666666666666668%;
     -ms-flex-preferred-size: 16.666666666666668%;
     flex-basis: 16.666666666666668%;
   }
@@ -3951,6 +3957,7 @@ title: Menu Slide
     margin-right: 16.666666666666668%;
   }
   .flex-lg-3 {
+    -webkit-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
   }
@@ -3961,6 +3968,7 @@ title: Menu Slide
     margin-right: 25%;
   }
   .flex-lg-4 {
+    -webkit-flex-basis: 33.333333333333336%;
     -ms-flex-preferred-size: 33.333333333333336%;
     flex-basis: 33.333333333333336%;
   }
@@ -3971,6 +3979,7 @@ title: Menu Slide
     margin-right: 33.333333333333336%;
   }
   .flex-lg-5 {
+    -webkit-flex-basis: 41.66666666666667%;
     -ms-flex-preferred-size: 41.66666666666667%;
     flex-basis: 41.66666666666667%;
   }
@@ -3981,6 +3990,7 @@ title: Menu Slide
     margin-right: 41.66666666666667%;
   }
   .flex-lg-6 {
+    -webkit-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
   }
@@ -3991,6 +4001,7 @@ title: Menu Slide
     margin-right: 50%;
   }
   .flex-lg-7 {
+    -webkit-flex-basis: 58.333333333333336%;
     -ms-flex-preferred-size: 58.333333333333336%;
     flex-basis: 58.333333333333336%;
   }
@@ -4001,6 +4012,7 @@ title: Menu Slide
     margin-right: 58.333333333333336%;
   }
   .flex-lg-8 {
+    -webkit-flex-basis: 66.66666666666667%;
     -ms-flex-preferred-size: 66.66666666666667%;
     flex-basis: 66.66666666666667%;
   }
@@ -4011,6 +4023,7 @@ title: Menu Slide
     margin-right: 66.66666666666667%;
   }
   .flex-lg-9 {
+    -webkit-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
   }
@@ -4021,6 +4034,7 @@ title: Menu Slide
     margin-right: 75%;
   }
   .flex-lg-10 {
+    -webkit-flex-basis: 83.33333333333334%;
     -ms-flex-preferred-size: 83.33333333333334%;
     flex-basis: 83.33333333333334%;
   }
@@ -4031,6 +4045,7 @@ title: Menu Slide
     margin-right: 83.33333333333334%;
   }
   .flex-lg-11 {
+    -webkit-flex-basis: 91.66666666666667%;
     -ms-flex-preferred-size: 91.66666666666667%;
     flex-basis: 91.66666666666667%;
   }
@@ -4041,6 +4056,7 @@ title: Menu Slide
     margin-right: 91.66666666666667%;
   }
   .flex-lg-12 {
+    -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
   }
@@ -4376,24 +4392,22 @@ title: Menu Slide
     padding-left: 0;
   }
   .flex-row-md-columns {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
   }
   .flex-row-md-wrap {
+    -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
   .flex-row-md-reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
   }
   .flex-row-md-columns-reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
@@ -4402,7 +4416,7 @@ title: Menu Slide
 .flex-row-md-wrap,
 .flex-row-md-reverse,
 .flex-row-md-columns-reverse {
-    display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     margin-left: -15px;
@@ -4413,7 +4427,7 @@ title: Menu Slide
 .flex-md-left-center,
 .flex-md-left-bottom,
 .flex-md-left-stretch {
-    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
     justify-content: flex-start;
   }
@@ -4422,7 +4436,7 @@ title: Menu Slide
 .flex-md-right-center,
 .flex-md-right-bottom,
 .flex-md-right-stretch {
-    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
     justify-content: flex-end;
   }
@@ -4431,7 +4445,7 @@ title: Menu Slide
 .flex-md-center-center,
 .flex-md-center-bottom,
 .flex-md-center-stretch {
-    -webkit-box-pack: center;
+    -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
@@ -4440,6 +4454,7 @@ title: Menu Slide
 .flex-md-space-around-center,
 .flex-md-space-around-bottom,
 .flex-md-space-around-stretch {
+    -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around;
   }
@@ -4448,7 +4463,7 @@ title: Menu Slide
 .flex-md-space-between-center,
 .flex-md-space-between-bottom,
 .flex-md-space-between-stretch {
-    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
@@ -4457,9 +4472,10 @@ title: Menu Slide
 .flex-md-center-top,
 .flex-md-space-around-top,
 .flex-md-space-between-top {
+    -webkit-align-content: flex-start;
     -ms-flex-line-pack: start;
     align-content: flex-start;
-    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
     -ms-flex-align: start;
     -ms-grid-row-align: flex-start;
     align-items: flex-start;
@@ -4469,9 +4485,10 @@ title: Menu Slide
 .flex-md-center-center,
 .flex-md-space-around-center,
 .flex-md-space-between-center {
+    -webkit-align-content: center;
     -ms-flex-line-pack: center;
     align-content: center;
-    -webkit-box-align: center;
+    -webkit-align-items: center;
     -ms-flex-align: center;
     -ms-grid-row-align: center;
     align-items: center;
@@ -4481,9 +4498,10 @@ title: Menu Slide
 .flex-md-center-bottom,
 .flex-md-space-around-bottom,
 .flex-md-space-between-bottom {
+    -webkit-align-content: flex-end;
     -ms-flex-line-pack: end;
     align-content: flex-end;
-    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
     -ms-flex-align: end;
     -ms-grid-row-align: flex-end;
     align-items: flex-end;
@@ -4493,42 +4511,46 @@ title: Menu Slide
 .flex-md-center-stretch,
 .flex-md-space-around-stretch,
 .flex-md-space-between-stretch {
+    -webkit-align-content: stretch;
     -ms-flex-line-pack: stretch;
     align-content: stretch;
-    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     -ms-grid-row-align: stretch;
     align-items: stretch;
   }
   .flex-md-order-first {
-    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
     -ms-flex-order: -1;
     order: -1;
   }
   .flex-md-order-last {
-    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
     -ms-flex-order: 1;
     order: 1;
   }
   .flex-md-shrink {
+    -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
   }
   .flex-md-no-shrink {
+    -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
   }
   .flex-md-grow {
-    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
   .flex-md-no-grow {
-    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
   }
   .flex-md-1 {
+    -webkit-flex-basis: 8.333333333333334%;
     -ms-flex-preferred-size: 8.333333333333334%;
     flex-basis: 8.333333333333334%;
   }
@@ -4539,6 +4561,7 @@ title: Menu Slide
     margin-right: 8.333333333333334%;
   }
   .flex-md-2 {
+    -webkit-flex-basis: 16.666666666666668%;
     -ms-flex-preferred-size: 16.666666666666668%;
     flex-basis: 16.666666666666668%;
   }
@@ -4549,6 +4572,7 @@ title: Menu Slide
     margin-right: 16.666666666666668%;
   }
   .flex-md-3 {
+    -webkit-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
   }
@@ -4559,6 +4583,7 @@ title: Menu Slide
     margin-right: 25%;
   }
   .flex-md-4 {
+    -webkit-flex-basis: 33.333333333333336%;
     -ms-flex-preferred-size: 33.333333333333336%;
     flex-basis: 33.333333333333336%;
   }
@@ -4569,6 +4594,7 @@ title: Menu Slide
     margin-right: 33.333333333333336%;
   }
   .flex-md-5 {
+    -webkit-flex-basis: 41.66666666666667%;
     -ms-flex-preferred-size: 41.66666666666667%;
     flex-basis: 41.66666666666667%;
   }
@@ -4579,6 +4605,7 @@ title: Menu Slide
     margin-right: 41.66666666666667%;
   }
   .flex-md-6 {
+    -webkit-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
   }
@@ -4589,6 +4616,7 @@ title: Menu Slide
     margin-right: 50%;
   }
   .flex-md-7 {
+    -webkit-flex-basis: 58.333333333333336%;
     -ms-flex-preferred-size: 58.333333333333336%;
     flex-basis: 58.333333333333336%;
   }
@@ -4599,6 +4627,7 @@ title: Menu Slide
     margin-right: 58.333333333333336%;
   }
   .flex-md-8 {
+    -webkit-flex-basis: 66.66666666666667%;
     -ms-flex-preferred-size: 66.66666666666667%;
     flex-basis: 66.66666666666667%;
   }
@@ -4609,6 +4638,7 @@ title: Menu Slide
     margin-right: 66.66666666666667%;
   }
   .flex-md-9 {
+    -webkit-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
   }
@@ -4619,6 +4649,7 @@ title: Menu Slide
     margin-right: 75%;
   }
   .flex-md-10 {
+    -webkit-flex-basis: 83.33333333333334%;
     -ms-flex-preferred-size: 83.33333333333334%;
     flex-basis: 83.33333333333334%;
   }
@@ -4629,6 +4660,7 @@ title: Menu Slide
     margin-right: 83.33333333333334%;
   }
   .flex-md-11 {
+    -webkit-flex-basis: 91.66666666666667%;
     -ms-flex-preferred-size: 91.66666666666667%;
     flex-basis: 91.66666666666667%;
   }
@@ -4639,6 +4671,7 @@ title: Menu Slide
     margin-right: 91.66666666666667%;
   }
   .flex-md-12 {
+    -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
   }
@@ -4974,24 +5007,22 @@ title: Menu Slide
     padding-left: 0;
   }
   .flex-row-sm-columns {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
   }
   .flex-row-sm-wrap {
+    -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
   .flex-row-sm-reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
   }
   .flex-row-sm-columns-reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
@@ -5000,7 +5031,7 @@ title: Menu Slide
 .flex-row-sm-wrap,
 .flex-row-sm-reverse,
 .flex-row-sm-columns-reverse {
-    display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     margin-left: -15px;
@@ -5011,7 +5042,7 @@ title: Menu Slide
 .flex-sm-left-center,
 .flex-sm-left-bottom,
 .flex-sm-left-stretch {
-    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
     justify-content: flex-start;
   }
@@ -5020,7 +5051,7 @@ title: Menu Slide
 .flex-sm-right-center,
 .flex-sm-right-bottom,
 .flex-sm-right-stretch {
-    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
     justify-content: flex-end;
   }
@@ -5029,7 +5060,7 @@ title: Menu Slide
 .flex-sm-center-center,
 .flex-sm-center-bottom,
 .flex-sm-center-stretch {
-    -webkit-box-pack: center;
+    -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
@@ -5038,6 +5069,7 @@ title: Menu Slide
 .flex-sm-space-around-center,
 .flex-sm-space-around-bottom,
 .flex-sm-space-around-stretch {
+    -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around;
   }
@@ -5046,7 +5078,7 @@ title: Menu Slide
 .flex-sm-space-between-center,
 .flex-sm-space-between-bottom,
 .flex-sm-space-between-stretch {
-    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
@@ -5055,9 +5087,10 @@ title: Menu Slide
 .flex-sm-center-top,
 .flex-sm-space-around-top,
 .flex-sm-space-between-top {
+    -webkit-align-content: flex-start;
     -ms-flex-line-pack: start;
     align-content: flex-start;
-    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
     -ms-flex-align: start;
     -ms-grid-row-align: flex-start;
     align-items: flex-start;
@@ -5067,9 +5100,10 @@ title: Menu Slide
 .flex-sm-center-center,
 .flex-sm-space-around-center,
 .flex-sm-space-between-center {
+    -webkit-align-content: center;
     -ms-flex-line-pack: center;
     align-content: center;
-    -webkit-box-align: center;
+    -webkit-align-items: center;
     -ms-flex-align: center;
     -ms-grid-row-align: center;
     align-items: center;
@@ -5079,9 +5113,10 @@ title: Menu Slide
 .flex-sm-center-bottom,
 .flex-sm-space-around-bottom,
 .flex-sm-space-between-bottom {
+    -webkit-align-content: flex-end;
     -ms-flex-line-pack: end;
     align-content: flex-end;
-    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
     -ms-flex-align: end;
     -ms-grid-row-align: flex-end;
     align-items: flex-end;
@@ -5091,42 +5126,46 @@ title: Menu Slide
 .flex-sm-center-stretch,
 .flex-sm-space-around-stretch,
 .flex-sm-space-between-stretch {
+    -webkit-align-content: stretch;
     -ms-flex-line-pack: stretch;
     align-content: stretch;
-    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
     -ms-flex-align: stretch;
     -ms-grid-row-align: stretch;
     align-items: stretch;
   }
   .flex-sm-order-first {
-    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
     -ms-flex-order: -1;
     order: -1;
   }
   .flex-sm-order-last {
-    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
     -ms-flex-order: 1;
     order: 1;
   }
   .flex-sm-shrink {
+    -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
   }
   .flex-sm-no-shrink {
+    -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
   }
   .flex-sm-grow {
-    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
   .flex-sm-no-grow {
-    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
   }
   .flex-sm-1 {
+    -webkit-flex-basis: 8.333333333333334%;
     -ms-flex-preferred-size: 8.333333333333334%;
     flex-basis: 8.333333333333334%;
   }
@@ -5137,6 +5176,7 @@ title: Menu Slide
     margin-right: 8.333333333333334%;
   }
   .flex-sm-2 {
+    -webkit-flex-basis: 16.666666666666668%;
     -ms-flex-preferred-size: 16.666666666666668%;
     flex-basis: 16.666666666666668%;
   }
@@ -5147,6 +5187,7 @@ title: Menu Slide
     margin-right: 16.666666666666668%;
   }
   .flex-sm-3 {
+    -webkit-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
   }
@@ -5157,6 +5198,7 @@ title: Menu Slide
     margin-right: 25%;
   }
   .flex-sm-4 {
+    -webkit-flex-basis: 33.333333333333336%;
     -ms-flex-preferred-size: 33.333333333333336%;
     flex-basis: 33.333333333333336%;
   }
@@ -5167,6 +5209,7 @@ title: Menu Slide
     margin-right: 33.333333333333336%;
   }
   .flex-sm-5 {
+    -webkit-flex-basis: 41.66666666666667%;
     -ms-flex-preferred-size: 41.66666666666667%;
     flex-basis: 41.66666666666667%;
   }
@@ -5177,6 +5220,7 @@ title: Menu Slide
     margin-right: 41.66666666666667%;
   }
   .flex-sm-6 {
+    -webkit-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
   }
@@ -5187,6 +5231,7 @@ title: Menu Slide
     margin-right: 50%;
   }
   .flex-sm-7 {
+    -webkit-flex-basis: 58.333333333333336%;
     -ms-flex-preferred-size: 58.333333333333336%;
     flex-basis: 58.333333333333336%;
   }
@@ -5197,6 +5242,7 @@ title: Menu Slide
     margin-right: 58.333333333333336%;
   }
   .flex-sm-8 {
+    -webkit-flex-basis: 66.66666666666667%;
     -ms-flex-preferred-size: 66.66666666666667%;
     flex-basis: 66.66666666666667%;
   }
@@ -5207,6 +5253,7 @@ title: Menu Slide
     margin-right: 66.66666666666667%;
   }
   .flex-sm-9 {
+    -webkit-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
   }
@@ -5217,6 +5264,7 @@ title: Menu Slide
     margin-right: 75%;
   }
   .flex-sm-10 {
+    -webkit-flex-basis: 83.33333333333334%;
     -ms-flex-preferred-size: 83.33333333333334%;
     flex-basis: 83.33333333333334%;
   }
@@ -5227,6 +5275,7 @@ title: Menu Slide
     margin-right: 83.33333333333334%;
   }
   .flex-sm-11 {
+    -webkit-flex-basis: 91.66666666666667%;
     -ms-flex-preferred-size: 91.66666666666667%;
     flex-basis: 91.66666666666667%;
   }
@@ -5237,6 +5286,7 @@ title: Menu Slide
     margin-right: 91.66666666666667%;
   }
   .flex-sm-12 {
+    -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
   }
