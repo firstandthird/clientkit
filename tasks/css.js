@@ -108,7 +108,8 @@ class CssTask {
           },
           customMedia: {
             extensions: this.customMedia
-          }
+          },
+          autoprefixer: this.config.autoprefixer
         }
       }),
       mqpacker({
@@ -190,8 +191,7 @@ class CssTask {
     const output = path.join(this.config.core.dist, outputName);
     fs.writeFileSync(output, this.result.css);
     fs.writeFileSync(`${output}.map`, this.result.map);
-    log(`Wrote: ${this.input} → ${output} (${bytesize.stringSize(this.result.css, true)}), `);
-    log(`Wrote: ${this.input}.map → ${output}.map`);
+    log(`Wrote: ${output} (${bytesize.stringSize(this.result.css, true)}), `);
   }
 
 }
