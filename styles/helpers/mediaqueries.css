@@ -1,3 +1,19 @@
 :root {
+  @custom-media --desktop-wide-up (min-width: 1440px);
+  @custom-media --desktop-wide-down (max-width: 100vw);
+  @custom-media --desktop-wide-only (min-width: 1440px) and (max-width: 100vw);
+
+  @custom-media --desktop-up (min-width: 1024px);
+  @custom-media --desktop-down (max-width: 1439px);
+  @custom-media --desktop-only (min-width: 1024px) and (max-width: 1439px);
+
+  @custom-media --tablet-up (min-width: 768px);
+  @custom-media --tablet-down (max-width: 1023px);
+  @custom-media --tablet-only (min-width: 768px) and (max-width: 1023px);
+
+  @custom-media --mobile-up (min-width: 320px);
+  @custom-media --mobile-down (max-width: 767px);
+  @custom-media --mobile-only (min-width: 320px) and (max-width: 767px);
+
   @custom-media --tablet (min-width: 768px);
 }
