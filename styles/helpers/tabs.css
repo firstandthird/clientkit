@@ -3,11 +3,10 @@ section: Helpers
 title: Tabs
 ---
 
+### No JS
+
 ```example:html
-
 <div class="tabs">
-
-  <!-- active tab on page load gets checked attribute -->
   <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
   <label for="tab1">Short</label>
 
@@ -17,7 +16,45 @@ title: Tabs
   <input type="radio" id="tab3" name="tabGroup1" class="tab">
   <label for="tab3">Long</label>
 
+  <a href="http://example.com/" target="_blank">External URL</a>
+
   <div class="tab-content">
+    <h3>Short Section</h3>
+    <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+  </div>
+
+  <div class="tab-content">
+    <h3>Medium Section</h3>
+    <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+    <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+  </div>
+
+  <div class="tab-content">
+    <h3>Long Section</h3>
+    <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+    <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+
+    <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+
+    <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.</p>
+  </div>
+
+</div>
+```
+
+### JS
+
+```example:html
+<div class="tabs-js">
+
+  <a class="tab selected" href="">Tab 1</a>
+  <a class="tab" href="">Tab 2</a>
+  <a class="tab" href="">Tab 3</a>
+  <a class="tab" href="http://example.com/" target="_blank">External URL</a>
+
+  <div class="tab-content selected">
     <h3>Short Section</h3>
     <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
   </div>
@@ -45,4 +82,7 @@ title: Tabs
 */
 .tabs {
   @mixin tabs 5, 6px;
+}
+.tabs-js {
+  @mixin tabs 5, 6px, js;
 }
