@@ -1,0 +1,36 @@
+/*---
+section: Utils
+title: Close
+---
+
+Additional properties for the button version because iOS requires the button
+element instead of an anchor tag.  If you want the anchor version, it requires
+`href="#"`.  See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+
+```example:html
+<button class="close">&times;</button>
+<a href="#" class="close">&times;</a>
+```
+*/
+.close {
+  float: right;
+  color: var(--color-body);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: .2;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+  }
+}
+button.close {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
