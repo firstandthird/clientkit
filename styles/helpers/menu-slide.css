@@ -48,7 +48,7 @@ title: Menu Slide
 ```example:html
 <div class="col-9"><h1>ClientKit</h1></div>
 <div class="col-3">
-  <div class="menu-slide mobile-only">
+  <div class="menu-slide tablet-down">
     <input id="header-menu" class="menu-btn" type="checkbox" />
     <label for="header-menu"></label>
     <div class="menu-container">
@@ -66,4 +66,3 @@ title: Menu Slide
 .menu-slide {
   @mixin mobile-menu var(--color-primary), var(--color-white);
 }
-

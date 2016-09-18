@@ -102,12 +102,12 @@ title: Mobile Menu
       }
     }
   }
-  &.mobile-only {
+  &.tablet-down {
     & .menu-btn {
       & + label {
         display: none;
 
-        @media (--tablet) {
+        @media (--tablet-down) {
           display: block;
         }
       }
@@ -117,7 +117,7 @@ title: Mobile Menu
           overflow-y: auto;
         }
       }
-      @media (--tablet) {
+      @media (--tablet-down) {
         & ~ .menu-container {
           position: fixed;
           top: 0;
