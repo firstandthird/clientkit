@@ -1,16 +1,54 @@
 /*---
 section: Mixins
-title: Mobile Menu
+title: Slide Out Menu
 ---
 
 ```
-@mixin mobile-menu $menuColor, $closeColor
+@mixin menu-slide $menuColor, $closeColor
+```
+
+### Right Side (default)
+
+```example:html
+<div class="col-9"><h1>ClientKit</h1></div>
+<div class="col-3">
+  <div class="menu-slide">
+    <input id="header-menu" class="menu-btn" type="checkbox" />
+    <label for="header-menu"></label>
+    <div class="menu-container text-right">
+      <nav class="menu-header-container">
+        <a href="">Menu 1</a>
+        <a href="">Menu 2</a>
+        <a href="">Menu 3</a>
+        <a href="">Menu 4</a>
+      </nav>
+    </div>
+  </div>
+</div>
+```
+
+### Left Side
+
+```example:html
+<div class="col-plain">
+  <div class="menu-slide menu-left">
+    <input id="header-menu" class="menu-btn" type="checkbox" />
+    <label for="header-menu"></label>
+    <div class="menu-container">
+      <nav class="menu-header-container">
+        <a href="">Menu 1</a>
+        <a href="">Menu 2</a>
+        <a href="">Menu 3</a>
+        <a href="">Menu 4</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="col-11"><h1>ClientKit</h1></div>
 ```
 */
 
-
-
-@define-mixin mobile-menu $menuColor, $closeColor {
+@define-mixin menu-slide $menuColor, $closeColor {
   & .menu-btn {
     position: absolute;
     visibility: hidden;
@@ -99,40 +137,6 @@ title: Mobile Menu
         transform: translate3d(-100%, 0, 0);
         transition: transform 250ms var(--easing-out),
                     left 250ms var(--easing-out) 300ms;
-      }
-    }
-  }
-  &.tablet-down {
-    & .menu-btn {
-      & + label {
-        display: none;
-
-        @media (--tablet-down) {
-          display: block;
-        }
-      }
-      &:checked {
-        & ~ .menu-container {
-          right: 60%;
-          overflow-y: auto;
-        }
-      }
-      @media (--tablet-down) {
-        & ~ .menu-container {
-          position: fixed;
-          top: 0;
-          right: -60%;
-          z-index: 10;
-          width: 60%;
-          height: 100%;
-          box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.25);
-          padding: var(--spacing-sm) 0 var(--spacing-lg);
-          padding-top: 80px;
-          background-color: $menuColor;
-          transform: translate3d(100%, 0, 0);
-          transition: transform 250ms var(--easing-out),
-                      right 250ms var(--easing-out) 300ms;
-        }
       }
     }
   }

@@ -4,7 +4,6 @@ section: Helpers
 Here live helpers
 */
 @import 'reset.css';
-@import 'mediaqueries.css';
 @import 'box-sizing.css';
 @import 'colors.css';
 @import 'grid.css';
@@ -32,4 +31,3 @@ Here live helpers
 @import 'borders.css';
 @import 'dropdown.css';
 @import 'typography.css';
-@import 'menu-slide.css';
