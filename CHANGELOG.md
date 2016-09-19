@@ -1,4 +1,12 @@
 
+0.16.0 / 2016-09-19
+==================
+
+  * modal fixes
+  * switching menu-slide to be an opt in - so the site can wrap in a media query if it wants
+  * linting fixes
+  * added browserify-shim to allow for legacy libraries to be added
+
 0.15.0 / 2016-09-16
 ==================
 
