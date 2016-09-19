@@ -133,7 +133,7 @@
         <a class="display-block text-color-light menu-heading" href="#helpers"><span>Helpers</span></a>
         
     
-        <a class="display-block text-color-light menu-item" href="#clearfix"><span>Clearfix</span></a>
+        <a class="display-block text-color-light menu-item" href="#tabs"><span>Tabs</span></a>
         
         
         <a class="display-block text-color-light menu-item" href="#flexbox-grid"><span>Flexbox Grid</span></a>
@@ -163,10 +163,10 @@
     
   
         
-        <a class="display-block text-color-light menu-item" href="#tabs"><span>Tabs</span></a>
-        
-        
         <a class="display-block text-color-light menu-item" href="#grid"><span>Grid</span></a>
+        
+        
+        <a class="display-block text-color-light menu-item" href="#clearfix"><span>Clearfix</span></a>
         
         
         <a class="display-block text-color-light menu-item" href="#ugc"><span>UGC</span></a>
@@ -185,9 +185,6 @@
         
         
         <a class="display-block text-color-light menu-item" href="#borders"><span>Borders</span></a>
-        
-        
-        <a class="display-block text-color-light menu-item" href="#menu-slide"><span>Menu Slide</span></a>
         
         
         <a class="display-block text-color-light menu-item" href="#typography"><span>Typography</span></a>
@@ -445,15 +442,47 @@
       </div>
     </section>
     
-    <section id="clearfix">
-      <h2>Clearfix</h2>
+    <section id="tabs">
+      <h2>Tabs</h2>
 
       <div class="markdown-body">
-        <pre><code class="lang-example:html">&lt;div class=&quot;clearfix&quot;&gt;
-  &lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;
+        <pre><code class="lang-example:html">
+&lt;div class=&quot;tabs&quot;&gt;
+
+  &lt;!-- active tab on page load gets checked attribute --&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;tab1&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot; checked&gt;
+  &lt;label for=&quot;tab1&quot;&gt;Short&lt;/label&gt;
+
+  &lt;input type=&quot;radio&quot; id=&quot;tab2&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot;&gt;
+  &lt;label for=&quot;tab2&quot;&gt;Medium&lt;/label&gt;
+
+  &lt;input type=&quot;radio&quot; id=&quot;tab3&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot;&gt;
+  &lt;label for=&quot;tab3&quot;&gt;Long&lt;/label&gt;
+
+  &lt;div class=&quot;tab-content&quot;&gt;
+    &lt;h3&gt;Short Section&lt;/h3&gt;
+    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tab-content&quot;&gt;
+    &lt;h3&gt;Medium Section&lt;/h3&gt;
+    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
+
+    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;tab-content&quot;&gt;
+    &lt;h3&gt;Long Section&lt;/h3&gt;
+    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
+
+    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
+
+    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
+
+    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
+  &lt;/div&gt;
+
 &lt;/div&gt;
-&lt;p&gt;Some text below&lt;/p&gt;
 </code></pre>
 
         
@@ -1057,58 +1086,26 @@ will display normally.</p>
       </div>
     </section>
     
-    <section id="tabs">
-      <h2>Tabs</h2>
-
-      <div class="markdown-body">
-        <pre><code class="lang-example:html">
-&lt;div class=&quot;tabs&quot;&gt;
-
-  &lt;!-- active tab on page load gets checked attribute --&gt;
-  &lt;input type=&quot;radio&quot; id=&quot;tab1&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot; checked&gt;
-  &lt;label for=&quot;tab1&quot;&gt;Short&lt;/label&gt;
-
-  &lt;input type=&quot;radio&quot; id=&quot;tab2&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot;&gt;
-  &lt;label for=&quot;tab2&quot;&gt;Medium&lt;/label&gt;
-
-  &lt;input type=&quot;radio&quot; id=&quot;tab3&quot; name=&quot;tabGroup1&quot; class=&quot;tab&quot;&gt;
-  &lt;label for=&quot;tab3&quot;&gt;Long&lt;/label&gt;
-
-  &lt;div class=&quot;tab-content&quot;&gt;
-    &lt;h3&gt;Short Section&lt;/h3&gt;
-    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;tab-content&quot;&gt;
-    &lt;h3&gt;Medium Section&lt;/h3&gt;
-    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
-
-    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;tab-content&quot;&gt;
-    &lt;h3&gt;Long Section&lt;/h3&gt;
-    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
-
-    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
-
-    &lt;p&gt;Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.&lt;/p&gt;
-
-    &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Morbi mattis ullamcorper velit. Pellentesque posuere. Etiam ut purus mattis mauris sodales aliquam. Praesent nec nisl a purus blandit viverra.&lt;/p&gt;
-  &lt;/div&gt;
-
-&lt;/div&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
     <section>
       
 
       <div class="markdown-body">
         <p>Here live helpers</p>
+
+        
+      </div>
+    </section>
+    
+    <section id="clearfix">
+      <h2>Clearfix</h2>
+
+      <div class="markdown-body">
+        <pre><code class="lang-example:html">&lt;div class=&quot;clearfix&quot;&gt;
+  &lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Some text below&lt;/p&gt;
+</code></pre>
 
         
       </div>
@@ -1247,49 +1244,6 @@ and which are not.</p>
 &lt;div class=&quot;border-left padding-sm margin-sm&quot;&gt;Border on left&lt;/div&gt;
 &lt;div class=&quot;border-top padding-sm margin-sm&quot;&gt;Border on top&lt;/div&gt;
 &lt;div class=&quot;border-bottom padding-sm margin-sm&quot;&gt;Border on bottom&lt;/div&gt;
-</code></pre>
-
-        
-      </div>
-    </section>
-    
-    <section id="menu-slide">
-      <h2>Menu Slide</h2>
-
-      <div class="markdown-body">
-        <h3 id="right-side-default-">Right Side (default)</h3>
-<pre><code class="lang-example:html">&lt;div class=&quot;col-9&quot;&gt;&lt;h1&gt;ClientKit&lt;/h1&gt;&lt;/div&gt;
-&lt;div class=&quot;col-3&quot;&gt;
-  &lt;div class=&quot;menu-slide&quot;&gt;
-    &lt;input id=&quot;header-menu&quot; class=&quot;menu-btn&quot; type=&quot;checkbox&quot; /&gt;
-    &lt;label for=&quot;header-menu&quot;&gt;&lt;/label&gt;
-    &lt;div class=&quot;menu-container text-right&quot;&gt;
-      &lt;nav class=&quot;menu-header-container&quot;&gt;
-        &lt;a href=&quot;&quot;&gt;Menu 1&lt;/a&gt;
-        &lt;a href=&quot;&quot;&gt;Menu 2&lt;/a&gt;
-        &lt;a href=&quot;&quot;&gt;Menu 3&lt;/a&gt;
-        &lt;a href=&quot;&quot;&gt;Menu 4&lt;/a&gt;
-      &lt;/nav&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<h3 id="left-side">Left Side</h3>
-<pre><code class="lang-example:html">&lt;div class=&quot;col-plain&quot;&gt;
-  &lt;div class=&quot;menu-slide menu-left&quot;&gt;
-    &lt;input id=&quot;header-menu&quot; class=&quot;menu-btn&quot; type=&quot;checkbox&quot; /&gt;
-    &lt;label for=&quot;header-menu&quot;&gt;&lt;/label&gt;
-    &lt;div class=&quot;menu-container&quot;&gt;
-      &lt;nav class=&quot;menu-header-container&quot;&gt;
-        &lt;a href=&quot;&quot;&gt;Menu 1&lt;/a&gt;
-        &lt;a href=&quot;&quot;&gt;Menu 2&lt;/a&gt;
-        &lt;a href=&quot;&quot;&gt;Menu 3&lt;/a&gt;
-        &lt;a href=&quot;&quot;&gt;Menu 4&lt;/a&gt;
-      &lt;/nav&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;col-11&quot;&gt;&lt;h1&gt;ClientKit&lt;/h1&gt;&lt;/div&gt;
 </code></pre>
 
         
@@ -1713,12 +1667,46 @@ a:hover {
       </div>
     </section>
     
-    <section id="mobile-menu">
-      <h3>Mobile Menu</h3>
+    <section id="slide-out-menu">
+      <h3>Slide Out Menu</h3>
 
       <div class="markdown-body">
-        <pre><code>@mixin mobile-menu $menuColor, $closeColor
+        <pre><code>@mixin menu-slide $menuColor, $closeColor
+</code></pre><h3 id="right-side-default-">Right Side (default)</h3>
+<pre><code class="lang-example:html">&lt;div class=&quot;col-9&quot;&gt;&lt;h1&gt;ClientKit&lt;/h1&gt;&lt;/div&gt;
+&lt;div class=&quot;col-3&quot;&gt;
+  &lt;div class=&quot;menu-slide&quot;&gt;
+    &lt;input id=&quot;header-menu&quot; class=&quot;menu-btn&quot; type=&quot;checkbox&quot; /&gt;
+    &lt;label for=&quot;header-menu&quot;&gt;&lt;/label&gt;
+    &lt;div class=&quot;menu-container text-right&quot;&gt;
+      &lt;nav class=&quot;menu-header-container&quot;&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 1&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 2&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 3&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 4&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
+<h3 id="left-side">Left Side</h3>
+<pre><code class="lang-example:html">&lt;div class=&quot;col-plain&quot;&gt;
+  &lt;div class=&quot;menu-slide menu-left&quot;&gt;
+    &lt;input id=&quot;header-menu&quot; class=&quot;menu-btn&quot; type=&quot;checkbox&quot; /&gt;
+    &lt;label for=&quot;header-menu&quot;&gt;&lt;/label&gt;
+    &lt;div class=&quot;menu-container&quot;&gt;
+      &lt;nav class=&quot;menu-header-container&quot;&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 1&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 2&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 3&lt;/a&gt;
+        &lt;a href=&quot;&quot;&gt;Menu 4&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-11&quot;&gt;&lt;h1&gt;ClientKit&lt;/h1&gt;&lt;/div&gt;
+</code></pre>
+
         
       </div>
     </section>
@@ -1747,7 +1735,7 @@ a:hover {
   
     
       <footer class="container">
-        <div class="border-top margin-top-lg padding-yaxis-md padding-xaxis-sm">Generated by clientkit 0.15.0</div>
+        <div class="border-top margin-top-lg padding-yaxis-md padding-xaxis-sm">Generated by clientkit 0.16.0</div>
       </footer>
     
   </body>

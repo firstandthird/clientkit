@@ -107,11 +107,51 @@ title: Input
 */
 /*---
 section: Mixins
-title: Mobile Menu
+title: Slide Out Menu
 ---
 
 ```
-@mixin mobile-menu $menuColor, $closeColor
+@mixin menu-slide $menuColor, $closeColor
+```
+
+### Right Side (default)
+
+```example:html
+<div class="col-9"><h1>ClientKit</h1></div>
+<div class="col-3">
+  <div class="menu-slide">
+    <input id="header-menu" class="menu-btn" type="checkbox" />
+    <label for="header-menu"></label>
+    <div class="menu-container text-right">
+      <nav class="menu-header-container">
+        <a href="">Menu 1</a>
+        <a href="">Menu 2</a>
+        <a href="">Menu 3</a>
+        <a href="">Menu 4</a>
+      </nav>
+    </div>
+  </div>
+</div>
+```
+
+### Left Side
+
+```example:html
+<div class="col-plain">
+  <div class="menu-slide menu-left">
+    <input id="header-menu" class="menu-btn" type="checkbox" />
+    <label for="header-menu"></label>
+    <div class="menu-container">
+      <nav class="menu-header-container">
+        <a href="">Menu 1</a>
+        <a href="">Menu 2</a>
+        <a href="">Menu 3</a>
+        <a href="">Menu 4</a>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="col-11"><h1>ClientKit</h1></div>
 ```
 */
 /* helpers */
@@ -460,8 +500,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 p {
   margin: 0;
-}
-:root {
 }
 html {
   box-sizing: border-box;
@@ -2678,7 +2716,8 @@ height: 500px;
   background: rgba(0,0,0,0.5);
   transition: opacity 200ms;
   visibility: hidden;
-  opacity: 0
+  opacity: 0;
+  z-index: 100
 }
 .modal .modal-close {
   position: absolute;
@@ -2697,6 +2736,7 @@ height: 500px;
   position: fixed;
 
   z-index: 100;
+  overflow-y: auto;
 
   left: 50%;
   top: 50%;
@@ -3366,157 +3406,6 @@ hr {
   background-color: #333;
   margin: 0;
   border: 0;
-}
-/*---
-section: Helpers
-title: Menu Slide
----
-
-### Right Side (default)
-
-```example:html
-<div class="col-9"><h1>ClientKit</h1></div>
-<div class="col-3">
-  <div class="menu-slide">
-    <input id="header-menu" class="menu-btn" type="checkbox" />
-    <label for="header-menu"></label>
-    <div class="menu-container text-right">
-      <nav class="menu-header-container">
-        <a href="">Menu 1</a>
-        <a href="">Menu 2</a>
-        <a href="">Menu 3</a>
-        <a href="">Menu 4</a>
-      </nav>
-    </div>
-  </div>
-</div>
-```
-
-### Left Side
-
-```example:html
-<div class="col-plain">
-  <div class="menu-slide menu-left">
-    <input id="header-menu" class="menu-btn" type="checkbox" />
-    <label for="header-menu"></label>
-    <div class="menu-container">
-      <nav class="menu-header-container">
-        <a href="">Menu 1</a>
-        <a href="">Menu 2</a>
-        <a href="">Menu 3</a>
-        <a href="">Menu 4</a>
-      </nav>
-    </div>
-  </div>
-</div>
-<div class="col-11"><h1>ClientKit</h1></div>
-```
-*/
-.menu-slide {
-}
-.menu-slide .menu-btn {
-  position: absolute;
-  visibility: hidden;
-  width: 28px;
-  height: 28px;
-  margin-left: -999em;
-  -webkit-appearance: none;
-}
-.menu-slide .menu-btn + label {
-  display: block;
-  float: right;
-  width: 28px;
-  height: 28px;
-  margin: 0;
-  transition: color .3s ease-in-out;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-.menu-slide .menu-btn + label::after {
-  display: inline-block;
-  vertical-align: middle;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  color: #333;
-  font-family: Arial;
-  font-size: 36px;
-  line-height: 1;
-  content: '\2261';
-}
-.menu-slide .menu-btn:checked {
-}
-.menu-slide .menu-btn:checked + label {
-}
-.menu-slide .menu-btn:checked + label::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1000;
-  margin: 10px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  padding: 2px 8px 0;
-  color: #fff;
-  content: '\00d7';
-}
-.menu-slide .menu-btn:checked ~ .menu-container {
-  right: 60%;
-  overflow-y: auto;
-}
-.menu-slide .menu-btn ~ .menu-container {
-  position: fixed;
-  top: 0;
-  right: -60%;
-  z-index: 10;
-  width: 60%;
-  height: 100%;
-  box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.25);
-  padding: 20px 0 50px;
-  padding-top: 80px;
-  background-color: #333;
-  -webkit-transform: translate3d(100%, 0, 0);
-          transform: translate3d(100%, 0, 0);
-  transition: right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
-                  -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
-  transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
-                  right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms;
-  transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
-                  right 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
-                  -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
-}
-.menu-slide.menu-left {
-}
-.menu-slide.menu-left .menu-btn {
-}
-.menu-slide.menu-left .menu-btn + label {
-  float: left;
-}
-.menu-slide.menu-left .menu-btn:checked {
-}
-.menu-slide.menu-left .menu-btn:checked + label::after {
-  right: auto;
-  left: 0;
-}
-.menu-slide.menu-left .menu-btn:checked ~ .menu-container {
-  left: 60%;
-}
-.menu-slide.menu-left .menu-btn ~ .menu-container {
-  right: auto;
-  left: -60%;
-  box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.25);
-  -webkit-transform: translate3d(-100%, 0, 0);
-          transform: translate3d(-100%, 0, 0);
-  transition: left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
-                    -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
-  transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
-                    left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms;
-  transition: transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99),
-                    left 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99) 300ms,
-                    -webkit-transform 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
 }
 @media (max-width: 1439px) {
   .container {
@@ -4686,6 +4575,9 @@ title: Menu Slide
   }
   .show-md {
     display: block !important;
+  }
+  .modal-content {
+    min-width: 75%;
   }
   .row-md-carousel {
     width: 100%;
