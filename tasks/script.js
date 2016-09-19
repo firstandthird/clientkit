@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const Browserify = require('browserify');
 const babelify = require('babelify');
+const shim = require('browserify-shim');
 const exorcist = require('exorcist');
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
@@ -34,7 +35,10 @@ module.exports = function(conf, base, outputName, input) {
     }
     const end = new Date().getTime();
     const duration = (end - start) / 1000;
-    bytesize.fileSize(output, true, function(err, size) {
+    bytesize.fileSize(output, true, (err, size) => {
+      if (err) {
+        throw err;
+      }
       log(`Processed: ${input} → ${output} (${size}) in ${duration} sec, `);
     });
   });
@@ -44,16 +48,27 @@ module.exports = function(conf, base, outputName, input) {
     debug: true
   });
 
-  let currentTransform = b.transform(babelify, { global: conf.core.globalBabel, presets: [bes2015], plugins: [] });
+  if (conf.scriptConfig.shim) {
+    b.transform(shim);
+  }
+
+  let currentTransform = b.transform(babelify, {
+    global: conf.core.globalBabel,
+    presets: [bes2015],
+    plugins: [],
+    ignore: conf.scriptConfig.babelIgnore
+  });
+
   if (conf.core.minify) {
     currentTransform = currentTransform.transform(uglifyify, { global: true });
   }
+
   currentTransform
-  .bundle()
-  .on('error', function (err) {
-    log(['error'], err);
-    this.emit('end');
-  })
-  .pipe(exorcist(`${output}.map`))
-  .pipe(fileStream);
+    .bundle()
+    .on('error', function (err) {
+      log(['error'], err);
+      this.emit('end');
+    })
+    .pipe(exorcist(`${output}.map`))
+    .pipe(fileStream);
 };
