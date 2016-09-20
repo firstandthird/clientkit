@@ -1,4 +1,11 @@
 
+0.17.0 / 2016-09-20
+==================
+
+  * relative path for watcher
+  * only shows relative path to cwd() when logging process css/js files
+  * updated to always use basename for js files
+
 0.16.0 / 2016-09-19
 ==================
 
