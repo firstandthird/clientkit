@@ -39,7 +39,7 @@ module.exports = function(conf, base, outputName, input) {
       if (err) {
         throw err;
       }
-      log(`Processed: ${input} → ${output} (${size}) in ${duration} sec, `);
+      log(`Processed: ${path.relative(process.cwd(), input)} → ${path.relative(process.cwd(), output)} (${size}) in ${duration} sec, `);
     });
   });
 

@@ -171,7 +171,7 @@ class CssTask {
       this.result = result;
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
-      log(`Processed ${input} in ${duration} sec`);
+      log(`Processed ${path.relative(process.cwd(), input)} in ${duration} sec`);
       return callback(result);
     }, (err) => {
       if (err) {
@@ -191,7 +191,7 @@ class CssTask {
     const output = path.join(this.config.core.dist, outputName);
     fs.writeFileSync(output, this.result.css);
     fs.writeFileSync(`${output}.map`, this.result.map);
-    log(`Wrote: ${output} (${bytesize.stringSize(this.result.css, true)}), `);
+    log(`Wrote: ${path.relative(process.cwd(), output)} (${bytesize.stringSize(this.result.css, true)}), `);
   }
 
 }
