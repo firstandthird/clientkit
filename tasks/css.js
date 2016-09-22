@@ -196,10 +196,11 @@ class CssTask {
 
 }
 module.exports.CssTask = CssTask;
-module.exports.runTaskAndWrite = function (config, base, outputName, input) {
+module.exports.runTaskAndWrite = function (config, base, outputName, input, allDone) {
   const task = new CssTask(config, base);
   task.performTask(input, () => {
     task.writeToFile(outputName);
+    allDone();
   }, outputName);
 };
 module.exports.processOnly = function (config, base, input, callback) {

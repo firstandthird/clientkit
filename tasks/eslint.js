@@ -20,19 +20,15 @@ module.exports = function(conf, base) {
   });
   const results = cli.executeOnFiles(conf.core.watch.scripts).results;
   // if any errors, print them:
-  let errorsExist = false;
-  let warningsExist = false;
-  results.forEach((result) => {
+  for (let i = 0; i < results.length; i++) {
+    const result = results[i];
     if (result.errorCount > 0) {
-      errorsExist = true;
+      log(['eslint', 'error'], formatter(results));
+      return;
     }
     if (result.warningCount > 0) {
-      warningsExist = true;
+      log(['eslint', 'warning'], formatter(results));
+      return;
     }
-  });
-  if (errorsExist) {
-    log(['eslint', 'error'], formatter(results));
-  } else if (warningsExist) {
-    log(['eslint', 'warning'], formatter(results));
   }
 };
