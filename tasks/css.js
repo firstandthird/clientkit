@@ -120,13 +120,11 @@ class CssTask {
           const av = aVal ? ~~aVal[2] : 0;
           const bv = bVal ? ~~bVal[2] : 0;
 
-          let ret = av - bv;
+          let ret = bv - av;
 
           if (this.config.core.mobileFirst) {
             ret *= -1;
           }
-
-          console.log(av, bv, ret);
 
           return ret;
         }
