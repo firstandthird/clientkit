@@ -69,6 +69,36 @@ class CssTask {
       this.cssVars[`breakpoint-${breakpoint}`] = width;
       this.customMedia[breakpoint] = mediaquery;
     });
+    Object.keys(config.breakpoints).forEach(function(breakpoint, i, bps) {
+      const breakpointObj = {
+        min: config.breakpoints[breakpoint]['min-width'],
+        max: config.breakpoints[breakpoint]['max-width'],
+      };
+      const constraint = config.core.mobileFirst ? 'min' : 'max';
+      const width = breakpointObj[constraint];
+      const mediaquery = `(${constraint}-width: ${width})`;
+      let mediaqueryOnly;
+
+      if (i === 0) {
+        mediaqueryOnly = `(min-width: ${breakpointObj.min})`;
+      } else {
+        mediaqueryOnly = `(max-width: ${breakpointObj.max}) and (min-width: ${breakpointObj.min})`;
+      }
+
+      // Last one should be mobile, so no down
+      if (i !== bps.length < 1) {
+        this.customMedia[`${breakpoint}-down`] = `(max-width: ${breakpointObj.max})`;
+      }
+
+      // First one should be wide desktop so no up
+      if (i !== 0) {
+        this.customMedia[`${breakpoint}-up`] = `(min-width: ${breakpointObj.min})`;
+      }
+
+      this.cssVars[`breakpoint-${breakpoint}`] = width;
+      this.customMedia[breakpoint] = mediaquery;
+      this.customMedia[`${breakpoint}-only`] = mediaqueryOnly;
+    });
     // load mixins:
     const globalMixins = require('require-all')({
       dirname: path.join(__dirname, '..', 'styles', 'mixins'),
