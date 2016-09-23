@@ -3,7 +3,7 @@ core:
   minify: false
   dist: '{{CWD}}/dist'
   assetPath: '{{CWD}}'
-  mobileFirst: false
+  mobileFirst: true
   urlHashing:
     active: false
     jsonMapping: '{{core.dist}}/assets.json'

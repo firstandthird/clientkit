@@ -113,7 +113,23 @@ class CssTask {
         }
       }),
       mqpacker({
-        sort: true
+        sort: (a, b) => {
+          const reg = /\((max|min)-width: (\d+)(px|vw)\)/i;
+          const aVal = a.match(reg);
+          const bVal = b.match(reg);
+          const av = aVal ? ~~aVal[2] : 0;
+          const bv = bVal ? ~~bVal[2] : 0;
+
+          let ret = av - bv;
+
+          if (this.config.core.mobileFirst) {
+            ret *= -1;
+          }
+
+          console.log(av, bv, ret);
+
+          return ret;
+        }
       })
     ];
     // Only run fonts against default.css to avoid duplicates
