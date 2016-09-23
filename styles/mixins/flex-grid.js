@@ -52,7 +52,7 @@ module.exports = function (config) {
       const block = styles[breakpoint];
 
       // Layout
-      let layoutSelector = '.flex-row';
+      let layoutSelector = `.${layoutPrefix}`;
       for (const layout in layouts) {
         let selector = `.${layoutPrefix}-${layout}`;
         layoutSelector += `,\n${selector}`;
@@ -118,7 +118,9 @@ module.exports = function (config) {
 
       for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-${i}`] = {
-          'flex-basis': `${(100 / (12 / i))}%`
+          'flex-basis': `${(100 / (12 / i))}%`,
+          'padding-left': '15px',
+          'padding-right': '15px'
         };
 
         block[`.${prefix}-offset-${i}`] = {
