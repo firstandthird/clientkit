@@ -72,8 +72,11 @@ module.exports = function(conf, base, outputName, input, allDone) {
     .on('error', function (err) {
       log(['error'], err);
       this.emit('end');
-      allDone(err);
-      allDone = false;
+      // short-circuit if running in prod environment:
+      if (conf.env === 'prod') {
+        allDone(err);
+        allDone = false;
+      }
     })
     .pipe(exorcist(`${output}.map`))
     .pipe(fileStream);

@@ -153,6 +153,9 @@ class CssTask {
     let inputCss;
     // the input could be either a file path or a CSS expression:
     if (path.extname(input) === '.css') {
+      if (!fs.existsSync(path.normalize(input))) {
+        return callback(new Error(`Could not find CSS file ${input}`));
+      }
       inputCss = fs.readFileSync(path.normalize(input));
     } else {
       inputCss = input;
@@ -172,10 +175,14 @@ class CssTask {
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
       log(`Processed ${path.relative(process.cwd(), input)} in ${duration} sec`);
-      return callback(result);
+      return callback();
     }, (err) => {
       if (err) {
         log(['error'], err.stack);
+        // return an error if we're in prod mode:
+        if (config.env === 'prod') {
+          return callback(err);
+        }
       }
     });
   }
@@ -196,9 +203,13 @@ class CssTask {
 
 }
 module.exports.CssTask = CssTask;
+// todo: performTask needs to return error if there was an error:
 module.exports.runTaskAndWrite = function (config, base, outputName, input, allDone) {
   const task = new CssTask(config, base);
-  task.performTask(input, () => {
+  task.performTask(input, (err) => {
+    if (err) {
+      return allDone(err);
+    }
     task.writeToFile(outputName);
     allDone();
   }, outputName);
