@@ -138,7 +138,7 @@ title: Size
   font-size: var(--font-size-large);
 
   @media(--mobile) {
-    font-size: var(--font-small-size-large);
+    font-size: var(--font-mobile-size-large);
   }
 }
 
@@ -146,7 +146,7 @@ title: Size
   font-size: var(--font-size-small);
 
   @media(--mobile) {
-    font-size: var(--font-small-size-small);
+    font-size: var(--font-mobile-size-small);
   }
 }
 
@@ -154,7 +154,7 @@ title: Size
   font-size: var(--font-size-body);
 
   @media(--mobile) {
-    font-size: var(--font-small-size-body);
+    font-size: var(--fontmobile--size-body);
   }
 }
 

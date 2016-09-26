@@ -16,7 +16,7 @@ vars:
       body: 14px
       large: 16px
       small: 12px
-    small-size:
+    mobile-size:
       body: 14px
       large: 16px
       small: 12px
