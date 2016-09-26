@@ -62,13 +62,6 @@ class CssTask {
       });
     }
     // load spacing variables:
-    Object.keys(config.breakpoints).forEach(breakpoint => {
-      const constraint = config.core.mobileFirst ? 'min' : 'max';
-      const width = config.breakpoints[breakpoint][`${constraint}-width`];
-      const mediaquery = `(${constraint}-width: ${width})`;
-      this.cssVars[`breakpoint-${breakpoint}`] = width;
-      this.customMedia[breakpoint] = mediaquery;
-    });
     Object.keys(config.breakpoints).forEach(function(breakpoint, i, bps) {
       const breakpointObj = {
         min: config.breakpoints[breakpoint]['min-width'],
