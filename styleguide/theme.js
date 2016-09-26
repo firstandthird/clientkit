@@ -1,10 +1,9 @@
 'use strict';
-const ejs = require('ejs');
 const ext = require('object-assign');
 const fs = require('fs');
 const path = require('path');
 const fontColorContrast = require('font-color-contrast');
-const template = require('lodash.template');
+const template = require('lodash').template;
 const fontContrast = function(color) {
   //HACK: check if shorthand (#fff)
   if (color.length === 4) {
@@ -49,8 +48,8 @@ module.exports = function (themeopts) {
   // return theme
   return function (docs) {
     // set assets directory and template
-    docs.assets   = path.join(__dirname, 'assets');
-    docs.template = path.join(__dirname, 'template.ejs');
+    docs.assets = path.join(__dirname, 'assets');
+    docs.template = path.join(__dirname, 'template.html');
 
     // set theme options
     docs.themeopts = themeopts;
