@@ -21,6 +21,19 @@ title: Primary Button
 
 /*---
 section: Buttons
+title: Alt Button
+---
+```example:html
+<button class="button-alt">Alt Button</button>
+<a class="button-alt">Alt Link Button</a>
+```
+*/
+.button-alt {
+  @mixin button var(--color-button-alt-bg), var(--color-button-alt-color), transparent, var(--button-radius-default), color(var(--color-button-alt-bg) blackness(20%)), var(--color-button-alt-color);
+}
+
+/*---
+section: Buttons
 title: Outline Button
 ---
 ```example:html
@@ -30,6 +43,19 @@ title: Outline Button
 */
 .button-outline {
   @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--button-radius-default), var(--color-button-primary-bg), var(--color-button-primary-color);
+}
+
+/*---
+section: Buttons
+title: Outline Alt Button
+---
+```example:html
+<button class="button-alt-outline">Alt Button</button>
+<a class="button-alt-outline">Alt Link Button</a>
+```
+*/
+.button-outline {
+  @mixin button transparent, var(--color-button-alt-bg), var(--color-button-alt-bg), var(--button-radius-default), var(--color-button-alt-bg), var(--color-button-alt-color);
 }
 
 /*---
