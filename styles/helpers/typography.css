@@ -136,14 +136,26 @@ title: Size
 */
 .font-large {
   font-size: var(--font-size-large);
+
+  @media(--mobile) {
+    font-size: var(--font-mobile-size-large);
+  }
 }
 
 .font-small {
   font-size: var(--font-size-small);
+
+  @media(--mobile) {
+    font-size: var(--font-mobile-size-small);
+  }
 }
 
 .font-body {
   font-size: var(--font-size-body);
+
+  @media(--mobile) {
+    font-size: var(--fontmobile--size-body);
+  }
 }
 
 
