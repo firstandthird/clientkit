@@ -6,3 +6,10 @@ spacing:
     md: 30px
     sm: 20px
     xs: 10px
+  mobile:
+    none: 0
+    xl: 40px
+    lg: 30px
+    md: 25px
+    sm: 20px
+    xs: 10px
