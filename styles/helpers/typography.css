@@ -154,7 +154,7 @@ title: Size
   font-size: var(--font-size-body);
 
   @media(--mobile) {
-    font-size: var(--fontmobile--size-body);
+    font-size: var(--font-mobile-size-body);
   }
 }
 
