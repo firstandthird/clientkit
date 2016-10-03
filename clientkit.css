@@ -160,74 +160,83 @@ section: Helpers
 ---
 Here live helpers
 */
-/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
- * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
  */
+/* Document
+   ========================================================================== */
 html {
   font-family: sans-serif; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  line-height: 1.15; /* 2 */
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
 }
+/* Sections
+   ========================================================================== */
 /**
  * Remove the margin in all browsers (opinionated).
  */
 body {
   margin: 0;
 }
-/* HTML5 display definitions
-   ========================================================================== */
 /**
  * Add the correct display in IE 9-.
- * 1. Add the correct display in Edge, IE, and Firefox.
- * 2. Add the correct display in IE.
  */
 article,
 aside,
-details, /* 1 */
-figcaption,
-figure,
 footer,
 header,
-main, /* 2 */
-menu,
 nav,
-section,
-summary { /* 1 */
+section {
   display: block;
 }
 /**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+/* Grouping content
+   ========================================================================== */
+/**
  * Add the correct display in IE 9-.
- */
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-}
-/**
- * Add the correct display in iOS 4-7.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-progress {
-  vertical-align: baseline;
-}
-/**
- * Add the correct display in IE 10-.
  * 1. Add the correct display in IE.
  */
-template, /* 1 */
-[hidden] {
-  display: none;
+figcaption,
+figure,
+main { /* 1 */
+  display: block;
 }
-/* Links
+/**
+ * Add the correct margin in IE 8.
+ */
+figure {
+  margin: 1em 40px;
+}
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+/* Text-level semantics
    ========================================================================== */
 /**
  * 1. Remove the gray background on active links in IE 10.
@@ -245,8 +254,6 @@ a:active,
 a:hover {
   outline-width: 0;
 }
-/* Text-level semantics
-   ========================================================================== */
 /**
  * 1. Remove the bottom border in Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -271,18 +278,20 @@ strong {
   font-weight: bolder;
 }
 /**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+/**
  * Add the correct font style in Android 4.3-.
  */
 dfn {
   font-style: italic;
-}
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
 }
 /**
  * Add the correct background and color in IE 9-.
@@ -317,6 +326,20 @@ sup {
 /* Embedded content
    ========================================================================== */
 /**
+ * Add the correct display in IE 9-.
+ */
+audio,
+video {
+  display: inline-block;
+}
+/**
+ * Add the correct display in iOS 4-7.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+/**
  * Remove the border on images inside links in IE 10-.
  */
 img {
@@ -328,52 +351,21 @@ img {
 svg:not(:root) {
   overflow: hidden;
 }
-/* Grouping content
-   ========================================================================== */
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-/**
- * Add the correct margin in IE 8.
- */
-figure {
-  margin: 1em 40px;
-}
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
 /* Forms
    ========================================================================== */
 /**
- * 1. Change font properties to `inherit` in all browsers (opinionated).
+ * 1. Change the font styles in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  */
 button,
 input,
+optgroup,
 select,
 textarea {
-  font: inherit; /* 1 */
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
-}
-/**
- * Restore the font weight unset by the previous rule.
- */
-optgroup {
-  font-weight: bold;
 }
 /**
  * Show the overflow in IE.
@@ -444,6 +436,14 @@ legend {
   white-space: normal; /* 1 */
 }
 /**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+/**
  * Remove the default vertical scrollbar in IE.
  */
 textarea {
@@ -474,18 +474,11 @@ textarea {
   outline-offset: -2px; /* 2 */
 }
 /**
- * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
  */
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
-}
-/**
- * Correct the text style of placeholders in Chrome, Edge, and Safari.
- */
-::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.54;
 }
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
@@ -494,6 +487,44 @@ textarea {
 ::-webkit-file-upload-button {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
+}
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+details, /* 1 */
+menu {
+  display: block;
+}
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+/* Scripting
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+canvas {
+  display: inline-block;
+}
+/**
+ * Add the correct display in IE.
+ */
+template {
+  display: none;
+}
+/* Hidden
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10-.
+ */
+[hidden] {
+  display: none;
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -1063,6 +1094,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 8.333333333333334%;
       -ms-flex-preferred-size: 8.333333333333334%;
           flex-basis: 8.333333333333334%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-1 {
   margin-left: 8.333333333333334%;
@@ -1074,6 +1107,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 16.666666666666668%;
       -ms-flex-preferred-size: 16.666666666666668%;
           flex-basis: 16.666666666666668%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-2 {
   margin-left: 16.666666666666668%;
@@ -1085,6 +1120,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 25%;
       -ms-flex-preferred-size: 25%;
           flex-basis: 25%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-3 {
   margin-left: 25%;
@@ -1096,6 +1133,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 33.333333333333336%;
       -ms-flex-preferred-size: 33.333333333333336%;
           flex-basis: 33.333333333333336%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-4 {
   margin-left: 33.333333333333336%;
@@ -1107,6 +1146,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 41.66666666666667%;
       -ms-flex-preferred-size: 41.66666666666667%;
           flex-basis: 41.66666666666667%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-5 {
   margin-left: 41.66666666666667%;
@@ -1118,6 +1159,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 50%;
       -ms-flex-preferred-size: 50%;
           flex-basis: 50%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-6 {
   margin-left: 50%;
@@ -1129,6 +1172,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 58.333333333333336%;
       -ms-flex-preferred-size: 58.333333333333336%;
           flex-basis: 58.333333333333336%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-7 {
   margin-left: 58.333333333333336%;
@@ -1140,6 +1185,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 66.66666666666667%;
       -ms-flex-preferred-size: 66.66666666666667%;
           flex-basis: 66.66666666666667%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-8 {
   margin-left: 66.66666666666667%;
@@ -1151,6 +1198,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 75%;
       -ms-flex-preferred-size: 75%;
           flex-basis: 75%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-9 {
   margin-left: 75%;
@@ -1162,6 +1211,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 83.33333333333334%;
       -ms-flex-preferred-size: 83.33333333333334%;
           flex-basis: 83.33333333333334%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-10 {
   margin-left: 83.33333333333334%;
@@ -1173,6 +1224,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 91.66666666666667%;
       -ms-flex-preferred-size: 91.66666666666667%;
           flex-basis: 91.66666666666667%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-11 {
   margin-left: 91.66666666666667%;
@@ -1184,6 +1237,8 @@ Add as many to this example and they will size accordingly
   -webkit-flex-basis: 100%;
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .flex-offset-12 {
   margin-left: 100%;
@@ -3338,13 +3393,13 @@ title: Size
 ```
 */
 .font-large {
-  font-size: 16px;
+  font-size: 16px
 }
 .font-small {
-  font-size: 12px;
+  font-size: 12px
 }
 .font-body {
-  font-size: 14px;
+  font-size: 14px
 }
 /*---
 section: Typography
@@ -3685,7 +3740,7 @@ hr {
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
-  .flex-row,
+  .flex-row-lg,
 .flex-row-lg-columns,
 .flex-row-lg-wrap,
 .flex-row-lg-reverse,
@@ -3827,6 +3882,8 @@ hr {
     -webkit-flex-basis: 8.333333333333334%;
     -ms-flex-preferred-size: 8.333333333333334%;
     flex-basis: 8.333333333333334%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-1 {
     margin-left: 8.333333333333334%;
@@ -3838,6 +3895,8 @@ hr {
     -webkit-flex-basis: 16.666666666666668%;
     -ms-flex-preferred-size: 16.666666666666668%;
     flex-basis: 16.666666666666668%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-2 {
     margin-left: 16.666666666666668%;
@@ -3849,6 +3908,8 @@ hr {
     -webkit-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-3 {
     margin-left: 25%;
@@ -3860,6 +3921,8 @@ hr {
     -webkit-flex-basis: 33.333333333333336%;
     -ms-flex-preferred-size: 33.333333333333336%;
     flex-basis: 33.333333333333336%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-4 {
     margin-left: 33.333333333333336%;
@@ -3871,6 +3934,8 @@ hr {
     -webkit-flex-basis: 41.66666666666667%;
     -ms-flex-preferred-size: 41.66666666666667%;
     flex-basis: 41.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-5 {
     margin-left: 41.66666666666667%;
@@ -3882,6 +3947,8 @@ hr {
     -webkit-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-6 {
     margin-left: 50%;
@@ -3893,6 +3960,8 @@ hr {
     -webkit-flex-basis: 58.333333333333336%;
     -ms-flex-preferred-size: 58.333333333333336%;
     flex-basis: 58.333333333333336%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-7 {
     margin-left: 58.333333333333336%;
@@ -3904,6 +3973,8 @@ hr {
     -webkit-flex-basis: 66.66666666666667%;
     -ms-flex-preferred-size: 66.66666666666667%;
     flex-basis: 66.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-8 {
     margin-left: 66.66666666666667%;
@@ -3915,6 +3986,8 @@ hr {
     -webkit-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-9 {
     margin-left: 75%;
@@ -3926,6 +3999,8 @@ hr {
     -webkit-flex-basis: 83.33333333333334%;
     -ms-flex-preferred-size: 83.33333333333334%;
     flex-basis: 83.33333333333334%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-10 {
     margin-left: 83.33333333333334%;
@@ -3937,6 +4012,8 @@ hr {
     -webkit-flex-basis: 91.66666666666667%;
     -ms-flex-preferred-size: 91.66666666666667%;
     flex-basis: 91.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-11 {
     margin-left: 91.66666666666667%;
@@ -3948,6 +4025,8 @@ hr {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-lg-offset-12 {
     margin-left: 100%;
@@ -4300,7 +4379,7 @@ hr {
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
-  .flex-row,
+  .flex-row-md,
 .flex-row-md-columns,
 .flex-row-md-wrap,
 .flex-row-md-reverse,
@@ -4442,6 +4521,8 @@ hr {
     -webkit-flex-basis: 8.333333333333334%;
     -ms-flex-preferred-size: 8.333333333333334%;
     flex-basis: 8.333333333333334%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-1 {
     margin-left: 8.333333333333334%;
@@ -4453,6 +4534,8 @@ hr {
     -webkit-flex-basis: 16.666666666666668%;
     -ms-flex-preferred-size: 16.666666666666668%;
     flex-basis: 16.666666666666668%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-2 {
     margin-left: 16.666666666666668%;
@@ -4464,6 +4547,8 @@ hr {
     -webkit-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-3 {
     margin-left: 25%;
@@ -4475,6 +4560,8 @@ hr {
     -webkit-flex-basis: 33.333333333333336%;
     -ms-flex-preferred-size: 33.333333333333336%;
     flex-basis: 33.333333333333336%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-4 {
     margin-left: 33.333333333333336%;
@@ -4486,6 +4573,8 @@ hr {
     -webkit-flex-basis: 41.66666666666667%;
     -ms-flex-preferred-size: 41.66666666666667%;
     flex-basis: 41.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-5 {
     margin-left: 41.66666666666667%;
@@ -4497,6 +4586,8 @@ hr {
     -webkit-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-6 {
     margin-left: 50%;
@@ -4508,6 +4599,8 @@ hr {
     -webkit-flex-basis: 58.333333333333336%;
     -ms-flex-preferred-size: 58.333333333333336%;
     flex-basis: 58.333333333333336%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-7 {
     margin-left: 58.333333333333336%;
@@ -4519,6 +4612,8 @@ hr {
     -webkit-flex-basis: 66.66666666666667%;
     -ms-flex-preferred-size: 66.66666666666667%;
     flex-basis: 66.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-8 {
     margin-left: 66.66666666666667%;
@@ -4530,6 +4625,8 @@ hr {
     -webkit-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-9 {
     margin-left: 75%;
@@ -4541,6 +4638,8 @@ hr {
     -webkit-flex-basis: 83.33333333333334%;
     -ms-flex-preferred-size: 83.33333333333334%;
     flex-basis: 83.33333333333334%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-10 {
     margin-left: 83.33333333333334%;
@@ -4552,6 +4651,8 @@ hr {
     -webkit-flex-basis: 91.66666666666667%;
     -ms-flex-preferred-size: 91.66666666666667%;
     flex-basis: 91.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-11 {
     margin-left: 91.66666666666667%;
@@ -4563,6 +4664,8 @@ hr {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-md-offset-12 {
     margin-left: 100%;
@@ -4918,7 +5021,7 @@ hr {
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
-  .flex-row,
+  .flex-row-sm,
 .flex-row-sm-columns,
 .flex-row-sm-wrap,
 .flex-row-sm-reverse,
@@ -5060,6 +5163,8 @@ hr {
     -webkit-flex-basis: 8.333333333333334%;
     -ms-flex-preferred-size: 8.333333333333334%;
     flex-basis: 8.333333333333334%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-1 {
     margin-left: 8.333333333333334%;
@@ -5071,6 +5176,8 @@ hr {
     -webkit-flex-basis: 16.666666666666668%;
     -ms-flex-preferred-size: 16.666666666666668%;
     flex-basis: 16.666666666666668%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-2 {
     margin-left: 16.666666666666668%;
@@ -5082,6 +5189,8 @@ hr {
     -webkit-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
     flex-basis: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-3 {
     margin-left: 25%;
@@ -5093,6 +5202,8 @@ hr {
     -webkit-flex-basis: 33.333333333333336%;
     -ms-flex-preferred-size: 33.333333333333336%;
     flex-basis: 33.333333333333336%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-4 {
     margin-left: 33.333333333333336%;
@@ -5104,6 +5215,8 @@ hr {
     -webkit-flex-basis: 41.66666666666667%;
     -ms-flex-preferred-size: 41.66666666666667%;
     flex-basis: 41.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-5 {
     margin-left: 41.66666666666667%;
@@ -5115,6 +5228,8 @@ hr {
     -webkit-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-6 {
     margin-left: 50%;
@@ -5126,6 +5241,8 @@ hr {
     -webkit-flex-basis: 58.333333333333336%;
     -ms-flex-preferred-size: 58.333333333333336%;
     flex-basis: 58.333333333333336%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-7 {
     margin-left: 58.333333333333336%;
@@ -5137,6 +5254,8 @@ hr {
     -webkit-flex-basis: 66.66666666666667%;
     -ms-flex-preferred-size: 66.66666666666667%;
     flex-basis: 66.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-8 {
     margin-left: 66.66666666666667%;
@@ -5148,6 +5267,8 @@ hr {
     -webkit-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
     flex-basis: 75%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-9 {
     margin-left: 75%;
@@ -5159,6 +5280,8 @@ hr {
     -webkit-flex-basis: 83.33333333333334%;
     -ms-flex-preferred-size: 83.33333333333334%;
     flex-basis: 83.33333333333334%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-10 {
     margin-left: 83.33333333333334%;
@@ -5170,6 +5293,8 @@ hr {
     -webkit-flex-basis: 91.66666666666667%;
     -ms-flex-preferred-size: 91.66666666666667%;
     flex-basis: 91.66666666666667%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-11 {
     margin-left: 91.66666666666667%;
@@ -5181,6 +5306,8 @@ hr {
     -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .flex-sm-offset-12 {
     margin-left: 100%;
@@ -5264,6 +5391,15 @@ hr {
     float: none;
     vertical-align: top;
     white-space: normal;
+  }
+  .font-large {
+    font-size: 16px;
+  }
+  .font-small {
+    font-size: 12px;
+  }
+  .font-body {
+    font-size: 14px;
   }
 }
 @media (max-width: 100vw) {
