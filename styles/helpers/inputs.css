@@ -45,6 +45,8 @@ title: Form
   <form class="form">
     <label class="spacing-xs">Text</label>
     <input class="spacing-sm" type="text" placeholder="Text">
+    <label class="spacing-xs">Read Only</label>
+    <input class="spacing-sm" type="text" value="Text can only be copied" readonly>
     <label class="spacing-xs">Email</label>
     <input class="spacing-sm" type="email" placeholder="Email">
     <label class="spacing-xs">Password</label>
