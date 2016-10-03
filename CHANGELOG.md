@@ -1,4 +1,13 @@
 
+0.19.0 / 2016-10-03
+==================
+
+  * fixed spacing mixin for other breakpoints
+  * update depedencies
+  * remove ^ in deps. we'll just manually upgrade deps regularly
+  * mobile font sizes
+  * flex grid fixes
+
 0.18.0 / 2016-09-22
 ==================
 
