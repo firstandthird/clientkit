@@ -158,6 +158,27 @@ title: Form
     </div>
   </form>
   ```
+  ### With Dropdown
+
+  ```example:html
+  <form class="form">
+    <div class="input-group">
+      <input type="text" placeholder="Enter your email">
+      <div class="input-group-btn">
+        <div class="dropdown">
+          <button class="button dropdown-toggle">Type</button>
+          <div class="dropdown-menu" style="min-width: 125px;">
+            <button class="dropdown-item disabled">Disabled Button item</button>
+            <button class="dropdown-item active">Active Button item</button>
+            <a href="" class="dropdown-item">Link item</a>
+            <a href="" class="dropdown-item">Link item</a>
+          </div>
+        </div>
+        <button class="button">Sign Up</button>
+      </div>
+    </div>
+  </form>
+  ```
   */
   & .input-group {
     font-size: 0;
@@ -195,6 +216,15 @@ title: Form
       display: inline-block;
       vertical-align: middle;
       border-radius: 0 var(--border-radius-default) var(--border-radius-default) 0;
+
+      & .button {
+        border-radius: 0;
+
+        &:last-child {
+          margin-left: 1px;
+          border-radius: 0 var(--border-radius-default) var(--border-radius-default) 0;
+        }
+      }
     }
   }
 }
