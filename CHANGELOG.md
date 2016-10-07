@@ -1,4 +1,10 @@
 
+0.20.0 / 2016-10-07
+==================
+
+  * fixes for icon mixin
+  * Add style for disable buttons
+
 0.19.0 / 2016-10-03
 ==================
 
