@@ -1836,6 +1836,7 @@ title: Primary Button
 ```example:html
 <button class="button">Primary Button</button>
 <a class="button">Primary Link Button</a>
+<button class="button" disabled>Disabled Button</button>
 ```
 */
 .button {
@@ -1857,6 +1858,17 @@ title: Primary Button
   .button.active,
   .button:focus {
   background-color: rgb(74, 135, 204);
+  color: #fff;
+}
+.button:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+.button:disabled:hover,
+    .button:disabled:active,
+    .button:disabled.active,
+    .button:disabled:focus {
+  background-color: rgba(75, 157, 249, 1);
   color: #fff;
 }
 /*---
@@ -1888,6 +1900,17 @@ title: Outline Button
   .button-outline:focus {
   background-color: rgba(75, 157, 249, 1);
   color: #fff;
+}
+.button-outline:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+.button-outline:disabled:hover,
+    .button-outline:disabled:active,
+    .button-outline:disabled.active,
+    .button-outline:disabled:focus {
+  background-color: transparent;
+  color: rgba(75, 157, 249, 1);
 }
 /*---
 section: Buttons
