@@ -16,7 +16,8 @@ module.exports = function(conf, base) {
   const cli = new CLIEngine({
     useEslintrc: false,
     configFile: conf.core.eslint,
-    ignorePattern: conf.core.eslintIgnore
+    ignorePattern: conf.core.eslintIgnore,
+    rules: conf.rules
   });
   const results = cli.executeOnFiles(conf.core.watch.scripts).results;
   // if any errors, print them:
