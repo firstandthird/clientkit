@@ -18,6 +18,7 @@ const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
 const hashing = require('../lib/urlHashes');
+const inject = require('../lib/injectHash');
 const pkg = require('../package.json');
 const log = new Logr({
   type: 'cli',
@@ -196,8 +197,12 @@ class CssTask {
 
   writeToFile(outputName) {
     if (this.config.core.urlHashing.active) {
+      const originalName = outputName;
       outputName = hashing.hash(outputName, this.result.css);
       hashing.writeMap(this.config);
+      if (this.config.core.urlHashing.inject) {
+        inject(originalName, outputName, this.config.core.urlHashing.inject);
+      }
     }
     if (!this.result) {
       log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);
