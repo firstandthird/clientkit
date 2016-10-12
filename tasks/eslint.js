@@ -13,12 +13,7 @@ const log = new Logr({
 });
 
 module.exports = function(conf, base) {
-  const cli = new CLIEngine({
-    useEslintrc: false,
-    configFile: conf.core.eslint,
-    ignorePattern: conf.core.eslintIgnore,
-    rules: conf.rules
-  });
+  const cli = new CLIEngine(conf['eslint-config'])
   const results = cli.executeOnFiles(conf.core.watch.scripts).results;
   // if any errors, print them:
   let errorsExist = false;

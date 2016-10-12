@@ -1,2 +1,8 @@
-rules:
-  'no-shadow': 0
+eslint-config:
+  useEslintrc: false
+  configFile: 'eslint-config-firstandthird'
+  eslintIgnore:
+    - 'node_modules'
+    - '{{core.dist}}'
+  rules:
+    #'no-shadow': 0  
