@@ -201,7 +201,7 @@ class CssTask {
       outputName = hashing.hash(outputName, this.result.css);
       hashing.writeMap(this.config);
       if (this.config.core.urlHashing.inject) {
-        inject(originalName, outputName, this.config.core.urlHashing.inject);
+        inject(originalName, outputName, 'style', this.config.core.urlHashing.inject);
       }
     }
     if (!this.result) {
