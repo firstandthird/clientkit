@@ -10,7 +10,6 @@ const exorcist = require('exorcist');
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
 const hashing = require('../lib/urlHashes');
-const inject = require('../lib/injectHash');
 const Logr = require('logr');
 
 const log = new Logr({
@@ -22,7 +21,7 @@ const log = new Logr({
   }
 });
 
-module.exports = function(conf, base, outputName, input) {
+module.exports = function(conf, base, outputName, input, cb) {
   const start = new Date().getTime();
   let output = path.join(conf.core.dist, outputName);
 
@@ -33,9 +32,6 @@ module.exports = function(conf, base, outputName, input) {
       fs.renameSync(output, newOutput);
       output = newOutput;
       hashing.writeMap(conf);
-      if (this.config.core.urlHashing.inject) {
-        inject(output, newOutput, this.config.core.urlHashing.inject);
-      }
     }
     const end = new Date().getTime();
     const duration = (end - start) / 1000;
@@ -44,6 +40,7 @@ module.exports = function(conf, base, outputName, input) {
         throw err;
       }
       log(`Processed: ${path.relative(process.cwd(), input)} → ${path.relative(process.cwd(), output)} (${size}) in ${duration} sec, `);
+      cb(null, outputName, output);
     });
   });
 

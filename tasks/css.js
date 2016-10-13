@@ -18,7 +18,6 @@ const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
 const Logr = require('logr');
 const hashing = require('../lib/urlHashes');
-const inject = require('../lib/injectHash');
 const pkg = require('../package.json');
 const log = new Logr({
   type: 'cli',
@@ -195,14 +194,11 @@ class CssTask {
     });
   }
 
-  writeToFile(outputName) {
+  writeToFile(outputName, cb) {
+    const originalName = outputName;
     if (this.config.core.urlHashing.active) {
-      const originalName = outputName;
       outputName = hashing.hash(outputName, this.result.css);
       hashing.writeMap(this.config);
-      if (this.config.core.urlHashing.inject) {
-        inject(originalName, outputName, 'style', this.config.core.urlHashing.inject);
-      }
     }
     if (!this.result) {
       log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);
@@ -211,14 +207,15 @@ class CssTask {
     fs.writeFileSync(output, this.result.css);
     fs.writeFileSync(`${output}.map`, this.result.map);
     log(`Wrote: ${path.relative(process.cwd(), output)} (${bytesize.stringSize(this.result.css, true)}), `);
+    cb(null, originalName, outputName);
   }
 
 }
 module.exports.CssTask = CssTask;
-module.exports.runTaskAndWrite = function (config, base, outputName, input) {
+module.exports.runTaskAndWrite = function (config, base, outputName, input, cb) {
   const task = new CssTask(config, base);
   task.performTask(input, () => {
-    task.writeToFile(outputName);
+    task.writeToFile(outputName, cb);
   }, outputName);
 };
 module.exports.processOnly = function (config, base, input, callback) {
