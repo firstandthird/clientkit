@@ -195,6 +195,7 @@ class CssTask {
   }
 
   writeToFile(outputName, cb) {
+    if (!cb) cb = () => ({});
     const originalName = outputName;
     if (this.config.core.urlHashing.active) {
       outputName = hashing.hash(outputName, this.result.css);

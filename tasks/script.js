@@ -22,6 +22,8 @@ const log = new Logr({
 });
 
 module.exports = function(conf, base, outputName, input, cb) {
+  if (!cb) cb = () => ({});
+
   const start = new Date().getTime();
   let output = path.join(conf.core.dist, outputName);
 

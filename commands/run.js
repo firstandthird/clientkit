@@ -1,13 +1,15 @@
+/* eslint-disable global-require */
 'use strict';
 const async = require('async');
 const _ = require('lodash');
 const mkdirp = require('mkdirp');
-const cssProcessor = require('../tasks/css.js');
-const jsProcessor = require('../tasks/script.js');
-const lintProcessor = require('../tasks/eslint.js');
-const injector = require('../lib/injectHash');
 
 module.exports.runAll = (config) => {
+  const cssProcessor = require('../tasks/css.js');
+  const jsProcessor = require('../tasks/script.js');
+  const lintProcessor = require('../tasks/eslint.js');
+  const injector = require('../lib/injectHash');
+
   // Tasks
   async.auto({
     mkdir: (next) => {
