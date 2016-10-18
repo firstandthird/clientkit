@@ -8,7 +8,9 @@
   },
   "scripts": {
     "start": "node app.js --config conf",
-    "dev": "concurrently \"node app.js --config conf dev\" \"npm run serve\"",
+    "docs": "node app.js --config styleguide",
+    "dev:ck": "node app.js --config conf --env dev",
+    "dev": "concurrently \"npm run dev:ck\" \"npm run serve\"",
     "test": "mocha",
     "serve": "serve -p 8082 dist",
     "ghpages": "./tasks/ghpages",

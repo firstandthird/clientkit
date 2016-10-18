@@ -145,7 +145,7 @@ class CssTask {
           colors: this.config.color,
           variables: this.cssVars,
           css: [
-            'style.css',
+            'styleguide.css',
             '../clientkit.css'
           ],
           examples: {
