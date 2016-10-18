@@ -28,6 +28,19 @@ title: Button
     background-color: $hoverBackground;
     color: $hoverColor;
   }
+
+  &:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus {
+      background-color: $background;
+      color: $color;
+    }
+  }
 }
 
 /*---

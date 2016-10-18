@@ -22,7 +22,9 @@ module.exports = function(config) {
     }
 
     return {
-      background: `svg-load('${iconpath}', fill=${fill});`,
+      'background-image': `svg-load('${iconpath}', fill=${fill});`,
+      'background-repeat': 'no-repeat',
+      'background-position': 'center',
       'background-size': size,
       display: 'inline-block',
       'vertical-align': 'middle',
