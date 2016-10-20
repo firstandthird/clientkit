@@ -207,8 +207,8 @@ class CssTask {
     fs.writeFileSync(`${output}.map`, this.result.map);
     log(`Wrote: ${path.relative(process.cwd(), output)} (${bytesize.stringSize(this.result.css, true)}), `);
   }
-
 }
+
 module.exports.CssTask = CssTask;
 module.exports.runTaskAndWrite = function (config, base, outputName, input) {
   const task = new CssTask(config, base);

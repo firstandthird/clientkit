@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "0.18.0",
+  "version": "0.20.0",
   "description": "Client kit for websites",
   "main": "app.js",
   "bin": {
@@ -25,13 +25,13 @@
   },
   "homepage": "https://github.com/firstandthird/clientkit#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "concurrently": "^2.2.0",
-    "gh-pages": "^0.11.0",
-    "mocha": "^2.5.3",
-    "rimraf": "^2.5.4",
-    "serve": "^1.4.0",
-    "stylelint": "^6.7.1"
+    "chai": "3.5.0",
+    "concurrently": "2.2.0",
+    "gh-pages": "0.11.0",
+    "mocha": "2.5.3",
+    "rimraf": "2.5.4",
+    "serve": "1.4.0",
+    "stylelint": "6.7.1"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.9.0",
@@ -43,9 +43,9 @@
     "confi": "^2.3.0",
     "css-mqpacker": "^5.0.1",
     "cssnano": "^3.7.1",
-    "eslint": "3.4.0",
-    "eslint-config-firstandthird": "3.0.1",
-    "eslint-plugin-import": "1.14.0",
+    "eslint": "^3.7.0",
+    "eslint-config-firstandthird": "^3.0.2",
+    "eslint-plugin-import": "^1.16.0",
     "exorcist": "^0.4.0",
     "get-stdin": "^5.0.1",
     "lodash": "^4.16.2",
@@ -60,12 +60,12 @@
     "postcss-import": "^8.1.2",
     "postcss-inline-svg": "^2.0.1",
     "postcss-mixins": "5.2.0",
-    "postcss-svgo": "^2.1.3",
-    "postcss-triangle": "^1.0.1",
-    "require-all": "^2.0.0",
-    "rev-hash": "^1.0.0",
-    "uglifyify": "^3.0.2",
-    "update-notifier": "^1.0.2",
-    "yargs": "^4.8.1"
+    "postcss-svgo": "^2.1.5",
+    "postcss-triangle": "1.0.1",
+    "require-all": "2.0.0",
+    "rev-hash": "1.0.0",
+    "uglifyify": "^3.0.3",
+    "update-notifier": "1.0.2",
+    "yargs": "^6.0.0"
   }
 }
