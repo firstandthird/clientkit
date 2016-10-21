@@ -1,0 +1,5 @@
+{
+  "browserify-shim": {
+    "anchors": "global:anchors"
+  }
+}

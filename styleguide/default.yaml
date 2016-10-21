@@ -1,0 +1,10 @@
+core:
+  dist: 'styleguide/dist'
+docs:
+  enabled: false
+stylesheets:
+  'styleguide.css': 'styleguide/assets/style.css'
+scripts:
+  'styleguide.js': 'styleguide/assets/script.js'
+scriptConfig:
+  shim: true

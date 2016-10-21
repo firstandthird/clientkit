@@ -1,6 +1,9 @@
 /* eslint-env browser */
 /* global examples, Prism */
-
+require('./prism.js');
+require('./examples.js');
+require('./anchor.min.js');
+require('./interact.min.js');
 document.addEventListener('DOMContentLoaded', function () {
 	Array.prototype.forEach.call(document.querySelectorAll('pre code[class^="lang"]'), function (code) {
 		// set pre, wrap, opts, and get meta data from code
