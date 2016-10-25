@@ -140,6 +140,10 @@ title: Size
   @media(--mobile) {
     font-size: var(--font-mobile-size-large);
   }
+
+  @media(--tablet) {
+    font-size: var(--font-size-large);
+  }
 }
 
 .font-small {
@@ -148,6 +152,10 @@ title: Size
   @media(--mobile) {
     font-size: var(--font-mobile-size-small);
   }
+
+  @media(--tablet) {
+    font-size: var(--font-size-small);
+  }
 }
 
 .font-body {
@@ -155,6 +163,10 @@ title: Size
 
   @media(--mobile) {
     font-size: var(--font-mobile-size-body);
+  }
+
+  @media(--tablet) {
+    font-size: var(--font-size-body);
   }
 }
 
