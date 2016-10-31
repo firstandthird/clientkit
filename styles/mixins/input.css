@@ -27,4 +27,7 @@ title: Input
     border-bottom: 1px dashed $borderDisabled;
     color: $colorDisabled;
   }
+  &:read-only {
+    cursor: text;
+  }
 }
