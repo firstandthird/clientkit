@@ -1,4 +1,14 @@
 
+0.21.0 / 2016-11-06
+==================
+
+  * make size optional
+  * use mobile only media query for mobile typography size
+  * use native font stack by default
+  * Add text cursor to read only input
+  * Add easing config
+  * Add new breakpoints
+
 0.20.0 / 2016-10-07
 ==================
 
