@@ -56,6 +56,9 @@ class CssTask {
     Object.keys(config.grid).forEach(prop => {
       this.cssVars[`grid-${prop}`] = config.grid[prop];
     });
+    Object.keys(config.easing).forEach(prop => {
+      this.cssVars[`easing-${prop}`] = config.easing[prop];
+    });
     if (config.vars) {
       Object.keys(config.vars).forEach(varName => {
         addVarObject(varName, config.vars[varName], this.cssVars);

@@ -13,6 +13,7 @@ title: Primary Button
 ```example:html
 <button class="button">Primary Button</button>
 <a class="button">Primary Link Button</a>
+<button class="button" disabled>Disabled Button</button>
 ```
 */
 .button {
