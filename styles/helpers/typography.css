@@ -137,7 +137,7 @@ title: Size
 .font-large {
   font-size: var(--font-size-large);
 
-  @media(--mobile) {
+  @media(--mobile-only) {
     font-size: var(--font-mobile-size-large);
   }
 }
@@ -145,7 +145,7 @@ title: Size
 .font-small {
   font-size: var(--font-size-small);
 
-  @media(--mobile) {
+  @media(--mobile-only) {
     font-size: var(--font-mobile-size-small);
   }
 }
@@ -153,7 +153,7 @@ title: Size
 .font-body {
   font-size: var(--font-size-body);
 
-  @media(--mobile) {
+  @media(--mobile-only) {
     font-size: var(--font-mobile-size-body);
   }
 }
