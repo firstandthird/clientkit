@@ -3,9 +3,6 @@ const path = require('path');
 const pathExists = require('path-exists');
 module.exports = function(config) {
   return function(rule, icon, size, fill) {
-    if (!size) {
-      throw new Error('must pass in size for icon');
-    }
     const cssfile = rule && rule.source.input && rule.source.input.file;
     let iconpath = path.resolve(cssfile, icon);
 
@@ -21,15 +18,18 @@ module.exports = function(config) {
       fill = config.color.icons;
     }
 
-    return {
+    const styles = {
       'background-image': `svg-load('${iconpath}', fill=${fill});`,
       'background-repeat': 'no-repeat',
       'background-position': 'center',
-      'background-size': size,
       display: 'inline-block',
       'vertical-align': 'middle',
-      height: size,
-      width: size
     };
+    if (size) {
+      styles['background-size'] = size;
+      styles.height = size;
+      styles.width = size;
+    }
+    return styles;
   };
 };
