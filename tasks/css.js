@@ -65,7 +65,7 @@ class CssTask {
       });
     }
     // load spacing variables:
-    Object.keys(config.breakpoints).forEach(function(breakpoint, i, bps) {
+    Object.keys(config.breakpoints).forEach((breakpoint, i, bps) => {
       const breakpointObj = {
         min: config.breakpoints[breakpoint]['min-width'],
         max: config.breakpoints[breakpoint]['max-width'],
