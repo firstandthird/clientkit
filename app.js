@@ -43,6 +43,7 @@ const main = () => {
   }
   const runner = new RunTask();
   const CSSTask = require('./tasks/css');
+  const JSTask = require('./tasks/js');
   runner.register('css', new CSSTask({
     logColor: 'green',
     files: conf.stylesheets,
@@ -55,6 +56,16 @@ const main = () => {
     core: conf.core,
     docs: conf.docs,
     autoprefixer: conf.autoprefixer
+  }));
+
+  runner.register('js', new JSTask({
+    logColor: 'blue',
+    files: conf.scripts,
+    dist: conf.core.dist,
+    minify: conf.core.minify,
+    shim: conf.scriptConfig.shim,
+    babelIgnore: conf.scriptConfig.babelIgnore,
+    globalBabel: conf.scriptConfig.globalBabel
   }));
 
   runner.run(conf.execute);

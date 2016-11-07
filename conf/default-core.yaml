@@ -24,7 +24,9 @@ core:
   globalBabel: true
 
 execute:
-  - 'css'
+  -
+    - 'css'
+    - 'js'
 autoprefixer:
   browsers:
     - 'last 2 versions'
