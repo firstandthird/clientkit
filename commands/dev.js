@@ -144,5 +144,5 @@ module.exports.runDev = (defaultConfDirectory, initialConfig, argv, log) => {
         log(`Watching ${jsFiles} JS files, ${cssFiles} CSS files, ${configFiles} config files `);
       }, 2000);
     }
-  }, 100);
+  }, initialConfig.core.rebuildDelay);
 };
