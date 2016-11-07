@@ -60,7 +60,7 @@ class CSSTask extends ClientKitTask {
         min: config.breakpoints[breakpoint]['min-width'],
         max: config.breakpoints[breakpoint]['max-width'],
       };
-      const constraint = config.core.mobileFirst ? 'min' : 'max';
+      const constraint = config.mobileFirst ? 'min' : 'max';
       const width = breakpointObj[constraint];
       const mediaquery = `(${constraint}-width: ${width})`;
       let mediaqueryOnly;
@@ -90,9 +90,9 @@ class CSSTask extends ClientKitTask {
       dirname: path.join(__dirname, '..', 'styles', 'mixins'),
       resolve: m => m(config, postcss)
     });
-    if (pathExists.sync(path.join(config.core.assetPath, 'mixins'))) {
+    if (pathExists.sync(path.join(config.assetPath, 'mixins'))) {
       const localMixins = require('require-all')({
-        dirname: path.join(config.core.assetPath, 'mixins'),
+        dirname: path.join(config.assetPath, 'mixins'),
         resolve: m => m(config, postcss)
       });
       Object.assign(globalMixins, localMixins);
@@ -137,7 +137,7 @@ class CSSTask extends ClientKitTask {
 
           let ret = bv - av;
 
-          if (this.config.core.mobileFirst) {
+          if (this.config.mobileFirst) {
             ret *= -1;
           }
 
@@ -146,7 +146,7 @@ class CSSTask extends ClientKitTask {
       })
     ];
     // Only run fonts against default.css to avoid duplicates
-    if (input.match(this.config.core.fontParsingWhitelist)) {
+    if (input.match(this.config.fontParsingWhitelist)) {
       processes.push(cssfonts({
         foundries: ['custom', 'hosted', 'google']
       }));
@@ -171,12 +171,12 @@ class CSSTask extends ClientKitTask {
           },
           sectionOrder: this.config.docs.sectionOrder
         }),
-        destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
+        destination: path.join(this.config.dist.replace(process.cwd(), ''), 'styleguide')
       }));
     }
 
     // minify if specified in config files:
-    if (this.config.core.minify) {
+    if (this.config.minify) {
       processes.push(cssnano());
     }
     let inputCss;

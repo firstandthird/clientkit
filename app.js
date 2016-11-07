@@ -5,6 +5,7 @@ const yargs = require('yargs');
 const Logr = require('logr');
 const configLoader = require('./lib/config');
 const RunTask = require('runtask');
+const loadTasks = require('./lib/load-tasks');
 
 const log = new Logr({
   type: 'cli',
@@ -41,7 +42,13 @@ const main = () => {
   if (!conf) {
     process.exit(1);
   }
-  const runner = new RunTask();
+  loadTasks(conf, (err, runner) => {
+    if (err) {
+      throw err;
+    }
+    runner.run(conf.execute);
+  });
+  /*
   const CSSTask = require('./tasks/css');
   const ScriptsTask = require('./tasks/scripts');
   const WatcherTask = require('./tasks/watcher');
@@ -75,8 +82,8 @@ const main = () => {
     files: conf.core.watch,
     delay: conf.core.rebuildDelay
   }));
+  */
 
-  runner.run(conf.execute);
 };
 
 main();

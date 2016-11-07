@@ -1,9 +1,9 @@
+dist: '{{CWD}}/dist'
+assetPath: '{{CWD}}'
+minify: false
 core:
   rebuildDelay: 500
   minify: false
-  dist: '{{CWD}}/dist'
-  assetPath: '{{CWD}}'
-  mobileFirst: false
   urlHashing:
     active: false
     jsonMapping: '{{core.dist}}/assets.json'
@@ -15,15 +15,9 @@ core:
   eslintIgnore:
     - 'node_modules'
     - '{{core.dist}}'
-  fontParsingWhitelist: 'default.css'
   #TODO: put this in a better place
   globalBabel: true
 
-autoprefixer:
-  browsers:
-    - 'last 2 versions'
-    - 'iOS 8'
-    - 'iOS 9'
 
 scriptConfig:
   shim: false
