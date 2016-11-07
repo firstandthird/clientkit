@@ -44,6 +44,7 @@ const main = () => {
   const runner = new RunTask();
   const CSSTask = require('./tasks/css');
   const JSTask = require('./tasks/js');
+  const WatcherTask = require('./tasks/watcher');
   runner.register('css', new CSSTask({
     logColor: 'green',
     files: conf.stylesheets,
@@ -66,6 +67,13 @@ const main = () => {
     shim: conf.scriptConfig.shim,
     babelIgnore: conf.scriptConfig.babelIgnore,
     globalBabel: conf.scriptConfig.globalBabel
+  }));
+
+  runner.register('watcher', new WatcherTask({
+    logColor: 'yellow',
+    runner,
+    files: conf.core.watch,
+    delay: conf.core.rebuildDelay
   }));
 
   runner.run(conf.execute);

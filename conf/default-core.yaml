@@ -9,12 +9,8 @@ core:
     jsonMapping: '{{core.dist}}/assets.json'
   watchEnabled: false
   watch:
-    css:
-      - '{{core.assetPath}}/**/*.css'
-    scripts:
-      - '{{core.assetPath}}/**/*.js'
-    yaml:
-      - '{{CONFIGDIR}}/*.yaml'
+    '{{core.assetPath}}/**/*.css': 'css'
+    '{{core.assetPath}}/**/*.js': 'js'
   eslint: 'eslint-config-firstandthird'
   eslintIgnore:
     - 'node_modules'
@@ -23,10 +19,6 @@ core:
   #TODO: put this in a better place
   globalBabel: true
 
-execute:
-  -
-    - 'css'
-    - 'js'
 autoprefixer:
   browsers:
     - 'last 2 versions'

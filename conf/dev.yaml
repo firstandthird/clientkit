@@ -1,2 +1,4 @@
 core:
   watchEnabled: true
+execute:
+  - 'watcher'
