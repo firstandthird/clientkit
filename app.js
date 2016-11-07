@@ -42,7 +42,7 @@ const main = () => {
   if (!conf) {
     process.exit(1);
   }
-  if (!conf.tasks) {
+  if (conf.core) {
     throw new Error('please upgrade your config to the new version');
   }
   loadTasks(conf, (err, runner) => {
