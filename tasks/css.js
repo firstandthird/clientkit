@@ -31,8 +31,8 @@ const addVarObject = (curVarName, curVarValue, curObject) => {
 
 class CSSTask extends ClientKitTask {
   // loads config files:
-  constructor(config) {
-    super(config);
+  constructor(name, config, runner) {
+    super(name, config, runner);
     this.config = config;
     this.cssVars = {};
     this.customMedia = {};
@@ -101,7 +101,6 @@ class CSSTask extends ClientKitTask {
   }
 
   process(input, outputFilename, callback) {
-    const start = new Date().getTime();
     const processes = [
       cssimport({
         path: [
@@ -196,9 +195,6 @@ class CSSTask extends ClientKitTask {
         });
       }
 
-      const end = new Date().getTime();
-      const duration = (end - start) / 1000;
-      this.log(`Processed ${path.relative(process.cwd(), input)} in ${duration} sec`);
       this.write(outputFilename, result.css, callback);
     }, (err) => {
       if (err) {
