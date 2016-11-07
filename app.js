@@ -48,42 +48,6 @@ const main = () => {
     }
     runner.run(conf.execute);
   });
-  /*
-  const CSSTask = require('./tasks/css');
-  const ScriptsTask = require('./tasks/scripts');
-  const WatcherTask = require('./tasks/watcher');
-  runner.register('css', new CSSTask({
-    logColor: 'green',
-    files: conf.stylesheets,
-    color: conf.color,
-    vars: conf.vars,
-    breakpoints: conf.breakpoints,
-    spacing: conf.spacing,
-    grid: conf.grid,
-    easing: conf.easing,
-    core: conf.core,
-    docs: conf.docs,
-    autoprefixer: conf.autoprefixer
-  }));
-
-  runner.register('js', new ScriptsTask({
-    logColor: 'blue',
-    files: conf.scripts,
-    dist: conf.core.dist,
-    minify: conf.core.minify,
-    shim: conf.scriptConfig.shim,
-    babelIgnore: conf.scriptConfig.babelIgnore,
-    globalBabel: conf.scriptConfig.globalBabel
-  }));
-
-  runner.register('watcher', new WatcherTask({
-    logColor: 'yellow',
-    runner,
-    files: conf.core.watch,
-    delay: conf.core.rebuildDelay
-  }));
-  */
-
 };
 
 main();
