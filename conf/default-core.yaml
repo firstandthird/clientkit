@@ -1,5 +1,5 @@
 core:
-  rebuildDelay: 100
+  rebuildDelay: 500
   minify: false
   dist: '{{CWD}}/dist'
   assetPath: '{{CWD}}'
