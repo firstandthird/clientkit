@@ -1,6 +1,6 @@
 tasks:
   js:
-    register: './tasks/scripts.js'
+    register: '{{CKDIR}}/tasks/scripts.js'
     options: '{{scripts}}'
 
 scripts:
@@ -8,7 +8,6 @@ scripts:
   assetPath: '{{assetPath}}'
   dist: '{{dist}}'
   minify: '{{minify}}'
-  files:
   globalBabel: false
   shim: false
   babelIgnore: null

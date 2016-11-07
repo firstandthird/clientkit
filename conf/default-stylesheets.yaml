@@ -1,6 +1,6 @@
 tasks:
   css:
-    register: './tasks/css.js'
+    register: '{{CKDIR}}/tasks/css.js'
     options: '{{stylesheets}}'
 stylesheets:
   logColor: 'green'
