@@ -1,6 +1,6 @@
 node_modules
-dist
 .idea
+dist/styleguide
 npm-debug.log
 test/clientkit
 test/.dist
