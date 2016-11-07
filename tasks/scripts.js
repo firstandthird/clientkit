@@ -29,8 +29,7 @@ class ScriptsTask extends ClientKitTask {
       currentTransform = currentTransform.transform(uglifyify, { global: true });
     }
 
-    currentTransform.bundle();
-    this.write(filename, currentTransform, done);
+    this.write(filename, currentTransform.bundle(), done);
   }
 }
 module.exports = ScriptsTask;
