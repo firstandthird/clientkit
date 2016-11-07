@@ -30,7 +30,7 @@ class ScriptTask extends ClientKitTask {
     }
 
     currentTransform.bundle();
-    done(null, currentTransform);
+    this.write(filename, currentTransform, done);
   }
 }
 module.exports = ScriptTask;

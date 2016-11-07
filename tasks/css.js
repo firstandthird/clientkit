@@ -1,7 +1,6 @@
 'use strict';
 
 const ClientKitTask = require('../lib/task');
-const bytesize = require('bytesize');
 const fs = require('fs');
 const path = require('path');
 const postcss = require('postcss');
@@ -17,7 +16,6 @@ const cssnano = require('cssnano');
 const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
-const hashing = require('../lib/urlHashes');
 const pkg = require('../package.json');
 
 const addVarObject = (curVarName, curVarValue, curObject) => {
@@ -201,7 +199,7 @@ class CSSTask extends ClientKitTask {
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
       this.log(`Processed ${path.relative(process.cwd(), input)} in ${duration} sec`);
-      return callback(null, result.css);
+      this.write(outputFilename, result.css, callback);
     }, (err) => {
       if (err) {
         this.log(['error'], err.stack);
