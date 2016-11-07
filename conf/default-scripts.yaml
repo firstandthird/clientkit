@@ -1,0 +1,14 @@
+tasks:
+  js:
+    register: './tasks/scripts.js'
+    options: '{{scripts}}'
+
+scripts:
+  logColor: 'blue'
+  assetPath: '{{assetPath}}'
+  dist: '{{dist}}'
+  minify: '{{minify}}'
+  files:
+  globalBabel: false
+  shim: false
+  babelIgnore: null

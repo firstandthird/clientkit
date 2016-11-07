@@ -1,0 +1,12 @@
+tasks:
+  watcher:
+    register: './tasks/watcher'
+    options: '{{watcher}}'
+
+watcher:
+  logColor: 'yellow'
+  files:
+    '{{assetPath}}/**/*.css': 'css'
+    '{{assetPath}}/**/*.js': 'js'
+  delay: 500
+

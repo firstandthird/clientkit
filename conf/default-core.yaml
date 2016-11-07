@@ -2,23 +2,10 @@ dist: '{{CWD}}/dist'
 assetPath: '{{CWD}}'
 minify: false
 core:
-  rebuildDelay: 500
-  minify: false
   urlHashing:
     active: false
     jsonMapping: '{{core.dist}}/assets.json'
-  watchEnabled: false
-  watch:
-    '{{core.assetPath}}/**/*.css': 'css'
-    '{{core.assetPath}}/**/*.js': 'js'
   eslint: 'eslint-config-firstandthird'
   eslintIgnore:
     - 'node_modules'
     - '{{core.dist}}'
-  #TODO: put this in a better place
-  globalBabel: true
-
-
-scriptConfig:
-  shim: false
-  babelIgnore: null
