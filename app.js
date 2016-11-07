@@ -53,7 +53,8 @@ const main = () => {
     grid: conf.grid,
     easing: conf.easing,
     core: conf.core,
-    docs: conf.docs
+    docs: conf.docs,
+    autoprefixer: conf.autoprefixer
   }));
 
   runner.run(conf.execute);
