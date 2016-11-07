@@ -1,5 +1,6 @@
 'use strict';
 
+const ClientKitTask = require('../lib/task');
 const bytesize = require('bytesize');
 const fs = require('fs');
 const path = require('path');
@@ -16,17 +17,8 @@ const cssnano = require('cssnano');
 const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
-const Logr = require('logr');
 const hashing = require('../lib/urlHashes');
 const pkg = require('../package.json');
-const log = new Logr({
-  type: 'cli',
-  renderOptions: {
-    cli: {
-      lineColor: 'green'
-    }
-  }
-});
 
 const addVarObject = (curVarName, curVarValue, curObject) => {
   if (typeof curVarValue === 'object') {
@@ -39,11 +31,11 @@ const addVarObject = (curVarName, curVarValue, curObject) => {
   curObject[curVarName] = curVarValue;
 };
 
-class CssTask {
+class CSSTask extends ClientKitTask {
   // loads config files:
-  constructor(config, base) {
+  constructor(config) {
+    super(config);
     this.config = config;
-    this.base = base;
     this.cssVars = {};
     this.customMedia = {};
     // load css variables:
@@ -110,8 +102,7 @@ class CssTask {
     this.mixins = globalMixins;
   }
 
-  performTask(input, callback, outputName) {
-    this.input = input;
+  process(input, outputFilename, callback) {
     const start = new Date().getTime();
     const processes = [
       cssimport({
@@ -197,52 +188,26 @@ class CssTask {
     } else {
       inputCss = input;
     }
-    const to = outputName || 'temp.css';
-    postcss(processes).process(inputCss, { from: input, to, map: { inline: false } })
+    postcss(processes).process(inputCss, { from: input, to: outputFilename, map: { inline: false } })
     .then(result => {
       if (result.messages) {
         result.messages.forEach(message => {
           if (message.text) {
-            log([message.type], `${message.text} [${message.plugin}]`);
+            this.log([message.type], `${message.text} [${message.plugin}]`);
           }
         });
       }
 
-      this.result = result;
       const end = new Date().getTime();
       const duration = (end - start) / 1000;
-      log(`Processed ${path.relative(process.cwd(), input)} in ${duration} sec`);
-      return callback(result);
+      this.log(`Processed ${path.relative(process.cwd(), input)} in ${duration} sec`);
+      return callback(null, result.css);
     }, (err) => {
       if (err) {
-        log(['error'], err.stack);
+        this.log(['error'], err.stack);
       }
     });
   }
 
-  writeToFile(outputName) {
-    if (this.config.core.urlHashing.active) {
-      outputName = hashing.hash(outputName, this.result.css);
-      hashing.writeMap(this.config);
-    }
-    if (!this.result) {
-      log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);
-    }
-    const output = path.join(this.config.core.dist, outputName);
-    fs.writeFileSync(output, this.result.css);
-    fs.writeFileSync(`${output}.map`, this.result.map);
-    log(`Wrote: ${path.relative(process.cwd(), output)} (${bytesize.stringSize(this.result.css, true)}), `);
-  }
-
 }
-module.exports.CssTask = CssTask;
-module.exports.runTaskAndWrite = function (config, base, outputName, input) {
-  const task = new CssTask(config, base);
-  task.performTask(input, () => {
-    task.writeToFile(outputName);
-  }, outputName);
-};
-module.exports.processOnly = function (config, base, input, callback) {
-  const task = new CssTask(config, base);
-  task.performTask(input, callback);
-};
+module.exports = CSSTask;

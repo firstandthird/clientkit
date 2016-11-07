@@ -23,6 +23,8 @@ core:
   #TODO: put this in a better place
   globalBabel: true
 
+execute:
+  - 'css'
 autoprefixer:
   browsers:
     - 'last 2 versions'
