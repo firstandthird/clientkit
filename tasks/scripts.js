@@ -7,7 +7,7 @@ const shim = require('browserify-shim');
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
 
-class ScriptTask extends ClientKitTask {
+class ScriptsTask extends ClientKitTask {
   process(input, filename, done) {
     const b = new Browserify({
       entries: [input],
@@ -33,4 +33,4 @@ class ScriptTask extends ClientKitTask {
     this.write(filename, currentTransform, done);
   }
 }
-module.exports = ScriptTask;
+module.exports = ScriptsTask;

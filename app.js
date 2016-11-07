@@ -43,7 +43,7 @@ const main = () => {
   }
   const runner = new RunTask();
   const CSSTask = require('./tasks/css');
-  const JSTask = require('./tasks/js');
+  const ScriptsTask = require('./tasks/scripts');
   const WatcherTask = require('./tasks/watcher');
   runner.register('css', new CSSTask({
     logColor: 'green',
@@ -59,7 +59,7 @@ const main = () => {
     autoprefixer: conf.autoprefixer
   }));
 
-  runner.register('js', new JSTask({
+  runner.register('js', new ScriptsTask({
     logColor: 'blue',
     files: conf.scripts,
     dist: conf.core.dist,
