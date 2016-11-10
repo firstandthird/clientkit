@@ -8,6 +8,7 @@ const babelify = require('babelify');
 const shim = require('browserify-shim');
 const exorcist = require('exorcist');
 const bes2015 = require('babel-preset-es2015');
+const react = require('babel-preset-react');
 const uglifyify = require('uglifyify');
 const hashing = require('../lib/urlHashes');
 const Logr = require('logr');
@@ -54,7 +55,7 @@ module.exports = function(conf, base, outputName, input) {
 
   let currentTransform = b.transform(babelify, {
     global: conf.core.globalBabel,
-    presets: [bes2015],
+    presets: [bes2015, react],
     plugins: [],
     ignore: conf.scriptConfig.babelIgnore
   });
