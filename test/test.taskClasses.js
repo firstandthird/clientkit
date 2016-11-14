@@ -42,7 +42,7 @@ describe('ClientKitTask class', function() {
       expect(result).to.include('this worked');
       expect(logResults.length).to.equal(2);
       expect(logResults[0]).to.include(`Processed ${fileToInput}`);
-      expect(logResults[1]).to.include('Processed aTestTask');
+      expect(logResults[1]).to.include('Processed all aTestTask');
       done();
     });
   });
@@ -79,7 +79,7 @@ describe('LoadTasks', function() {
         expect(logResults.length).to.equal(3);
         expect(logResults[0]).to.include('myTestClass has executed');
         expect(logResults[1]).to.include('Processed');
-        expect(logResults[2]).to.include('Processed frotz');
+        expect(logResults[2]).to.include('Processed all frotz');
         done();
       }, 2000);
     });
@@ -118,7 +118,7 @@ describe('WatcherTask class', function() {
           expect(logResults[0]).to.include('Changed:');
           expect(logResults[1]).to.include('myTestClass has executed');
           expect(logResults[2]).to.include(`Processed ${__dirname}`);
-          expect(logResults[3]).to.include('Processed :');
+          expect(logResults[3]).to.include('Processed all');
           done();
         }, 2000);
       });
