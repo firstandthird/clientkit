@@ -109,11 +109,16 @@ describe('WatcherTask class', function() {
       logResults.push(data);
     };
     taskLoader(config, (err, runner) => {
+      if (err) {
+        throw err;
+      }
       const watcherTask = new WatcherTask('watcherTask', { files }, runner);
-      watcherTask.process(['rezrov'], [fileToInput], (err, result) => {
+      watcherTask.process(['rezrov'], [fileToInput], (err2) => {
+        if (err2) {
+          throw err2;
+        }
         setTimeout(() => {
           console.log = oldLog;
-          console.log(logResults)
           expect(logResults.length).to.equal(4);
           expect(logResults[0]).to.include('Changed:');
           expect(logResults[1]).to.include('myTestClass has executed');
@@ -123,30 +128,5 @@ describe('WatcherTask class', function() {
         }, 2000);
       });
     });
-  });
-});
-
-describe('ClientKitTask implementations', function() {
-  beforeEach((done) => {
-    done();
-  });
-  afterEach((done) => {
-    done();
-  });
-
-  it('eslint task', (done) => {
-    done();
-  });
-
-  it('hash task', (done) => {
-    done();
-  });
-
-  it('js source maps task', (done) => {
-    done();
-  });
-
-  it('css source maps task', (done) => {
-    done();
   });
 });
