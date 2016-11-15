@@ -194,7 +194,8 @@ class CSSTask extends ClientKitTask {
           }
         });
       }
-
+      console.log('the map it is');
+      console.log(result.map)
       this.write(outputFilename, result.css, callback);
     }, (err) => {
       if (err) {
