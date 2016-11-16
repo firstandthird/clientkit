@@ -6,11 +6,12 @@ stylesheets:
       secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
       heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
       #weights
-      light: 300
-      regular: 400
-      semibold: 600
-      bold: 700
-      xbold: 800
+      weight:
+        light: 300
+        regular: 400
+        semibold: 600
+        bold: 700
+        xbold: 800
       #sizes
       size:
         body: 14px

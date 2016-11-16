@@ -3401,27 +3401,27 @@ title: Weight
 ---
 
 ```example:html
-<p class="font-light">Some Text</p>
-<strong class="font-regular">Some Text</strong>
-<p class="font-semibold">Some Text</p>
+<p class="font-weight-light">Some Text</p>
+<strong class="font-weight-regular">Some Text</strong>
+<p class="font-weight-semibold">Some Text</p>
 <strong>Some Text</strong>
-<p class="font-bold">Some Text</p>
-<p class="font-xbold">Some Text</p>
+<p class="font-weight-bold">Some Text</p>
+<p class="font-weight-xbold">Some Text</p>
 ```
 */
-.font-light {
+.font-weight-light {
   font-weight: 300;
 }
-.font-regular {
+.font-weight-regular {
   font-weight: 400;
 }
-.font-semibold, strong, em {
+.font-weight-semibold, strong, em {
   font-weight: 600;
 }
-.font-bold {
+.font-weight-bold {
   font-weight: 700;
 }
-.font-xbold {
+.font-weight-xbold {
   font-weight: 800;
 }
 /*---
