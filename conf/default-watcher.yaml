@@ -3,6 +3,9 @@ tasks:
 
 watcher:
   logColor: 'yellow'
+  ignore:
+    - 'node_modules'
+    - 'dist'
   files:
     '{{stylesheets.assetPath}}/**/*.css': 'stylesheets'
     '{{scripts.assetPath}}/**/*.js': 'scripts'

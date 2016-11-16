@@ -8,7 +8,7 @@ const pathLib = require('path');
 class WatcherTask extends ClientKitTask {
   process(tasks, watch, done) {
     this.watcher = chokidar.watch(watch, {
-      ignored: /node_modules|dist/,
+      ignored: new RegExp(this.options.ignore.join('|')),
       awaitWriteFinish: true
     });
 
