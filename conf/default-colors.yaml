@@ -6,7 +6,6 @@ stylesheets:
     body: '#333'
     heading: '#333'
     heading-light: '#fff'
-    secondary: '#666'
     white: '#fff'
     background-default: '#fff'
     background-alt: rgb(95, 95, 95)
