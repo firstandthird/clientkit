@@ -1306,11 +1306,11 @@ title: Links
 ```
  */
 a {
-  color: #333;
+  color: #336699;
   text-decoration: none;
 }
 a:hover {
-  color: #666;
+  color: rgb(51, 128, 204);
   cursor: pointer;
 }
 /*---
@@ -1837,7 +1837,7 @@ title: Primary Button
 */
 .button {
   display: inline-block;
-  background-color: rgba(75, 157, 249, 1);
+  background-color: #336699;
   line-height: 1;
   text-align: center;
   font-size: 14px;
@@ -1853,7 +1853,7 @@ title: Primary Button
   .button:active,
   .button.active,
   .button:focus {
-  background-color: rgb(74, 135, 204);
+  background-color: rgb(51, 128, 204);
   color: #fff;
 }
 .button:disabled {
@@ -1864,7 +1864,7 @@ title: Primary Button
     .button:disabled:active,
     .button:disabled.active,
     .button:disabled:focus {
-  background-color: rgba(75, 157, 249, 1);
+  background-color: #336699;
   color: #fff;
 }
 /*---
@@ -1884,17 +1884,17 @@ title: Outline Button
   font-size: 14px;
   padding: 12px 14px;
   border-radius: 3px;
-  border: 2px solid rgba(75, 157, 249, 1);
+  border: 2px solid #336699;
   vertical-align: middle;
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color 250ms cubic-bezier(0.35, 0.97, 0.57, 0.99);
-  color: rgba(75, 157, 249, 1);
+  color: #336699;
 }
 .button-outline:hover,
   .button-outline:active,
   .button-outline.active,
   .button-outline:focus {
-  background-color: rgba(75, 157, 249, 1);
+  background-color: #336699;
   color: #fff;
 }
 .button-outline:disabled {
@@ -1906,7 +1906,7 @@ title: Outline Button
     .button-outline:disabled.active,
     .button-outline:disabled:focus {
   background-color: transparent;
-  color: rgba(75, 157, 249, 1);
+  color: #336699;
 }
 /*---
 section: Buttons
@@ -2116,7 +2116,7 @@ title: Form
 }
 .form input[type="text"]:focus, .form input[type="email"]:focus, .form input[type="password"]:focus, .form input[type="url"]:focus, .form input[type="tel"]:focus, .form input[type="search"]:focus, .form input[type="number"]:focus, .form input[type="date"]:focus, .form input[type="datetime"]:focus, .form input[type="datetime-local"]:focus, .form input[type="month"]:focus, .form input[type="week"]:focus, .form input[type="time"]:focus, .form textarea:focus {
   outline: none;
-  box-shadow: 0 2px 0 0 blue;
+  box-shadow: 0 2px 0 0 #336699;
 }
 .form input[type="text"]:disabled, .form input[type="email"]:disabled, .form input[type="password"]:disabled, .form input[type="url"]:disabled, .form input[type="tel"]:disabled, .form input[type="search"]:disabled, .form input[type="number"]:disabled, .form input[type="date"]:disabled, .form input[type="datetime"]:disabled, .form input[type="datetime-local"]:disabled, .form input[type="month"]:disabled, .form input[type="week"]:disabled, .form input[type="time"]:disabled, .form textarea:disabled {
   box-shadow: none;
@@ -3264,7 +3264,7 @@ title: Dropdown
   font-family: inherit;
   font-weight: normal;
   line-height: 1.1;
-  color: #333;
+  color: #336699;
   text-align: inherit;
   white-space: nowrap;
   background: none;
@@ -3273,7 +3273,7 @@ title: Dropdown
 .dropdown-item:hover,
   .dropdown-item:focus,
   .dropdown-item:active {
-  color: #666;
+  color: rgb(51, 128, 204);
   text-decoration: none;
   background-color: #fff;
   cursor: pointer;

@@ -1,25 +1,25 @@
 # All color variables will be prefixed automatically
 stylesheets:
   color:
-    primary: '#333'
+    accent1: '#336699'
+    accent2: 'orange'
     body: '#333'
     heading: '#333'
     heading-light: '#fff'
     secondary: '#666'
     white: '#fff'
-    accent: orange
     background-default: '#fff'
     background-alt: rgb(95, 95, 95)
-    link: '{{stylesheets.color.primary}}'
-    link-hover: '{{stylesheets.color.secondary}}'
+    link: '{{stylesheets.color.accent1}}'
+    link-hover: 'color({{stylesheets.color.accent1}} blackness(20%))'
     input-background: '#fff'
     input-border: '#333'
-    input-border-focus: 'blue'
+    input-border-focus: '{{stylesheets.color.accent1}}'
     input-group-background: 'rgb(241,241,241)'
     input-label: 'gray'
     input-error: 'red'
     input-disabled: 'gray'
-    button-primary-bg: 'rgba(75, 157, 249, 1)'
+    button-primary-bg: '{{stylesheets.color.accent1}}'
     button-primary-color: '{{stylesheets.color.white}}'
     border: '#ccc'
     tooltip-bg: 'rgba(17,17,17,.9)'
