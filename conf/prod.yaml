@@ -2,3 +2,4 @@ execute:
   -
     - 'css'
     - 'js'
+    - 'eslint'

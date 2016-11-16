@@ -14,12 +14,16 @@ const log = new Logr({
 });
 class EslintTask extends ClientKitTask {
   execute(done) {
+    if (!this.options.files) {
+      return done();
+    }
     const cli = new CLIEngine({
       useEslintrc: false,
-      configFile: this.options.core.eslint,
-      ignorePattern: this.options.core.eslintIgnore
+      configFile: this.options.eslint,
+      ignorePattern: this.options.eslintIgnore
     });
-    const results = cli.executeOnFiles(this.options.core.watch.scripts).results;
+
+    const results = cli.executeOnFiles(this.options.files).results;
     // if any errors, print them:
     let errorsExist = false;
     let warningsExist = false;
@@ -39,6 +43,4 @@ class EslintTask extends ClientKitTask {
     return done();
   }
 }
-module.exports = EslintTask
-// module.exports = function(this.options, base) {
-// };
+module.exports = EslintTask;

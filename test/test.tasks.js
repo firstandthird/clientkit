@@ -4,8 +4,7 @@ const expect = require('chai').expect;
 const taskLoader = require('../lib/load-tasks');
 const path = require('path');
 
-const fileToInput = path.join(__dirname, 'tasks', 'testInput.txt');
-const fileToOutput = path.join(__dirname, 'tasks', 'testOutput.txt');
+const fileToInput = path.join(__dirname, 'tasks', 'script1.js');
 
 describe('EslintTask', function() {
   this.timeout(5000);
@@ -18,8 +17,7 @@ describe('EslintTask', function() {
   });
 
   it('can be initialized and run', (done) => {
-    const files = {};
-    files[fileToInput] = fileToOutput;
+    const files = [fileToInput];
     const config = {
       tasks: {
         eslint: {
@@ -27,11 +25,8 @@ describe('EslintTask', function() {
           options: {
             description: 'exposes and draws attention to your bad programming habits',
             files,
-            core: {
-              watch: {
-                scripts: ['examples/scripts/sample1.js']
-              }
-            }
+            eslint: 'eslint-config-firstandthird',
+            eslintIgnore: []
           }
         }
       }
@@ -49,7 +44,7 @@ describe('EslintTask', function() {
       setTimeout(() => {
         console.log = oldLog;
         expect(logResults.length).to.equal(1);
-        expect(logResults[0]).to.include('The keyword \'const\'');
+        expect(logResults[0]).to.include('Unexpected var, use let or const instead');
         done();
       }, 2000);
     });
