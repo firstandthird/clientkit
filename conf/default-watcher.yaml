@@ -1,12 +1,10 @@
 tasks:
-  watcher:
-    register: '{{CKDIR}}/tasks/watcher'
-    options: '{{watcher}}'
+  watcher: '{{CKDIR}}/tasks/watcher'
 
 watcher:
   logColor: 'yellow'
   files:
-    '{{stylesheets.assetPath}}/**/*.css': 'css'
-    '{{scripts.assetPath}}/**/*.js': 'js'
+    '{{stylesheets.assetPath}}/**/*.css': 'stylesheets'
+    '{{scripts.assetPath}}/**/*.js': 'scripts'
   delay: 500
 

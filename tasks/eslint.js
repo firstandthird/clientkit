@@ -1,17 +1,8 @@
 'use strict';
 const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
-const Logr = require('logr');
 const ClientKitTask = require('../lib/task.js');
 
-const log = new Logr({
-  type: 'cli',
-  renderOptions: {
-    cli: {
-      lineColor: 'red'
-    }
-  }
-});
 class EslintTask extends ClientKitTask {
   execute(done) {
     if (!this.options.files) {
@@ -19,8 +10,8 @@ class EslintTask extends ClientKitTask {
     }
     const cli = new CLIEngine({
       useEslintrc: false,
-      configFile: this.options.eslint,
-      ignorePattern: this.options.eslintIgnore
+      configFile: this.options.config,
+      ignorePattern: this.options.ignore
     });
 
     const results = cli.executeOnFiles(this.options.files).results;
@@ -36,9 +27,9 @@ class EslintTask extends ClientKitTask {
       }
     });
     if (errorsExist) {
-      log(['eslint', 'error'], formatter(results));
+      this.log(['eslint', 'error'], formatter(results));
     } else if (warningsExist) {
-      log(['eslint', 'warning'], formatter(results));
+      this.log(['eslint', 'warning'], formatter(results));
     }
     return done();
   }

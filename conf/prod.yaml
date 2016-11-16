@@ -1,5 +1,5 @@
 execute:
   -
-    - 'css'
-    - 'js'
     - 'eslint'
+    - 'stylesheets'
+    - 'scripts'

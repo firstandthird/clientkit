@@ -1,16 +1,5 @@
 tasks:
-  js:
-    register: '{{CKDIR}}/tasks/scripts.js'
-    options: '{{scripts}}'
-  eslint:
-    register: '{{CKDIR}}/tasks/eslint.js'
-    options:
-        eslint: 'eslint-config-firstandthird'
-        eslintIgnore:
-          - 'node_modules'
-          - '{{dist}}'
-        files:
-          # - '{{CKDIR}}/tasks/scripts.js'
+  scripts: '{{CKDIR}}/tasks/scripts.js'
 scripts:
   logColor: 'blue'
   assetPath: '{{assetPath}}'
