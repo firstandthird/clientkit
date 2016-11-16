@@ -5,3 +5,4 @@ npm-debug.log
 test/clientkit
 test/.dist
 .vscode
+demo/dist
