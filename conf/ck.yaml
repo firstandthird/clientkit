@@ -1,0 +1,10 @@
+eslint:
+  ignore:
+    - 'expectedOutputs'
+    - 'demo'
+    - 'examples'
+execute:
+  -
+    - 'eslint'
+    - 'stylesheets'
+    - 'scripts'
