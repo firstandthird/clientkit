@@ -209,7 +209,6 @@ class CSSTask extends ClientKitTask {
           this.write(outputFilename, result.css, callback);
         });
       }
-      console.log('no map')
       this.write(outputFilename, result.css, callback);
     }, (err) => {
       if (err) {
