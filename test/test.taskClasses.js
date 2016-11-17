@@ -1,7 +1,8 @@
+/* global describe, it */
 // tests for the core ClientKitTask and task-loading system
 'use strict';
 const expect = require('chai').expect;
-const ClientKitTask = require('../lib/task');
+const ClientKitTask = require('clientkit-task');
 const WatcherTask = require('../tasks/watcher.js');
 const taskLoader = require('../lib/load-tasks');
 const path = require('path');

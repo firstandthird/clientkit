@@ -1,7 +1,7 @@
 'use strict';
 const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
-const ClientKitTask = require('../lib/task.js');
+const ClientKitTask = require('clientkit-task');
 
 class EslintTask extends ClientKitTask {
   execute(done) {
