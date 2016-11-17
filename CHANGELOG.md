@@ -1,4 +1,52 @@
 
+1.0.0-alpha.1 / 2016-11-16
+==================
+
+  * refactor into generic task runner
+    * update ck env to use watcher
+    * added option to pass in ignore to watcher
+    * added body font weight to vars
+    * moved changed font-light to font-weight-light and updated vars
+    * removed secondary color
+    * updated color variables to use accent1, accent2 and removed primary
+    * update snapshot
+    * added ck env for creating snapshots
+    * refactored config so it wasn't so nested, tweaked to eslint task
+    * added demo folder for testing
+    * specific versions for each dep
+    * added dist to npmignore
+    * remove .vscode
+    * Merge pull request #150 from firstandthird/refactor_css_source_maps
+    * update conf files, integrate into new app
+    * update runtask dep
+    * add 'use strict' for node 4/5 compatibility
+    * comment out outdated tests for now
+    * eslint ClientKitTask
+    * fixed dev mode
+    * synced with latest master branch
+    * unit tests
+    * better log
+    * fixed script building
+    * updates to config
+    * better check for legacy config
+    * throw error if using old style config
+    * move all logging to base task
+    * cleaned up commented code
+    * updated config for scripts and watcher
+    * auto load tasks from the config file, refactored config
+    * renamed js.js to scripts.js
+    * removed commands directory
+    * remove workaround code for watcher
+    * remove old watcher task
+    * increase rebuild delay
+    * removed write by default, added to css and js
+    * added watcher
+    * added js task
+    * added auto prefixer config
+    * Merge branch 'master' into refactor
+    * check in clientkit.css so we can easily see changes from version to version
+    * initial work on task running refactor
+
 0.21.0 / 2016-11-06
 ==================
 
