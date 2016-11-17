@@ -204,11 +204,12 @@ class CSSTask extends ClientKitTask {
         });
       }
       // write the source map if indicated:
-      if (this.config.minify && this.config.sourcemap !== false) {
+      if (this.options.minify && this.options.sourcemap !== false) {
         return this.write(`${outputFilename}.map`, JSON.stringify(result.map), () => {
           this.write(outputFilename, result.css, callback);
         });
       }
+      console.log('no map')
       this.write(outputFilename, result.css, callback);
     }, (err) => {
       if (err) {
