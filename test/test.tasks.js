@@ -3,12 +3,16 @@
 const expect = require('chai').expect;
 const taskLoader = require('../lib/load-tasks');
 const path = require('path');
-const fs = require('fs');
-const fileToInput = path.join(__dirname, 'tasks', 'testInput.txt');
-const fileToOutput = path.join(__dirname, 'tasks', 'testOutput.txt');
+const fileToInput = path.join(__dirname, 'tasks', 'testInput.css');
+const fileToOutput = 'testOutput.css';
+
+const files = {};
+files[fileToOutput] = fileToInput;
 
 const options = {
   description: 'compile your css',
+  minify: true,
+  files,
   color: {
     primary: '#336699'
   },
@@ -16,24 +20,20 @@ const options = {
     default: '1px'
   },
   grid: {
-    h1: '2px'
+    // h1: '2px'
   },
   easing: {
-    left: '3px'
+    linear: 'cubic-bezier(0.250, 0.250, 0.750, 0.750)'
   },
   breakpoints: {
-    b1: '2px'
+    // b1: '2px'
   },
   dist: './dist',
   assetPath: './',
-  minify: false,
   docs: {
     enabled: false
   }
 };
-
-const files = {};
-files[fileToInput] = fileToOutput;
 
 describe('CSSSourceTask', function() {
   this.timeout(10000);
@@ -47,9 +47,11 @@ describe('CSSSourceTask', function() {
 
   it('can be initialized and run', (done) => {
     const config = {
+      minify: true,
       tasks: {
         css: {
           register: 'tasks/css.js',
+          minify: true,
           options
         }
       }
@@ -59,14 +61,11 @@ describe('CSSSourceTask', function() {
       expect(typeof runner).to.equal('object');
       expect(runner.tasks.css.options.description).to.include('compile');
       runner.run(['css']);
-      fs.writeFileSync(fileToInput, '.myClass: { background: primary; }', 'utf-8');
       setTimeout(() => {
         // const file2 = fs.readFileSync(fileToOutput);
-        // console.log(file2);
-      //   // expect(logResults.length).to.equal(1);
-      //   // expect(logResults[0]).to.include('The keyword \'const\'');
+        // expect(file2).to.include('.myClass');
         done();
-      }, 5000);
+      }, 3000);
     });
   });
 });

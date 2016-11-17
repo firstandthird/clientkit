@@ -194,8 +194,12 @@ class CSSTask extends ClientKitTask {
           }
         });
       }
-      console.log('the map it is');
-      console.log(result.map)
+      // write the source map if indicated:
+      if (this.config.minify) {
+        return this.write(`${outputFilename}.map`, JSON.stringify(result.map), () => {
+          this.write(outputFilename, result.css, callback);
+        });
+      }
       this.write(outputFilename, result.css, callback);
     }, (err) => {
       if (err) {
