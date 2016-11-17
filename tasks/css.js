@@ -1,6 +1,6 @@
 'use strict';
 
-const ClientKitTask = require('../lib/task');
+const ClientKitTask = require('clientkit-task');
 const fs = require('fs');
 const path = require('path');
 const postcss = require('postcss');

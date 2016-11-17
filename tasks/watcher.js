@@ -1,6 +1,6 @@
 'use strict';
 
-const ClientKitTask = require('../lib/task');
+const ClientKitTask = require('clientkit-task');
 const chokidar = require('chokidar');
 const debounce = require('lodash.debounce');
 const pathLib = require('path');

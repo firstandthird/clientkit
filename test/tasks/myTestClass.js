@@ -1,5 +1,5 @@
 'use strict';
-const ClientKitTask = require('../../lib/task');
+const ClientKitTask = require('clientkit-task');
 
 class MyTask extends ClientKitTask {
   process(output, input, processDone) {
