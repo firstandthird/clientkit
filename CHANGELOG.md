@@ -1,4 +1,10 @@
 
+1.0.0-alpha.4 / 2016-11-16
+==================
+
+  * updated tests
+  * updated to use separate clientkit-task repo
+
 1.0.0-alpha.3 / 2016-11-16
 ==================
 
