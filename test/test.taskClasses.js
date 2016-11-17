@@ -56,7 +56,7 @@ describe('LoadTasks', function() {
     files[fileToInput] = fileToOutput;
     const config = {
       tasks: {
-        frotz: 'test/tasks/myTestClass.js'
+        frotz: path.join(process.cwd(), 'test/tasks/myTestClass.js')
       },
       frotz: {
         description: 'make an inanimate object emit light',

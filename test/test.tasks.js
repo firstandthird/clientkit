@@ -21,7 +21,7 @@ describe('ScriptsTask', function() {
         description: 'compile your js',
       },
       tasks: {
-        js: 'tasks/scripts.js',
+        js: path.join(process.cwd(), 'tasks/scripts.js'),
       }
     };
     taskLoader(config, (err, runner) => {
@@ -72,7 +72,7 @@ describe('EslintTask', function() {
         eslintIgnore: []
       },
       tasks: {
-        eslint: 'tasks/eslint.js',
+        eslint: path.join(process.cwd(), 'tasks/eslint.js'),
       }
     };
     taskLoader(config, (err, runner) => {
