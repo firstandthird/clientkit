@@ -7,20 +7,30 @@ const pathLib = require('path');
 
 class WatcherTask extends ClientKitTask {
   process(tasks, watch, done) {
+    const ignored = new RegExp(this.options.ignore.join('|'));
+    this.log(['info'], `Watcher: Ignoring: ${ignored}`);
     this.watcher = chokidar.watch(watch, {
-      ignored: new RegExp(this.options.ignore.join('|')),
+      ignored,
       awaitWriteFinish: true
     });
 
     this.watcher.on('all', (event, path) => {
       this.log(`Changed: ${pathLib.relative(process.cwd(), path)}`);
     });
+    if (this.options.debug) {
+      this.watcher.on('ready', () => {
+        const watchedPaths = this.watcher.getWatched();
+        this.log(['info'], 'Listing watched paths...');
+        this.log(['info'], watchedPaths);
+      });
+    }
     this.watcher.on('error', (error) => {
       this.log(['error'], error);
     });
     this.watcher.on('all', debounce(() => {
       this.runner.run(tasks);
     }, this.options.delay));
+
     done();
   }
 

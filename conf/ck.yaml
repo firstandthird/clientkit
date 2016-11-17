@@ -10,4 +10,5 @@ watcher:
   ignore:
     - 'node_modules'
     - 'expectedOutputs'
+    - '.git'
     - 'dist'
