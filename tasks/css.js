@@ -178,28 +178,26 @@ class CSSTask extends ClientKitTask {
     if (this.config.minify) {
       processes.push(cssnano());
     }
-    let inputCss;
-    // the input could be either a file path or a CSS expression:
-    if (path.extname(input) === '.css') {
-      inputCss = fs.readFileSync(path.normalize(input));
-    } else {
-      inputCss = input;
-    }
-    postcss(processes).process(inputCss, { from: input, to: outputFilename, map: { inline: false } })
-    .then(result => {
-      if (result.messages) {
-        result.messages.forEach(message => {
-          if (message.text) {
-            this.log([message.type], `${message.text} [${message.plugin}]`);
+    fs.readFile(input, (readErr, buf) => {
+      if (readErr) {
+        this.log(['error'], readErr);
+      }
+      postcss(processes).process(buf, { from: input, to: outputFilename, map: { inline: false } })
+        .then(result => {
+          if (result.messages) {
+            result.messages.forEach(message => {
+              if (message.text) {
+                this.log([message.type], `${message.text} [${message.plugin}]`);
+              }
+            });
+          }
+
+          this.write(outputFilename, result.css, callback);
+        }, (err) => {
+          if (err) {
+            this.log(['error'], err.stack);
           }
         });
-      }
-
-      this.write(outputFilename, result.css, callback);
-    }, (err) => {
-      if (err) {
-        this.log(['error'], err.stack);
-      }
     });
   }
 
