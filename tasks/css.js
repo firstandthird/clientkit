@@ -33,7 +33,16 @@ class CSSTask extends ClientKitTask {
   // loads config files:
   constructor(name, config, runner) {
     super(name, config, runner);
-    this.config = config;
+    this.setup();
+  }
+
+  updateOptions(newOptions) {
+    super.updateOptions(newOptions);
+    this.setup();
+  }
+
+  setup() {
+    const config = this.options;
     this.cssVars = {};
     this.customMedia = {};
     // load css variables:
@@ -123,7 +132,7 @@ class CSSTask extends ClientKitTask {
           customMedia: {
             extensions: this.customMedia
           },
-          autoprefixer: this.config.autoprefixer
+          autoprefixer: this.options.autoprefixer
         }
       }),
       mqpacker({
@@ -136,7 +145,7 @@ class CSSTask extends ClientKitTask {
 
           let ret = bv - av;
 
-          if (this.config.mobileFirst) {
+          if (this.options.mobileFirst) {
             ret *= -1;
           }
 
@@ -145,37 +154,37 @@ class CSSTask extends ClientKitTask {
       })
     ];
     // Only run fonts against default.css to avoid duplicates
-    if (input.match(this.config.fontParsingWhitelist)) {
+    if (input.match(this.options.fontParsingWhitelist)) {
       processes.push(cssfonts({
         foundries: ['custom', 'hosted', 'google']
       }));
     }
 
-    if (this.config.docs.enabled && input.match(this.config.docs.input)) {
+    if (this.options.docs.enabled && input.match(this.options.docs.input)) {
       processes.push(mdcss({
         theme: mdcssTheme({
-          title: this.config.docs.title,
+          title: this.options.docs.title,
           logo: '',
-          colors: this.config.color,
+          colors: this.options.color,
           variables: this.cssVars,
           css: [
             'style.css',
             '../clientkit.css'
           ],
           examples: {
-            css: this.config.docs.css
+            css: this.options.docs.css
           },
           info: {
             clientkitVersion: pkg.version
           },
-          sectionOrder: this.config.docs.sectionOrder
+          sectionOrder: this.options.docs.sectionOrder
         }),
-        destination: path.join(this.config.dist.replace(process.cwd(), ''), 'styleguide')
+        destination: path.join(this.options.dist.replace(process.cwd(), ''), 'styleguide')
       }));
     }
 
     // minify if specified in config files:
-    if (this.config.minify) {
+    if (this.options.minify) {
       processes.push(cssnano());
     }
     fs.readFile(input, (readErr, buf) => {
