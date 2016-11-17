@@ -4,7 +4,6 @@ const path = require('path');
 const yargs = require('yargs');
 const Logr = require('logr');
 const configLoader = require('./lib/config');
-const RunTask = require('runtask');
 const loadTasks = require('./lib/load-tasks');
 const mkdirp = require('mkdirp');
 
