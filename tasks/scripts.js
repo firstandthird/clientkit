@@ -28,12 +28,11 @@ class ScriptsTask extends ClientKitTask {
 
     if (this.options.minify) {
       currentTransform = currentTransform.transform(uglifyify, { global: true });
-      const result = currentTransform
-      .bundle()
-      .pipe(exorcist(`${path.join(this.options.dist, filename)}.map`));
-      return this.write(filename, result, done);
     }
-    this.write(filename, currentTransform.bundle(), done);
+    const result = this.options.sourcemap !== false ? currentTransform.bundle()
+    .pipe(exorcist(`${path.join(this.options.dist, filename)}.map`)) : currentTransform.bundle();
+    return this.write(filename, result, done);
+    // this.write(filename, currentTransform.bundle(), done);
   }
 }
 module.exports = ScriptsTask;
