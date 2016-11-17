@@ -1,11 +1,11 @@
-// tests for the core ClientKitTask and task-loading system
 'use strict';
+// tests for the core ClientKitTask and task-loading system
 const expect = require('chai').expect;
 const taskLoader = require('../lib/load-tasks');
 const path = require('path');
 const fileToInput = path.join(__dirname, 'tasks', 'testInput.css');
 const fileToOutput = 'testOutput.css';
-
+const fs = require('fs');
 const files = {};
 files[fileToOutput] = fileToInput;
 
@@ -62,8 +62,8 @@ describe('CSSSourceTask', function() {
       expect(runner.tasks.css.options.description).to.include('compile');
       runner.run(['css']);
       setTimeout(() => {
-        // const file2 = fs.readFileSync(fileToOutput);
-        // expect(file2).to.include('.myClass');
+        const file2 = fs.readFileSync(path.join(process.cwd(), 'dist', fileToOutput)).toString();
+        expect(file2).to.include('.myClass');
         done();
       }, 3000);
     });
