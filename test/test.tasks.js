@@ -6,6 +6,40 @@ const path = require('path');
 
 const fileToInput = path.join(__dirname, 'tasks', 'script1.js');
 
+describe('ScriptsTask', function() {
+  it('will run and produce a JS/JS source map', (done) => {
+    const files = [fileToInput];
+    const config = {
+      tasks: {
+        scripts: {
+          register: 'tasks/scripts.js',
+          options: {
+            description: 'compile your js',
+            files
+          }
+        }
+      }
+    };
+    taskLoader(config, (err, runner) => {
+      expect(err).to.equal(null);
+      expect(typeof runner).to.equal('object');
+      expect(runner.tasks.eslint.options.description).to.include('compile your js');
+      const oldLog = console.log;
+      const logResults = [];
+      console.log = (data) => {
+        logResults.push(data);
+      };
+      runner.run(['eslint']);
+      setTimeout(() => {
+        console.log = oldLog;
+        expect(logResults.length).to.equal(1);
+        expect(logResults[0]).to.include('Unexpected var, use let or const instead');
+        done();
+      }, 2000);
+    });
+  });
+});
+/*
 describe('EslintTask', function() {
   this.timeout(5000);
   beforeEach((done) => {
@@ -50,3 +84,4 @@ describe('EslintTask', function() {
     });
   });
 });
+*/
