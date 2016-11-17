@@ -3,6 +3,9 @@ eslint:
     - 'expectedOutputs'
     - 'demo'
     - 'examples'
+stylesheets:
+  files:
+    clientkit.css: '{{CKDIR}}/styles/default.css'
 watcher:
   ignore:
     - 'node_modules'

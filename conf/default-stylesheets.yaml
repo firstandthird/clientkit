@@ -6,8 +6,6 @@ stylesheets:
   assetPath: '{{assetPath}}'
   dist: '{{dist}}'
   minify: '{{minify}}'
-  files:
-    clientkit.css: '{{CKDIR}}/styles/default.css'
 
   mobileFirst: false
 
