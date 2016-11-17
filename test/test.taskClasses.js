@@ -56,13 +56,11 @@ describe('LoadTasks', function() {
     files[fileToInput] = fileToOutput;
     const config = {
       tasks: {
-        frotz: {
-          register: 'test/tasks/myTestClass.js',
-          options: {
-            description: 'make an inanimate object emit light',
-            files
-          }
-        }
+        frotz: 'test/tasks/myTestClass.js'
+      },
+      frotz: {
+        description: 'make an inanimate object emit light',
+        files
       }
     };
     taskLoader(config, (err, runner) => {
