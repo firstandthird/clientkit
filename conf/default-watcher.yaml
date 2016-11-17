@@ -1,5 +1,6 @@
 tasks:
   watcher: '{{CKDIR}}/tasks/watcher'
+  reloadConfig: '{{CKDIR}}/tasks/reload-config'
 
 watcher:
   logColor: 'yellow'
@@ -10,5 +11,12 @@ watcher:
   files:
     '{{stylesheets.assetPath}}/**/*.css': 'stylesheets'
     '{{scripts.assetPath}}/**/*.js': 'scripts'
+    '{{CONFIGDIR}}/*.yaml': 'reloadConfig'
   delay: 500
 
+reloadConfig:
+  logColor: 'red'
+  clientkitConfPath: '{{CKDIR}}'
+  projectConfPath: '{{CONFIGDIR}}'
+  env: '{{env}}'
+  taskOnUpdate: 'default'

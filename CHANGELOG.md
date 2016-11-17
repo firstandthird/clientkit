@@ -1,4 +1,16 @@
 
+1.0.0-alpha.5 / 2016-11-17
+==================
+
+  * added reloadConfig task for watching yaml files
+  * debug option for watcher to see watched files. added .git to default ignore, output ignored directories when running
+  * renamed default.css to clientkit.css - so you `@import clientkit.css`
+  * don't create clientkit.css by default - will speed up build time
+  * removed readFileSync
+  * updated clientkit-task to 0.0.3
+  * refactored execute to pass in task to execute - defaults to `default`
+  * js maps
+
 1.0.0-alpha.4 / 2016-11-16
 ==================
 
