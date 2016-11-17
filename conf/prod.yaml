@@ -1,5 +1,0 @@
-execute:
-  -
-    - 'eslint'
-    - 'stylesheets'
-    - 'scripts'

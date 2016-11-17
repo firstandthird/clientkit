@@ -8,7 +8,3 @@ watcher:
     - 'node_modules'
     - 'expectedOutputs'
     - 'dist'
-execute:
-  -
-    - 'eslint'
-    - 'watcher'
