@@ -1,0 +1,11 @@
+dist: '{{CWD}}/dist'
+assetPath: '{{CWD}}'
+minify: false
+tasks:
+  default:
+    -
+      - 'eslint'
+      - 'stylesheets'
+      - 'scripts'
+  dev:
+    - 'watcher'

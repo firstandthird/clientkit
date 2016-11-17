@@ -1,38 +1,37 @@
 'use strict';
 const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
-const Logr = require('logr');
+const ClientKitTask = require('clientkit-task');
 
-const log = new Logr({
-  type: 'cli',
-  renderOptions: {
-    cli: {
-      lineColor: 'red'
+class EslintTask extends ClientKitTask {
+  execute(done) {
+    if (!this.options.files) {
+      return done();
     }
-  }
-});
+    const cli = new CLIEngine({
+      useEslintrc: false,
+      configFile: this.options.config,
+      ignorePattern: this.options.ignore
+    });
 
-module.exports = function(conf, base) {
-  const cli = new CLIEngine({
-    useEslintrc: false,
-    configFile: conf.core.eslint,
-    ignorePattern: conf.core.eslintIgnore
-  });
-  const results = cli.executeOnFiles(conf.core.watch.scripts).results;
-  // if any errors, print them:
-  let errorsExist = false;
-  let warningsExist = false;
-  results.forEach((result) => {
-    if (result.errorCount > 0) {
-      errorsExist = true;
+    const results = cli.executeOnFiles(this.options.files).results;
+    // if any errors, print them:
+    let errorsExist = false;
+    let warningsExist = false;
+    results.forEach((result) => {
+      if (result.errorCount > 0) {
+        errorsExist = true;
+      }
+      if (result.warningCount > 0) {
+        warningsExist = true;
+      }
+    });
+    if (errorsExist) {
+      this.log(['eslint', 'error'], formatter(results));
+    } else if (warningsExist) {
+      this.log(['eslint', 'warning'], formatter(results));
     }
-    if (result.warningCount > 0) {
-      warningsExist = true;
-    }
-  });
-  if (errorsExist) {
-    log(['eslint', 'error'], formatter(results));
-  } else if (warningsExist) {
-    log(['eslint', 'warning'], formatter(results));
+    return done();
   }
-};
+}
+module.exports = EslintTask;

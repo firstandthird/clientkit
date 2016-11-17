@@ -1,0 +1,14 @@
+tasks:
+  watcher: '{{CKDIR}}/tasks/watcher'
+
+watcher:
+  logColor: 'yellow'
+  ignore:
+    - 'node_modules'
+    - 'dist'
+    - '.git'
+  files:
+    '{{stylesheets.assetPath}}/**/*.css': 'stylesheets'
+    '{{scripts.assetPath}}/**/*.js': 'scripts'
+  delay: 500
+

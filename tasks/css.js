@@ -1,6 +1,6 @@
 'use strict';
 
-const bytesize = require('bytesize');
+const ClientKitTask = require('clientkit-task');
 const fs = require('fs');
 const path = require('path');
 const postcss = require('postcss');
@@ -16,17 +16,7 @@ const cssnano = require('cssnano');
 const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
-const Logr = require('logr');
-const hashing = require('../lib/urlHashes');
 const pkg = require('../package.json');
-const log = new Logr({
-  type: 'cli',
-  renderOptions: {
-    cli: {
-      lineColor: 'green'
-    }
-  }
-});
 
 const addVarObject = (curVarName, curVarValue, curObject) => {
   if (typeof curVarValue === 'object') {
@@ -39,11 +29,11 @@ const addVarObject = (curVarName, curVarValue, curObject) => {
   curObject[curVarName] = curVarValue;
 };
 
-class CssTask {
+class CSSTask extends ClientKitTask {
   // loads config files:
-  constructor(config, base) {
+  constructor(name, config, runner) {
+    super(name, config, runner);
     this.config = config;
-    this.base = base;
     this.cssVars = {};
     this.customMedia = {};
     // load css variables:
@@ -70,7 +60,7 @@ class CssTask {
         min: config.breakpoints[breakpoint]['min-width'],
         max: config.breakpoints[breakpoint]['max-width'],
       };
-      const constraint = config.core.mobileFirst ? 'min' : 'max';
+      const constraint = config.mobileFirst ? 'min' : 'max';
       const width = breakpointObj[constraint];
       const mediaquery = `(${constraint}-width: ${width})`;
       let mediaqueryOnly;
@@ -100,9 +90,9 @@ class CssTask {
       dirname: path.join(__dirname, '..', 'styles', 'mixins'),
       resolve: m => m(config, postcss)
     });
-    if (pathExists.sync(path.join(config.core.assetPath, 'mixins'))) {
+    if (pathExists.sync(path.join(config.assetPath, 'mixins'))) {
       const localMixins = require('require-all')({
-        dirname: path.join(config.core.assetPath, 'mixins'),
+        dirname: path.join(config.assetPath, 'mixins'),
         resolve: m => m(config, postcss)
       });
       Object.assign(globalMixins, localMixins);
@@ -110,9 +100,7 @@ class CssTask {
     this.mixins = globalMixins;
   }
 
-  performTask(input, callback, outputName) {
-    this.input = input;
-    const start = new Date().getTime();
+  process(input, outputFilename, callback) {
     const processes = [
       cssimport({
         path: [
@@ -148,7 +136,7 @@ class CssTask {
 
           let ret = bv - av;
 
-          if (this.config.core.mobileFirst) {
+          if (this.config.mobileFirst) {
             ret *= -1;
           }
 
@@ -157,7 +145,7 @@ class CssTask {
       })
     ];
     // Only run fonts against default.css to avoid duplicates
-    if (input.match(this.config.core.fontParsingWhitelist)) {
+    if (input.match(this.config.fontParsingWhitelist)) {
       processes.push(cssfonts({
         foundries: ['custom', 'hosted', 'google']
       }));
@@ -182,12 +170,12 @@ class CssTask {
           },
           sectionOrder: this.config.docs.sectionOrder
         }),
-        destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
+        destination: path.join(this.config.dist.replace(process.cwd(), ''), 'styleguide')
       }));
     }
 
     // minify if specified in config files:
-    if (this.config.core.minify) {
+    if (this.config.minify) {
       processes.push(cssnano());
     }
     let inputCss;
@@ -197,52 +185,28 @@ class CssTask {
     } else {
       inputCss = input;
     }
-    const to = outputName || 'temp.css';
-    postcss(processes).process(inputCss, { from: input, to, map: { inline: false } })
+    postcss(processes).process(inputCss, { from: input, to: outputFilename, map: { inline: false } })
     .then(result => {
       if (result.messages) {
         result.messages.forEach(message => {
           if (message.text) {
-            log([message.type], `${message.text} [${message.plugin}]`);
+            this.log([message.type], `${message.text} [${message.plugin}]`);
           }
         });
       }
-
-      this.result = result;
-      const end = new Date().getTime();
-      const duration = (end - start) / 1000;
-      log(`Processed ${path.relative(process.cwd(), input)} in ${duration} sec`);
-      return callback(result);
+      // write the source map if indicated:
+      if (this.config.minify && this.config.sourcemap !== false) {
+        return this.write(`${outputFilename}.map`, JSON.stringify(result.map), () => {
+          this.write(outputFilename, result.css, callback);
+        });
+      }
+      this.write(outputFilename, result.css, callback);
     }, (err) => {
       if (err) {
-        log(['error'], err.stack);
+        this.log(['error'], err.stack);
       }
     });
   }
 
-  writeToFile(outputName) {
-    if (this.config.core.urlHashing.active) {
-      outputName = hashing.hash(outputName, this.result.css);
-      hashing.writeMap(this.config);
-    }
-    if (!this.result) {
-      log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);
-    }
-    const output = path.join(this.config.core.dist, outputName);
-    fs.writeFileSync(output, this.result.css);
-    fs.writeFileSync(`${output}.map`, this.result.map);
-    log(`Wrote: ${path.relative(process.cwd(), output)} (${bytesize.stringSize(this.result.css, true)}), `);
-  }
-
 }
-module.exports.CssTask = CssTask;
-module.exports.runTaskAndWrite = function (config, base, outputName, input) {
-  const task = new CssTask(config, base);
-  task.performTask(input, () => {
-    task.writeToFile(outputName);
-  }, outputName);
-};
-module.exports.processOnly = function (config, base, input, callback) {
-  const task = new CssTask(config, base);
-  task.performTask(input, callback);
-};
+module.exports = CSSTask;
