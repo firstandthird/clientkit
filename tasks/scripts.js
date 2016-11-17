@@ -32,7 +32,6 @@ class ScriptsTask extends ClientKitTask {
     const result = this.options.sourcemap !== false ? currentTransform.bundle()
     .pipe(exorcist(`${path.join(this.options.dist, filename)}.map`)) : currentTransform.bundle();
     return this.write(filename, result, done);
-    // this.write(filename, currentTransform.bundle(), done);
   }
 }
 module.exports = ScriptsTask;
