@@ -1,6 +1,6 @@
 'use strict';
 
-const ClientKitTask = require('../lib/task');
+const ClientKitTask = require('clientkit-task');
 const Browserify = require('browserify');
 const babelify = require('babelify');
 const shim = require('browserify-shim');
