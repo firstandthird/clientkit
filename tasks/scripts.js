@@ -6,7 +6,8 @@ const babelify = require('babelify');
 const shim = require('browserify-shim');
 const bes2015 = require('babel-preset-es2015');
 const uglifyify = require('uglifyify');
-
+const exorcist = require('exorcist');
+const path = require('path');
 class ScriptsTask extends ClientKitTask {
   process(input, filename, done) {
     const b = new Browserify({
@@ -28,8 +29,13 @@ class ScriptsTask extends ClientKitTask {
     if (this.options.minify) {
       currentTransform = currentTransform.transform(uglifyify, { global: true });
     }
-
-    this.write(filename, currentTransform.bundle(), done);
+    // sourcemaps must be explicitly false to disable:
+    if (this.options.sourcemap !== false) {
+      const result = currentTransform.bundle()
+      .pipe(exorcist(`${path.join(this.options.dist, filename)}.map`));
+      return this.write(filename, result, done);
+    }
+    return this.write(filename, currentTransform.bundle(), done);
   }
 }
 module.exports = ScriptsTask;
