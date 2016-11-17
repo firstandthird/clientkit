@@ -45,13 +45,15 @@ const main = () => {
   if (conf.core) {
     throw new Error('please upgrade your config to the new version');
   }
+  const task = argv._.length === 0 ? 'default' : argv._;
+  log(`Running ${task}...`);
   //create dist directory
   mkdirp.sync(conf.dist);
   loadTasks(conf, (err, runner) => {
     if (err) {
       throw err;
     }
-    runner.run(conf.execute);
+    runner.run(task);
   });
 };
 
