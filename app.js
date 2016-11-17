@@ -6,6 +6,7 @@ const Logr = require('logr');
 const configLoader = require('./lib/config');
 const RunTask = require('runtask');
 const loadTasks = require('./lib/load-tasks');
+const mkdirp = require('mkdirp');
 
 const log = new Logr({
   type: 'cli',
@@ -45,6 +46,8 @@ const main = () => {
   if (conf.core) {
     throw new Error('please upgrade your config to the new version');
   }
+  //create dist directory
+  mkdirp.sync(conf.dist);
   loadTasks(conf, (err, runner) => {
     if (err) {
       throw err;
