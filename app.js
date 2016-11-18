@@ -49,7 +49,7 @@ const main = () => {
     if (err) {
       throw err;
     }
-    runner.run(conf.tasks[task]);
+    runner.run(task);
   });
 };
 
