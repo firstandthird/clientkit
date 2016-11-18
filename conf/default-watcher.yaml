@@ -6,7 +6,6 @@ watcher:
   logColor: 'yellow'
   ignore:
     - 'node_modules'
-    - 'dist'
     - '.git'
   files:
     '{{stylesheets.assetPath}}/**/*.css': 'stylesheets'

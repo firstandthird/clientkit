@@ -28,6 +28,7 @@ class WatcherTask extends ClientKitTask {
       this.log(['error'], error);
     });
     this.watcher.on('all', debounce(() => {
+      this.log(`Running: ${tasks}`);
       this.runner.run(tasks);
     }, this.options.delay));
 
