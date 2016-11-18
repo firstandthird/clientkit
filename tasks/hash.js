@@ -5,7 +5,6 @@ const glob = require('glob');
 const hash = require('rev-hash');
 const path = require('path');
 const fs = require('fs');
-const debounce = require('lodash.debounce');
 
 class HashTask extends ClientKitTask {
 
@@ -15,33 +14,51 @@ class HashTask extends ClientKitTask {
     this.map = {};
   }
 
-  // hash the files, then save the filename:hashname map to file:
+  // save the filename:hashname map to file:
+  onFinish(results, done) {
+    this.writeMap(done);
+  }
   execute(allDone) {
     this.clearMap();
-    super.execute((err, result) => {
-      if (err) {
-        return allDone(err);
-      }
-      this.writeMap();
-      return allDone(null, result);
-    });
+    super.execute(allDone);
   }
 
   process(input, filename, processDone) {
     async.auto({
-      filesToHash: (done) => {
+      fileNames: (done) => {
         // get the list of matching files
         glob(input, {}, done);
       },
-      hashNames: ['filesToHash', (results, done) => {
-        const hashMap = {};
-        results.filesToHash.forEach((file) => {
-          const hashName = this.hasher(file, fs.readFileSync(file));
-          this.map[file] = hashName;
-          fs.renameSync(file, hashName);
+      fileContents: ['fileNames', (results, done) => {
+        const seriesResult = {};
+        async.eachSeries(results.fileNames, (fileName, eachDone) => {
+          if (!fileName) {
+            return eachDone();
+          }
+          fs.readFile(fileName, (err, data) => {
+            if (err) {
+              return eachDone(err);
+            }
+            seriesResult[fileName] = data;
+            eachDone();
+          });
+        }, (err) => {
+          done(err, seriesResult);
         });
-        done(null, hashMap);
       }],
+      fileHashes: ['fileContents', (results, done) => {
+        const hashResults = {};
+        Object.keys(results.fileContents).forEach((fileName) => {
+          const hashName = this.hasher(fileName, results.fileContents[fileName]);
+          hashResults[fileName] = hashName;
+        });
+        done(null, hashResults);
+      }],
+      renameFiles: ['fileHashes', (results, done) => {
+        async.eachSeries(Object.keys(results.fileHashes), (fileName, eachDone) => {
+          fs.rename(fileName, results.fileHashes[fileName], eachDone);
+        }, done);
+      }]
     }, processDone);
   }
 
@@ -60,11 +77,9 @@ class HashTask extends ClientKitTask {
     return outputName;
   }
 
-  // write the url hash map, only once every debounce seconds:
-  writeMap() {
-    debounce(() => {
-      fs.writeFileSync(this.options.urlHashing.jsonMapping, JSON.stringify(this.map));
-    }, this.options.delay)();
+  // write the url hash map
+  writeMap(done) {
+    fs.writeFile(this.options.urlHashing.jsonMapping, JSON.stringify(this.map), done);
   }
 
   // clear the url hash map:

@@ -4,6 +4,5 @@ hash:
   files:
      js: '{{assetPath}}/dist/**/*.js'
      css: '{{assetPath}}/dist/**/*.css'
-  delay: 1000
   urlHashing:
     jsonMapping: '{{assetPath}}/dist/assets.json'
