@@ -5,8 +5,6 @@ const yargs = require('yargs');
 const Logr = require('logr');
 const configLoader = require('./lib/config');
 const loadTasks = require('./lib/load-tasks');
-const mkdirp = require('mkdirp');
-
 const log = new Logr({
   type: 'cli',
   renderOptions: {
@@ -47,8 +45,6 @@ const main = () => {
   }
   const task = argv._.length === 0 ? 'default' : argv._;
   log(`Running ${task}...`);
-  //create dist directory
-  mkdirp.sync(conf.dist);
   loadTasks(conf, (err, runner) => {
     if (err) {
       throw err;

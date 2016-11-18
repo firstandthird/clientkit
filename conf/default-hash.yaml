@@ -1,0 +1,8 @@
+tasks:
+  hash: '{{CKDIR}}/tasks/hash.js'
+hash:
+  files:
+     js: '{{assetPath}}/dist/**/*.js'
+     css: '{{assetPath}}/dist/**/*.css'
+  urlHashing:
+    jsonMapping: '{{assetPath}}/dist/assets.json'
