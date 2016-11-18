@@ -17,7 +17,7 @@ const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
 const pkg = require('../package.json');
-
+const async = require('async');
 const addVarObject = (curVarName, curVarValue, curObject) => {
   if (typeof curVarValue === 'object') {
     // for each key in the object, set object recursively:
@@ -187,28 +187,38 @@ class CSSTask extends ClientKitTask {
     if (this.options.minify) {
       processes.push(cssnano());
     }
-    fs.readFile(input, (readErr, buf) => {
-      if (readErr) {
-        this.log(['error'], readErr);
-      }
-      postcss(processes).process(buf, { from: input, to: outputFilename, map: { inline: false } })
+    async.auto({
+      contents: (done) => {
+        fs.readFile(input, done);
+      },
+      postcss: ['contents', (results, done) => {
+        postcss(processes).process(results.contents, { from: input, to: outputFilename, map: { inline: false } })
         .then(result => {
-          if (result.messages) {
-            result.messages.forEach(message => {
-              if (message.text) {
-                this.log([message.type], `${message.text} [${message.plugin}]`);
-              }
-            });
-          }
-
-          this.write(outputFilename, result.css, callback);
-        }, (err) => {
-          if (err) {
-            this.log(['error'], err.stack);
-          }
+          done(null, result);
         });
-    });
+      }],
+      messages: ['postcss', (results, done) => {
+        if (results.postcss.messages) {
+          results.postcss.messages.forEach(message => {
+            if (message.text) {
+              this.log([message.type], `${message.text} [${message.plugin}]`);
+            }
+          });
+        }
+        done();
+      }],
+      sourcemaps: ['postcss', (results, done) => {
+        // write the source map if indicated:
+        if (results.postcss.map && this.options.sourcemap !== false) {
+          this.write(`${outputFilename}.map`, JSON.stringify(results.postcss.map), done);
+        } else {
+          return done();
+        }
+      }],
+      write: ['sourcemaps', (results, done) => {
+        this.write(outputFilename, results.postcss.css, done);
+      }]
+    }, callback);
   }
-
 }
 module.exports = CSSTask;
