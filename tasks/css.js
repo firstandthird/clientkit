@@ -189,13 +189,7 @@ class CSSTask extends ClientKitTask {
     }
     async.auto({
       contents: (done) => {
-        fs.readFile(input, (readErr, buf) => {
-          if (readErr) {
-            this.log(['error'], readErr);
-            return done(readErr);
-          }
-          return done(null, buf);
-        });
+        fs.readFile(input, done);
       },
       postcss: ['contents', (results, done) => {
         postcss(processes).process(results.contents, { from: input, to: outputFilename, map: { inline: false } })
@@ -217,14 +211,14 @@ class CSSTask extends ClientKitTask {
         // write the source map if indicated:
         if (results.postcss.map && this.options.sourcemap !== false) {
           this.write(`${outputFilename}.map`, JSON.stringify(results.postcss.map), done);
+        } else {
+          return done();
         }
+      }],
+      write: ['sourcemaps', (results, done) => {
+        this.write(outputFilename, results.postcss.css, done);
       }]
-    }, (err, results) => {
-      if (err) {
-        this.log(['error'], err.stack);
-      }
-      this.write(outputFilename, results.postcss.css, callback);
-    });
+    }, callback);
   }
 }
 module.exports = CSSTask;
