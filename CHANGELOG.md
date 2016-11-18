@@ -1,4 +1,11 @@
 
+1.0.0-alpha.6 / 2016-11-18
+==================
+
+  * fixed reload-config task
+  * added button-alt
+  * updated clientkit-task and runtask to 0.0.4
+
 1.0.0-alpha.5 / 2016-11-17
 ==================
 
