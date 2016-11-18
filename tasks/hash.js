@@ -79,7 +79,7 @@ class HashTask extends ClientKitTask {
 
   // write the url hash map
   writeMap(done) {
-    fs.writeFile(this.options.urlHashing.jsonMapping, JSON.stringify(this.map), done);
+    this.write(this.options.mappingFile, JSON.stringify(this.map), done);
   }
 
   // clear the url hash map:
