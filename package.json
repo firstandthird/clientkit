@@ -51,6 +51,7 @@
     "eslint-plugin-import": "1.16.0",
     "exorcist": "0.4.0",
     "get-stdin": "5.0.1",
+    "glob": "^7.1.1",
     "lodash.capitalize": "4.2.1",
     "lodash.debounce": "4.0.8",
     "lodash.reduce": "4.6.0",

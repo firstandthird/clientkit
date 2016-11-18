@@ -47,13 +47,11 @@ const main = () => {
   }
   const task = argv._.length === 0 ? 'default' : argv._;
   log(`Running ${task}...`);
-  //create dist directory
-  mkdirp.sync(conf.dist);
   loadTasks(conf, (err, runner) => {
     if (err) {
       throw err;
     }
-    runner.run(task);
+    runner.run(conf.tasks[task]);
   });
 };
 
