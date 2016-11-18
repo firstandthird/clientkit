@@ -8,12 +8,17 @@ const fs = require('fs');
 class InitTask extends ClientKitTask {
   process(distDir, whatever, processDone) {
     async.auto({
-      clearDist: (done) => {
-        if (fs.existsSync(distDir)) {
+      exists: (done) => {
+        fs.exists(distDir, (exists) => {
+          return done(null, exists);
+        });
+      },
+      clearDist: ['exists', (results, done) => {
+        if (results.exists) {
           return rmdir(distDir, done);
         }
         done();
-      },
+      }],
       mkdist: ['clearDist', (results, done) => {
         mkdirp(distDir);
         done();
