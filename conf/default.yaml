@@ -4,9 +4,10 @@ minify: true
 tasks:
   default:
     - 'initialize'
-    - 'eslint'
-    - 'stylesheets'
-    - 'scripts'
+    -
+      - 'eslint'
+      - 'stylesheets'
+      - 'scripts'
     - 'hash'
   dev:
     - 'watcher'
