@@ -37,8 +37,7 @@ const argv = yargs
 
 const main = () => {
   log(`Using local config directory: ${argv.config}`);
-  const clientkitConf = path.join(__dirname, 'conf');
-  const conf = configLoader(clientkitConf, argv.config, argv.env);
+  const conf = configLoader(__dirname, argv.config, argv.env);
   if (!conf) {
     process.exit(1);
   }
