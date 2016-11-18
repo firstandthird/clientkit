@@ -1,4 +1,9 @@
 
+1.0.0-alpha.7 / 2016-11-18
+==================
+
+  * removed dist from watch ignore, log what tasks watcher is running
+
 1.0.0-alpha.6 / 2016-11-18
 ==================
 
