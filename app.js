@@ -53,7 +53,11 @@ const main = () => {
     if (err) {
       throw err;
     }
-    runner.run(task);
+    runner.run(task, (runErr) => {
+      if (runErr) {
+        log(['error'], runErr);
+      }
+    });
   });
 };
 
