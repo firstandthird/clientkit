@@ -38,22 +38,24 @@ const argv = yargs
 const main = () => {
   log(`Using local config directory: ${argv.config}`);
   const clientkitConf = path.join(__dirname, 'conf');
-  const conf = configLoader(clientkitConf, argv.config, argv.env);
-  if (!conf) {
-    process.exit(1);
-  }
-  if (conf.core) {
-    throw new Error('please upgrade your config to the new version');
-  }
-  const task = argv._.length === 0 ? 'default' : argv._;
-  log(`Running ${task}...`);
-  //create dist directory
-  mkdirp.sync(conf.dist);
-  loadTasks(conf, (err, runner) => {
+  configLoader(clientkitConf, argv.config, argv.env, (err, conf) => {
     if (err) {
-      throw err;
+      log(err);
     }
-    runner.run(task);
+    if (!conf) {
+      process.exit(1);
+    }
+    if (conf.core) {
+      throw new Error('please upgrade your config to the new version');
+    }
+    const task = argv._.length === 0 ? 'default' : argv._;
+    log(`Running ${task}...`);
+    loadTasks(conf, (loadErr, runner) => {
+      if (loadErr) {
+        throw loadErr;
+      }
+      runner.run(task);
+    });
   });
 };
 
