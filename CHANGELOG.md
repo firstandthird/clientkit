@@ -1,4 +1,14 @@
 
+1.0.0-alpha.8 / 2016-11-18
+==================
+
+  * log error instead of throwing
+  * updated logr and clientkit-task, tweaked log settings
+  * hash task
+  * change config so main tasks run in parallel
+  * css sourcemaps
+  * js sourcemaps
+
 1.0.0-alpha.7 / 2016-11-18
 ==================
 
