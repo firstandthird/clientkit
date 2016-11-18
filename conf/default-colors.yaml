@@ -20,6 +20,8 @@ stylesheets:
     input-disabled: 'gray'
     button-primary-bg: '{{stylesheets.color.accent1}}'
     button-primary-color: '{{stylesheets.color.white}}'
+    button-secondary-bg: '{{stylesheets.color.accent2}}'
+    button-secondary-color: '{{stylesheets.color.white}}'
     border: '#ccc'
     tooltip-bg: 'rgba(17,17,17,.9)'
     icons: '#333'
