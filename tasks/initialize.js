@@ -9,9 +9,7 @@ class InitTask extends ClientKitTask {
   process(distDir, whatever, processDone) {
     async.auto({
       exists: (done) => {
-        fs.exists(distDir, (exists) => {
-          return done(null, exists);
-        });
+        fs.exists(distDir, (exists) => done(null, exists));
       },
       clearDist: ['exists', (results, done) => {
         if (results.exists) {
@@ -20,8 +18,7 @@ class InitTask extends ClientKitTask {
         done();
       }],
       mkdist: ['clearDist', (results, done) => {
-        mkdirp(distDir);
-        done();
+        mkdirp(distDir, done);
       }],
     }, processDone);
   }
