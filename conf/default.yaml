@@ -9,6 +9,6 @@ tasks:
       - 'stylesheets'
       - 'scripts'
     - 'hash'
-    - 'help'
   dev:
     - 'watcher'
+    - 'help'

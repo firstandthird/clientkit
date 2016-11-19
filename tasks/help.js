@@ -1,47 +1,12 @@
 'use strict';
 const ClientKitTask = require('clientkit-task');
-class HelpTask extends ClientKitTask {
 
+class HelpTask extends ClientKitTask {
   constructor(name, config, runner) {
     super(name, config, runner);
-    this.calledOnce = false;
     this.description = 'Prints various help info about your tasks';
   }
-
-  process(input, filename, processDone) {
-    if (this.calledOnce) {
-      return processDone();
-    }
-    this.calledOnce = true;
-    this.printAll();
-    return processDone();
-  }
-
-  printAll() {
-    if (!this.options.active) {
-      return;
-    }
-    this.log('-----    Clientkit Help Display ------');
-    this.log('(set help.active to "false" to hide this info )')
-    this.log('Registered tasks: ');
-    Object.keys(this.runner.tasks).forEach((taskName) => {
-      const task = this.runner.tasks[taskName];
-      if (task.options) {
-        this.log(`  "${task.name}": ${task.description}`);
-      }
-    });
-    this.log('Named Task Sets:')
-    Object.keys(this.runner.tasks).forEach((taskName) => {
-      const task = this.runner.tasks[taskName];
-      if (!task.forEach) {
-        return;
-      }
-      this.log(`  Task Set "${taskName}" has the following sub-tasks:`);
-      this.printTaskList(task, 0);
-      this.log(''); // <-- blank line for clarity
-    });
-    this.log('----- Exit Clientkit Help Display ------');
-  }
+  // prints out a hierarchical set of tasks:
   printTaskList(taskList, level) {
     let buffer = '    ';
     for (let i = 0; i < level; i++) {
@@ -54,6 +19,30 @@ class HelpTask extends ClientKitTask {
         this.printTaskList(subtask, level + 1);
       });
     }
+  }
+
+  execute(allDone) {
+    this.log('-----    Clientkit Help Display ------');
+    this.log('(set help.enabled to "false" to hide this info )');
+    this.log('Registered tasks: ');
+    Object.keys(this.runner.tasks).forEach((taskName) => {
+      const task = this.runner.tasks[taskName];
+      if (task.options) {
+        this.log(`  "${task.name}": ${task.description}`);
+      }
+    });
+    this.log('Named Task Sets:');
+    Object.keys(this.runner.tasks).forEach((taskName) => {
+      const task = this.runner.tasks[taskName];
+      if (!task.forEach) {
+        return;
+      }
+      this.log(`  Task Set "${taskName}" has the following sub-tasks:`);
+      this.printTaskList(task, 0);
+      this.log(''); // <-- blank line for clarity
+    });
+    this.log('----- End Clientkit Help Display ------');
+    return allDone();
   }
 }
 module.exports = HelpTask;

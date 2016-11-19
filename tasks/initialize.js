@@ -8,7 +8,7 @@ const fs = require('fs');
 class InitTask extends ClientKitTask {
   constructor(name, config, runner) {
     super(name, config, runner);
-    this.description = 'Initializes the output directory so that everything will be available';
+    this.description = 'Creates/clears the output directory for your project';
   }
 
   process(distDir, whatever, processDone) {

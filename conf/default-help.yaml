@@ -1,7 +1,5 @@
 tasks:
   help: '{{CKDIR}}/tasks/help'
 help:
-  active: true
+  enabled: true
   logColor: 'white'
-  files:
-    additionalHelpInfo: '?'
