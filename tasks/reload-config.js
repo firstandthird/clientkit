@@ -4,6 +4,11 @@ const ClientKitTask = require('clientkit-task');
 const loadConfig = require('../lib/config');
 
 class ReloadConfigTask extends ClientKitTask {
+  constructor(name, config, runner) {
+    super(name, config, runner);
+    this.description = 'Reload your project config files when changes are made to them';
+  }
+
   execute(allDone) {
     //runs on first load, skip that one
     if (!this.hasInit) {
