@@ -1,6 +1,7 @@
 tasks:
   scripts: '{{CKDIR}}/tasks/scripts.js'
 scripts:
+  description: 'Compiles your various client-executable files into a minified, source-mapped, browser-compatible js file that you can embed in a webpage'
   logColor: 'blue'
   assetPath: '{{assetPath}}'
   dist: '{{dist}}'

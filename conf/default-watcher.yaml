@@ -3,6 +3,7 @@ tasks:
   reloadConfig: '{{CKDIR}}/tasks/reload-config'
 
 watcher:
+  description: 'In dev mode, this task will recompile your whole project when you make changes to the indicated files '
   logColor: 'yellow'
   ignore:
     - 'node_modules'

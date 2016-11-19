@@ -1,6 +1,7 @@
 tasks:
   eslint: '{{CKDIR}}/tasks/eslint.js'
 eslint:
+  description: 'Runs the indicated eslint config against the files you listed, and reports the results '
   config: 'eslint-config-firstandthird'
   ignore:
     - 'node_modules'
