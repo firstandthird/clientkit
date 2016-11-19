@@ -1,21 +1,11 @@
 'use strict';
 const ClientKitTask = require('clientkit-task');
-const Logr = require('logr');
 class HelpTask extends ClientKitTask {
 
   constructor(name, config, runner) {
-    config.log = new Logr({
-      type: 'cli',
-      renderOptions: {
-        cli: {
-          prefix: 'Clientkit Help Plugin:',
-          prefixColor: 'white',
-          lineColor: 'green'
-        }
-      }
-    });
     super(name, config, runner);
     this.calledOnce = false;
+    this.description = 'Prints various help info about your tasks';
   }
 
   process(input, filename, processDone) {
@@ -37,7 +27,7 @@ class HelpTask extends ClientKitTask {
     Object.keys(this.runner.tasks).forEach((taskName) => {
       const task = this.runner.tasks[taskName];
       if (task.options) {
-        this.log(`  "${task.name}": ${task.options.description}`);
+        this.log(`  "${task.name}": ${task.description}`);
       }
     });
     this.log('Named Task Sets:')

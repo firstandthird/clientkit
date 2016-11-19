@@ -1,7 +1,6 @@
 tasks:
   hash: '{{CKDIR}}/tasks/hash.js'
 hash:
-  description: 'Hashes your file names (based on their content) and prints a route-map for the original file. Useful for updating browser caches when a file gets updated.'
   logColor: 'yellow'
   dist: '{{dist}}'
   files:

@@ -6,6 +6,11 @@ const rmdir = require('rmdir');
 const fs = require('fs');
 
 class InitTask extends ClientKitTask {
+  constructor(name, config, runner) {
+    super(name, config, runner);
+    this.description = 'Initializes the output directory so that everything will be available';
+  }
+
   process(distDir, whatever, processDone) {
     async.auto({
       exists: (done) => {
