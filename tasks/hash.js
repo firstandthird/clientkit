@@ -14,6 +14,10 @@ class HashTask extends ClientKitTask {
     this.map = {};
   }
 
+  get description() {
+    return 'Hashes your file names (based on their content) and prints a route-map for the original file. Useful for updating browser caches when a file gets updated';
+  }
+
   // save the filename:hashname map to file:
   onFinish(results, done) {
     this.writeMap(done);

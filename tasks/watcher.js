@@ -6,6 +6,11 @@ const debounce = require('lodash.debounce');
 const pathLib = require('path');
 
 class WatcherTask extends ClientKitTask {
+
+  get description() {
+    return 'This task watches the indicated files for changes, and re-runs the other registered ClientKitTasks when an edit is made to them.';
+  }
+
   process(tasks, watch, done) {
     const ignored = new RegExp(this.options.ignore.join('|'));
     this.log(['info'], `Watcher: Ignoring: ${ignored}`);

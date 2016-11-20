@@ -6,6 +6,10 @@ const rmdir = require('rmdir');
 const fs = require('fs');
 
 class InitTask extends ClientKitTask {
+  get description() {
+    return 'Creates/clears the output directory for your project';
+  }
+
   process(distDir, whatever, processDone) {
     async.auto({
       exists: (done) => {

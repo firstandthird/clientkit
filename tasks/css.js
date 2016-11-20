@@ -35,6 +35,9 @@ class CSSTask extends ClientKitTask {
     super(name, config, runner);
     this.setup();
   }
+  get description() {
+    return 'compiles and minify source-mapped stylesheets for your project, and generates a handy design guide to help visualize it';
+  }
 
   updateOptions(newOptions) {
     super.updateOptions(newOptions);

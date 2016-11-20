@@ -4,6 +4,10 @@ const CLIEngine = require('eslint').CLIEngine;
 const ClientKitTask = require('clientkit-task');
 
 class EslintTask extends ClientKitTask {
+  get description() {
+    return 'Runs the indicated eslint config against the files you listed, and reports the results ';
+  }
+
   execute(done) {
     if (!this.options.files) {
       return done();
@@ -33,5 +37,6 @@ class EslintTask extends ClientKitTask {
     }
     return done();
   }
+
 }
 module.exports = EslintTask;
