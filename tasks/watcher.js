@@ -8,7 +8,7 @@ const pathLib = require('path');
 class WatcherTask extends ClientKitTask {
 
   get description() {
-    return 'In dev mode, this task will recompile your whole project when you make changes to the indicated files ';
+    return 'This task watches the indicated files for changes, and re-runs the other registered ClientKitTasks when an edit is made to them.';
   }
 
   process(tasks, watch, done) {
