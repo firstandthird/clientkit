@@ -2,10 +2,10 @@
 const ClientKitTask = require('clientkit-task');
 
 class HelpTask extends ClientKitTask {
-  constructor(name, config, runner) {
-    super(name, config, runner);
-    this.description = 'Prints various help info about your tasks';
+  get description() {
+    return 'Prints various help info about your tasks';
   }
+
   // prints out a hierarchical set of tasks:
   printTaskList(taskList, level) {
     let buffer = '    ';

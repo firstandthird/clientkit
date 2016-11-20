@@ -12,7 +12,10 @@ class HashTask extends ClientKitTask {
     super(name, config, runner);
     // map of original filename to its hashed equivalent, useful for url hashing:
     this.map = {};
-    this.description = 'Hashes your file names (based on their content) and prints a route-map for the original file. Useful for updating browser caches when a file gets updated';
+  }
+
+  get description() {
+    return 'Hashes your file names (based on their content) and prints a route-map for the original file. Useful for updating browser caches when a file gets updated';
   }
 
   // save the filename:hashname map to file:

@@ -6,10 +6,11 @@ const debounce = require('lodash.debounce');
 const pathLib = require('path');
 
 class WatcherTask extends ClientKitTask {
-  constructor(name, config, runner) {
-    super(name, config, runner);
-    this.description = 'In dev mode, this task will recompile your whole project when you make changes to the indicated files ';
+
+  get description() {
+    return 'In dev mode, this task will recompile your whole project when you make changes to the indicated files ';
   }
+
   process(tasks, watch, done) {
     const ignored = new RegExp(this.options.ignore.join('|'));
     this.log(['info'], `Watcher: Ignoring: ${ignored}`);

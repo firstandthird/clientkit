@@ -9,9 +9,9 @@ const uglifyify = require('uglifyify');
 const exorcist = require('exorcist');
 const path = require('path');
 class ScriptsTask extends ClientKitTask {
-  constructor(name, config, runner) {
-    super(name, config, runner);
-    this.description = 'Compiles your various client-executable files into a minified, source-mapped, browser-compatible js file that you can embed in a webpage';
+
+  get description() {
+    return 'Compiles your various client-executable files into a minified, source-mapped, browser-compatible js file that you can embed in a webpage';
   }
 
   process(input, filename, done) {

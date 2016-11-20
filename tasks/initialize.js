@@ -6,9 +6,8 @@ const rmdir = require('rmdir');
 const fs = require('fs');
 
 class InitTask extends ClientKitTask {
-  constructor(name, config, runner) {
-    super(name, config, runner);
-    this.description = 'Creates/clears the output directory for your project';
+  get description() {
+    return 'Creates/clears the output directory for your project';
   }
 
   process(distDir, whatever, processDone) {
