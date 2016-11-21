@@ -35,24 +35,29 @@ const argv = yargs
 .argv;
 
 const main = () => {
-  log(`Using local config directory: ${argv.config}`);
-  const conf = configLoader(__dirname, argv.config, argv.env);
-  if (!conf) {
-    process.exit(1);
-  }
-  if (conf.core) {
-    throw new Error('please upgrade your config to the new version');
-  }
-  const task = argv._.length === 0 ? 'default' : argv._;
-  log(`Running ${task}...`);
-  loadTasks(conf, (err, runner) => {
+  log(`Using local config directory: ${argv.config}, environment is "${argv.env}"`);
+  const clientkitConf = path.join(__dirname, 'conf');
+  configLoader(clientkitConf, argv.config, argv.env, (err, conf) => {
     if (err) {
-      throw err;
+      log(err);
     }
-    runner.run(task, (runErr) => {
-      if (runErr) {
-        log(['error'], runErr);
+    if (!conf) {
+      process.exit(1);
+    }
+    if (conf.core) {
+      throw new Error('please upgrade your config to the new version');
+    }
+    const task = argv._.length === 0 ? 'default' : argv._;
+    log(`Running ${task}...`);
+    loadTasks(conf, (loadErr, runner) => {
+      if (loadErr) {
+        throw loadErr;
       }
+      runner.run(task, (runErr) => {
+        if (runErr) {
+          log(['error'], runErr);
+        }
+      });
     });
   });
 };
