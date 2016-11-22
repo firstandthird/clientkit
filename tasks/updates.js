@@ -10,7 +10,7 @@ class UpdateTask extends ClientKitTask {
 
   execute(done) {
     // notify if a more-recent clientkit is available:
-    const result = updateNotifier({ pkg, updateCheckInterval: 1 }).notify();
+    const result = updateNotifier({ pkg }).notify();
     if (result.update && result.update.latest !== result.update.current) {
       this.log(['warning'], `A new version of clientkit is available on npm! Current: ${result.update.current}  Latest: ${result.update.latest}`);
     }
