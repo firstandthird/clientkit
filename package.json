@@ -74,7 +74,7 @@
     "rmdir": "^1.2.0",
     "runtask": "0.0.4",
     "uglifyify": "3.0.3",
-    "update-notifier": "1.0.2",
+    "update-notifier": "^1.0.2",
     "yargs": "6.0.0"
   }
 }

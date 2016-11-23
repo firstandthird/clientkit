@@ -10,4 +10,5 @@ tasks:
       - 'scripts'
     - 'hash'
   dev:
+    - 'updates'
     - 'watcher'
