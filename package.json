@@ -55,7 +55,7 @@
     "lodash.capitalize": "4.2.1",
     "lodash.debounce": "4.0.8",
     "lodash.reduce": "4.6.0",
-    "logr": "1.15.0",
+    "logr": "1.16.0",
     "mdcss": "1.5.2",
     "mdcss-theme-clientkit": "4.0.0",
     "mkdirp": "0.5.1",

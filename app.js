@@ -6,12 +6,14 @@ const Logr = require('logr');
 const configLoader = require('./lib/config');
 const loadTasks = require('./lib/load-tasks');
 const log = new Logr({
-  type: 'cli',
+  type: 'cli-fancy',
   renderOptions: {
-    cli: {
-      prefix: 'clientkit | ',
-      prefixColor: 'cyan'
+    'cli-fancy': {
+      appColumnWidth: 20
     }
+  },
+  reporters: {
+    'cli-fancy': require('logr-cli-fancy')
   }
 });
 
@@ -35,11 +37,11 @@ const argv = yargs
 .argv;
 
 const main = () => {
-  log(`Using local config directory: ${argv.config}, environment is "${argv.env}"`);
+  log(['clientkit'], `Using local config directory: ${argv.config}, environment is "${argv.env}"`);
   const clientkitConf = path.join(__dirname, 'conf');
   configLoader(clientkitConf, argv.config, argv.env, (err, conf) => {
     if (err) {
-      log(err);
+      log(['clientkit'], err);
     }
     if (!conf) {
       process.exit(1);
@@ -48,14 +50,14 @@ const main = () => {
       throw new Error('please upgrade your config to the new version');
     }
     const task = argv._.length === 0 ? 'default' : argv._;
-    log(`Running ${task}...`);
-    loadTasks(conf, (loadErr, runner) => {
+    log(['clientkit'], `Running ${task}...`);
+    loadTasks(conf, log, (loadErr, runner) => {
       if (loadErr) {
         throw loadErr;
       }
       runner.run(task, (runErr) => {
         if (runErr) {
-          log(['error'], runErr);
+          log(['clientkit', 'error'], runErr);
         }
       });
     });

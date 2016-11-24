@@ -31,9 +31,9 @@ class EslintTask extends ClientKitTask {
       }
     });
     if (errorsExist) {
-      this.log(['eslint', 'error'], formatter(results));
+      this.log(['error'], formatter(results));
     } else if (warningsExist) {
-      this.log(['eslint', 'warning'], formatter(results));
+      this.log(['warning'], formatter(results));
     }
     return done();
   }
