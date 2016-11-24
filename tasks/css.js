@@ -15,7 +15,7 @@ const svgo = require('postcss-svgo');
 const cssnano = require('cssnano');
 const pathExists = require('path-exists');
 const mdcss = require('mdcss');
-const mdcssTheme = require('mdcss-theme-clientkit');
+const mdcssTheme = require('../styleguide/theme');
 const Logr = require('logr');
 const hashing = require('../lib/urlHashes');
 const pkg = require('../package.json');
@@ -171,7 +171,7 @@ class CssTask {
           colors: this.config.color,
           variables: this.cssVars,
           css: [
-            'style.css',
+            'styleguide.css',
             '../clientkit.css'
           ],
           examples: {
@@ -233,8 +233,8 @@ class CssTask {
     fs.writeFileSync(`${output}.map`, this.result.map);
     log(`Wrote: ${path.relative(process.cwd(), output)} (${bytesize.stringSize(this.result.css, true)}), `);
   }
-
 }
+
 module.exports.CssTask = CssTask;
 module.exports.runTaskAndWrite = function (config, base, outputName, input) {
   const task = new CssTask(config, base);
