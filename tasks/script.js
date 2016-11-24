@@ -21,7 +21,7 @@ const log = new Logr({
   }
 });
 
-module.exports = function(conf, base, outputName, input) {
+module.exports = function(conf, base, outputName, input, allDone) {
   const start = new Date().getTime();
   let output = path.join(conf.core.dist, outputName);
 
@@ -40,6 +40,10 @@ module.exports = function(conf, base, outputName, input) {
         throw err;
       }
       log(`Processed: ${path.relative(process.cwd(), input)} → ${path.relative(process.cwd(), output)} (${size}) in ${duration} sec, `);
+      // don't call if callback already called by error handler:
+      if (allDone !== false) {
+        return allDone();
+      }
     });
   });
 
@@ -68,6 +72,11 @@ module.exports = function(conf, base, outputName, input) {
     .on('error', function (err) {
       log(['error'], err);
       this.emit('end');
+      // short-circuit if running in prod environment:
+      if (conf.env === 'prod') {
+        allDone(err);
+        allDone = false;
+      }
     })
     .pipe(exorcist(`${output}.map`))
     .pipe(fileStream);
