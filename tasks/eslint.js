@@ -1,5 +1,5 @@
 'use strict';
-const formatter = require('eslint').CLIEngine.getFormatter();
+const formatter = require('eslint-formatter-pretty');
 const CLIEngine = require('eslint').CLIEngine;
 const Logr = require('logr');
 

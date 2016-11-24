@@ -45,6 +45,7 @@
     "cssnano": "^3.7.6",
     "eslint": "^3.7.0",
     "eslint-config-firstandthird": "^3.0.2",
+    "eslint-formatter-pretty": "^1.0.0",
     "eslint-plugin-import": "^1.16.0",
     "exorcist": "0.4.0",
     "get-stdin": "5.0.1",
