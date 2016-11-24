@@ -21,7 +21,9 @@ const log = new Logr({
   }
 });
 
-module.exports = function(conf, base, outputName, input) {
+module.exports = function(conf, base, outputName, input, cb) {
+  if (!cb) cb = () => ({});
+
   const start = new Date().getTime();
   let output = path.join(conf.core.dist, outputName);
 
@@ -40,6 +42,7 @@ module.exports = function(conf, base, outputName, input) {
         throw err;
       }
       log(`Processed: ${path.relative(process.cwd(), input)} → ${path.relative(process.cwd(), output)} (${size}) in ${duration} sec, `);
+      cb(null, outputName, output);
     });
   });
 

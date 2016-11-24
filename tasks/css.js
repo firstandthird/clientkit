@@ -220,7 +220,9 @@ class CssTask {
     });
   }
 
-  writeToFile(outputName) {
+  writeToFile(outputName, cb) {
+    if (!cb) cb = () => ({});
+    const originalName = outputName;
     if (this.config.core.urlHashing.active) {
       outputName = hashing.hash(outputName, this.result.css);
       hashing.writeMap(this.config);
@@ -232,14 +234,15 @@ class CssTask {
     fs.writeFileSync(output, this.result.css);
     fs.writeFileSync(`${output}.map`, this.result.map);
     log(`Wrote: ${path.relative(process.cwd(), output)} (${bytesize.stringSize(this.result.css, true)}), `);
+    cb(null, originalName, outputName);
   }
 
 }
 module.exports.CssTask = CssTask;
-module.exports.runTaskAndWrite = function (config, base, outputName, input) {
+module.exports.runTaskAndWrite = function (config, base, outputName, input, cb) {
   const task = new CssTask(config, base);
   task.performTask(input, () => {
-    task.writeToFile(outputName);
+    task.writeToFile(outputName, cb);
   }, outputName);
 };
 module.exports.processOnly = function (config, base, input, callback) {
