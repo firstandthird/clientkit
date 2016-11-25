@@ -7,7 +7,6 @@ watcher:
   ignore:
     - 'node_modules'
     - '.git'
-    - '{{dist}}'
   files:
     '{{stylesheets.assetPath}}/**/*.css': 'stylesheets'
     '{{scripts.assetPath}}/**/*.js': 'scripts'

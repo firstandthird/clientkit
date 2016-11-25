@@ -7,11 +7,6 @@ const configLoader = require('./lib/config');
 const loadTasks = require('./lib/load-tasks');
 const log = new Logr({
   type: 'cli-fancy',
-  renderOptions: {
-    'cli-fancy': {
-      appColumnWidth: 20
-    }
-  },
   reporters: {
     'cli-fancy': require('logr-cli-fancy')
   }

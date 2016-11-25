@@ -13,7 +13,7 @@ class WatcherTask extends ClientKitTask {
 
   process(tasks, watch, done) {
     const ignored = new RegExp(this.options.ignore.join('|'));
-    this.log(['info'], `Watcher: Ignoring: ${ignored}`);
+    this.log(`Ignoring: ${ignored}`);
     this.watcher = chokidar.watch(watch, {
       ignored,
       awaitWriteFinish: true
@@ -25,8 +25,8 @@ class WatcherTask extends ClientKitTask {
     if (this.options.debug) {
       this.watcher.on('ready', () => {
         const watchedPaths = this.watcher.getWatched();
-        this.log(['info'], 'Listing watched paths...');
-        this.log(['info'], watchedPaths);
+        this.log(['debug'], 'Listing watched paths...');
+        this.log(['debug'], watchedPaths);
       });
     }
     this.watcher.on('error', (error) => {
