@@ -1,4 +1,10 @@
 
+1.0.0-alpha.11 / 2016-11-24
+==================
+
+  * disable minify by default
+  * move hash to prod task
+
 1.0.0-alpha.10 / 2016-11-24
 ==================
 
