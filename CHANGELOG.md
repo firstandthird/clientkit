@@ -1,4 +1,9 @@
 
+1.0.0-alpha.12 / 2016-11-24
+==================
+
+  * pass in log when updating task configs
+
 1.0.0-alpha.11 / 2016-11-24
 ==================
 
