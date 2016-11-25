@@ -8,9 +8,11 @@ tasks:
       - 'eslint'
       - 'stylesheets'
       - 'scripts'
-    - 'hash'
   dev:
     -
       - 'updates'
       - 'initialize'
     - 'watcher'
+  prod:
+    - 'default'
+    - 'hash'
