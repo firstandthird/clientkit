@@ -629,7 +629,7 @@ body {
   clear: both;
 }
 .container {
-  width: 1440px;
+  width: 1400px;
   box-sizing: border-box;
 }
 .col-pull-0 {
@@ -3540,7 +3540,7 @@ hr {
 }
 @media (max-width: 1439px) {
   .container {
-    width: 1024px;
+    width: 1000px;
     box-sizing: border-box;
   }
   .col-lg-pull-0 {
@@ -4139,7 +4139,7 @@ hr {
 }
 @media (max-width: 1023px) {
   .container {
-    width: 768px;
+    width: 750px;
     box-sizing: border-box;
   }
   .col-md-pull-0 {

@@ -1,6 +1,6 @@
 dist: '{{CWD}}/dist'
 assetPath: '{{CWD}}'
-minify: true
+minify: false
 tasks:
   default:
     - 'initialize'
