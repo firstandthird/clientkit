@@ -1,4 +1,25 @@
 
+1.0.0-alpha.10 / 2016-11-24
+==================
+
+  * tweaks
+  * updated clientkit-task
+  * update logr to use logr-cli-fancy
+  * asyncify reload-config.js
+  * 24-hour intervals for update checks
+  * update task
+  * updated comments for clarity
+  * async config loads package.json and clientkit.yaml
+  * update app for async config
+  * update watcher desc and remove help from dev list
+  * set description for ClientKitTasks with a getter
+  * use execute for help, fix conf files, descriptions
+  * more description as part of class
+  * description is part of class itself
+  * add help to task list
+  * working version
+  * tweak containers sizes to leave space with scroll bars
+
 1.0.0-alpha.9 / 2016-11-18
 ==================
 
