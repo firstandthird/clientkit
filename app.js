@@ -43,7 +43,15 @@ const main = () => {
     if (conf.core) {
       throw new Error('please upgrade your config to the new version');
     }
-    const task = argv._.length === 0 ? 'default' : argv._;
+    let task = '';
+    const cmd = argv._;
+    if (cmd.length === 0) {
+      task = 'default';
+    } else if (cmd.length === 1) {
+      task = argv._[0]
+    } else {
+      task = cmd;
+    }
     log(['clientkit'], `Running ${task}...`);
     loadTasks(conf, log, (loadErr, runner) => {
       if (loadErr) {
