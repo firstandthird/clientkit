@@ -1,4 +1,10 @@
 
+1.0.0-alpha.14 / 2016-11-28
+==================
+
+  * fixed running order
+  * removed help alias so help task will run
+
 1.0.0-alpha.13 / 2016-11-24
 ==================
 
