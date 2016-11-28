@@ -27,7 +27,6 @@ const argv = yargs
   default: path.join(process.cwd(), 'clientkit')
 })
 .help('h')
-.alias('h', 'help')
 .env(true)
 .argv;
 
