@@ -13,7 +13,6 @@ const log = new Logr({
 });
 
 const argv = yargs
-.group(require('./package.json').version, 'Clientkit Version:')
 .option('init', {
   describe: 'create a new project directory ',
   default: false,
