@@ -22,7 +22,7 @@ class HelpTask extends ClientKitTask {
   }
 
   execute(allDone) {
-    this.log('-----    Clientkit Help Display ------');
+    this.log(`-----    Clientkit Version ${require('../package.json').version} Help Display ------`);
     this.log('(set help.enabled to "false" to hide this info )');
     this.log('Registered tasks: ');
     Object.keys(this.runner.tasks).forEach((taskName) => {
