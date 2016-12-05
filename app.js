@@ -48,7 +48,7 @@ const main = () => {
     if (cmd.length === 0) {
       task = 'default';
     } else if (cmd.length === 1) {
-      task = argv._[0]
+      task = argv._[0];
     } else {
       task = cmd;
     }
