@@ -15,11 +15,16 @@ class ScriptsTask extends ClientKitTask {
   }
 
   process(input, filename, done) {
+    // verify that the module exists before running browserify:
+    try {
+      const t = require(input);
+    } catch (e) {
+      return done(e);
+    }
     const b = new Browserify({
       entries: [input],
       debug: true
     });
-
     if (this.options.shim) {
       b.transform(shim);
     }
@@ -34,6 +39,7 @@ class ScriptsTask extends ClientKitTask {
     if (this.options.minify) {
       currentTransform = currentTransform.transform(uglifyify, { global: true });
     }
+
     // sourcemaps must be explicitly false to disable:
     if (this.options.sourcemap !== false) {
       const result = currentTransform.bundle()
