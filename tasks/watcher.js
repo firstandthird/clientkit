@@ -4,7 +4,6 @@ const ClientKitTask = require('clientkit-task');
 const chokidar = require('chokidar');
 const debounce = require('lodash.debounce');
 const pathLib = require('path');
-
 class WatcherTask extends ClientKitTask {
 
   get description() {
@@ -12,8 +11,15 @@ class WatcherTask extends ClientKitTask {
   }
 
   process(tasks, watch, done) {
-    const ignored = new RegExp(this.options.ignore.join('|'));
-    this.log(`Ignoring: ${ignored}`);
+    // add together the top-level watcher 'ignore' expressions with this watch's specific 'ignore' expressions:
+    const files = this.options.files;
+    let ignoreString = this.options.ignore.join('|');
+    Object.keys(files).forEach((pathRoot) => {
+      if (typeof files[pathRoot] === 'object' && files[pathRoot].ignore) {
+        ignoreString = [ignoreString, files[pathRoot].ignore].join('|');
+      }
+    });
+    const ignored = new RegExp(ignoreString);
     this.watcher = chokidar.watch(watch, {
       ignored,
       awaitWriteFinish: true
@@ -33,14 +39,14 @@ class WatcherTask extends ClientKitTask {
       this.log(['error'], error);
     });
     this.watcher.on('all', debounce(() => {
-      this.log(`Running: ${tasks}`);
-      this.runner.run(tasks, (err) => {
+      const taskToRun = (typeof tasks === 'object' && tasks.task) ? tasks.task : tasks;
+      this.log(`Running: ${taskToRun}`);
+      this.runner.run(taskToRun, (err) => {
         if (err) {
           this.log(err);
         }
       });
     }, this.options.delay));
-
     done();
   }
 
