@@ -20,6 +20,7 @@ class WatcherTask extends ClientKitTask {
       }
     });
     const ignored = new RegExp(ignoreString);
+    this.log(`Ignoring: ${ignored}`);
     this.watcher = chokidar.watch(watch, {
       ignored,
       awaitWriteFinish: true
