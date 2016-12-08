@@ -34,13 +34,13 @@ class ScriptsTask extends ClientKitTask {
     if (this.options.minify) {
       currentTransform = currentTransform.transform(uglifyify, { global: true });
     }
+    const result = currentTransform.bundle();
     // sourcemaps must be explicitly false to disable:
     if (this.options.sourcemap !== false) {
-      const result = currentTransform.bundle()
-      .pipe(exorcist(`${path.join(this.options.dist, filename)}.map`));
+      result.pipe(exorcist(`${path.join(this.options.dist, filename)}.map`));
       return this.write(filename, result, done);
     }
-    return this.write(filename, currentTransform.bundle(), done);
+    return this.write(filename, result, done);
   }
 }
 module.exports = ScriptsTask;
