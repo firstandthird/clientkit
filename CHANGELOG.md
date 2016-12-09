@@ -1,4 +1,15 @@
 
+1.0.0-alpha.15 / 2016-12-09
+==================
+
+  * removed deprecated logColor property
+  * updated confi, tweaked stylesheets and scripts config
+  * ugc mixin
+  * errors get logged instead of killing process
+  * allows watches specified with {task, ignore}  in config (#164)
+  * Refactor: prints clientkit version on --help (#161)
+  * skip config dir check
+
 1.0.0-alpha.14 / 2016-11-28
 ==================
 
