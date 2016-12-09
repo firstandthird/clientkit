@@ -1,5 +1,5 @@
-dist: '{{CWD}}/dist'
-assetPath: '{{CWD}}'
+dist: 'dist'
+assetPath: '.'
 minify: false
 tasks:
   default:

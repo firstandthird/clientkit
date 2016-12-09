@@ -8,8 +8,12 @@ watcher:
     - 'node_modules'
     - '.git'
   files:
-    '{{stylesheets.assetPath}}/**/*.css': 'stylesheets'
-    '{{scripts.assetPath}}/**/*.js': 'scripts'
+    '{{stylesheets.assetPath}}/**/*.css':
+      task: 'stylesheets'
+      ignore: '{{dist}}'
+    '{{scripts.assetPath}}/**/*.js':
+      task: 'scripts'
+      ignore: '{{dist}}'
     '{{CONFIGDIR}}/*.yaml': 'reloadConfig'
   delay: 500
 

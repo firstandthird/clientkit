@@ -43,7 +43,7 @@
     "bytesize": "0.2.0",
     "chokidar": "1.6.0",
     "clientkit-task": "0.0.6",
-    "confi": "3.2.0",
+    "confi": "3.2.1",
     "css-mqpacker": "5.0.1",
     "cssnano": "3.7.6",
     "eslint": "3.7.0",
