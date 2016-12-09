@@ -3,7 +3,6 @@ tasks:
   reloadConfig: '{{CKDIR}}/tasks/reload-config'
 
 watcher:
-  logColor: 'yellow'
   ignore:
     - 'node_modules'
     - '.git'
@@ -18,7 +17,6 @@ watcher:
   delay: 500
 
 reloadConfig:
-  logColor: 'red'
   clientkitConfPath: '{{CKDIR}}/conf'
   projectConfPath: '{{CONFIGDIR}}'
   env: '{{env}}'
