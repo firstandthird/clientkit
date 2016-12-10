@@ -43,7 +43,7 @@
     "bytesize": "0.2.0",
     "chokidar": "1.6.0",
     "clientkit-task": "0.0.6",
-    "confi": "3.2.1",
+    "confi": "4.0.1",
     "css-mqpacker": "5.0.1",
     "cssnano": "3.7.6",
     "eslint": "3.7.0",
@@ -73,7 +73,7 @@
     "require-all": "2.0.0",
     "rev-hash": "1.0.0",
     "rmdir": "^1.2.0",
-    "runtask": "0.0.4",
+    "runtask": "0.0.5",
     "uglifyify": "3.0.3",
     "update-notifier": "^1.0.2",
     "yargs": "6.0.0"
