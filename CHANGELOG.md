@@ -1,4 +1,11 @@
 
+1.0.0-alpha.16 / 2016-12-10
+==================
+
+  * log lint directory and ignore
+  * tweak to default task
+  * updated runtask and confi
+
 1.0.0-alpha.15 / 2016-12-09
 ==================
 
