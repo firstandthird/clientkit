@@ -3,9 +3,10 @@ assetPath: '.'
 minify: false
 tasks:
   default:
-    - 'initialize'
     -
+      - 'initialize'
       - 'eslint'
+    -
       - 'stylesheets'
       - 'scripts'
   dev:
