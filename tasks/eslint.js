@@ -18,6 +18,8 @@ class EslintTask extends ClientKitTask {
       ignorePattern: this.options.ignore
     });
 
+    this.log(`Linting ${this.options.files} | Ignoring ${this.options.ignore}`);
+
     const results = cli.executeOnFiles(this.options.files).results;
     // if any errors, print them:
     let errorsExist = false;
