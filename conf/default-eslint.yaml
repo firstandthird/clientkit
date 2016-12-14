@@ -1,7 +1,6 @@
 tasks:
   eslint: '{{CKDIR}}/tasks/eslint.js'
 eslint:
-  config: 'eslint-config-firstandthird'
   ignore:
     - 'node_modules'
     - '{{dist}}'

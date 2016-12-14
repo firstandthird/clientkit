@@ -13,8 +13,6 @@ class EslintTask extends ClientKitTask {
       return done();
     }
     const cli = new CLIEngine({
-      useEslintrc: false,
-      configFile: this.options.config,
       ignorePattern: this.options.ignore
     });
 
