@@ -61,6 +61,7 @@
     "mdcss-theme-clientkit": "4.0.0",
     "mkdirp": "0.5.1",
     "normalize.css": "5.0.0",
+    "nunjucks": "^3.0.0",
     "path-exists": "3.0.0",
     "postcss": "5.2.4",
     "postcss-cssnext": "2.8.0",
