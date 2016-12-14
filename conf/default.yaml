@@ -9,6 +9,8 @@ tasks:
     -
       - 'stylesheets'
       - 'scripts'
+    -
+      - 'templates'
   dev:
     -
       - 'updates'

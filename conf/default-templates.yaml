@@ -1,0 +1,17 @@
+tasks:
+  templates: '{{CKDIR}}/tasks/templates.js'
+templates:
+  logColor: 'yellow'
+  dist: '{{dist}}'
+  files:
+    -
+      type: 'precompile'
+      input:
+        - 'examples/index.html'
+        - 'examples/index2.html'
+      data:
+        dog: 'woof!'
+        cat: 'meow!'
+    -
+      type: 'compile'
+      input: 'examples/sampleTemplate.html'
