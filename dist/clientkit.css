@@ -590,6 +590,14 @@ body {
 .text-error {
   color: red;
 }
+.container {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 1400px;
+}
 /*---
 section: Helpers
 title: Grid
@@ -653,12 +661,6 @@ title: Grid
 */
 body {
 }
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
 .row {
   margin-left: -15px;
   margin-right: -15px;
@@ -667,10 +669,6 @@ body {
   content: '';
   display: table;
   clear: both;
-}
-.container {
-  width: 1400px;
-  box-sizing: border-box;
 }
 .col-pull-0 {
   right: auto;
@@ -3541,7 +3539,6 @@ hr {
 @media (max-width: 1439px) {
   .container {
     width: 1000px;
-    box-sizing: border-box;
   }
   .col-lg-pull-0 {
     right: auto;
@@ -4140,7 +4137,6 @@ hr {
 @media (max-width: 1023px) {
   .container {
     width: 750px;
-    box-sizing: border-box;
   }
   .col-md-pull-0 {
     right: auto;
@@ -4778,7 +4774,6 @@ hr {
 @media (max-width: 767px) {
   .container {
     width: 100%;
-    box-sizing: border-box;
   }
   .col-sm-pull-0 {
     right: auto;

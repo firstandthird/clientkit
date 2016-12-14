@@ -1,4 +1,12 @@
 
+1.0.0-alpha.17 / 2016-12-14
+==================
+
+  * lint fix
+  * use locally defined eslint config instead of always firstandthird
+  * run eslint on script change
+  * separate container mixin
+
 1.0.0-alpha.16 / 2016-12-10
 ==================
 
