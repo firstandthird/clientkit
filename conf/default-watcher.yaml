@@ -11,7 +11,9 @@ watcher:
       task: 'stylesheets'
       ignore: '{{dist}}'
     '{{scripts.assetPath}}/**/*.js':
-      task: 'scripts'
+      task:
+        - 'eslint'
+        - 'scripts'
       ignore: '{{dist}}'
     '{{CONFIGDIR}}/*.yaml': 'reloadConfig'
   delay: 500
