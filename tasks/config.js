@@ -9,7 +9,8 @@ class ConfigTask extends ClientKitTask {
 
   execute(allDone) {
     purdy(this.options, {
-      depth: null
+      depth: null,
+      arrayIndex: false
     });
     return allDone();
   }
