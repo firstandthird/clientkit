@@ -1,0 +1,2 @@
+tasks:
+  config: '{{CKDIR}}/tasks/config.js'
