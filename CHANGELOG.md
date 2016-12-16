@@ -1,4 +1,10 @@
 
+1.0.0-alpha.18 / 2016-12-15
+==================
+
+  * set arrayIndex to false
+  * added config task to output current config in a pretty format
+
 1.0.0-alpha.17 / 2016-12-14
 ==================
 
