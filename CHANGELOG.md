@@ -1,4 +1,9 @@
 
+1.0.0-alpha.19 / 2016-12-16
+==================
+
+  * pass in log to task instance, fixed reload-config
+
 1.0.0-alpha.18 / 2016-12-15
 ==================
 
