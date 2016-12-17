@@ -31,8 +31,8 @@ const addVarObject = (curVarName, curVarValue, curObject) => {
 
 class CSSTask extends ClientKitTask {
   // loads config files:
-  constructor(name, config, runner) {
-    super(name, config, runner);
+  constructor(name, config, runner, log) {
+    super(name, config, runner, log);
     this.setup();
   }
   get description() {
