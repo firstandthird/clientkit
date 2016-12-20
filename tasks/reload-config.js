@@ -21,8 +21,8 @@ class ReloadConfigTask extends ClientKitTask {
       Object.keys(this.runner.tasks).forEach((taskName) => {
         const task = this.runner.tasks[taskName];
         if (task instanceof ClientKitTask) {
-          updateConfig[taskName].log = this.options.log;
-          task.updateOptions(updateConfig[taskName]);
+          const taskConfig = (updateConfig[taskName] && updateConfig[taskName].needsEntireConfig) ? updateConfig : updateConfig[taskName];
+          task.updateOptions(taskConfig);
         }
       });
       this.runner.run(this.options.taskOnUpdate, allDone);

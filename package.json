@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "1.0.0-alpha.17",
+  "version": "1.0.0-alpha.19",
   "description": "Client kit for websites",
   "main": "app.js",
   "bin": {
@@ -44,7 +44,7 @@
     "browserify-shim": "3.8.12",
     "bytesize": "0.2.0",
     "chokidar": "1.6.0",
-    "clientkit-task": "0.0.6",
+    "clientkit-task": "0.0.7",
     "confi": "4.0.1",
     "css-mqpacker": "5.0.1",
     "cssnano": "3.7.6",
@@ -70,6 +70,7 @@
     "postcss-mixins": "5.2.0",
     "postcss-svgo": "2.1.5",
     "postcss-triangle": "1.0.1",
+    "purdy": "^2.2.0",
     "require-all": "2.0.0",
     "rev-hash": "1.0.0",
     "rmdir": "^1.2.0",
