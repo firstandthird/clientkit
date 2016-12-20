@@ -12,31 +12,35 @@ class EslintTask extends ClientKitTask {
     if (!this.options.files) {
       return done();
     }
-    const cli = new CLIEngine({
-      ignorePattern: this.options.ignore
-    });
+    try {
+      const cli = new CLIEngine({
+        ignorePattern: this.options.ignore
+      });
 
-    this.log(`Linting ${this.options.files} | Ignoring ${this.options.ignore}`);
+      this.log(`Linting ${this.options.files} | Ignoring ${this.options.ignore}`);
 
-    const results = cli.executeOnFiles(this.options.files).results;
-    // if any errors, print them:
-    let errorsExist = false;
-    let warningsExist = false;
-    results.forEach((result) => {
-      if (result.errorCount > 0) {
-        errorsExist = true;
+      const results = cli.executeOnFiles(this.options.files).results;
+      // if any errors, print them:
+      let errorsExist = false;
+      let warningsExist = false;
+      results.forEach((result) => {
+        if (result.errorCount > 0) {
+          errorsExist = true;
+        }
+        if (result.warningCount > 0) {
+          warningsExist = true;
+        }
+      });
+      if (errorsExist) {
+        this.log(['error'], formatter(results));
+      } else if (warningsExist) {
+        this.log(['warning'], formatter(results));
       }
-      if (result.warningCount > 0) {
-        warningsExist = true;
-      }
-    });
-    if (errorsExist) {
-      this.log(['error'], formatter(results));
-    } else if (warningsExist) {
-      this.log(['warning'], formatter(results));
+    } catch (e) {
+      this.log(['error'], e);
+    } finally {
+      return done();
     }
-    return done();
   }
-
 }
 module.exports = EslintTask;
