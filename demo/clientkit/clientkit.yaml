@@ -1,0 +1,9 @@
+tasks:
+  default:
+    - 'initialize'
+    -
+      - 'stylesheets'
+      - 'scripts'
+    - 'hash'
+  dev:
+    - 'watcher'

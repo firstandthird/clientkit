@@ -20,6 +20,7 @@ title: Fonts
 body {
   font-family: var(--font-primary);
   font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
   line-height: var(--line-height);
   color: var(--color-body);
 }
@@ -95,32 +96,32 @@ title: Weight
 ---
 
 ```example:html
-<p class="font-light">Some Text</p>
-<strong class="font-regular">Some Text</strong>
-<p class="font-semibold">Some Text</p>
+<p class="font-weight-light">Some Text</p>
+<strong class="font-weight-regular">Some Text</strong>
+<p class="font-weight-semibold">Some Text</p>
 <strong>Some Text</strong>
-<p class="font-bold">Some Text</p>
-<p class="font-xbold">Some Text</p>
+<p class="font-weight-bold">Some Text</p>
+<p class="font-weight-xbold">Some Text</p>
 ```
 */
-.font-light {
-  font-weight: var(--font-light);
+.font-weight-light {
+  font-weight: var(--font-weight-light);
 }
 
-.font-regular {
-  font-weight: var(--font-regular);
+.font-weight-regular {
+  font-weight: var(--font-weight-regular);
 }
 
-.font-semibold, strong, em {
-  font-weight: var(--font-semibold);
+.font-weight-semibold, strong, em {
+  font-weight: var(--font-weight-semibold);
 }
 
-.font-bold {
-  font-weight: var(--font-bold);
+.font-weight-bold {
+  font-weight: var(--font-weight-bold);
 }
 
-.font-xbold {
-  font-weight: var(--font-xbold);
+.font-weight-xbold {
+  font-weight: var(--font-weight-xbold);
 }
 
 /*---

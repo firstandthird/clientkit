@@ -1,0 +1,8 @@
+tasks:
+  eslint: '{{CKDIR}}/tasks/eslint.js'
+eslint:
+  ignore:
+    - 'node_modules'
+    - '{{dist}}'
+  files:
+     - '{{assetPath}}/**/*.js'

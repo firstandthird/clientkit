@@ -2,3 +2,5 @@ node_modules
 .git
 examples
 docs
+demo
+dist

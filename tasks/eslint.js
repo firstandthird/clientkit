@@ -1,38 +1,42 @@
 'use strict';
 const formatter = require('eslint').CLIEngine.getFormatter();
 const CLIEngine = require('eslint').CLIEngine;
-const Logr = require('logr');
+const ClientKitTask = require('clientkit-task');
 
-const log = new Logr({
-  type: 'cli',
-  renderOptions: {
-    cli: {
-      lineColor: 'red'
-    }
+class EslintTask extends ClientKitTask {
+  get description() {
+    return 'Runs the indicated eslint config against the files you listed, and reports the results ';
   }
-});
 
-module.exports = function(conf, base) {
-  const cli = new CLIEngine({
-    useEslintrc: false,
-    configFile: conf.core.eslint,
-    ignorePattern: conf.core.eslintIgnore
-  });
-  const results = cli.executeOnFiles(conf.core.watch.scripts).results;
-  // if any errors, print them:
-  let errorsExist = false;
-  let warningsExist = false;
-  results.forEach((result) => {
-    if (result.errorCount > 0) {
-      errorsExist = true;
+  execute(done) {
+    if (!this.options.files) {
+      return done();
     }
-    if (result.warningCount > 0) {
-      warningsExist = true;
+    const cli = new CLIEngine({
+      ignorePattern: this.options.ignore
+    });
+
+    this.log(`Linting ${this.options.files} | Ignoring ${this.options.ignore}`);
+
+    const results = cli.executeOnFiles(this.options.files).results;
+    // if any errors, print them:
+    let errorsExist = false;
+    let warningsExist = false;
+    results.forEach((result) => {
+      if (result.errorCount > 0) {
+        errorsExist = true;
+      }
+      if (result.warningCount > 0) {
+        warningsExist = true;
+      }
+    });
+    if (errorsExist) {
+      this.log(['error'], formatter(results));
+    } else if (warningsExist) {
+      this.log(['warning'], formatter(results));
     }
-  });
-  if (errorsExist) {
-    log(['eslint', 'error'], formatter(results));
-  } else if (warningsExist) {
-    log(['eslint', 'warning'], formatter(results));
+    return done();
   }
-};
+
+}
+module.exports = EslintTask;

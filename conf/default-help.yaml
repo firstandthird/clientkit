@@ -1,0 +1,4 @@
+tasks:
+  help: '{{CKDIR}}/tasks/help'
+help:
+  logColor: 'white'

@@ -1,0 +1,9 @@
+tasks:
+  hash: '{{CKDIR}}/tasks/hash.js'
+hash:
+  logColor: 'yellow'
+  dist: '{{dist}}'
+  files:
+     js: '{{dist}}/**/*.js'
+     css: '{{dist}}/**/*.css'
+  mappingFile: 'assets.json'

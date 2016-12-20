@@ -1,2 +1,66 @@
+tasks:
+  stylesheets: '{{CKDIR}}/tasks/css.js'
+
 stylesheets:
-  clientkit.css: '{{CKDIR}}/styles/default.css'
+  logColor: 'green'
+  assetPath: '{{assetPath}}'
+  dist: '{{dist}}'
+  minify: '{{minify}}'
+
+  mobileFirst: false
+
+  #siteMaxWidth: '1600px' #will wrap body in max-width with margin autos. disabled by default
+  breakpoints:
+    desktop-wide:
+      max-width: 100vw
+      min-width: 1440px
+      content: 1400px
+      col: xl
+      default: '{{!stylesheets.mobileFirst}}'
+      bleed: 1600px
+    desktop:
+      max-width: 1439px
+      min-width: 1024px
+      content: 1000px
+      col: lg
+    tablet:
+      max-width: 1023px
+      min-width: 768px
+      content: 750px
+      col: md
+    mobile:
+      max-width: 767px
+      min-width: 320px
+      content: 100%
+      col: sm
+      default: '{{stylesheets.mobileFirst}}'
+
+
+  fontParsingWhitelist: 'default.css'
+  autoprefixer:
+    browsers:
+      - 'last 2 versions'
+      - 'iOS 8'
+      - 'iOS 9'
+  docs:
+    input: 'default.css'
+    enabled: false
+    title: 'ClientKit'
+    css:
+      - '../clientkit.css'
+    sectionOrder:
+      Styleguide: 1
+      Helpers: 2
+      Variables: 3
+      Development: 4
+  grid:
+    columns: 12
+    gutters: '15px'
+  spacing:
+    default:
+      none: 0
+      xl: 80px
+      lg: 50px
+      md: 30px
+      sm: 20px
+      xs: 10px

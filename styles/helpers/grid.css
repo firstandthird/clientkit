@@ -63,13 +63,6 @@ body {
   @mixin site-max;
 }
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--grid-gutters);
-  padding-right: var(--grid-gutters);
-}
-
 .row {
   margin-left: -var(--grid-gutters);
   margin-right: -var(--grid-gutters);

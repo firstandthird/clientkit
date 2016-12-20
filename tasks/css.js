@@ -1,6 +1,6 @@
 'use strict';
 
-const bytesize = require('bytesize');
+const ClientKitTask = require('clientkit-task');
 const fs = require('fs');
 const path = require('path');
 const postcss = require('postcss');
@@ -16,18 +16,8 @@ const cssnano = require('cssnano');
 const pathExists = require('path-exists');
 const mdcss = require('mdcss');
 const mdcssTheme = require('mdcss-theme-clientkit');
-const Logr = require('logr');
-const hashing = require('../lib/urlHashes');
 const pkg = require('../package.json');
-const log = new Logr({
-  type: 'cli',
-  renderOptions: {
-    cli: {
-      lineColor: 'green'
-    }
-  }
-});
-
+const async = require('async');
 const addVarObject = (curVarName, curVarValue, curObject) => {
   if (typeof curVarValue === 'object') {
     // for each key in the object, set object recursively:
@@ -39,11 +29,23 @@ const addVarObject = (curVarName, curVarValue, curObject) => {
   curObject[curVarName] = curVarValue;
 };
 
-class CssTask {
+class CSSTask extends ClientKitTask {
   // loads config files:
-  constructor(config, base) {
-    this.config = config;
-    this.base = base;
+  constructor(name, config, runner, log) {
+    super(name, config, runner, log);
+    this.setup();
+  }
+  get description() {
+    return 'compiles and minify source-mapped stylesheets for your project, and generates a handy design guide to help visualize it';
+  }
+
+  updateOptions(newOptions) {
+    super.updateOptions(newOptions);
+    this.setup();
+  }
+
+  setup() {
+    const config = this.options;
     this.cssVars = {};
     this.customMedia = {};
     // load css variables:
@@ -70,7 +72,7 @@ class CssTask {
         min: config.breakpoints[breakpoint]['min-width'],
         max: config.breakpoints[breakpoint]['max-width'],
       };
-      const constraint = config.core.mobileFirst ? 'min' : 'max';
+      const constraint = config.mobileFirst ? 'min' : 'max';
       const width = breakpointObj[constraint];
       const mediaquery = `(${constraint}-width: ${width})`;
       let mediaqueryOnly;
@@ -100,9 +102,9 @@ class CssTask {
       dirname: path.join(__dirname, '..', 'styles', 'mixins'),
       resolve: m => m(config, postcss)
     });
-    if (pathExists.sync(path.join(config.core.assetPath, 'mixins'))) {
+    if (pathExists.sync(path.join(config.assetPath, 'mixins'))) {
       const localMixins = require('require-all')({
-        dirname: path.join(config.core.assetPath, 'mixins'),
+        dirname: path.join(config.assetPath, 'mixins'),
         resolve: m => m(config, postcss)
       });
       Object.assign(globalMixins, localMixins);
@@ -110,9 +112,7 @@ class CssTask {
     this.mixins = globalMixins;
   }
 
-  performTask(input, callback, outputName) {
-    this.input = input;
-    const start = new Date().getTime();
+  process(input, outputFilename, callback) {
     const processes = [
       cssimport({
         path: [
@@ -135,7 +135,7 @@ class CssTask {
           customMedia: {
             extensions: this.customMedia
           },
-          autoprefixer: this.config.autoprefixer
+          autoprefixer: this.options.autoprefixer
         }
       }),
       mqpacker({
@@ -148,7 +148,7 @@ class CssTask {
 
           let ret = bv - av;
 
-          if (this.config.core.mobileFirst) {
+          if (this.options.mobileFirst) {
             ret *= -1;
           }
 
@@ -157,92 +157,71 @@ class CssTask {
       })
     ];
     // Only run fonts against default.css to avoid duplicates
-    if (input.match(this.config.core.fontParsingWhitelist)) {
+    if (input.match(this.options.fontParsingWhitelist)) {
       processes.push(cssfonts({
         foundries: ['custom', 'hosted', 'google']
       }));
     }
 
-    if (this.config.docs.enabled && input.match(this.config.docs.input)) {
+    if (this.options.docs.enabled && input.match(this.options.docs.input)) {
       processes.push(mdcss({
         theme: mdcssTheme({
-          title: this.config.docs.title,
+          title: this.options.docs.title,
           logo: '',
-          colors: this.config.color,
+          colors: this.options.color,
           variables: this.cssVars,
           css: [
             'style.css',
             '../clientkit.css'
           ],
           examples: {
-            css: this.config.docs.css
+            css: this.options.docs.css
           },
           info: {
             clientkitVersion: pkg.version
           },
-          sectionOrder: this.config.docs.sectionOrder
+          sectionOrder: this.options.docs.sectionOrder
         }),
-        destination: path.join(this.config.core.dist.replace(process.cwd(), ''), 'styleguide')
+        destination: path.join(this.options.dist.replace(process.cwd(), ''), 'styleguide')
       }));
     }
 
     // minify if specified in config files:
-    if (this.config.core.minify) {
+    if (this.options.minify) {
       processes.push(cssnano());
     }
-    let inputCss;
-    // the input could be either a file path or a CSS expression:
-    if (path.extname(input) === '.css') {
-      inputCss = fs.readFileSync(path.normalize(input));
-    } else {
-      inputCss = input;
-    }
-    const to = outputName || 'temp.css';
-    postcss(processes).process(inputCss, { from: input, to, map: { inline: false } })
-    .then(result => {
-      if (result.messages) {
-        result.messages.forEach(message => {
-          if (message.text) {
-            log([message.type], `${message.text} [${message.plugin}]`);
-          }
+    async.auto({
+      contents: (done) => {
+        fs.readFile(input, done);
+      },
+      postcss: ['contents', (results, done) => {
+        postcss(processes).process(results.contents, { from: input, to: outputFilename, map: { inline: false } })
+        .then(result => {
+          done(null, result);
         });
-      }
-
-      this.result = result;
-      const end = new Date().getTime();
-      const duration = (end - start) / 1000;
-      log(`Processed ${path.relative(process.cwd(), input)} in ${duration} sec`);
-      return callback(result);
-    }, (err) => {
-      if (err) {
-        log(['error'], err.stack);
-      }
-    });
+      }],
+      messages: ['postcss', (results, done) => {
+        if (results.postcss.messages) {
+          results.postcss.messages.forEach(message => {
+            if (message.text) {
+              this.log([message.type], `${message.text} [${message.plugin}]`);
+            }
+          });
+        }
+        done();
+      }],
+      sourcemaps: ['postcss', (results, done) => {
+        // write the source map if indicated:
+        if (results.postcss.map && this.options.sourcemap !== false) {
+          this.write(`${outputFilename}.map`, JSON.stringify(results.postcss.map), done);
+        } else {
+          return done();
+        }
+      }],
+      write: ['sourcemaps', (results, done) => {
+        this.write(outputFilename, results.postcss.css, done);
+      }]
+    }, callback);
   }
-
-  writeToFile(outputName) {
-    if (this.config.core.urlHashing.active) {
-      outputName = hashing.hash(outputName, this.result.css);
-      hashing.writeMap(this.config);
-    }
-    if (!this.result) {
-      log(['clientkit', 'css', 'warning'], `attempting to write empty string to ${outputName}`);
-    }
-    const output = path.join(this.config.core.dist, outputName);
-    fs.writeFileSync(output, this.result.css);
-    fs.writeFileSync(`${output}.map`, this.result.map);
-    log(`Wrote: ${path.relative(process.cwd(), output)} (${bytesize.stringSize(this.result.css, true)}), `);
-  }
-
 }
-module.exports.CssTask = CssTask;
-module.exports.runTaskAndWrite = function (config, base, outputName, input) {
-  const task = new CssTask(config, base);
-  task.performTask(input, () => {
-    task.writeToFile(outputName);
-  }, outputName);
-};
-module.exports.processOnly = function (config, base, input, callback) {
-  const task = new CssTask(config, base);
-  task.performTask(input, callback);
-};
+module.exports = CSSTask;
