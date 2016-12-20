@@ -20,7 +20,7 @@ const argv = yargs
 })
 .option('env', {
   describe: 'environment (eg "dev", "staging", "prod")',
-  default: 'prod'
+  default: 'dev'
 })
 .option('config', {
   describe: 'a path to your configuration files',
