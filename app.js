@@ -54,7 +54,7 @@ const main = () => {
       task = cmd;
     }
     log(['clientkit'], `Running ${task}...`);
-    loadTasks(conf, log, (loadErr, runner) => {
+    loadTasks(task, conf, log, (loadErr, runner) => {
       if (loadErr) {
         throw loadErr;
       }
