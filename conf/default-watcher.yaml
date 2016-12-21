@@ -9,12 +9,14 @@ watcher:
   files:
     '{{stylesheets.assetPath}}/**/*.css':
       task: 'stylesheets'
-      ignore: '{{dist}}'
+      ignore:
+        - '{{dist}}'
     '{{scripts.assetPath}}/**/*.js':
       task:
         - 'eslint'
         - 'scripts'
-      ignore: '{{dist}}'
+      ignore:
+        - '{{dist}}'
     '{{CONFIGDIR}}/*.yaml': 'reloadConfig'
   delay: 500
 
