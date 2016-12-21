@@ -1,4 +1,15 @@
 
+1.0.0-alpha.20 / 2016-12-20
+==================
+
+  * renamed prod to production
+  * show relative paths
+  * fixed watcher ignores
+  * wrapper to lazy-load and cache task modules (#172)
+  * show version (#170)
+  * won't exit when eslint errors out (#169)
+  * default env is dev (#168)
+
 1.0.0-alpha.19 / 2016-12-16
 ==================
 
