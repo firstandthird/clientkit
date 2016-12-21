@@ -20,7 +20,7 @@ const argv = yargs
   type: 'string'
 })
 .option('env', {
-  describe: 'environment (eg "dev", "staging", "prod")',
+  describe: 'environment (eg "dev", "staging", "production")',
   default: 'dev'
 })
 .option('config', {
