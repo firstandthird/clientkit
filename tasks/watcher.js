@@ -17,7 +17,7 @@ class WatcherTask extends ClientKitTask {
     const ignoreArr = localIgnore.concat(this.options.ignore || []);
     const ignoreString = ignoreArr.join('|');
     const ignored = new RegExp(ignoreString);
-    this.log(`Watching: ${watch}, Ignoring: ${ignored}, Task: ${taskToRun}`);
+    this.log(`Watching: ${pathLib.relative(process.cwd(), watch)}, Ignoring: ${ignored}, Task: ${taskToRun}`);
     this.watcher = chokidar.watch(watch, {
       ignored,
       awaitWriteFinish: true

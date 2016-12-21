@@ -32,7 +32,7 @@ const argv = yargs
 .argv;
 
 const main = () => {
-  log(['clientkit'], `Using local config directory: ${argv.config}, environment is "${argv.env}", version is ${require('./package.json').version}`);
+  log(['clientkit'], `Using local config directory: ${path.relative(process.cwd(), argv.config)}, environment is "${argv.env}", version is ${require('./package.json').version}`);
   const clientkitConf = path.join(__dirname, 'conf');
   configLoader(clientkitConf, argv.config, argv.env, (err, conf) => {
     if (err) {
