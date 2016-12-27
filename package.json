@@ -2,14 +2,11 @@
   "name": "clientkit",
   "version": "1.0.0-alpha.20",
   "description": "Client kit for websites",
-  "main": "app.js",
-  "bin": {
-    "clientkit": "app.js"
-  },
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js --config conf --env ck",
+    "start": "node index.js --config conf --env ck",
     "dev": "concurrently 'npm run dev:ck' 'npm run serve'",
-    "dev:ck": "node app.js --config demo/clientkit",
+    "dev:ck": "node index.js --config demo/clientkit",
     "test": "mocha",
     "serve": "serve -p 8082 dist",
     "ghpages": "./tasks/ghpages",
