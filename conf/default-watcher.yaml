@@ -1,5 +1,5 @@
 tasks:
-  watcher: '{{CKDIR}}/tasks/watcher'
+  watcher: 'clientkit-watcher'
   reloadConfig: '{{CKDIR}}/tasks/reload-config'
 
 watcher:

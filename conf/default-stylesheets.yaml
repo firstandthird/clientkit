@@ -1,9 +1,10 @@
 tasks:
-  stylesheets: '{{CKDIR}}/tasks/css.js'
+  stylesheets: 'clientkit-css'
 
 stylesheets:
   logColor: 'green'
-  assetPath: '{{assetPath}}'
+  globalMixins: '{{CKDIR}}/styles/mixins'
+  assetPath: '{{CKDIR}}/styles'
   dist: '{{dist}}'
   minify: '{{minify}}'
 
@@ -47,7 +48,7 @@ stylesheets:
     enabled: false
     title: 'ClientKit'
     css:
-      - '../clientkit.css'
+      - 'clientkit.css'
     sectionOrder:
       Styleguide: 1
       Helpers: 2

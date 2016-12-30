@@ -1,5 +1,5 @@
 tasks:
-  hash: '{{CKDIR}}/tasks/hash.js'
+  hash: 'clientkit-hash.js'
 hash:
   logColor: 'yellow'
   dist: '{{dist}}'

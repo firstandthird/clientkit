@@ -1,5 +1,5 @@
 tasks:
-  eslint: '{{CKDIR}}/tasks/eslint.js'
+  eslint: 'clientkit-eslint'
 eslint:
   ignore:
     - 'node_modules'
