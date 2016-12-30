@@ -188,7 +188,7 @@ class CSSTask extends ClientKitTask {
 
     // minify if specified in config files:
     if (this.options.minify) {
-      processes.push(cssnano());
+      processes.push(cssnano({ zindex: false }));
     }
     async.auto({
       contents: (done) => {
