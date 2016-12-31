@@ -4,7 +4,7 @@ tasks:
 stylesheets:
   logColor: 'green'
   globalMixins: '{{CKDIR}}/styles/mixins'
-  assetPath: '{{CKDIR}}/styles'
+  assetPath: '{{assetPath}}'
   dist: '{{dist}}'
   minify: '{{minify}}'
 
