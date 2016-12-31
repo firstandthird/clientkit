@@ -1,0 +1,19 @@
+dist: 'dist'
+assetPath: './styles'
+minify: false
+tasks:
+  default:
+    -
+      - 'initialize'
+      - 'eslint'
+    -
+      - 'stylesheets'
+      - 'scripts'
+  dev:
+    -
+      - 'updates'
+      - 'initialize'
+    - 'watcher'
+  prod:
+    - 'default'
+    - 'hash'

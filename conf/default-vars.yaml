@@ -1,82 +1,84 @@
+stylesheets:
+  vars:
+    font:
+      #families
+      primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      #weights
+      weight:
+        body: 'normal'
+        light: 300
+        regular: 400
+        semibold: 600
+        bold: 700
+        xbold: 800
+      #sizes
+      size:
+        body: 14px
+        large: 16px
+        small: 12px
+      mobile-size:
+        body: 14px
+        large: 16px
+        small: 12px
+    line-height: 1.1
+    line-height-large: 1.5
 
-vars:
-  font:
-    #families
-    primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    #weights
-    light: 300
-    regular: 400
-    semibold: 600
-    bold: 700
-    xbold: 800
-    #sizes
-    size:
-      body: 14px
-      large: 16px
-      small: 12px
-    mobile-size:
-      body: 14px
-      large: 16px
-      small: 12px
-  line-height: 1.1
-  line-height-large: 1.5
+    #headings
+    heading:
+      line-height: 1.2
+      font-weight: bold
+      1-size: 45px
+      1-mobile-size: 30px
+      2-size: 30px
+      2-mobile-size: 25px
+      3-size: 25px
+      3-mobile-size: 20px
+      4-size: 20px
+      4-mobile-size: 16px
+      5-size: 16px
+      5-mobile-size: 14px
+      6-size: 14px
+      6-mobile-size: 12px
 
-  #headings
-  heading:
-    line-height: 1.2
-    font-weight: bold
-    1-size: 45px
-    1-mobile-size: 30px
-    2-size: 30px
-    2-mobile-size: 25px
-    3-size: 25px
-    3-mobile-size: 20px
-    4-size: 20px
-    4-mobile-size: 16px
-    5-size: 16px
-    5-mobile-size: 14px
-    6-size: 14px
-    6-mobile-size: 12px
+    stretch-spacing: 2px
 
-  stretch-spacing: 2px
+    table:
+      cell-padding: 10px
+      sm-cell-padding: 5px
+      bg: transparent
+      bg-accent: '#f9f9f9'
+      bg-hover: '#f5f5f5'
+      bg-active: '#f5f5f5'
+      border-width: 1px
+      border-color: '#eceeef'
 
-  table:
-    cell-padding: 10px
-    sm-cell-padding: 5px
-    bg: transparent
-    bg-accent: '#f9f9f9'
-    bg-hover: '#f5f5f5'
-    bg-active: '#f5f5f5'
-    border-width: 1px
-    border-color: '#eceeef'
+    border:
+      size: 1px
+      radius:
+        default: 3px
+        lg: 5px
+        sm: 2px
 
-  border:
-    size: 1px
-    radius:
-      default: 3px
-      lg: 5px
-      sm: 2px
+    button:
+      radius:
+        default: 3px
+        lg: 5px
+        sm: 2px
 
-  button:
-    radius:
-      default: 3px
-      lg: 5px
-      sm: 2px
+    hr:
+      max-width: 3.5em
+      height: 3px
+      color: '{{stylesheets.color.body}}'
 
-  hr:
-    max-width: 3.5em
-    height: 3px
-    color: '{{color.body}}'
+    #messages
+    message:
+      border-radius: 2px
 
-  #messages
-  message:
-    border-radius: 2px
+    dropdown:
+      bg: '#fff'
 
-  dropdown:
-    bg: '#fff'
-
-  easing:
-    out: 'cubic-bezier(0.35, 0.97, 0.57, 0.99)'
-    in-out: 'ease-in-out'
+    easing:
+      out: 'cubic-bezier(0.35, 0.97, 0.57, 0.99)'
+      in-out: 'ease-in-out'

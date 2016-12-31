@@ -1,4 +1,199 @@
 
+1.0.0-alpha.20 / 2016-12-20
+==================
+
+  * renamed prod to production
+  * show relative paths
+  * fixed watcher ignores
+  * wrapper to lazy-load and cache task modules (#172)
+  * show version (#170)
+  * won't exit when eslint errors out (#169)
+  * default env is dev (#168)
+
+1.0.0-alpha.19 / 2016-12-16
+==================
+
+  * pass in log to task instance, fixed reload-config
+
+1.0.0-alpha.18 / 2016-12-15
+==================
+
+  * set arrayIndex to false
+  * added config task to output current config in a pretty format
+
+1.0.0-alpha.17 / 2016-12-14
+==================
+
+  * lint fix
+  * use locally defined eslint config instead of always firstandthird
+  * run eslint on script change
+  * separate container mixin
+
+1.0.0-alpha.16 / 2016-12-10
+==================
+
+  * log lint directory and ignore
+  * tweak to default task
+  * updated runtask and confi
+
+1.0.0-alpha.15 / 2016-12-09
+==================
+
+  * removed deprecated logColor property
+  * updated confi, tweaked stylesheets and scripts config
+  * ugc mixin
+  * errors get logged instead of killing process
+  * allows watches specified with {task, ignore}  in config (#164)
+  * Refactor: prints clientkit version on --help (#161)
+  * skip config dir check
+
+1.0.0-alpha.14 / 2016-11-28
+==================
+
+  * fixed running order
+  * removed help alias so help task will run
+
+1.0.0-alpha.13 / 2016-11-24
+==================
+
+  * added logr-cli-fancy dep
+
+1.0.0-alpha.12 / 2016-11-24
+==================
+
+  * pass in log when updating task configs
+
+1.0.0-alpha.11 / 2016-11-24
+==================
+
+  * disable minify by default
+  * move hash to prod task
+
+1.0.0-alpha.10 / 2016-11-24
+==================
+
+  * tweaks
+  * updated clientkit-task
+  * update logr to use logr-cli-fancy
+  * asyncify reload-config.js
+  * 24-hour intervals for update checks
+  * update task
+  * updated comments for clarity
+  * async config loads package.json and clientkit.yaml
+  * update app for async config
+  * update watcher desc and remove help from dev list
+  * set description for ClientKitTasks with a getter
+  * use execute for help, fix conf files, descriptions
+  * more description as part of class
+  * description is part of class itself
+  * add help to task list
+  * working version
+  * tweak containers sizes to leave space with scroll bars
+
+1.0.0-alpha.9 / 2016-11-18
+==================
+
+  * fixed initialize
+
+1.0.0-alpha.8 / 2016-11-18
+==================
+
+  * log error instead of throwing
+  * updated logr and clientkit-task, tweaked log settings
+  * hash task
+  * change config so main tasks run in parallel
+  * css sourcemaps
+  * js sourcemaps
+
+1.0.0-alpha.7 / 2016-11-18
+==================
+
+  * removed dist from watch ignore, log what tasks watcher is running
+
+1.0.0-alpha.6 / 2016-11-18
+==================
+
+  * fixed reload-config task
+  * added button-alt
+  * updated clientkit-task and runtask to 0.0.4
+
+1.0.0-alpha.5 / 2016-11-17
+==================
+
+  * added reloadConfig task for watching yaml files
+  * debug option for watcher to see watched files. added .git to default ignore, output ignored directories when running
+  * renamed default.css to clientkit.css - so you `@import clientkit.css`
+  * don't create clientkit.css by default - will speed up build time
+  * removed readFileSync
+  * updated clientkit-task to 0.0.3
+  * refactored execute to pass in task to execute - defaults to `default`
+  * js maps
+
+1.0.0-alpha.4 / 2016-11-16
+==================
+
+  * updated tests
+  * updated to use separate clientkit-task repo
+
+1.0.0-alpha.3 / 2016-11-16
+==================
+
+  * eslint error
+  * create dist directory
+
+1.0.0-alpha.2 / 2016-11-16
+==================
+
+  * fixed error logging
+
+1.0.0-alpha.1 / 2016-11-16
+==================
+
+  * refactor into generic task runner
+    * update ck env to use watcher
+    * added option to pass in ignore to watcher
+    * added body font weight to vars
+    * moved changed font-light to font-weight-light and updated vars
+    * removed secondary color
+    * updated color variables to use accent1, accent2 and removed primary
+    * update snapshot
+    * added ck env for creating snapshots
+    * refactored config so it wasn't so nested, tweaked to eslint task
+    * added demo folder for testing
+    * specific versions for each dep
+    * added dist to npmignore
+    * remove .vscode
+    * Merge pull request #150 from firstandthird/refactor_css_source_maps
+    * update conf files, integrate into new app
+    * update runtask dep
+    * add 'use strict' for node 4/5 compatibility
+    * comment out outdated tests for now
+    * eslint ClientKitTask
+    * fixed dev mode
+    * synced with latest master branch
+    * unit tests
+    * better log
+    * fixed script building
+    * updates to config
+    * better check for legacy config
+    * throw error if using old style config
+    * move all logging to base task
+    * cleaned up commented code
+    * updated config for scripts and watcher
+    * auto load tasks from the config file, refactored config
+    * renamed js.js to scripts.js
+    * removed commands directory
+    * remove workaround code for watcher
+    * remove old watcher task
+    * increase rebuild delay
+    * removed write by default, added to css and js
+    * added watcher
+    * added js task
+    * added auto prefixer config
+    * Merge branch 'master' into refactor
+    * check in clientkit.css so we can easily see changes from version to version
+    * initial work on task running refactor
+
 0.21.0 / 2016-11-06
 ==================
 

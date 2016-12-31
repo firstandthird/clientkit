@@ -20,11 +20,6 @@ module.exports = function (config) {
       const block = styles[breakpoint];
 
 
-      block['.container'] = {
-        width: config.breakpoints[breakpoint].content,
-        'box-sizing': 'border-box'
-      };
-
       block[`.${prefix}-pull-0`] = {
         right: 'auto'
       };

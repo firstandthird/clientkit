@@ -1,0 +1,6 @@
+@import 'default.css';
+
+body {
+  background: var(--color-background-default);
+  color: red;
+}

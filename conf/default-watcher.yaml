@@ -1,0 +1,27 @@
+tasks:
+  watcher: 'clientkit-watcher'
+  reloadConfig: '{{CKDIR}}/tasks/reload-config'
+
+watcher:
+  ignore:
+    - 'node_modules'
+    - '.git'
+  files:
+    '{{stylesheets.assetPath}}/**/*.css':
+      task: 'stylesheets'
+      ignore:
+        - '{{dist}}'
+    '{{scripts.assetPath}}/**/*.js':
+      task:
+        - 'eslint'
+        - 'scripts'
+      ignore:
+        - '{{dist}}'
+    '{{CONFIGDIR}}/*.yaml': 'reloadConfig'
+  delay: 500
+
+reloadConfig:
+  clientkitConfPath: '{{CKDIR}}/conf'
+  projectConfPath: '{{CONFIGDIR}}'
+  env: '{{env}}'
+  taskOnUpdate: 'default'

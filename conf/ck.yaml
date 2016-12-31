@@ -1,0 +1,14 @@
+eslint:
+  ignore:
+    - 'expectedOutputs'
+    - 'demo'
+    - 'examples'
+stylesheets:
+  files:
+    clientkit.css: '{{CKDIR}}/styles/clientkit.css'
+watcher:
+  ignore:
+    - 'node_modules'
+    - 'expectedOutputs'
+    - '.git'
+    - 'dist'

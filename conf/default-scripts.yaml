@@ -1,0 +1,10 @@
+tasks:
+  scripts: 'clientkit-scripts'
+scripts:
+  logColor: 'blue'
+  assetPath: '{{assetPath}}'
+  dist: '{{dist}}'
+  minify: '{{minify}}'
+  globalBabel: false
+  shim: false
+  babelIgnore: null
