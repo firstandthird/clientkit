@@ -1,7 +1,7 @@
 'use strict';
 
 const ClientKitTask = require('clientkit-task');
-const configLoader = require('../lib/config');
+const configLoader = require('clientkit-core/lib/config');
 
 class ReloadConfigTask extends ClientKitTask {
   get description() {
