@@ -2,18 +2,32 @@ dist: 'dist'
 assetPath: '{{CKDIR}}/styles'
 minify: false
 tasks:
+  preInit:
+    - 'updates'
+  postInit:
+    - 'eslint'
+  process:
+    - 'scripts'
+    - 'stylesheets'
+  postProcess:
+    - 'hash'
+
   default:
-    -
-      - 'initialize'
-      - 'eslint'
-    -
-      - 'stylesheets'
-      - 'scripts'
+    - 'preInit'
+    - 'initialize'
+    - 'postInit'
+    - 'process'
   dev:
     -
-      - 'updates'
+      - 'preInit'
       - 'initialize'
-    - 'watcher'
+      - 'postInit'
+      - 'process'
+    -
+      - 'watcher'
   prod:
-    - 'default'
-    - 'hash'
+    - 'preInit'
+    - 'initialize'
+    - 'postInit'
+    - 'process'
+    - 'postProcess'
