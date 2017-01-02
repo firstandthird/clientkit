@@ -2,32 +2,28 @@ dist: 'dist'
 assetPath: '{{CKDIR}}/styles'
 minify: false
 tasks:
-  preInit:
-    - 'updates'
-  postInit:
-    - 'eslint'
-  process:
-    - 'scripts'
-    - 'stylesheets'
-  postProcess:
-    - 'hash'
-
   default:
-    - 'preInit'
-    - 'initialize'
-    - 'postInit'
-    - 'process'
+   -
+      - 'help'
+      - 'initialize'
+      - 'eslint'
+   -
+      - 'stylesheets'
+      - 'scripts'
   dev:
     -
-      - 'preInit'
+      - 'updates'
       - 'initialize'
-      - 'postInit'
-      - 'process'
     -
       - 'watcher'
-  prod:
-    - 'preInit'
-    - 'initialize'
-    - 'postInit'
-    - 'process'
-    - 'postProcess'
+  # the following tasks are event 'hooks' that you can re-define to customize the
+  # processing on your project. 'clientkit-task' is an empty task that does not actually
+  # do anything. you can replace it with whatever task(s) you want:
+  preInit:
+    - 'clientkit-task'
+  postInit:
+    - 'clientkit-task'
+  process:
+    - 'clientkit-task'
+  postProcess:
+    -'clientkit-task'
