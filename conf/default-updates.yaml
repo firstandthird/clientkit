@@ -1,4 +1,4 @@
 tasks:
-  updates: '{{CKDIR}}/tasks/updates.js'
+  updates: 'updates'
 updates:
   logColor: 'yellow'

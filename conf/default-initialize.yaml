@@ -1,5 +1,5 @@
 tasks:
-  initialize: '{{CKDIR}}/tasks/initialize.js'
+  initialize: 'initialize'
 initialize:
   files:
     all: '{{dist}}'
