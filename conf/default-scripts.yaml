@@ -1,5 +1,5 @@
 tasks:
-  scripts: 'clientkit-scripts'
+  scripts: 'runkit-scripts'
 scripts:
   logColor: 'blue'
   assetPath: '{{assetPath}}'

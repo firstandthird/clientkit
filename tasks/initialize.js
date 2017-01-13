@@ -1,11 +1,11 @@
 'use strict';
 const async = require('async');
-const ClientKitTask = require('clientkit-task');
+const RunKitTask = require('runkit-task');
 const mkdirp = require('mkdirp');
 const rmdir = require('rmdir');
 const fs = require('fs');
 
-class InitTask extends ClientKitTask {
+class InitTask extends RunKitTask {
   get description() {
     return 'Creates/clears the output directory for your project';
   }

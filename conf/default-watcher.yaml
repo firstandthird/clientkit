@@ -1,6 +1,5 @@
 tasks:
-  watcher: 'clientkit-watcher'
-  reloadConfig: '{{CKDIR}}/tasks/reload-config'
+  watcher: 'runkit-watcher'
 
 watcher:
   ignore:
@@ -19,9 +18,3 @@ watcher:
         - '{{dist}}'
     '{{CONFIGDIR}}/*.yaml': 'reloadConfig'
   delay: 500
-
-reloadConfig:
-  clientkitConfPath: '{{CKDIR}}/conf'
-  projectConfPath: '{{CONFIGDIR}}'
-  env: '{{env}}'
-  taskOnUpdate: 'default'

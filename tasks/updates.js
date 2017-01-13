@@ -1,9 +1,9 @@
 'use strict';
-const ClientKitTask = require('clientkit-task');
+const RunKitTask = require('runkit-task');
 const updateNotifier = require('update-notifier');
 const pkg = require('../package.json');
 
-class UpdateTask extends ClientKitTask {
+class UpdateTask extends RunKitTask {
   get description() {
     return 'Checks to see if an updated version of Clientkit exists';
   }
