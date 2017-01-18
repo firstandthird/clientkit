@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "async": "2.1.4",
-    "runkit": "0.0.7",
+    "runkit": "0.0.8",
     "clientkit-css": "0.0.4",
     "runkit-eslint": "0.0.2",
     "runkit-hash": "0.0.3",
