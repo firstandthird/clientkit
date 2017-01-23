@@ -6,5 +6,5 @@ scripts:
   dist: '{{dist}}'
   minify: '{{minify}}'
   globalBabel: false
-  shim: false
+  shim: null
   babelIgnore: null
