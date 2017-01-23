@@ -1,11 +1,11 @@
 'use strict';
 const async = require('async');
-const RunKitTask = require('runkit-task');
+const TaskKitTask = require('taskkit-task');
 const mkdirp = require('mkdirp');
 const rmdir = require('rmdir');
 const fs = require('fs');
 
-class InitTask extends RunKitTask {
+class InitTask extends TaskKitTask {
   get description() {
     return 'Creates/clears the output directory for your project';
   }

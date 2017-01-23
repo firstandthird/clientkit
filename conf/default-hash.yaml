@@ -1,5 +1,5 @@
 tasks:
-  hash: 'runkit-hash'
+  hash: 'taskkit-hash'
 hash:
   logColor: 'yellow'
   dist: '{{dist}}'

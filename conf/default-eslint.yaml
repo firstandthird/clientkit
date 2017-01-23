@@ -1,5 +1,5 @@
 tasks:
-  eslint: 'runkit-eslint'
+  eslint: 'taskkit-eslint'
 eslint:
   ignore:
     - 'node_modules'

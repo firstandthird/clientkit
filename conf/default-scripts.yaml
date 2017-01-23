@@ -1,5 +1,5 @@
 tasks:
-  scripts: 'runkit-scripts'
+  scripts: 'taskkit-scripts'
 scripts:
   logColor: 'blue'
   assetPath: '{{assetPath}}'
