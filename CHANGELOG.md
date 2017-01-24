@@ -1,4 +1,9 @@
 
+1.0.0-alpha.28 / 2017-01-24
+==================
+
+  * swapped taskkit-scripts with taskkit-rollup
+
 1.0.0-alpha.27 / 2017-01-22
 ==================
 
