@@ -1,10 +1,6 @@
 tasks:
-  scripts: 'taskkit-scripts'
+  scripts: 'taskkit-rollup'
 scripts:
-  logColor: 'blue'
   assetPath: '{{assetPath}}'
   dist: '{{dist}}'
   minify: '{{minify}}'
-  globalBabel: false
-  shim: null
-  babelIgnore: null
