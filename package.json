@@ -42,7 +42,7 @@
     "taskkit": "0.0.13",
     "taskkit-eslint": "0.0.3",
     "taskkit-hash": "0.0.4",
-    "taskkit-rollup": "0.0.4",
+    "taskkit-rollup": "0.0.5",
     "taskkit-task": "0.0.11",
     "taskkit-watcher": "0.0.5",
     "update-notifier": "^1.0.3"
