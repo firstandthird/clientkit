@@ -1,4 +1,9 @@
 
+1.0.0-alpha.31 / 2017-01-27
+==================
+
+  * updated taskkit-rollup and taskkit-task
+
 1.0.0-alpha.30 / 2017-01-25
 ==================
 
