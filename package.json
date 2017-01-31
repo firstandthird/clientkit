@@ -35,11 +35,11 @@
   },
   "dependencies": {
     "async": "2.1.4",
-    "clientkit-css": "0.0.5",
+    "clientkit-css": "0.0.6",
     "mkdirp": "0.5.1",
     "purdy": "^2.2.0",
     "rmdir": "^1.2.0",
-    "taskkit": "0.0.13",
+    "taskkit": "0.0.14",
     "taskkit-eslint": "0.0.3",
     "taskkit-hash": "0.0.4",
     "taskkit-rollup": "0.0.7",
