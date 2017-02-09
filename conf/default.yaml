@@ -1,6 +1,7 @@
 dist: 'dist'
 assetPath: '{{CKDIR}}/styles'
-minify: false
+minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
+crashOnError: '{{ENV.NODE_ENV === "production"}}'
 tasks:
   default:
     -
