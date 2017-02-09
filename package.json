@@ -20,7 +20,7 @@
     "url": "git+https://github.com/firstandthird/clientkit.git"
   },
   "author": "First+Third",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/firstandthird/clientkit/issues"
   },
