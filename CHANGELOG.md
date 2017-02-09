@@ -1,4 +1,11 @@
 
+1.0.0 / 2017-02-08
+==================
+
+  * crash on error and minify if NODE_ENV is production
+  * set license MIT
+  * updated taskkit
+
 1.0.0-alpha.32 / 2017-01-31
 ==================
 
