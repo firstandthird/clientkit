@@ -1,4 +1,0 @@
-tasks:
-  config: '{{CKDIR}}/tasks/config.js'
-config:
-  needsEntireConfig: true
