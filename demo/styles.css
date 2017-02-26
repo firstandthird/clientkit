@@ -1,4 +1,4 @@
-@import 'default.css';
+@import 'clientkit.css';
 
 body {
   background: var(--color-background-default);

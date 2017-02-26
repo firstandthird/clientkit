@@ -1,9 +1,9 @@
-dist: 'demo/dist'
+dist: 'dist'
 assetPath: 'demo'
 stylesheets:
   files:
-    'demo.css': '{{assetPath}}/styles.css'
+    'demo.css': 'styles.css'
 scripts:
   files:
-    'demo.js': '{{assetPath}}/scripts.js'
+    'demo.js': 'scripts.js'
 
