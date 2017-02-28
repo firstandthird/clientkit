@@ -41,6 +41,7 @@
     "rmdir": "1.2.0",
     "taskkit": "1.1.0",
     "taskkit-analyze": "0.1.0",
+    "taskkit-docs": "0.0.1",
     "taskkit-eslint": "0.0.3",
     "taskkit-hash": "0.0.4",
     "taskkit-rollup": "0.1.0",
