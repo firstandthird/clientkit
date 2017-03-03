@@ -72,3 +72,14 @@
 ```html
 <hr />
 ```
+
+## Headings
+
+```html
+<div class="heading-1">Heading 1</div>
+<div class="heading-2">Heading 2</div>
+<div class="heading-3">Heading 3</div>
+<div class="heading-4">Heading 4</div>
+<div class="heading-5">Heading 5</div>
+<div
+```

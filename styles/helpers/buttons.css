@@ -1,21 +1,3 @@
-/*---
-section: Helpers
-title: Buttons
-order: 2
----
-Site Buttons
-
-*/
-/*---
-section: Buttons
-title: Primary Button
----
-```example:html
-<button class="button">Primary Button</button>
-<a class="button">Primary Link Button</a>
-<button class="button" disabled>Disabled Button</button>
-```
-*/
 .button {
   @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, var(--button-radius-default), color(var(--color-button-primary-bg) blackness(20%)), var(--color-button-primary-color);
 }
@@ -24,30 +6,11 @@ title: Primary Button
   @mixin button var(--color-button-secondary-bg), var(--color-button-secondary-color), transparent, var(--button-radius-default), color(var(--color-button-secondary-bg) blackness(20%)), var(--color-button-secondary-color);
 }
 
-/*---
-section: Buttons
-title: Outline Button
----
-```example:html
-<button class="button-outline">Primary Button</button>
-<a class="button-outline">Primary Link Button</a>
-```
-*/
 .button-outline {
   @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--button-radius-default), var(--color-button-primary-bg), var(--color-button-primary-color);
 }
 
-/*---
-section: Buttons
-title: Button sizes
----
-```example:html
-<button class="button button-lg">Large Button</button>
-<button class="button button-sm">Small Button</button>
-<button class="button-outline button-lg">Large Button</button>
-<button class="button-outline button-sm">Small Button</button>
-```
-*/
+
 .button-lg {
   @mixin button-size 16px, 20px, var(--font-size-large), var(--button-radius-lg)
 }
