@@ -1,17 +1,3 @@
-/*---
-section: Helpers
-title: Triangle
-height: 20px
----
-
-```example:html
-<b class="triangle-up"></b>
-<b class="triangle-right"></b>
-<b class="triangle-down"></b>
-<b class="triangle-left"></b>
-```
-*/
-
 .triangle-up {
 @mixin triangle 10px, up;
 }
