@@ -10,7 +10,7 @@ stylesheets:
     background-default: '#fff'
     background-alt: rgb(95, 95, 95)
     link: '{{stylesheets.color.accent1}}'
-    link-hover: 'color({{stylesheets.color.accent1}} blackness(20%))'
+    link-hover: 'color({{stylesheets.color.accent1}} blackness(+20%))'
     input-background: '#fff'
     input-border: '#333'
     input-border-focus: '{{stylesheets.color.accent1}}'
