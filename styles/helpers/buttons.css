@@ -17,11 +17,11 @@ title: Primary Button
 ```
 */
 .button {
-  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, var(--button-radius-default), color(var(--color-button-primary-bg) blackness(20%)), var(--color-button-primary-color);
+  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, var(--button-radius-default), color(var(--color-button-primary-bg) blackness(+20%)), var(--color-button-primary-color);
 }
 
 .button-alt {
-  @mixin button var(--color-button-secondary-bg), var(--color-button-secondary-color), transparent, var(--button-radius-default), color(var(--color-button-secondary-bg) blackness(20%)), var(--color-button-secondary-color);
+  @mixin button var(--color-button-secondary-bg), var(--color-button-secondary-color), transparent, var(--button-radius-default), color(var(--color-button-secondary-bg) blackness(+20%)), var(--color-button-secondary-color);
 }
 
 /*---
