@@ -16,6 +16,11 @@ module.exports = function(config) {
 
     if (!fill) {
       fill = config.color.icons;
+    } else {
+      fill = config.color[fill];
+      if (!fill) {
+        throw new Error(`${fill} must be a color variable name`);
+      }
     }
 
     const styles = {
