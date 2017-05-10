@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:6.4
+FROM mhart/alpine-node:6.10
 
 ENV NODE_ENV production
 
@@ -6,7 +6,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 COPY package.json /app/
-RUN npm install
+RUN cd /app && npm install --production
 COPY . /app
 
-ENTRYPOINT ["node", "app.js"]
+ENTRYPOINT ["node", "index.js"]
