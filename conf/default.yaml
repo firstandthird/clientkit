@@ -1,5 +1,5 @@
 dist: 'dist'
-assetPath: '{{CKDIR}}/styles'
+assetPath: 'assets'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
 crashOnError: '{{ENV.NODE_ENV === "production"}}'
 tasks:
@@ -11,9 +11,7 @@ tasks:
       - 'stylesheets'
       - 'scripts'
   dev:
-    -
-      - 'updates'
-      - 'initialize'
+    - 'initialize'
     - 'watcher'
   prod:
     - 'default'

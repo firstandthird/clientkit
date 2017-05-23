@@ -7,13 +7,6 @@
     "clientkit": "index.js"
   },
   "scripts": {
-    "start": "node index.js --config conf --env ck",
-    "dev": "concurrently 'npm run dev:ck' 'npm run serve'",
-    "dev:ck": "node index.js --config demo/clientkit",
-    "test": "mocha",
-    "serve": "serve -p 8082 dist",
-    "ghpages": "./tasks/ghpages",
-    "dockerhub": "./tasks/docker-push"
   },
   "repository": {
     "type": "git",

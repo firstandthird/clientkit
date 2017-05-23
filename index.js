@@ -11,7 +11,7 @@ const context = {
 
 main({
   name: 'clientkit',
-  version: require('./package.json').version,
+  version: require(path.join(__dirname, 'package.json')).version,
   configPaths,
   context
 });
