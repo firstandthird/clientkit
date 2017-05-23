@@ -1,13 +1,12 @@
 {
   "name": "clientkit",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "Client kit for websites",
   "main": "index.js",
   "bin": {
     "clientkit": "index.js"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/firstandthird/clientkit.git"
