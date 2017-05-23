@@ -1,9 +1,0 @@
-dist: 'dist'
-assetPath: 'demo'
-stylesheets:
-  files:
-    'demo.css': 'styles.css'
-scripts:
-  files:
-    'demo.js': 'scripts.js'
-

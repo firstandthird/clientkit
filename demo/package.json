@@ -1,6 +1,0 @@
-{
-  "name": "clientkit-demo",
-  "scripts": {
-    "start": "node ../index.js"
-  }
-}
