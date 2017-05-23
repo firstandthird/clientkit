@@ -1,4 +1,5 @@
 examples
+node_modules
 docs
 dist
 demo
