@@ -120,3 +120,26 @@ hr {
   margin: 0;
   border: 0;
 }
+
+
+/*---
+section: Typography
+title: gradient hr
+---
+#### Variables
+```
+  hr-height: 3px
+  hr-color: color-accent1
+```
+
+```example:html
+<hr class="gradient-hr" />
+```
+*/
+.gradient-hr {
+  width: 100%;
+  height: var(--hr-height);
+  margin: 0;
+  border: 0;
+  background-image: linear-gradient(to right, var(--color-accent1) 0%, transparent 100%);
+}
