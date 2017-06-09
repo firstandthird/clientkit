@@ -37,8 +37,7 @@
     "taskkit-hash": "^1.1.0",
     "taskkit-rollup": "^1.0.0",
     "taskkit-task": "^1.0.0",
-    "taskkit-watcher": "^1.0.0",
-    "update-notifier": "2.1.0"
+    "taskkit-watcher": "^1.0.0"
   },
   "eslintConfig": {
     "extends": "firstandthird"
