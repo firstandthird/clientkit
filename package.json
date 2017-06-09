@@ -31,12 +31,12 @@
     "mkdirp": "0.5.1",
     "purdy": "2.2.1",
     "rmdir": "1.2.0",
-    "taskkit": "1.1.0",
+    "taskkit": "^2.0.0",
     "taskkit-analyze": "^1.0.0",
     "taskkit-eslint": "^1.0.0",
     "taskkit-hash": "^1.1.0",
     "taskkit-rollup": "^1.0.0",
-    "taskkit-task": "^1.0.0",
+    "taskkit-task": "^1.0.2",
     "taskkit-watcher": "^1.0.0"
   },
   "eslintConfig": {
