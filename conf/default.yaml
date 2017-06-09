@@ -1,5 +1,5 @@
-dist: 'dist'
-assetPath: 'assets'
+dist: '{{CWD}}/dist'
+assetPath: '{{CWD}}/assets'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
 crashOnError: '{{ENV.NODE_ENV === "production"}}'
 tasks:
