@@ -6,7 +6,7 @@ ENV FORCE_COLOR 1
 RUN mkdir -p /ck && mkdir -p /app
 WORKDIR /app
 
-COPY package.json npm-shrinkwrap.json /ck/
+COPY package.json /ck/
 #tmp until taskkit fixed
 COPY package.json /app/
 RUN cd /ck && npm install --production
