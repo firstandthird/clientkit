@@ -1,25 +1,3 @@
-/*---
-section: Mixins
-title: Link
----
-
-```
-@mixin link $color, $hoverColor;
-```
-Outputs
-
-```css
-a {
-  color: #333;
-  text-decoration: none;
-}
-a:hover {
-  color: #666;
-  cursor: pointer;
-}
-```
-*/
-
 @define-mixin link $color, $hoverColor {
   color: $color;
   text-decoration: none;

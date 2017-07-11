@@ -1,44 +1,7 @@
-/*---
-section: Helpers
-title: Lists
----
-Lists
-*/
-
-
-/*---
-section: Lists
-title: Unstyled
-height: 60px
----
-
-```example:html
-<ul class="list-unstyled">
-  <li>Item 1</li>
-  <li>Item 2</li>
-  <li>Item 3</li>
-</ul>
-```
-*/
 .list-unstyled {
   padding-left: 0;
   list-style: none;
 }
-
-/*---
-section: Lists
-title: Inline
-height: 30px
----
-
-```example:html
-<ul class="list-inline">
-  <li>Item 1</li>
-  <li>Item 2</li>
-  <li>Item 3</li>
-</ul>
-```
-*/
 .list-inline {
   margin-left: -5px;
   padding-left: 0;

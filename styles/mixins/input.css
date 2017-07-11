@@ -1,12 +1,3 @@
-/*---
-section: Mixins
-title: Input
----
-
-```
-@mixin input $background, $color, $colorDisabled, $border, $borderFocus, $borderDisabled;
-```
-*/
 @define-mixin input $background, $color, $colorDisabled, $border, $borderFocus, $borderDisabled {
   width: 100%;
   transition: box-shadow var(--easing-out) 250ms;

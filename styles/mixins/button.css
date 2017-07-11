@@ -1,12 +1,3 @@
-/*---
-section: Mixins
-title: Button
----
-
-```
-@mixin button backgroundColor, fontColor, borderColor, borderRadius, hoverBackground, hoverColor;
-```
-*/
 @define-mixin button $background, $color, $border, $borderRadius, $hoverBackground, $hoverColor {
   display: inline-block;
   background-color: $background;
@@ -42,16 +33,6 @@ title: Button
     }
   }
 }
-
-/*---
-section: Mixins
-title: Button size
----
-
-```
-@mixin button-size paddingY, paddingX, fontSize, borderRadius;
-```
-*/
 @define-mixin button-size $paddingY, $paddingX, $fontSize, $borderRadius {
   border-radius: $borderRadius;
   padding: $paddingY $paddingX;
