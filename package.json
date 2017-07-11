@@ -6,7 +6,9 @@
   "bin": {
     "clientkit": "index.js"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "cd demo && node ../index.js && cd .."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/firstandthird/clientkit.git"

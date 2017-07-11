@@ -1,0 +1,3 @@
+stylesheets:
+  files:
+    common.css: './common.css'
