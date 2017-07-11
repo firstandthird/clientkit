@@ -46,17 +46,6 @@ stylesheets:
       - 'last 2 versions'
       - 'iOS 8'
       - 'iOS 9'
-  docs:
-    input: 'default.css'
-    enabled: false
-    title: 'ClientKit'
-    css:
-      - 'clientkit.css'
-    sectionOrder:
-      Styleguide: 1
-      Helpers: 2
-      Variables: 3
-      Development: 4
   grid:
     columns: 12
     gutters: '15px'

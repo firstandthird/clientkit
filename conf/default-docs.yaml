@@ -1,8 +1,0 @@
-tasks:
-  docs: 'taskkit-docs'
-docs:
-  dist: '{{CWD}}/docs'
-  files:
-    'index.html':
-      title: 'ClientKit'
-      input: '{{CKDIR}}/docs/*.md'

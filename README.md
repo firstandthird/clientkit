@@ -1,4 +1,5 @@
 # Clientkit
+
 [![Build Status](https://travis-ci.org/firstandthird/clientkit.svg?branch=master)](https://travis-ci.org/firstandthird/clientkit)
 
 A UI framework for building client projects efficiently and effectively.
@@ -14,16 +15,14 @@ A UI framework for building client projects efficiently and effectively.
 
 When working on clientkit make sure you have the following tools installed:
 
-   - For your editor: eslint, stylelint, editorconfig
-   - Nodenv or similar (should match the version in .node-version)
+   - For your editor: [eslint](http://eslint.org/), [stylelint](https://stylelint.io/), [editorconfig](http://editorconfig.org/)
+   - [Nodenv](http://ekalinin.github.io/nodeenv/) or similar (should match the version in .node-version)
 
 Project has been setup to be run and debug from inside VS Code, but can be run on other editors as well.
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? Please first read the [Contributing documentation](https://github.com/firstandthird/clientkit/blob/master/CONTRIBUTING.md)
-and search for existing and closed issues. If your problem or idea is not
-addressed yet, [please open a new issue](https://github.com/firstandthird/clientkit/issues/new).
+Have a bug or a feature request? Please first read the [Contributing documentation](https://github.com/firstandthird/clientkit/blob/master/CONTRIBUTING.md) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/firstandthird/clientkit/issues/new).
 
 ## Contributing
 
