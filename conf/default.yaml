@@ -5,13 +5,13 @@ crashOnError: '{{ENV.NODE_ENV === "production"}}'
 tasks:
   default:
     -
-      - 'initialize'
+      - 'clean'
       - 'eslint'
     -
       - 'stylesheets'
       - 'scripts'
   dev:
-    - 'initialize'
+    - 'clean'
     - 'watcher'
   prod:
     - 'default'
