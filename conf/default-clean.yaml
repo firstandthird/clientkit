@@ -1,0 +1,5 @@
+tasks:
+  eslint: 'taskkit-clean'
+clean:
+  files:
+    all: '{{dist}}'
