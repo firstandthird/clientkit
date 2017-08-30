@@ -33,7 +33,7 @@
     "mkdirp": "0.5.1",
     "purdy": "2.2.1",
     "rmdir": "1.2.0",
-    "taskkit": "^2.0.0",
+    "taskkit": "^2.0.1",
     "taskkit-analyze": "^1.0.0",
     "taskkit-clean": "^1.0.0",
     "taskkit-eslint": "^1.1.0",
