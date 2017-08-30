@@ -1,6 +1,7 @@
 tasks:
   eslint: 'taskkit-eslint'
 eslint:
+  crashOnError: '{{crashOnError}}'
   ignore:
     - 'node_modules'
     - '{{dist}}'
