@@ -1,5 +1,6 @@
 .modal {
   position: fixed;
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
@@ -9,12 +10,14 @@
   visibility: hidden;
   opacity: 0;
   z-index: 100;
+
   & .modal-close {
     position: absolute;
     width: 100%;
     height: 100%;
     cursor: default;
   }
+
   &:target {
     visibility: visible;
     opacity: 1;
@@ -31,11 +34,8 @@
   z-index: 100;
   overflow-y: auto;
 
-  left: 50%;
-  top: 50%;
-
-  /* Use this for centering if unknown width/height */
-  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
   background: #fff;
   box-shadow: 0 0 60px 10px rgba(0,0,0,0.6);
   @mixin spacing padding, all, md;
