@@ -1,5 +1,7 @@
 # Clientkit
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/firstandthird/clientkit.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/firstandthird/clientkit.svg?branch=master)](https://travis-ci.org/firstandthird/clientkit)
 
 A UI framework for building client projects efficiently and effectively.
