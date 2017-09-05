@@ -20,18 +20,18 @@
   },
   "homepage": "https://github.com/firstandthird/clientkit#readme",
   "devDependencies": {
-    "chai": "3.5.0",
-    "concurrently": "2.2.0",
-    "mocha": "2.5.3",
-    "serve": "1.4.0",
-    "eslint-config-firstandthird": "3.1.0",
-    "eslint-plugin-import": "2.2.0"
+    "chai": "4.1.2",
+    "concurrently": "3.5.0",
+    "mocha": "3.5.0",
+    "serve": "6.0.6",
+    "eslint-config-firstandthird": "3.3.0",
+    "eslint-plugin-import": "2.7.0"
   },
   "dependencies": {
-    "async": "2.4.1",
+    "async": "2.5.0",
     "clientkit-css": "^1.0.0",
     "mkdirp": "0.5.1",
-    "purdy": "2.2.1",
+    "purdy": "3.0.2",
     "rmdir": "1.2.0",
     "taskkit": "^2.0.1",
     "taskkit-analyze": "^1.0.0",
