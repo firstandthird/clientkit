@@ -3,6 +3,8 @@ FROM mhart/alpine-node:6.10
 ENV NODE_ENV production
 ENV FORCE_COLOR 1
 
+RUN apk add --update git
+
 RUN mkdir -p /ck && mkdir -p /app
 WORKDIR /app
 
