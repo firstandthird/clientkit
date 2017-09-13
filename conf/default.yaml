@@ -10,8 +10,10 @@ tasks:
     -
       - 'stylesheets'
       - 'scripts'
+      - 'styleguide'
   dev:
     - 'clean'
+    - 'styleguide'
     - 'watcher'
   prod:
     - 'default'

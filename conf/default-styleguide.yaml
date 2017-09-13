@@ -1,0 +1,7 @@
+tasks:
+  styleguide: 'clientkit-styleguide'
+
+styleguide:
+  output: '{{dist}}/styleguide.html'
+  css:
+    - 'common.css'

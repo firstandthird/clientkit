@@ -7,7 +7,8 @@
     "clientkit": "index.js"
   },
   "scripts": {
-    "start": "cd demo && node ../index.js && cd .."
+    "start": "cd demo && node ../index.js && cd ..",
+    "dev": "cd demo && node ../index.js dev"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "clientkit-css": "^1.0.0",
+    "clientkit-styleguide": "0.0.1",
     "taskkit": "^2.0.1",
     "taskkit-analyze": "^1.0.0",
     "taskkit-clean": "^1.0.0",
