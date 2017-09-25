@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "clientkit-css": "^1.0.0",
-    "clientkit-styleguide": "0.0.1",
+    "clientkit-styleguide": "^0.1.0",
     "taskkit": "^2.0.1",
     "taskkit-analyze": "^1.0.0",
     "taskkit-clean": "^1.0.0",
