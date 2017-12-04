@@ -124,6 +124,7 @@ module.exports = function (config) {
 
       for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-${i}`] = {
+          'width': `${(100 / (12 / i))}%`,
           'flex-basis': `${(100 / (12 / i))}%`,
           'padding-left': '15px',
           'padding-right': '15px'
