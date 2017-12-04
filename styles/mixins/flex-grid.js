@@ -7,13 +7,19 @@ module.exports = function (config) {
     'right': 'flex-end',
     'center': 'center',
     'space-around': 'space-around',
-    'space-between': 'space-between'
+    'space-between': 'space-between',
+    'baseline': 'baseline',
+    'first-baseline': 'first-baseline',
+    'last-baseline': 'last baseline'
   };
   const verticalAlignments = {
     'top': 'flex-start',
     'center': 'center',
     'bottom': 'flex-end',
-    'stretch': 'stretch'
+    'stretch': 'stretch',
+    'baseline': 'baseline',
+    'first-baseline': 'first-baseline',
+    'last-baseline': 'last baseline'
   };
 
   const layouts = {
