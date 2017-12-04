@@ -8,18 +8,14 @@ module.exports = function (config) {
     'center': 'center',
     'space-around': 'space-around',
     'space-between': 'space-between',
-    'baseline': 'baseline',
-    'first-baseline': 'first-baseline',
-    'last-baseline': 'last baseline'
+    'baseline': 'baseline'
   };
   const verticalAlignments = {
     'top': 'flex-start',
     'center': 'center',
     'bottom': 'flex-end',
     'stretch': 'stretch',
-    'baseline': 'baseline',
-    'first-baseline': 'first-baseline',
-    'last-baseline': 'last baseline'
+    'baseline': 'baseline'
   };
 
   const layouts = {
