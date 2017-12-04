@@ -18,6 +18,14 @@
   display: inline-block;
 }
 
+.display-flex {
+  display: flex;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}
+
 .hide {
   display: none !important;
 }
