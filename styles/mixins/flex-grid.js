@@ -7,13 +7,15 @@ module.exports = function (config) {
     'right': 'flex-end',
     'center': 'center',
     'space-around': 'space-around',
-    'space-between': 'space-between'
+    'space-between': 'space-between',
+    'baseline': 'baseline'
   };
   const verticalAlignments = {
     'top': 'flex-start',
     'center': 'center',
     'bottom': 'flex-end',
-    'stretch': 'stretch'
+    'stretch': 'stretch',
+    'baseline': 'baseline'
   };
 
   const layouts = {
@@ -118,6 +120,7 @@ module.exports = function (config) {
 
       for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-${i}`] = {
+          'width': `${(100 / (12 / i))}%`,
           'flex-basis': `${(100 / (12 / i))}%`,
           'padding-left': '15px',
           'padding-right': '15px'
