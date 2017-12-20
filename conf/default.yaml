@@ -10,6 +10,7 @@ tasks:
     -
       - 'stylesheets'
       - 'scripts'
+      - 'svgsprite'
       - 'styleguide'
   dev:
     - 'clean'
