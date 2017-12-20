@@ -1,0 +1,6 @@
+tasks:
+  svgsprite: 'taskkit-svg-sprite'
+
+svgsprite:
+  assetPath: '{{assetPath}}'
+  dist: '{{dist}}'
