@@ -72,10 +72,6 @@ body {
   font-weight: var(--font-weight-bold);
 }
 
-.font-weight-xbold {
-  font-weight: var(--font-weight-xbold);
-}
-
 .font-large {
   font-size: var(--font-size-large);
 
@@ -115,12 +111,6 @@ body {
 .text-color-light {
   color: var(--color-heading-light);
 }
-
-
-.text-stretch {
-  letter-spacing: var(--stretch-spacing);
-}
-
 
 hr {
   width: 100%;
