@@ -56,6 +56,10 @@ body {
   text-transform: capitalize;
 }
 
+.text-underline {
+  text-decoration: underline;
+}
+
 .font-weight-light {
   font-weight: var(--font-weight-light);
 }
