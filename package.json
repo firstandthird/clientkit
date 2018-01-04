@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "cd demo && node ../index.js && cd ..",
-    "dev": "cd demo && node ../index.js dev"
+    "dev": "cd demo && node ../index.js dev",
+    "test": "cd test && node ../index.js && cd .. && tap ./test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -21,13 +22,12 @@
   },
   "homepage": "https://github.com/firstandthird/clientkit#readme",
   "devDependencies": {
-    "chai": "3.5.0",
     "concurrently": "2.2.0",
     "eslint": "^4.6.1",
     "eslint-config-firstandthird": "^4.0.0",
     "eslint-plugin-import": "^2.7.0",
-    "mocha": "2.5.3",
-    "serve": "1.4.0"
+    "serve": "1.4.0",
+    "tap": "^11.0.1"
   },
   "dependencies": {
     "clientkit-css": "^1.0.0",
