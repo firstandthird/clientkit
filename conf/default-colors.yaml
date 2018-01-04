@@ -10,7 +10,7 @@ stylesheets:
     body: '#333'
     heading: '#333'
     white: '#fff'
-    heading-light: '{{stylesheets.color.white}}'
+    body-light: '{{stylesheets.color.white}}'
     background-default: '{{stylesheets.color.white}}'
     background-alt: '#5f5f5f'
     link: '{{stylesheets.color.accent1}}'
