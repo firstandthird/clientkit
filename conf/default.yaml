@@ -10,8 +10,11 @@ tasks:
     -
       - 'stylesheets'
       - 'scripts'
+      - 'svgsprite'
+      - 'styleguide'
   dev:
     - 'clean'
+    - 'styleguide'
     - 'watcher'
   prod:
     - 'default'

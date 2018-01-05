@@ -1,13 +1,14 @@
 {
   "name": "clientkit",
-  "version": "2.1.1",
+  "version": "2.7.0",
   "description": "Client kit for websites",
   "main": "index.js",
   "bin": {
     "clientkit": "index.js"
   },
   "scripts": {
-    "start": "cd demo && node ../index.js && cd .."
+    "start": "cd demo && node ../index.js && cd ..",
+    "dev": "cd demo && node ../index.js dev"
   },
   "repository": {
     "type": "git",
@@ -20,25 +21,24 @@
   },
   "homepage": "https://github.com/firstandthird/clientkit#readme",
   "devDependencies": {
-    "chai": "4.1.2",
-    "concurrently": "3.5.0",
-    "mocha": "3.5.0",
-    "serve": "6.0.6",
-    "eslint-config-firstandthird": "3.3.0",
-    "eslint-plugin-import": "2.7.0"
+    "chai": "3.5.0",
+    "concurrently": "2.2.0",
+    "eslint": "^4.6.1",
+    "eslint-config-firstandthird": "^4.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "2.5.3",
+    "serve": "1.4.0"
   },
   "dependencies": {
-    "async": "2.5.0",
     "clientkit-css": "^1.0.0",
-    "mkdirp": "0.5.1",
-    "purdy": "3.0.2",
-    "rmdir": "1.2.0",
+    "clientkit-styleguide": "^0.3.0",
     "taskkit": "^2.0.1",
     "taskkit-analyze": "^1.0.0",
     "taskkit-clean": "^1.0.0",
-    "taskkit-eslint": "^1.1.0",
+    "taskkit-eslint": "^1.1.3",
     "taskkit-hash": "^1.1.0",
-    "taskkit-rollup": "^1.0.0",
+    "taskkit-rollup": "~1.0.0",
+    "taskkit-svg-sprite": "^1.1.0",
     "taskkit-task": "^1.0.2",
     "taskkit-watcher": "^1.0.0"
   },

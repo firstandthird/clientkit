@@ -9,11 +9,12 @@ RUN mkdir -p /ck && mkdir -p /app
 WORKDIR /app
 
 COPY package.json /ck/
-#tmp until taskkit fixed
-COPY package.json /app/
 RUN cd /ck && npm install --production
 COPY . /ck
 
 RUN ln -s /ck/index.js /usr/local/bin/clientkit
+
+ONBUILD COPY package.json package-lock.* /app/
+ONBUILD RUN npm install
 
 ENTRYPOINT ["clientkit"]

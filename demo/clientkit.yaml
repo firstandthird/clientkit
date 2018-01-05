@@ -1,3 +1,12 @@
 stylesheets:
   files:
     common.css: './common.css'
+watcher:
+  files:
+    'clientkit.yaml': 'reloadConfig'
+svgsprite:
+  files:
+    'sprite.symbol.svg':
+      - 'fixtures/one.svg'
+      - 'fixtures/two.svg'
+      - 'fixtures/three.svg'
