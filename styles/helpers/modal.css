@@ -21,7 +21,7 @@
 
   &.visible,
   &:target {
-    animation: fadein 0.5s forwards;
+    animation: fadeIn 0.5s forwards;
 
     & .modal-content {
       animation: zoomIn 0.3s forwards;
