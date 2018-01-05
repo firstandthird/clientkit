@@ -1043,7 +1043,7 @@ body {
     opacity: 1;
   }
 }
-@-webkit-keyframes fadein {
+@-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
     visibility: hidden;
@@ -1054,7 +1054,7 @@ body {
     visibility: visible;
   }
 }
-@keyframes fadein {
+@keyframes fadeIn {
   0% {
     opacity: 0;
     visibility: hidden;
@@ -2156,8 +2156,8 @@ th {
 }
 .modal.visible,
   .modal:target {
-  -webkit-animation: fadein 0.5s forwards;
-          animation: fadein 0.5s forwards;
+  -webkit-animation: fadeIn 0.5s forwards;
+          animation: fadeIn 0.5s forwards;
 }
 .modal.visible .modal-content, .modal:target .modal-content {
   -webkit-animation: zoomIn 0.3s forwards;
