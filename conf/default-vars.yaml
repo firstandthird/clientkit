@@ -2,17 +2,15 @@ stylesheets:
   vars:
     font:
       #families
-      primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-      secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-      heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      primary: system-ui
+      secondary: system-ui
+      heading: system-ui
       #weights
       weight:
         body: 'normal'
         light: 300
         regular: 400
-        semibold: 600
         bold: 700
-        xbold: 800
       #sizes
       size:
         body: 14px
@@ -41,8 +39,6 @@ stylesheets:
       5-mobile-size: 14px
       6-size: 14px
       6-mobile-size: 12px
-
-    stretch-spacing: 2px
 
     table:
       cell-padding: 10px

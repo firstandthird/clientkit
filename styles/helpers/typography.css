@@ -33,9 +33,11 @@ body {
 .text-justify {
   text-align: justify;
 }
+
 .text-nowrap {
   white-space: nowrap;
 }
+
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -45,11 +47,17 @@ body {
 .text-lowercase {
   text-transform: lowercase;
 }
+
 .text-uppercase {
   text-transform: uppercase;
 }
+
 .text-capitalize {
   text-transform: capitalize;
+}
+
+.text-underline {
+  text-decoration: underline;
 }
 
 .font-weight-light {
@@ -60,16 +68,8 @@ body {
   font-weight: var(--font-weight-regular);
 }
 
-.font-weight-semibold, strong, em {
-  font-weight: var(--font-weight-semibold);
-}
-
-.font-weight-bold {
+.font-weight-bold, strong, em {
   font-weight: var(--font-weight-bold);
-}
-
-.font-weight-xbold {
-  font-weight: var(--font-weight-xbold);
 }
 
 .font-large {
@@ -96,25 +96,17 @@ body {
   }
 }
 
-
-.heading--light {
-  color: var(--color-heading-light);
-}
 .text-color-body {
   color: var(--color-body);
 }
+
 .text-color-heading {
   color: var(--color-heading);
 }
+
 .text-color-light {
-  color: var(--color-heading-light);
+  color: var(--color-body-light);
 }
-
-
-.text-stretch {
-  letter-spacing: var(--stretch-spacing);
-}
-
 
 hr {
   width: 100%;

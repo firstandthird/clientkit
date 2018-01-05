@@ -5,26 +5,17 @@
 @import 'grid.css';
 @import 'flex-grid.css';
 
-@import 'animations.css';
 @import 'headings.css';
 @import 'links.css';
 @import 'spacing.css';
-@import 'triangle.css';
 
 @import 'buttons.css';
 @import 'lists.css';
 @import 'inputs.css';
-@import 'tables.css';
-@import 'tabs.css';
 @import 'utils.css';
-@import 'clearfix.css';
 @import 'ugc.css';
 @import 'bg-image.css';
 @import 'modal.css';
-@import 'carousel.css';
-@import 'tooltip.css';
-@import 'print.css';
-@import 'messages.css';
 @import 'borders.css';
 @import 'dropdown.css';
 @import 'typography.css';

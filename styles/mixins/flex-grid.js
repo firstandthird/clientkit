@@ -56,7 +56,7 @@ module.exports = function (config) {
       // Layout
       let layoutSelector = `.${layoutPrefix}`;
       for (const layout in layouts) {
-        let selector = `.${layoutPrefix}-${layout}`;
+        const selector = `.${layoutPrefix}-${layout}`;
         layoutSelector += `,\n${selector}`;
         block[selector] = layouts[layout];
       }
