@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "2.7.0",
+  "version": "3.0.0-0",
   "description": "Client kit for websites",
   "main": "index.js",
   "bin": {
