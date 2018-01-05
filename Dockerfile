@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:6.10
+FROM node:8.9-alpine
 
 ENV NODE_ENV production
 ENV FORCE_COLOR 1
@@ -10,7 +10,7 @@ WORKDIR /app
 
 COPY package.json /ck/
 #tmp until taskkit fixed
-COPY package.json /app/
+#COPY package.json /app/
 RUN cd /ck && npm install --production
 COPY . /ck
 
