@@ -30,7 +30,7 @@
     "tap": "^11.0.1"
   },
   "dependencies": {
-    "clientkit-css": "^1.0.0",
+    "clientkit-css": "^2.0.0",
     "clientkit-styleguide": "^0.3.0",
     "taskkit": "^2.0.1",
     "taskkit-analyze": "^1.0.0",
