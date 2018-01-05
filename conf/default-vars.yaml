@@ -2,9 +2,9 @@ stylesheets:
   vars:
     font:
       #families
-      primary: system-ui;
-      secondary: system-ui;
-      heading: system-ui;
+      primary: system-ui
+      secondary: system-ui
+      heading: system-ui
       #weights
       weight:
         body: 'normal'
