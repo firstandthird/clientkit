@@ -1843,18 +1843,12 @@ a:hover {
 .modal-content {
   max-width: 100%;
   max-height: 100%;
-
   position: fixed;
-
   z-index: 100;
   overflow-y: auto;
-
   -webkit-box-align: center;
-
   -webkit-align-items: center;
-
       -ms-flex-align: center;
-
           align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -1863,9 +1857,17 @@ a:hover {
   background: #fff;
   -webkit-box-shadow: 0 0 60px 10px rgba(0, 0, 0, .6);
           box-shadow: 0 0 60px 10px rgba(0, 0, 0, .6);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
   padding-top: 30px;
+
   padding-bottom: 30px;
+
   padding-left: 30px;
+
   padding-right: 30px;
 }
 .modal-content .modal-close {
