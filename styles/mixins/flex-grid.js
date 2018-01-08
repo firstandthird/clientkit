@@ -3,29 +3,29 @@
 const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function (config) {
   const horizontalAlignments = {
-    'left': 'flex-start',
-    'right': 'flex-end',
-    'center': 'center',
+    left: 'flex-start',
+    right: 'flex-end',
+    center: 'center',
     'space-around': 'space-around',
     'space-between': 'space-between',
-    'baseline': 'baseline'
+    baseline: 'baseline'
   };
   const verticalAlignments = {
-    'top': 'flex-start',
-    'center': 'center',
-    'bottom': 'flex-end',
-    'stretch': 'stretch',
-    'baseline': 'baseline'
+    top: 'flex-start',
+    center: 'center',
+    bottom: 'flex-end',
+    stretch: 'stretch',
+    baseline: 'baseline'
   };
 
   const layouts = {
-    'columns': {
+    columns: {
       'flex-direction': 'column'
     },
-    'wrap': {
+    wrap: {
       'flex-wrap': 'wrap'
     },
-    'reverse': {
+    reverse: {
       'flex-direction': 'row-reverse'
     },
     'columns-reverse': {
@@ -55,13 +55,13 @@ module.exports = function (config) {
 
       // Layout
       let layoutSelector = `.${layoutPrefix}`;
-      for (const layout in layouts) {
+      Object.keys(layouts).forEach(layout => {
         const selector = `.${layoutPrefix}-${layout}`;
         layoutSelector += `,\n${selector}`;
         block[selector] = layouts[layout];
-      }
+      });
       block[layoutSelector] = {
-        'display': 'flex',
+        display: 'flex',
         'margin-left': '-15px',
         'margin-right': '-15px'
       };
@@ -95,11 +95,11 @@ module.exports = function (config) {
 
       // Child
       block[`.${prefix}-order-first`] = {
-        'order': -1
+        order: -1
       };
 
       block[`.${prefix}-order-last`] = {
-        'order': 1
+        order: 1
       };
 
       block[`.${prefix}-shrink`] = {
@@ -120,7 +120,7 @@ module.exports = function (config) {
 
       for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-${i}`] = {
-          'width': `${(100 / (12 / i))}%`,
+          width: `${(100 / (12 / i))}%`,
           'flex-basis': `${(100 / (12 / i))}%`,
           'padding-left': '15px',
           'padding-right': '15px'

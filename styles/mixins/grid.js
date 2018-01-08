@@ -19,7 +19,6 @@ module.exports = function (config) {
       styles[breakpoint] = {};
       const block = styles[breakpoint];
 
-
       block[`.${prefix}-pull-0`] = {
         right: 'auto'
       };
@@ -57,12 +56,12 @@ module.exports = function (config) {
         block[`.${prefix}-suffix-${i}`] = {
           'margin-right': `${(100 / (12 / i))}%`
         };
-        if ( colName === 'sm' ) {
+        if (colName === 'sm') {
           block[`.row-carousel-peekaboo .${prefix}-${i}`] = {
             width: `${(100 / (12 / i) - 15)}%`
           };
         }
-        if ( colName === 'md' ) {
+        if (colName === 'md') {
           block[`.row-carousel-peekaboo .${prefix}-${i}`] = {
             width: `${(100 / (12 / i) - 5)}%`
           };

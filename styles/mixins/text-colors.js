@@ -5,7 +5,7 @@ module.exports = function (config) {
     const styles = {};
     const isWhitelisted = color => color.startsWith('text-color-');
     const colors = Object.keys(config.color);
-    const getColorObject = color => ({ 'color': config.color[color] });
+    const getColorObject = color => ({ color: config.color[color] });
 
     colors.forEach(color => {
       if (isWhitelisted(color)) {
