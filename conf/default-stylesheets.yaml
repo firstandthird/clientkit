@@ -17,13 +17,13 @@ stylesheets:
   breakpoints:
     desktop-wide:
       max-width: 100vw
-      min-width: 1440px
-      content: 1400px
+      min-width: 1240px
+      content: 1200px
       col: xl
       default: '{{!stylesheets.mobileFirst}}'
       bleed: 1600px
     desktop:
-      max-width: 1439px
+      max-width: 1199px
       min-width: 1024px
       content: 1000px
       col: lg
