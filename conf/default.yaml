@@ -1,3 +1,4 @@
+CKDIR: '{{ENV.TASKKIT_CKDIR}}'
 dist: '{{CWD}}/dist'
 assetPath: '{{CWD}}/assets'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
@@ -19,3 +20,4 @@ tasks:
   prod:
     - 'default'
     - 'hash'
+    - 'styleguide'
