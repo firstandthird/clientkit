@@ -391,7 +391,7 @@ body {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
-  width: 1400px;
+  width: 1200px;
 }
 body {
 }
@@ -2551,7 +2551,7 @@ hr {
   margin: 0;
   border: 0;
 }
-@media (max-width: 1439px) {
+@media (max-width: 1199px) {
 .container {
     width: 1000px;
 }
