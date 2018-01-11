@@ -1,12 +1,12 @@
 body {
   font-family: var(--font-primary);
   font-size: var(--font-size-body);
-  font-weight: var(--font-weight-body);
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height);
   color: var(--color-body);
 
   @media(--mobile-only) {
-    font-size: var(--font-mobile-size-body);
+    font-size: var(--font-mobile-size-regular);
   }
 }
 
