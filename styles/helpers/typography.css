@@ -6,7 +6,7 @@ body {
   color: var(--color-body);
 
   @media(--mobile-only) {
-    font-size: var(--font-mobile-size-regular);
+    font-size: var(--font-mobile-size-body);
   }
 }
 
