@@ -16,5 +16,10 @@ watcher:
         - 'scripts'
       ignore:
         - '{{dist}}'
+    '{{scripts.assetPath}}/**/*.svg':
+      task:
+        - 'svgsprite'
+      ignore:
+        - '{{dist}}'
     '{{CONFIGDIR}}/*.yaml': 'reloadConfig'
   delay: 500
