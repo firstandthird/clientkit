@@ -7,9 +7,8 @@ stylesheets:
       heading: system-ui
       #weights
       weight:
-        body: 'normal'
+        body: 400
         light: 300
-        regular: 400
         bold: 700
       #sizes
       size:

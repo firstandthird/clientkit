@@ -64,8 +64,8 @@ body {
   font-weight: var(--font-weight-light);
 }
 
-.font-weight-regular {
-  font-weight: var(--font-weight-regular);
+.font-weight-body {
+  font-weight: var(--font-weight-body);
 }
 
 .font-weight-bold, strong, em {
