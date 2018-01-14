@@ -2019,7 +2019,7 @@ a:hover {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1.1;
   color: #333;
 }
@@ -2064,7 +2064,7 @@ body {
 .font-weight-light {
   font-weight: 300;
 }
-.font-weight-regular {
+.font-weight-body {
   font-weight: 400;
 }
 .font-weight-bold, strong, em {
