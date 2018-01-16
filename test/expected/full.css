@@ -1575,16 +1575,14 @@ border-bottom: 10px solid transparent;
   padding-left: 0;
 }
 .list-inline {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  list-style: none;
+  margin-left: -5px;
   padding-left: 0;
+  list-style: none;
 }
-.list-inline > li:not(:last-child) {
-    padding-right: 10px;
+.list-inline > li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
   }
 .form label {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
