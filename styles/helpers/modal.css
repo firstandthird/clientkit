@@ -1,7 +1,7 @@
 .modal {
   align-items: center;
   background: rgba(0, 0, 0, .5);
-  display: flex;
+  display: none;
   justify-content: center;
   height: 100%;
   left: 0;
@@ -21,10 +21,11 @@
 
   &.visible,
   &:target {
-    animation: fadeIn 0.5s forwards;
+    animation: fadeIn .5s forwards;
+    display: flex;
 
     & .modal-content {
-      animation: zoomIn 0.3s forwards;
+      animation: zoomIn .3s forwards;
     }
   }
 }
@@ -69,7 +70,6 @@
   @media (--mobile) {
     left: 0;
     top: 0;
-    transform: translate(0, 0);
     @mixin spacing padding, all, xs;
 
     & .modal-close {
