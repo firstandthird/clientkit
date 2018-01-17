@@ -23,6 +23,7 @@
   &:target {
     animation: fadeIn .5s forwards;
     display: flex;
+    visibility: visible;
 
     & .modal-content {
       animation: zoomIn .3s forwards;

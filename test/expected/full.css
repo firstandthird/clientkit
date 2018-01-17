@@ -2059,6 +2059,7 @@ th {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    visibility: visible;
   }
 .modal.visible .modal-content, .modal:target .modal-content {
       -webkit-animation: zoomIn .3s forwards;
