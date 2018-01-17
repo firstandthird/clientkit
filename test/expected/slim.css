@@ -1761,9 +1761,7 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
   background: rgba(0, 0, 0, .5);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1784,12 +1782,15 @@ a:hover {
   }
 .modal.visible,
   .modal:target {
-    -webkit-animation: fadeIn 0.5s forwards;
-            animation: fadeIn 0.5s forwards;
+    -webkit-animation: fadeIn .5s forwards;
+            animation: fadeIn .5s forwards;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 .modal.visible .modal-content, .modal:target .modal-content {
-      -webkit-animation: zoomIn 0.3s forwards;
-              animation: zoomIn 0.3s forwards;
+      -webkit-animation: zoomIn .3s forwards;
+              animation: zoomIn .3s forwards;
     }
 .modal-content {
   max-width: 100%;
@@ -3954,8 +3955,6 @@ hr {
 .modal-content {
     left: 0;
     top: 0;
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
