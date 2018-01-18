@@ -15,7 +15,6 @@
 @import 'inputs.css';
 @import 'tables.css';
 @import 'tabs.css';
-@import 'utils.css';
 @import 'clearfix.css';
 @import 'ugc.css';
 @import 'bg-image.css';
@@ -28,3 +27,4 @@
 @import 'dropdown.css';
 @import 'spacing.css';
 @import 'typography.css';
+@import 'utils.css';
