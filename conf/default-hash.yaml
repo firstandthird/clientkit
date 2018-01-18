@@ -4,6 +4,7 @@ hash:
   logColor: 'yellow'
   dist: '{{dist}}'
   files:
-     js: '{{dist}}/**/*.js'
      css: '{{dist}}/**/*.css'
+     js: '{{dist}}/**/*.js'
+     svg: '{{dist}}/**/*.svg'
   mappingFile: 'assets.json'
