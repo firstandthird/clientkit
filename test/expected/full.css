@@ -997,7 +997,7 @@ body {
 .flex-suffix-12 {
   margin-right: 100%;
 }
-[class*=flex-][class*=-column]>[class*=flex-] {
+[class*=flex-row-columns]>[class*=flex-] {
   width: auto;
 }
 @-webkit-keyframes zoomIn {
@@ -3092,7 +3092,7 @@ hr {
 .flex-lg-suffix-12 {
     margin-right: 100%;
   }
-[class*=flex-lg-][class*=-column]>[class*=flex-] {
+[class*=flex-row-lg-columns]>[class*=flex-] {
     width: auto;
   }
   .row-lg-carousel {
@@ -3754,7 +3754,7 @@ hr {
 .flex-md-suffix-12 {
     margin-right: 100%;
   }
-[class*=flex-md-][class*=-column]>[class*=flex-] {
+[class*=flex-row-md-columns]>[class*=flex-] {
     width: auto;
   }
 .modal-content {
@@ -4419,7 +4419,7 @@ hr {
 .flex-sm-suffix-12 {
     margin-right: 100%;
   }
-[class*=flex-sm-][class*=-column]>[class*=flex-] {
+[class*=flex-row-sm-columns]>[class*=flex-] {
     width: auto;
   }
 .heading-1 {

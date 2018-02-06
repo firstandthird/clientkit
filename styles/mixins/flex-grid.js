@@ -137,7 +137,7 @@ module.exports = function (config) {
         };
       }
 
-      block[`[class*=${prefix}-][class*=-column]>[class*=flex-]`] = {
+      block[`[class*=${layoutPrefix}-columns]>[class*=flex-]`] = {
         width: 'auto'
       };
     }
