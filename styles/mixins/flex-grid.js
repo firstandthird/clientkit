@@ -22,9 +22,6 @@ module.exports = function (config) {
     columns: {
       'flex-direction': 'column'
     },
-    wrap: {
-      'flex-wrap': 'wrap'
-    },
     reverse: {
       'flex-direction': 'row-reverse'
     },
@@ -64,6 +61,10 @@ module.exports = function (config) {
         display: 'flex',
         'margin-left': '-15px',
         'margin-right': '-15px'
+      };
+
+      block[`.${prefix}-wrap`] = {
+        'flex-wrap': 'wrap'
       };
 
       for (const horizontalAlignment of horizontal) {
