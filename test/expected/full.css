@@ -843,8 +843,8 @@ body {
 }
 .flex-1 {
   width: 8.333333333333334%;
-  -ms-flex-preferred-size: 8.333333333333334%;
-      flex-basis: 8.333333333333334%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -856,8 +856,8 @@ body {
 }
 .flex-2 {
   width: 16.666666666666668%;
-  -ms-flex-preferred-size: 16.666666666666668%;
-      flex-basis: 16.666666666666668%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -869,8 +869,8 @@ body {
 }
 .flex-3 {
   width: 25%;
-  -ms-flex-preferred-size: 25%;
-      flex-basis: 25%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -882,8 +882,8 @@ body {
 }
 .flex-4 {
   width: 33.333333333333336%;
-  -ms-flex-preferred-size: 33.333333333333336%;
-      flex-basis: 33.333333333333336%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -895,8 +895,8 @@ body {
 }
 .flex-5 {
   width: 41.66666666666667%;
-  -ms-flex-preferred-size: 41.66666666666667%;
-      flex-basis: 41.66666666666667%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -908,8 +908,8 @@ body {
 }
 .flex-6 {
   width: 50%;
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -921,8 +921,8 @@ body {
 }
 .flex-7 {
   width: 58.333333333333336%;
-  -ms-flex-preferred-size: 58.333333333333336%;
-      flex-basis: 58.333333333333336%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -934,8 +934,8 @@ body {
 }
 .flex-8 {
   width: 66.66666666666667%;
-  -ms-flex-preferred-size: 66.66666666666667%;
-      flex-basis: 66.66666666666667%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -947,8 +947,8 @@ body {
 }
 .flex-9 {
   width: 75%;
-  -ms-flex-preferred-size: 75%;
-      flex-basis: 75%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -960,8 +960,8 @@ body {
 }
 .flex-10 {
   width: 83.33333333333334%;
-  -ms-flex-preferred-size: 83.33333333333334%;
-      flex-basis: 83.33333333333334%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -973,8 +973,8 @@ body {
 }
 .flex-11 {
   width: 91.66666666666667%;
-  -ms-flex-preferred-size: 91.66666666666667%;
-      flex-basis: 91.66666666666667%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -986,8 +986,8 @@ body {
 }
 .flex-12 {
   width: 100%;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -996,6 +996,9 @@ body {
 }
 .flex-suffix-12 {
   margin-right: 100%;
+}
+[class*=flex-][class*=-column]>[class*=flex-] {
+  width: auto;
 }
 @-webkit-keyframes zoomIn {
   from {
@@ -2935,8 +2938,8 @@ hr {
   }
 .flex-lg-1 {
     width: 8.333333333333334%;
-    -ms-flex-preferred-size: 8.333333333333334%;
-        flex-basis: 8.333333333333334%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -2948,8 +2951,8 @@ hr {
   }
 .flex-lg-2 {
     width: 16.666666666666668%;
-    -ms-flex-preferred-size: 16.666666666666668%;
-        flex-basis: 16.666666666666668%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -2961,8 +2964,8 @@ hr {
   }
 .flex-lg-3 {
     width: 25%;
-    -ms-flex-preferred-size: 25%;
-        flex-basis: 25%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -2974,8 +2977,8 @@ hr {
   }
 .flex-lg-4 {
     width: 33.333333333333336%;
-    -ms-flex-preferred-size: 33.333333333333336%;
-        flex-basis: 33.333333333333336%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -2987,8 +2990,8 @@ hr {
   }
 .flex-lg-5 {
     width: 41.66666666666667%;
-    -ms-flex-preferred-size: 41.66666666666667%;
-        flex-basis: 41.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3000,8 +3003,8 @@ hr {
   }
 .flex-lg-6 {
     width: 50%;
-    -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3013,8 +3016,8 @@ hr {
   }
 .flex-lg-7 {
     width: 58.333333333333336%;
-    -ms-flex-preferred-size: 58.333333333333336%;
-        flex-basis: 58.333333333333336%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3026,8 +3029,8 @@ hr {
   }
 .flex-lg-8 {
     width: 66.66666666666667%;
-    -ms-flex-preferred-size: 66.66666666666667%;
-        flex-basis: 66.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3039,8 +3042,8 @@ hr {
   }
 .flex-lg-9 {
     width: 75%;
-    -ms-flex-preferred-size: 75%;
-        flex-basis: 75%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3052,8 +3055,8 @@ hr {
   }
 .flex-lg-10 {
     width: 83.33333333333334%;
-    -ms-flex-preferred-size: 83.33333333333334%;
-        flex-basis: 83.33333333333334%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3065,8 +3068,8 @@ hr {
   }
 .flex-lg-11 {
     width: 91.66666666666667%;
-    -ms-flex-preferred-size: 91.66666666666667%;
-        flex-basis: 91.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3078,8 +3081,8 @@ hr {
   }
 .flex-lg-12 {
     width: 100%;
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3088,6 +3091,9 @@ hr {
   }
 .flex-lg-suffix-12 {
     margin-right: 100%;
+  }
+[class*=flex-lg-][class*=-column]>[class*=flex-] {
+    width: auto;
   }
   .row-lg-carousel {
     width: 100%;
@@ -3594,8 +3600,8 @@ hr {
   }
 .flex-md-1 {
     width: 8.333333333333334%;
-    -ms-flex-preferred-size: 8.333333333333334%;
-        flex-basis: 8.333333333333334%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3607,8 +3613,8 @@ hr {
   }
 .flex-md-2 {
     width: 16.666666666666668%;
-    -ms-flex-preferred-size: 16.666666666666668%;
-        flex-basis: 16.666666666666668%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3620,8 +3626,8 @@ hr {
   }
 .flex-md-3 {
     width: 25%;
-    -ms-flex-preferred-size: 25%;
-        flex-basis: 25%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3633,8 +3639,8 @@ hr {
   }
 .flex-md-4 {
     width: 33.333333333333336%;
-    -ms-flex-preferred-size: 33.333333333333336%;
-        flex-basis: 33.333333333333336%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3646,8 +3652,8 @@ hr {
   }
 .flex-md-5 {
     width: 41.66666666666667%;
-    -ms-flex-preferred-size: 41.66666666666667%;
-        flex-basis: 41.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3659,8 +3665,8 @@ hr {
   }
 .flex-md-6 {
     width: 50%;
-    -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3672,8 +3678,8 @@ hr {
   }
 .flex-md-7 {
     width: 58.333333333333336%;
-    -ms-flex-preferred-size: 58.333333333333336%;
-        flex-basis: 58.333333333333336%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3685,8 +3691,8 @@ hr {
   }
 .flex-md-8 {
     width: 66.66666666666667%;
-    -ms-flex-preferred-size: 66.66666666666667%;
-        flex-basis: 66.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3698,8 +3704,8 @@ hr {
   }
 .flex-md-9 {
     width: 75%;
-    -ms-flex-preferred-size: 75%;
-        flex-basis: 75%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3711,8 +3717,8 @@ hr {
   }
 .flex-md-10 {
     width: 83.33333333333334%;
-    -ms-flex-preferred-size: 83.33333333333334%;
-        flex-basis: 83.33333333333334%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3724,8 +3730,8 @@ hr {
   }
 .flex-md-11 {
     width: 91.66666666666667%;
-    -ms-flex-preferred-size: 91.66666666666667%;
-        flex-basis: 91.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3737,8 +3743,8 @@ hr {
   }
 .flex-md-12 {
     width: 100%;
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -3747,6 +3753,9 @@ hr {
   }
 .flex-md-suffix-12 {
     margin-right: 100%;
+  }
+[class*=flex-md-][class*=-column]>[class*=flex-] {
+    width: auto;
   }
 .modal-content {
     min-width: 75%
@@ -4256,8 +4265,8 @@ hr {
   }
 .flex-sm-1 {
     width: 8.333333333333334%;
-    -ms-flex-preferred-size: 8.333333333333334%;
-        flex-basis: 8.333333333333334%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4269,8 +4278,8 @@ hr {
   }
 .flex-sm-2 {
     width: 16.666666666666668%;
-    -ms-flex-preferred-size: 16.666666666666668%;
-        flex-basis: 16.666666666666668%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4282,8 +4291,8 @@ hr {
   }
 .flex-sm-3 {
     width: 25%;
-    -ms-flex-preferred-size: 25%;
-        flex-basis: 25%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4295,8 +4304,8 @@ hr {
   }
 .flex-sm-4 {
     width: 33.333333333333336%;
-    -ms-flex-preferred-size: 33.333333333333336%;
-        flex-basis: 33.333333333333336%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4308,8 +4317,8 @@ hr {
   }
 .flex-sm-5 {
     width: 41.66666666666667%;
-    -ms-flex-preferred-size: 41.66666666666667%;
-        flex-basis: 41.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4321,8 +4330,8 @@ hr {
   }
 .flex-sm-6 {
     width: 50%;
-    -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4334,8 +4343,8 @@ hr {
   }
 .flex-sm-7 {
     width: 58.333333333333336%;
-    -ms-flex-preferred-size: 58.333333333333336%;
-        flex-basis: 58.333333333333336%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4347,8 +4356,8 @@ hr {
   }
 .flex-sm-8 {
     width: 66.66666666666667%;
-    -ms-flex-preferred-size: 66.66666666666667%;
-        flex-basis: 66.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4360,8 +4369,8 @@ hr {
   }
 .flex-sm-9 {
     width: 75%;
-    -ms-flex-preferred-size: 75%;
-        flex-basis: 75%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4373,8 +4382,8 @@ hr {
   }
 .flex-sm-10 {
     width: 83.33333333333334%;
-    -ms-flex-preferred-size: 83.33333333333334%;
-        flex-basis: 83.33333333333334%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4386,8 +4395,8 @@ hr {
   }
 .flex-sm-11 {
     width: 91.66666666666667%;
-    -ms-flex-preferred-size: 91.66666666666667%;
-        flex-basis: 91.66666666666667%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4399,8 +4408,8 @@ hr {
   }
 .flex-sm-12 {
     width: 100%;
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -4409,6 +4418,9 @@ hr {
   }
 .flex-sm-suffix-12 {
     margin-right: 100%;
+  }
+[class*=flex-sm-][class*=-column]>[class*=flex-] {
+    width: auto;
   }
 .heading-1 {
     font-size: 30px;

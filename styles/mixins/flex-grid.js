@@ -34,6 +34,7 @@ module.exports = function (config) {
     const styles = {};
     const breakpoints = Object.keys(config.breakpoints);
     const cols = config.grid.columns;
+    const gutters = config.grid.gutters;
     const horizontal = Object.keys(horizontalAlignments);
     const vertical = Object.keys(verticalAlignments);
 
@@ -122,9 +123,9 @@ module.exports = function (config) {
       for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-${i}`] = {
           width: `${(100 / (12 / i))}%`,
-          'flex-basis': `${(100 / (12 / i))}%`,
-          'padding-left': '15px',
-          'padding-right': '15px'
+          'flex-basis': 'auto',
+          'padding-left': gutters,
+          'padding-right': gutters
         };
 
         block[`.${prefix}-offset-${i}`] = {
@@ -135,6 +136,10 @@ module.exports = function (config) {
           'margin-right': `${(100 / (12 / i))}%`
         };
       }
+
+      block[`[class*=${prefix}-][class*=-column]>[class*=flex-]`] = {
+        width: 'auto'
+      };
     }
 
     return breakpointHelper(styles, config);
