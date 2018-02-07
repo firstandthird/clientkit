@@ -33,3 +33,5 @@ stylesheets:
     message-success: '#dff0d8'
     message-error: '#f2dede'
     text-color-error: '#ff0000'
+    text-color-body: '{{stylesheets.color.body}}'
+    text-color-light: '{{stylesheets.color["body-light"]}}'

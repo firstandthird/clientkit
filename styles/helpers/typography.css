@@ -68,7 +68,9 @@ body {
   font-weight: var(--font-weight-body);
 }
 
-.font-weight-bold, strong, em {
+.font-weight-bold,
+strong,
+em {
   font-weight: var(--font-weight-bold);
 }
 
@@ -96,21 +98,13 @@ body {
   }
 }
 
-.font-size-article {
+.font-article {
   font-size: var(--font-size-article);
   line-height: var(--line-height-article);
 
   @media(--mobile-only) {
     font-size: var(--font-mobile-size-article);
   }
-}
-
-.text-color-body {
-  color: var(--color-body);
-}
-
-.text-color-heading {
-  color: var(--color-heading);
 }
 
 .text-color-light {

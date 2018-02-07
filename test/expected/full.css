@@ -381,8 +381,14 @@ body {
 .bg-alt {
   background-color: #5f5f5f;
 }
-.text-error {
+.text-color-error {
   color: #ff0000;
+}
+.text-color-body {
+  color: #333;
+}
+.text-color-light {
+  color: #fff;
 }
 .container {
   -webkit-box-sizing: border-box;
@@ -2431,7 +2437,9 @@ body {
 .font-weight-body {
   font-weight: 400;
 }
-.font-weight-bold, strong, em {
+.font-weight-bold,
+strong,
+em {
   font-weight: 700;
 }
 .font-large {
@@ -2443,15 +2451,9 @@ body {
 .font-body {
   font-size: 14px;
 }
-.font-size-article {
+.font-article {
   font-size: 18px;
   line-height: 1.6;
-}
-.text-color-body {
-  color: #333;
-}
-.text-color-heading {
-  color: #333;
 }
 .text-color-light {
   color: #fff;
@@ -4526,7 +4528,7 @@ body {
 .font-body {
     font-size: 14px
 }
-.font-size-article {
+.font-article {
     font-size: 18px
 }
     }
