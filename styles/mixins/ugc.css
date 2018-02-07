@@ -1,4 +1,12 @@
 @define-mixin ugc {
+  & {
+    font-size: var(--font-size-article);
+    line-height: var(--line-height-article);
+
+    @media(--mobile-only) {
+      font-size: var(--font-mobile-size-article);
+    }
+  }
   & h1,
   & h2,
   & h3,

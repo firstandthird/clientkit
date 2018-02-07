@@ -1594,6 +1594,10 @@ th {
     display: table;
     clear: both;
   }
+.ugc {
+    font-size: 18px;
+    line-height: 1.6;
+  }
 .ugc h1,
   .ugc h2,
   .ugc h3,
@@ -2438,6 +2442,10 @@ body {
 }
 .font-body {
   font-size: 14px;
+}
+.font-size-article {
+  font-size: 18px;
+  line-height: 1.6;
 }
 .text-color-body {
   color: #333;
@@ -4500,6 +4508,9 @@ hr {
   }
 }
 @media(max-width: 767px) and (min-width: 320px) {
+.ugc {
+      font-size: 18px
+  }
 body {
     font-size: 14px
 }
@@ -4512,7 +4523,10 @@ body {
 .font-body {
     font-size: 14px
 }
-  }
+.font-size-article {
+    font-size: 18px
+}
+    }
 @media (max-width: 100vw) {
   .row-xl-carousel {
     width: 100%;

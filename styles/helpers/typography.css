@@ -96,6 +96,15 @@ body {
   }
 }
 
+.font-size-article {
+  font-size: var(--font-size-article);
+  line-height: var(--line-height-article);
+
+  @media(--mobile-only) {
+    font-size: var(--font-mobile-size-article);
+  }
+}
+
 .text-color-body {
   color: var(--color-body);
 }

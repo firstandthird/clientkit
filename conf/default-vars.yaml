@@ -15,12 +15,15 @@ stylesheets:
         body: 14px
         large: 16px
         small: 12px
+        article: 18px
       mobile-size:
         body: 14px
         large: 16px
         small: 12px
+        article: 18px
     line-height: 1.1
     line-height-large: 1.5
+    line-height-article: 1.6
 
     #headings
     heading:
