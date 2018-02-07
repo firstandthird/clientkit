@@ -2464,6 +2464,9 @@ hr {
   margin: 0;
   border: 0;
 }
+.svg-icon {
+  fill: currentColor;
+}
 .pull-left {
   float: left;
 }

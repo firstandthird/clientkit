@@ -2056,6 +2056,9 @@ hr {
   margin: 0;
   border: 0;
 }
+.svg-icon {
+  fill: currentColor;
+}
 @media (max-width: 1199px) {
 .container {
     width: 1000px;

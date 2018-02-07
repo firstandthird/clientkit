@@ -125,3 +125,7 @@ hr {
   margin: 0;
   border: 0;
 }
+
+.svg-icon {
+  fill: currentColor;
+}
