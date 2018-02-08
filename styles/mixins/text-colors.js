@@ -9,7 +9,7 @@ module.exports = function (config) {
 
     colors.forEach(color => {
       if (isWhitelisted(color)) {
-        styles[`.${color}`] = getColorObject(color);
+        styles[`.${color.replace('text-', '')}`] = getColorObject(color);
       }
     });
 

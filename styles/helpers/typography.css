@@ -60,11 +60,11 @@ body {
   text-decoration: underline;
 }
 
-.font-weight-light {
+.font-light {
   font-weight: var(--font-weight-light);
 }
 
-.font-weight-body {
+.font-body {
   font-weight: var(--font-weight-body);
 }
 
@@ -96,19 +96,6 @@ em {
   @media(--mobile-only) {
     font-size: var(--font-mobile-size-body);
   }
-}
-
-.font-article {
-  font-size: var(--font-size-article);
-  line-height: var(--line-height-article);
-
-  @media(--mobile-only) {
-    font-size: var(--font-mobile-size-article);
-  }
-}
-
-.text-color-light {
-  color: var(--color-body-light);
 }
 
 hr {
