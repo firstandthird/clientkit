@@ -2043,6 +2043,10 @@ em {
 .font-body {
   font-size: 14px;
 }
+.font-article {
+  font-size: 18px;
+  line-height: 1.6;
+}
 hr {
   width: 100%;
   max-width: 3.5em;
@@ -3996,6 +4000,9 @@ body {
 }
 .font-body {
     font-size: 14px
+}
+.font-article {
+    font-size: 18px
 }
     }
 

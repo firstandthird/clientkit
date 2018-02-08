@@ -98,6 +98,15 @@ em {
   }
 }
 
+.font-article {
+  font-size: var(--font-size-article);
+  line-height: var(--line-height-article);
+
+  @media(--mobile-only) {
+    font-size: var(--font-mobile-size-article);
+  }
+}
+
 hr {
   width: 100%;
   max-width: var(--hr-max-width);
