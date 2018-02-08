@@ -1,5 +1,4 @@
 .form {
-
   & label {
     font-family: var(--font-primary);
     color: var(--color-input-label);

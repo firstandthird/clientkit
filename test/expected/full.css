@@ -1101,44 +1101,44 @@ a:hover {
     cursor: pointer;
   }
 .triangle-up {
-display: inline-block;
-width: 0;
-height: 0;
-vertical-align: middle;
-content: "";
-border-bottom: 10px solid;
-border-right: 10px solid transparent;
-border-left: 10px solid transparent;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  content: "";
+  border-bottom: 10px solid;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
 }
 .triangle-right {
-display: inline-block;
-width: 0;
-height: 0;
-vertical-align: middle;
-content: "";
-border-left: 10px solid;
-border-top: 10px solid transparent;
-border-bottom: 10px solid transparent;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  content: "";
+  border-left: 10px solid;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
 }
 .triangle-down {
-display: inline-block;
-width: 0;
-height: 0;
-vertical-align: middle;
-content: "";
-border-top: 10px solid;
-border-right: 10px solid transparent;
-border-left: 10px solid transparent;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  content: "";
+  border-top: 10px solid;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
 }
 .triangle-left {
-display: inline-block;
-width: 0;
-height: 0;
-vertical-align: middle;
-content: "";
-border-right: 10px solid;
-border-top: 10px solid transparent;
-border-bottom: 10px solid transparent;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  content: "";
+  border-right: 10px solid;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
 }
 .button {
   display: inline-block;
