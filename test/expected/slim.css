@@ -381,6 +381,10 @@ body {
 .bg-alt {
   background-color: #5f5f5f;
 }
+.bg-alt,
+.bg-alt [class*='heading-'] {
+  color: #fff;
+}
 .color-error {
   color: #ff0000;
 }
