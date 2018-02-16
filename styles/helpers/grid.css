@@ -3,8 +3,8 @@ body {
 }
 
 .row {
-  margin-left: -var(--grid-gutters);
-  margin-right: -var(--grid-gutters);
+  margin-left: calc(-1 * var(--grid-gutters));
+  margin-right: calc(-1 * var(--grid-gutters));
 
   @mixin clearfix;
 }
