@@ -14,8 +14,7 @@ tasks:
       - 'svgsprite'
       - 'styleguide'
   dev:
-    - 'clean'
-    - 'styleguide'
+    - 'default'
     - 'watcher'
   prod:
     - 'default'

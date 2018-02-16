@@ -37,7 +37,7 @@
     "taskkit-hash": "^1.1.0",
     "taskkit-rollup": "^2.0.1",
     "taskkit-svg-sprite": "^1.1.0",
-    "taskkit-watcher": "^2.0.0"
+    "taskkit-watcher": "^3.0.0"
   },
   "eslintConfig": {
     "extends": "firstandthird"
