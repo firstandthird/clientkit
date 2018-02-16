@@ -394,6 +394,11 @@ body {
 .color-light {
   color: #fff;
 }
+:root {
+  --color-error: #ff0000;
+  --color-body: #333;
+  --color-light: #fff;
+}
 .container {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

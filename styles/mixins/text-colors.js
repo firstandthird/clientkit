@@ -6,12 +6,18 @@ module.exports = function (config) {
     const isWhitelisted = color => color.startsWith('text-color-');
     const colors = Object.keys(config.color);
     const getColorObject = color => ({ color: config.color[color] });
+    const root = {};
 
     colors.forEach(color => {
       if (isWhitelisted(color)) {
-        styles[`.${color.replace('text-', '')}`] = getColorObject(color);
+        const colorName = color.replace('text-', '');
+        const colorValue = getColorObject(color);
+        styles[`.${colorName}`] = colorValue;
+        root[`--${colorName}`] = colorValue.color;
       }
     });
+
+    styles[':root'] = root;
 
     return styles;
   };
