@@ -9,7 +9,7 @@
   "scripts": {
     "start": "cd demo && node ../index.js && cd ..",
     "dev": "cd demo && node ../index.js dev",
-    "test": "cd test && node ../index.js && cd .. && tap ./test/*.test.js"
+    "test": "cd test && node ../index.js && cd .. && tap -J -Rmin ./test/*.test.js"
   },
   "repository": {
     "type": "git",
