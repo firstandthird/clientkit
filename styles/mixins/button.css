@@ -3,14 +3,14 @@
   background-color: $background;
   line-height: 1;
   text-align: center;
-  font-family: var(--font-primary);
+  font-family: var(--font-button, var(--font-primary));
   font-size: 14px;
   padding: 12px 14px;
   border-radius: $borderRadius;
   border: 2px solid $border;
   vertical-align: middle;
   cursor: pointer;
-  transition: color 250ms var(--easing-out), background-color 250ms var(--easing-out);
+  transition: color .25s var(--easing-out), background-color .25s var(--easing-out);
   color: $color;
 
   &:hover,
@@ -34,6 +34,7 @@
     }
   }
 }
+
 @define-mixin button-size $paddingY, $paddingX, $fontSize, $borderRadius {
   border-radius: $borderRadius;
   padding: $paddingY $paddingX;
