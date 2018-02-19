@@ -1,8 +1,9 @@
 @define-mixin link $color, $hoverColor {
   color: $color;
+  cursor: pointer;
   text-decoration: none;
+
   &:hover {
     color: $hoverColor;
-    cursor: pointer;
   }
 }

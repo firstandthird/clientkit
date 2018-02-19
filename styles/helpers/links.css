@@ -1,3 +1,11 @@
-a {
+a,
+.button-link {
   @mixin link var(--color-link), var(--color-link-hover);
+}
+
+.button-link {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
 }

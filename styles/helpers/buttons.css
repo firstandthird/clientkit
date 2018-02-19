@@ -10,10 +10,6 @@
   @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--button-radius-default), var(--color-button-primary-bg), var(--color-button-primary-color);
 }
 
-.button-link {
-  @mixin button transparent, var(--color-button-primary-bg), transparent, 0, transparent, color(var(--color-button-primary-bg) blackness(+20%));
-}
-
 .button-lg {
   @mixin button-size 16px, 20px, var(--font-size-large), var(--button-radius-lg)
 }
