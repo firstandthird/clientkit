@@ -1,49 +1,78 @@
 @define-mixin ugc {
-  & {
-    font-size: var(--font-size-article);
-    line-height: var(--line-height-article);
+  font-size: var(--font-size-article);
+  line-height: var(--line-height-article);
 
-    @media(--mobile-only) {
-      font-size: var(--font-mobile-size-article);
-    }
+  @media(--mobile-only) {
+    font-size: var(--font-mobile-size-article);
   }
-  & h1,
-  & h2,
-  & h3,
-  & h4,
-  & h5,
-  & h6,
-  & p,
-  & ol,
-  & ul {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul {
     @mixin spacing margin, top, none;
     @mixin spacing margin, bottom, md;
   }
-  & h1 {
-    @mixin heading var(--heading-1-size), var(--heading-1-mobile-size);
+
+  h1 {
+    @mixin heading var(--heading-1-size),
+    var(--heading-1-line-height, var(--heading-line-height)),
+    var(--heading-1-mobile-size),
+    var(--heading-1-mobile-line-height, var(--heading-line-height));
   }
-  & h2 {
-    @mixin heading var(--heading-2-size), var(--heading-2-mobile-size);
+
+  h2 {
+    @mixin heading var(--heading-2-size),
+    var(--heading-2-line-height, var(--heading-line-height)),
+    var(--heading-2-mobile-size),
+    var(--heading-2-mobile-line-height, var(--heading-line-height));
   }
-  & h3 {
-    @mixin heading var(--heading-3-size), var(--heading-3-mobile-size);
+
+  h3 {
+    @mixin heading var(--heading-3-size),
+    var(--heading-3-line-height, var(--heading-line-height)),
+    var(--heading-3-mobile-size),
+    var(--heading-3-mobile-line-height, var(--heading-line-height));
   }
-  & h4 {
-    @mixin heading var(--heading-4-size), var(--heading-4-mobile-size);
+
+  h4 {
+    @mixin heading var(--heading-4-size),
+    var(--heading-4-line-height, var(--heading-line-height)),
+    var(--heading-4-mobile-size),
+    var(--heading-4-mobile-line-height, var(--heading-line-height));
   }
-  & h5 {
-    @mixin heading var(--heading-5-size), var(--heading-5-mobile-size);
+
+  h5 {
+    @mixin heading var(--heading-5-size),
+    var(--heading-5-line-height, var(--heading-line-height)),
+    var(--heading-5-mobile-size),
+    var(--heading-5-mobile-line-height, var(--heading-line-height));
   }
-  & ul,
-  & ol {
+
+  h6 {
+    @mixin heading var(--heading-6-size),
+    var(--heading-6-line-height, var(--heading-line-height)),
+    var(--heading-6-mobile-size),
+    var(--heading-6-mobile-line-height, var(--heading-line-height));
+  }
+
+  ul,
+  ol {
     padding-left: 25px;
   }
-  & ul li {
+
+  ul li {
     list-style-type: disc;
   }
-  & table {
+
+  table {
     width: 100%;
-    & th {
+    th {
       text-align: left;
     }
   }

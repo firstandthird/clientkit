@@ -1644,9 +1644,9 @@ th {
     clear: both;
   }
 .ugc {
-    font-size: 18px;
-    line-height: 1.6;
-  }
+  font-size: 18px;
+  line-height: 1.6;
+}
 .ugc h1,
   .ugc h2,
   .ugc h3,
@@ -1693,6 +1693,13 @@ th {
     line-height: 1.2;
     font-weight: bold;
     font-size: 16px;
+  }
+.ugc h6 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+    color: #333;
+    line-height: 1.2;
+    font-weight: bold;
+    font-size: 14px;
   }
 .ugc ul,
   .ugc ol {
@@ -4477,36 +4484,52 @@ hr {
   }
 .heading-1 {
     font-size: 30px;
+    line-height: 1.2;
 }
 .heading-2 {
-    font-size: 25px;
+    font-size: 25px
+    1.2;
+    line-height: ;
 }
 .heading-3 {
     font-size: 20px;
+    line-height: 1.2;
 }
 .heading-4 {
     font-size: 16px;
+    line-height: 1.2;
 }
 .heading-5 {
     font-size: 14px;
+    line-height: 1.2;
 }
 .heading-6 {
     font-size: 12px;
+    line-height: 1.2;
 }
 .ugc h1 {
     font-size: 30px;
+    line-height: 1.2;
   }
 .ugc h2 {
     font-size: 25px;
+    line-height: 1.2;
   }
 .ugc h3 {
     font-size: 20px;
+    line-height: 1.2;
   }
 .ugc h4 {
     font-size: 16px;
+    line-height: 1.2;
   }
 .ugc h5 {
     font-size: 14px;
+    line-height: 1.2;
+  }
+.ugc h6 {
+    font-size: 12px;
+    line-height: 1.2;
   }
 .modal-content {
     left: 0;
@@ -4554,8 +4577,8 @@ hr {
 }
 @media(max-width: 767px) and (min-width: 320px) {
 .ugc {
-      font-size: 18px
-  }
+    font-size: 18px;
+}
 body {
     font-size: 14px
 }
@@ -4571,7 +4594,7 @@ body {
 .font-article {
     font-size: 18px
 }
-    }
+  }
 @media (max-width: 100vw) {
   .row-xl-carousel {
     width: 100%;
