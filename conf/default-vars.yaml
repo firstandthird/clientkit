@@ -4,6 +4,7 @@ stylesheets:
       #families
       primary: system-ui
       secondary: system-ui
+      label: system-ui
       heading: system-ui
       #weights
       weight:
