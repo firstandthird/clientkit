@@ -5,6 +5,7 @@ stylesheets:
       primary: system-ui
       secondary: system-ui
       label: system-ui
+      button: system-ui
       heading: system-ui
       #weights
       weight:
@@ -61,6 +62,7 @@ stylesheets:
         sm: 2px
 
     button:
+      border: 2px
       radius:
         default: 3px
         lg: 5px

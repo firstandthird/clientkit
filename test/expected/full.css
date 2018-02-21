@@ -372,33 +372,6 @@ html {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
 }
-body {
-  background-color: #fff;
-}
-.bg-default {
-  background-color: #fff;
-}
-.bg-alt {
-  background-color: #5f5f5f;
-}
-.bg-alt,
-.bg-alt [class*='heading-'] {
-  color: #fff;
-}
-.color-error {
-  color: #ff0000;
-}
-.color-body {
-  color: #333;
-}
-.color-light {
-  color: #fff;
-}
-:root {
-  --color-error: #ff0000;
-  --color-body: #333;
-  --color-light: #fff;
-}
 .container {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2083,6 +2056,33 @@ button.tooltip {
 .dropdown-menu-right {
   right: 0;
   left: auto;
+}
+body {
+  background-color: #fff;
+}
+.bg-default {
+  background-color: #fff;
+}
+.bg-alt {
+  background-color: #5f5f5f;
+}
+.bg-alt,
+.bg-alt [class*='heading-'] {
+  color: #fff;
+}
+.color-error {
+  color: #ff0000;
+}
+.color-body {
+  color: #333;
+}
+.color-light {
+  color: #fff;
+}
+:root {
+  --color-error: #ff0000;
+  --color-body: #333;
+  --color-light: #fff;
 }
 .padding-none {
   padding-top: 0;

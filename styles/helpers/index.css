@@ -1,6 +1,5 @@
 @import 'reset.css';
 @import 'box-sizing.css';
-@import 'colors.css';
 @import 'container.css';
 @import 'grid.css';
 @import 'flex-grid.css';
@@ -25,6 +24,7 @@
 @import 'messages.css';
 @import 'borders.css';
 @import 'dropdown.css';
+@import 'colors.css';
 @import 'spacing.css';
 @import 'typography.css';
 @import 'utils.css';
