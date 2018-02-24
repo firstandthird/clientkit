@@ -382,7 +382,8 @@ body {
   background-color: #5f5f5f;
 }
 .bg-alt,
-.bg-alt [class*='heading-'] {
+.bg-alt [class*='heading-'],
+.bg-alt label {
   color: #fff;
 }
 .color-error {
@@ -3962,9 +3963,8 @@ hr {
     line-height: 1.2;
 }
 .heading-2 {
-    font-size: 25px
-    1.2;
-    line-height: ;
+    font-size: 25px;
+    line-height: 1.2;
 }
 .heading-3 {
     font-size: 20px;
