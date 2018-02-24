@@ -8,7 +8,7 @@
 .heading-2 {
   @mixin heading var(--heading-2-size),
     var(--heading-2-line-height, var(--heading-line-height)),
-    var(--heading-2-mobile-size)
+    var(--heading-2-mobile-size),
     var(--heading-2-mobile-line-height, var(--heading-line-height));
 }
 
