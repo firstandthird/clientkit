@@ -44,6 +44,8 @@ stylesheets:
       6-size: 14px
       6-mobile-size: 12px
 
+    stretch-spacing: 2px
+
     table:
       cell-padding: 10px
       sm-cell-padding: 5px

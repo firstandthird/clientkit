@@ -44,6 +44,10 @@ body {
   white-space: nowrap;
 }
 
+.text-stretched {
+  text-spacing: var(--stretch-spacing);
+}
+
 .text-lowercase {
   text-transform: lowercase;
 }

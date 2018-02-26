@@ -2445,6 +2445,10 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.text-stretched {
+  -ms-text-spacing: 2px;
+      text-spacing: 2px;
+}
 .text-lowercase {
   text-transform: lowercase;
 }
