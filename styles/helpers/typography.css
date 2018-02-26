@@ -68,7 +68,7 @@ body {
   font-weight: var(--font-weight-body);
 }
 
-.font-weight-bold,
+.font-bold,
 strong,
 em {
   font-weight: var(--font-weight-bold);
