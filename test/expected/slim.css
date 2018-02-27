@@ -2038,8 +2038,7 @@ body {
   white-space: nowrap;
 }
 .text-stretched {
-  -ms-text-spacing: 2px;
-      text-spacing: 2px;
+  letter-spacing: 2px;
 }
 .text-lowercase {
   text-transform: lowercase;
