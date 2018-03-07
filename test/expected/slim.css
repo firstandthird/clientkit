@@ -1813,6 +1813,7 @@ a:hover, .button-link:hover {
   z-index: 100;
 }
 .modal .modal-close {
+    border: 0;
     position: absolute;
     width: 100%;
     height: 100%;
