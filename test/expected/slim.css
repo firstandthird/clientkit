@@ -1827,7 +1827,7 @@ a:hover, .button-link:hover {
     display: flex;
     visibility: visible;
   }
-.modal.visible .modal-content, .modal:target .modal-content {
+.modal.visible .modal-wrapper, .modal:target .modal-wrapper {
       -webkit-animation: zoomIn .3s forwards;
               animation: zoomIn .3s forwards;
     }

@@ -25,7 +25,7 @@
     display: flex;
     visibility: visible;
 
-    & .modal-content {
+    & .modal-wrapper {
       animation: zoomIn .3s forwards;
     }
   }
