@@ -14,7 +14,7 @@ module.exports = function (config) {
 
         if (isBgTextColor(color)) {
           const bg = `.bg-${color.replace('background-text-', '')}`;
-          selector = `${bg},\n${bg} [class*='heading-'],\n${bg} label`;
+          selector = `${bg},\n${bg} [class*='heading-']:not([class*='color-']),\n${bg} label:not([class*='color-'])`;
           value = { color: config.color[color] };
         } else {
           selector = `.bg-${color.replace('background-', '')}`;

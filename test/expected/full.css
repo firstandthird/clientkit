@@ -2070,8 +2070,8 @@ body {
   background-color: #5f5f5f;
 }
 .bg-alt,
-.bg-alt [class*='heading-'],
-.bg-alt label {
+.bg-alt [class*='heading-']:not([class*='color-']),
+.bg-alt label:not([class*='color-']) {
   color: #fff;
 }
 .color-error {
