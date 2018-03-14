@@ -41,8 +41,18 @@
   background: #fff;
   box-shadow: 0 0 60px 10px rgba(0, 0, 0, .6);
 
-  @mixin spacing padding, all, md;
+  @media (--tablet) {
+    min-width: 75%;
+  }
 
+  @media (--mobile) {
+    left: 0;
+    top: 0;
+  }
+}
+
+.modal-content,
+.modal-wrapper {
   & .modal-close {
     position: absolute;
     cursor: pointer;
@@ -60,18 +70,8 @@
     &:hover {
       opacity: 1;
     }
-  }
 
-  @media (--tablet) {
-    min-width: 75%;
-  }
-
-  @media (--mobile) {
-    left: 0;
-    top: 0;
-    @mixin spacing padding, all, xs;
-
-    & .modal-close {
+    @media (--mobile) {
       top: 2px;
       right: 2px;
     }
@@ -82,4 +82,10 @@
   align-items: center;
   justify-content: center;
   display: flex;
+
+  @mixin spacing padding, all, md;
+
+  @media (--mobile) {
+    @mixin spacing padding, all, xs;
+  }
 }

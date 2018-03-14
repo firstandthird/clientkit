@@ -1841,16 +1841,8 @@ a:hover, .button-link:hover {
   background: #fff;
   -webkit-box-shadow: 0 0 60px 10px rgba(0, 0, 0, .6);
           box-shadow: 0 0 60px 10px rgba(0, 0, 0, .6);
-
-  padding-top: 30px;
-
-  padding-bottom: 30px;
-
-  padding-left: 30px;
-
-  padding-right: 30px;
 }
-.modal-wrapper .modal-close {
+.modal-content .modal-close, .modal-wrapper .modal-close {
     position: absolute;
     cursor: pointer;
     width: 20px;
@@ -1865,7 +1857,7 @@ a:hover, .button-link:hover {
     text-decoration: none;
     color: #666;
   }
-.modal-wrapper .modal-close:hover {
+.modal-content .modal-close:hover, .modal-wrapper .modal-close:hover {
       opacity: 1;
     }
 .modal-content {
@@ -1878,6 +1870,14 @@ a:hover, .button-link:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+
+  padding-top: 30px;
+
+  padding-bottom: 30px;
+
+  padding-left: 30px;
+
+  padding-right: 30px;
 }
 .border-all,
 .border-right,
@@ -4020,17 +4020,18 @@ hr {
   }
 .modal-wrapper {
     left: 0;
-    top: 0;
+    top: 0
+}
+.modal-content .modal-close, .modal-wrapper .modal-close {
+      top: 2px;
+      right: 2px
+  }
+.modal-content {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px
 }
-
-    .modal-wrapper .modal-close {
-      top: 2px;
-      right: 2px;
-    }
 }
 @media(max-width: 767px) and (min-width: 320px) {
 .ugc {
