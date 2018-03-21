@@ -1,6 +1,7 @@
 button.tooltip {
   overflow: visible;
 }
+
 .tooltip {
   position: relative;
 
@@ -35,12 +36,14 @@ button.tooltip {
       opacity: 1;
       pointer-events: auto;
     }
-  };
+  }
+
   &-break {
     &::after {
       white-space: normal;
     }
   }
+
   &-up {
     &::before {
       bottom: 100%;
@@ -54,13 +57,15 @@ button.tooltip {
       transform: translate(-50%, -10px);
       transform-origin: bottom;
     }
+
     &::after {
       bottom: 100%;
       left: 50%;
       margin-bottom: 10px;
       transform: translate(-50%, -10px);
       transform-origin: bottom;
-    };
+    }
+
     &:hover,
     &-visible {
       &::before,
@@ -69,6 +74,7 @@ button.tooltip {
       }
     }
   }
+
   &-down {
     &::before {
       top: 100%;
@@ -81,12 +87,14 @@ button.tooltip {
       border-bottom-color: var(--color-tooltip-bg);
       transform: translate(-50%, 10px);
     }
+
     &::after {
       top: 100%;
       left: 50%;
       margin-top: 10px;
       transform: translate(-50%, 10px);
     }
+
     &:hover,
     &-visible {
       &::before,
@@ -95,6 +103,7 @@ button.tooltip {
       }
     }
   }
+
   &-left {
     &::before {
       top: 50%;
@@ -106,13 +115,15 @@ button.tooltip {
       border-right-width: 0;
       border-left-color: var(--color-tooltip-bg);
       transform: translate(-10px, -50%);
-    };
+    }
+
     &::after {
       top: 50%;
       right: 100%;
       margin-right: 10px;
       transform: translate(-10px, -50%);
-    };
+    }
+
     &:hover,
     &-visible {
       &::before,
@@ -121,6 +132,7 @@ button.tooltip {
       }
     }
   }
+
   &-right {
     &::before {
       top: 50%;
@@ -131,13 +143,15 @@ button.tooltip {
       border-left-width: 0;
       border-right-color: var(--color-tooltip-bg);
       transform: translate(10px, -50%);
-    };
+    }
+
     &::after {
       top: 50%;
       left: 100%;
       margin-left: 10px;
       transform: translate(10px, -50%);
-    };
+    }
+
     &:hover,
     &-visible {
       &::before,

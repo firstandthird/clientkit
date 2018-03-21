@@ -1814,7 +1814,7 @@ button.tooltip {
               transform: translate(-50%, -10px);
       -webkit-transform-origin: bottom;
               transform-origin: bottom;
-    };
+    }
 .tooltip-up:hover::before,
       .tooltip-up:hover::after,
       .tooltip-up-visible::before,
@@ -1859,14 +1859,14 @@ button.tooltip {
       border-left-color: rgba(17, 17, 17, .9);
       -webkit-transform: translate(-10px, -50%);
               transform: translate(-10px, -50%);
-    };
+    }
 .tooltip-left::after {
       top: 50%;
       right: 100%;
       margin-right: 10px;
       -webkit-transform: translate(-10px, -50%);
               transform: translate(-10px, -50%);
-    };
+    }
 .tooltip-left:hover::before,
       .tooltip-left:hover::after,
       .tooltip-left-visible::before,
@@ -1884,14 +1884,14 @@ button.tooltip {
       border-right-color: rgba(17, 17, 17, .9);
       -webkit-transform: translate(10px, -50%);
               transform: translate(10px, -50%);
-    };
+    }
 .tooltip-right::after {
       top: 50%;
       left: 100%;
       margin-left: 10px;
       -webkit-transform: translate(10px, -50%);
               transform: translate(10px, -50%);
-    };
+    }
 .tooltip-right:hover::before,
       .tooltip-right:hover::after,
       .tooltip-right-visible::before,
