@@ -3,7 +3,7 @@
   background-color: $background;
   line-height: 1;
   text-align: center;
-  font-family: var(--font-button, var(--font-primary));
+  font-family: var(--font-button);
   font-size: var(--font-size-body);
   padding: 12px 14px;
   border-radius: $borderRadius;
