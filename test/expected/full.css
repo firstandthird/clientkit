@@ -1708,7 +1708,6 @@ th {
 .modal-wrapper {
   max-width: 100%;
   max-height: 100%;
-  position: fixed;
   z-index: 100;
   overflow-y: auto;
   background: #fff;
@@ -4513,6 +4512,7 @@ hr {
     line-height: 1.2;
   }
 .modal-wrapper {
+    position: fixed;
     left: 0;
     top: 0
 }
