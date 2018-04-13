@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "clientkit-css": "^2.2.0",
-    "clientkit-styleguide": "^1.1.0",
+    "clientkit-styleguide": "^1.1.1",
     "taskkit": "^3.0.0-7",
     "taskkit-analyze": "^1.0.0",
     "taskkit-clean": "^1.1.0",
