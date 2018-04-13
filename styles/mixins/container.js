@@ -7,7 +7,7 @@ module.exports = function (config) {
     const breakpoints = Object.keys(config.breakpoints);
     const gutters = config.grid.gutters;
 
-    styles['default'] = {
+    styles.default = {
       'box-sizing': 'border-box',
       'margin-left': 'auto',
       'margin-right': 'auto',

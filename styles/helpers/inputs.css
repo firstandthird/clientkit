@@ -1,7 +1,6 @@
 .form {
-
   & label {
-    font-family: var(--font-primary);
+    font-family: var(--font-label);
     color: var(--color-input-label);
     font-size: var(--font-size-body);
     line-height: var(--line-height-large);

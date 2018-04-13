@@ -3,29 +3,26 @@
 const breakpointHelper = require('../../lib/breakpoint-helper');
 module.exports = function (config) {
   const horizontalAlignments = {
-    'left': 'flex-start',
-    'right': 'flex-end',
-    'center': 'center',
+    left: 'flex-start',
+    right: 'flex-end',
+    center: 'center',
     'space-around': 'space-around',
     'space-between': 'space-between',
-    'baseline': 'baseline'
+    baseline: 'baseline'
   };
   const verticalAlignments = {
-    'top': 'flex-start',
-    'center': 'center',
-    'bottom': 'flex-end',
-    'stretch': 'stretch',
-    'baseline': 'baseline'
+    top: 'flex-start',
+    center: 'center',
+    bottom: 'flex-end',
+    stretch: 'stretch',
+    baseline: 'baseline'
   };
 
   const layouts = {
-    'columns': {
+    columns: {
       'flex-direction': 'column'
     },
-    'wrap': {
-      'flex-wrap': 'wrap'
-    },
-    'reverse': {
+    reverse: {
       'flex-direction': 'row-reverse'
     },
     'columns-reverse': {
@@ -37,6 +34,7 @@ module.exports = function (config) {
     const styles = {};
     const breakpoints = Object.keys(config.breakpoints);
     const cols = config.grid.columns;
+    const gutters = config.grid.gutters;
     const horizontal = Object.keys(horizontalAlignments);
     const vertical = Object.keys(verticalAlignments);
 
@@ -55,15 +53,19 @@ module.exports = function (config) {
 
       // Layout
       let layoutSelector = `.${layoutPrefix}`;
-      for (const layout in layouts) {
-        let selector = `.${layoutPrefix}-${layout}`;
+      Object.keys(layouts).forEach(layout => {
+        const selector = `.${layoutPrefix}-${layout}`;
         layoutSelector += `,\n${selector}`;
         block[selector] = layouts[layout];
-      }
+      });
       block[layoutSelector] = {
-        'display': 'flex',
+        display: 'flex',
         'margin-left': '-15px',
         'margin-right': '-15px'
+      };
+
+      block[`.${prefix}-wrap`] = {
+        'flex-wrap': 'wrap'
       };
 
       for (const horizontalAlignment of horizontal) {
@@ -95,11 +97,11 @@ module.exports = function (config) {
 
       // Child
       block[`.${prefix}-order-first`] = {
-        'order': -1
+        order: -1
       };
 
       block[`.${prefix}-order-last`] = {
-        'order': 1
+        order: 1
       };
 
       block[`.${prefix}-shrink`] = {
@@ -120,10 +122,10 @@ module.exports = function (config) {
 
       for (let i = 1; i <= cols; i++) {
         block[`.${prefix}-${i}`] = {
-          'width': `${(100 / (12 / i))}%`,
-          'flex-basis': `${(100 / (12 / i))}%`,
-          'padding-left': '15px',
-          'padding-right': '15px'
+          width: `${(100 / (12 / i))}%`,
+          'flex-basis': 'auto',
+          'padding-left': gutters,
+          'padding-right': gutters
         };
 
         block[`.${prefix}-offset-${i}`] = {
@@ -134,6 +136,10 @@ module.exports = function (config) {
           'margin-right': `${(100 / (12 / i))}%`
         };
       }
+
+      block[`[class*=${layoutPrefix}-columns]>[class*=flex-]`] = {
+        width: 'auto'
+      };
     }
 
     return breakpointHelper(styles, config);

@@ -1,15 +1,14 @@
 .button {
-  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, var(--button-radius-default), color(var(--color-button-primary-bg) blackness(+20%)), var(--color-button-primary-color);
+  @mixin button var(--color-button-primary-bg), var(--color-button-primary-color), transparent, var(--button-border), var(--button-radius-default), color(var(--color-button-primary-bg) blackness(+20%)), var(--color-button-primary-color);
 }
 
-.button-alt {
-  @mixin button var(--color-button-secondary-bg), var(--color-button-secondary-color), transparent, var(--button-radius-default), color(var(--color-button-secondary-bg) blackness(+20%)), var(--color-button-secondary-color);
+.button-secondary {
+  @mixin button var(--color-button-secondary-bg), var(--color-button-secondary-color), transparent, var(--button-border), var(--button-radius-default), color(var(--color-button-secondary-bg) blackness(+20%)), var(--color-button-secondary-color);
 }
 
 .button-outline {
-  @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--button-radius-default), var(--color-button-primary-bg), var(--color-button-primary-color);
+  @mixin button transparent, var(--color-button-primary-bg), var(--color-button-primary-bg), var(--button-border), var(--button-radius-default), var(--color-button-primary-bg), var(--color-button-primary-color);
 }
-
 
 .button-lg {
   @mixin button-size 16px, 20px, var(--font-size-large), var(--button-radius-lg)

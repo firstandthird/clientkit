@@ -1,10 +1,12 @@
-@define-mixin heading $size, $mobileSize {
+@define-mixin heading $size, $lineHeight, $mobileSize, $mobileLineHeight {
   font-family: var(--font-heading);
   color: var(--color-heading);
-  line-height: var(--heading-line-height);
+  line-height: $lineHeight;
   font-weight: var(--heading-font-weight);
   font-size: $size;
+
   @media (--mobile) {
     font-size: $mobileSize;
+    line-height: $mobileLineHeight;
   }
 }

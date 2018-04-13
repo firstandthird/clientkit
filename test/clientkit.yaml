@@ -1,0 +1,7 @@
+dist: '{{CWD}}/out'
+stylesheets:
+  files:
+    full.css: './full.css'
+    slim.css: './slim.css'
+styleguide:
+  css: []

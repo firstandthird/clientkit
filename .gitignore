@@ -4,5 +4,7 @@ dist/styleguide
 npm-debug.log
 test/clientkit
 test/.dist
+test/out
+.DS_Store
 .vscode
 demo/dist

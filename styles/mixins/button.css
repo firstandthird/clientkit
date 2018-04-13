@@ -1,16 +1,16 @@
-@define-mixin button $background, $color, $border, $borderRadius, $hoverBackground, $hoverColor {
+@define-mixin button $background, $color, $border, $borderWidth, $borderRadius, $hoverBackground, $hoverColor {
   display: inline-block;
   background-color: $background;
   line-height: 1;
   text-align: center;
-  font-family: var(--font-primary);
-  font-size: 14px;
+  font-family: var(--font-button);
+  font-size: var(--font-size-body);
   padding: 12px 14px;
   border-radius: $borderRadius;
-  border: 2px solid $border;
+  border: $borderWidth solid $border;
   vertical-align: middle;
   cursor: pointer;
-  transition: color 250ms var(--easing-out), background-color 250ms var(--easing-out);
+  transition: color .25s var(--easing-out), background-color .25s var(--easing-out);
   color: $color;
 
   &:hover,
@@ -34,6 +34,7 @@
     }
   }
 }
+
 @define-mixin button-size $paddingY, $paddingX, $fontSize, $borderRadius {
   border-radius: $borderRadius;
   padding: $paddingY $paddingX;

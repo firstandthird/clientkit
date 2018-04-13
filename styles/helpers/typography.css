@@ -33,43 +33,49 @@ body {
 .text-justify {
   text-align: justify;
 }
+
 .text-nowrap {
   white-space: nowrap;
 }
+
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+.text-stretched {
+  letter-spacing: var(--stretch-spacing);
+}
+
 .text-lowercase {
   text-transform: lowercase;
 }
+
 .text-uppercase {
   text-transform: uppercase;
 }
+
 .text-capitalize {
   text-transform: capitalize;
 }
 
-.font-weight-light {
+.text-underline {
+  text-decoration: underline;
+}
+
+.font-light {
   font-weight: var(--font-weight-light);
 }
 
-.font-weight-regular {
-  font-weight: var(--font-weight-regular);
+.font-body {
+  font-weight: var(--font-weight-body);
 }
 
-.font-weight-semibold, strong, em {
-  font-weight: var(--font-weight-semibold);
-}
-
-.font-weight-bold {
+.font-bold,
+strong,
+em {
   font-weight: var(--font-weight-bold);
-}
-
-.font-weight-xbold {
-  font-weight: var(--font-weight-xbold);
 }
 
 .font-large {
@@ -96,25 +102,14 @@ body {
   }
 }
 
+.font-article {
+  font-size: var(--font-size-article);
+  line-height: var(--line-height-article);
 
-.heading--light {
-  color: var(--color-heading-light);
+  @media(--mobile-only) {
+    font-size: var(--font-mobile-size-article);
+  }
 }
-.text-color-body {
-  color: var(--color-body);
-}
-.text-color-heading {
-  color: var(--color-heading);
-}
-.text-color-light {
-  color: var(--color-heading-light);
-}
-
-
-.text-stretch {
-  letter-spacing: var(--stretch-spacing);
-}
-
 
 hr {
   width: 100%;
@@ -123,4 +118,8 @@ hr {
   background-color: var(--hr-color);
   margin: 0;
   border: 0;
+}
+
+.svg-icon {
+  fill: currentColor;
 }

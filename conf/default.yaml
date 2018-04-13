@@ -1,3 +1,4 @@
+CKDIR: '{{ENV.TASKKIT_CKDIR}}'
 dist: '{{CWD}}/dist'
 assetPath: '{{CWD}}/assets'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
@@ -13,9 +14,9 @@ tasks:
       - 'svgsprite'
       - 'styleguide'
   dev:
-    - 'clean'
-    - 'styleguide'
+    - 'default'
     - 'watcher'
   prod:
     - 'default'
     - 'hash'
+    - 'styleguide'

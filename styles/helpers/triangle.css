@@ -1,12 +1,15 @@
 .triangle-up {
-@mixin triangle 10px, up;
+  @mixin triangle 10px, up;
 }
+
 .triangle-right {
-@mixin triangle 10px, right;
+  @mixin triangle 10px, right;
 }
+
 .triangle-down {
-@mixin triangle 10px;
+  @mixin triangle 10px;
 }
+
 .triangle-left {
-@mixin triangle 10px, left;
+  @mixin triangle 10px, left;
 }

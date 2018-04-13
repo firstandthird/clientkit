@@ -3,7 +3,8 @@ stylesheets:
     common.css: './common.css'
 watcher:
   files:
-    'clientkit.yaml': 'reloadConfig'
+    'common.css': 'stylesheets'
+    'clientkit.yaml': 'default'
 svgsprite:
   files:
     'sprite.symbol.svg':
