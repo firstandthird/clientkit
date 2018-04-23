@@ -18,11 +18,13 @@ stylesheets:
         large: 16px
         small: 12px
         article: 18px
+        button: '{{stylesheets.vars.font.size.body}}'
       mobile-size:
         body: 14px
         large: 16px
         small: 12px
         article: 18px
+        button: '{{stylesheets.vars.font.size.body}}'
     line-height: 1.1
     line-height-large: 1.5
     line-height-article: 1.6

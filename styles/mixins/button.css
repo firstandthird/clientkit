@@ -4,7 +4,7 @@
   line-height: 1;
   text-align: center;
   font-family: var(--font-button);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-button);
   padding: 12px 14px;
   border-radius: $borderRadius;
   border: $borderWidth solid $border;
@@ -12,6 +12,10 @@
   cursor: pointer;
   transition: color .25s var(--easing-out), background-color .25s var(--easing-out);
   color: $color;
+
+  @media(--mobile-only) {
+    font-size: var(--font-mobile-size-button);
+  }
 
   &:hover,
   &:active,

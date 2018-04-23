@@ -4558,6 +4558,15 @@ hr {
   }
 }
 @media(max-width: 767px) and (min-width: 320px) {
+.button {
+    font-size: 14px;
+}
+.button-secondary {
+    font-size: 14px;
+}
+.button-outline {
+    font-size: 14px;
+}
 .ugc {
     font-size: 18px;
 }
