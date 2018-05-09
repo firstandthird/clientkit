@@ -34,7 +34,7 @@
     "taskkit-analyze": "^1.0.0",
     "taskkit-clean": "^1.1.0",
     "taskkit-eslint": "^1.1.3",
-    "taskkit-hash": "^1.1.0",
+    "taskkit-hash": "^1.2.0",
     "taskkit-rollup": "^2.0.1",
     "taskkit-svg-sprite": "^1.1.2",
     "taskkit-watcher": "^3.0.0"
