@@ -1713,6 +1713,7 @@ th {
   background: #fff;
   -webkit-box-shadow: 0 0 60px 10px rgba(0, 0, 0, .6);
           box-shadow: 0 0 60px 10px rgba(0, 0, 0, .6);
+  position: relative;
 }
 .modal-content .modal-close, .modal-wrapper .modal-close {
     position: absolute;

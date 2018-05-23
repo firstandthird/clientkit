@@ -39,6 +39,7 @@
   overflow-y: auto;
   background: #fff;
   box-shadow: 0 0 60px 10px rgba(0, 0, 0, .6);
+  position: relative;
 
   @media (--tablet) {
     min-width: 75%;
