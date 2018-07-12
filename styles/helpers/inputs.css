@@ -94,4 +94,39 @@
       border-radius: 0 var(--border-radius-default) var(--border-radius-default) 0;
     }
   }
+
+  .form-group {
+    position: relative;
+
+    label {
+      background: var(--color-background-default);
+      left: calc(var(--spacing-xs) - 5px);
+      padding: 5px;
+      position: relative;
+      top: var(--spacing-xs);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="search"],
+    input[type="number"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="time"],
+    textarea {
+      border: var(--border-size) solid var(--color-input-border);
+      box-shadow: none;
+      padding: var(--spacing-xs);
+
+      &:disabled {
+        border: 1px dashed var(--color-input-disabled);
+      }
+    }
+  }
 }
