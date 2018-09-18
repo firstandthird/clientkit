@@ -1403,36 +1403,36 @@ a:hover, .button-link:hover {
       vertical-align: middle;
       border-radius: 0 3px 3px 0;
     }
-.form .form-group {
+.form .floating-label {
     position: relative;
   }
-.form .form-group label {
+.form .floating-label label {
       background: #fff;
       left: 5px;
       padding: 5px;
       position: relative;
       top: 10px;
     }
-.form .form-group input[type="text"],
-    .form .form-group input[type="email"],
-    .form .form-group input[type="password"],
-    .form .form-group input[type="url"],
-    .form .form-group input[type="tel"],
-    .form .form-group input[type="search"],
-    .form .form-group input[type="number"],
-    .form .form-group input[type="date"],
-    .form .form-group input[type="datetime"],
-    .form .form-group input[type="datetime-local"],
-    .form .form-group input[type="month"],
-    .form .form-group input[type="week"],
-    .form .form-group input[type="time"],
-    .form .form-group textarea {
+.form .floating-label input[type="text"],
+    .form .floating-label input[type="email"],
+    .form .floating-label input[type="password"],
+    .form .floating-label input[type="url"],
+    .form .floating-label input[type="tel"],
+    .form .floating-label input[type="search"],
+    .form .floating-label input[type="number"],
+    .form .floating-label input[type="date"],
+    .form .floating-label input[type="datetime"],
+    .form .floating-label input[type="datetime-local"],
+    .form .floating-label input[type="month"],
+    .form .floating-label input[type="week"],
+    .form .floating-label input[type="time"],
+    .form .floating-label textarea {
       border: 1px solid #333;
       -webkit-box-shadow: none;
               box-shadow: none;
       padding: 10px;
     }
-.form .form-group input[type="text"]:disabled, .form .form-group input[type="email"]:disabled, .form .form-group input[type="password"]:disabled, .form .form-group input[type="url"]:disabled, .form .form-group input[type="tel"]:disabled, .form .form-group input[type="search"]:disabled, .form .form-group input[type="number"]:disabled, .form .form-group input[type="date"]:disabled, .form .form-group input[type="datetime"]:disabled, .form .form-group input[type="datetime-local"]:disabled, .form .form-group input[type="month"]:disabled, .form .form-group input[type="week"]:disabled, .form .form-group input[type="time"]:disabled, .form .form-group textarea:disabled {
+.form .floating-label input[type="text"]:disabled, .form .floating-label input[type="email"]:disabled, .form .floating-label input[type="password"]:disabled, .form .floating-label input[type="url"]:disabled, .form .floating-label input[type="tel"]:disabled, .form .floating-label input[type="search"]:disabled, .form .floating-label input[type="number"]:disabled, .form .floating-label input[type="date"]:disabled, .form .floating-label input[type="datetime"]:disabled, .form .floating-label input[type="datetime-local"]:disabled, .form .floating-label input[type="month"]:disabled, .form .floating-label input[type="week"]:disabled, .form .floating-label input[type="time"]:disabled, .form .floating-label textarea:disabled {
         border: 1px dashed #808080;
       }
 table {
