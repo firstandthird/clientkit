@@ -1403,6 +1403,38 @@ a:hover, .button-link:hover {
       vertical-align: middle;
       border-radius: 0 3px 3px 0;
     }
+.form .floating-label {
+    position: relative;
+  }
+.form .floating-label label {
+      background: #fff;
+      left: 5px;
+      padding: 5px;
+      position: relative;
+      top: 10px;
+    }
+.form .floating-label input[type="text"],
+    .form .floating-label input[type="email"],
+    .form .floating-label input[type="password"],
+    .form .floating-label input[type="url"],
+    .form .floating-label input[type="tel"],
+    .form .floating-label input[type="search"],
+    .form .floating-label input[type="number"],
+    .form .floating-label input[type="date"],
+    .form .floating-label input[type="datetime"],
+    .form .floating-label input[type="datetime-local"],
+    .form .floating-label input[type="month"],
+    .form .floating-label input[type="week"],
+    .form .floating-label input[type="time"],
+    .form .floating-label textarea {
+      border: 1px solid #333;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      padding: 10px;
+    }
+.form .floating-label input[type="text"]:disabled, .form .floating-label input[type="email"]:disabled, .form .floating-label input[type="password"]:disabled, .form .floating-label input[type="url"]:disabled, .form .floating-label input[type="tel"]:disabled, .form .floating-label input[type="search"]:disabled, .form .floating-label input[type="number"]:disabled, .form .floating-label input[type="date"]:disabled, .form .floating-label input[type="datetime"]:disabled, .form .floating-label input[type="datetime-local"]:disabled, .form .floating-label input[type="month"]:disabled, .form .floating-label input[type="week"]:disabled, .form .floating-label input[type="time"]:disabled, .form .floating-label textarea:disabled {
+        border: 1px dashed #808080;
+      }
 table {
   border-collapse: collapse;
   border-spacing: 0;
