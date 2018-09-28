@@ -7,5 +7,15 @@ process.env.TASKKIT_PREFIX = 'clientkit';
 process.env.TASKKIT_BASECONFIG = path.join(__dirname, 'conf');
 process.env.TASKKIT_CKDIR = __dirname;
 const task = process.argv[2] || 'default';
-process.on('unhandledRejection', r => console.log(r)); // eslint-disable-line no-console
-main(task);
+
+
+const run = async function() {
+  try {
+    await main(task);
+  } catch (e) {
+    console.log(e);
+    process.exit(1);
+  }
+};
+
+run();
