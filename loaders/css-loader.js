@@ -1,7 +1,6 @@
-const path = require('path');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
-module.exports = config => ({
+module.exports = ({ stylesheets: cssConfig }) => ({
   test: /\.css$/,
   exclude: /node_modules/,
   use: [
@@ -20,14 +19,14 @@ module.exports = config => ({
         ident: 'postcss',
         plugins: [
           require('postcss-import')({
-            path: config.stylesheets.importPaths
+            path: cssConfig.importPaths
           }),
           require('postcss-font-magician')({
             foundries: ['custom', 'hosted', 'google']
           }),
           require('postcss-mixins')({
-            mixins: config.stylesheets.globalMixins,
-            mixinsDir: config.stylesheets.mixinPath
+            // mixins: cssConfig.globalMixins,
+            mixinsDir: cssConfig.mixinPath
           }),
           require('postcss-easings')(),
           require('postcss-inline-svg')(),
@@ -39,14 +38,14 @@ module.exports = config => ({
             warnForDuplicates: false,
             features: {
               customProperties: {
-                variables: config.stylesheets.vars,
+                variables: cssConfig.vars,
                 preserve: 'computed',
                 strict: false
               },
               customMedia: {
-                extensions: config.stylesheets.customMedia
+                extensions: cssConfig.customMedia
               },
-              autoprefixer: config.stylesheets.autoprefixer,
+              autoprefixer: cssConfig.autoprefixer,
               nesting: false
             }
           }),
