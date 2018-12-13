@@ -1,4 +1,4 @@
-FROM node:8.9-alpine
+FROM node:10.14-alpine
 
 ENV NODE_ENV production
 ENV FORCE_COLOR 1

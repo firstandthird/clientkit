@@ -1,8 +1,8 @@
-CKDIR: '{{ENV.TASKKIT_CKDIR}}'
+CKDIR: 'demo'
 dist: '{{CWD}}/dist'
 assetPath: '{{CWD}}/assets'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
-crashOnError: '{{ENV.NODE_ENV === "production"}}'
+failOnError: '{{ENV.NODE_ENV === "production"}}'
 tasks:
   default:
     -

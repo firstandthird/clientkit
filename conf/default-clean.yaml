@@ -1,5 +1,0 @@
-tasks:
-  clean: 'taskkit-clean'
-clean:
-  files:
-    all: '{{dist}}'
