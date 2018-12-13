@@ -14,7 +14,7 @@ module.exports = options => ({
     {
       loader: 'svgo-loader',
       options: {
-        externalConfig: path.resolve(__dirname, 'svgo-config.yml')
+        externalConfig: path.resolve(__dirname, '../svgo-config.yml')
       }
     }
   ]

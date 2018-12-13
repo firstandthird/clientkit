@@ -8,6 +8,6 @@ watcher:
 svgsprite:
   files:
     'sprite.symbol.svg':
-      - 'fixtures/one.svg'
-      - 'fixtures/two.svg'
-      - 'fixtures/three.svg'
+      - './fixtures/one.svg'
+      - './fixtures/two.svg'
+      - './fixtures/three.svg'

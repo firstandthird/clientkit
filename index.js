@@ -10,13 +10,11 @@ process.env.CK_PATH = __dirname;
 const run = async () => {
   try {
     const config = await getConfig();
-    console.log(config);
+
     webpack(config, (err, stats) => {
       if (err || stats.hasErrors()) {
         // Handle errors here
-        console.log(err);
       }
-      console.log('FINISHED');
       // Done processing
     });
   } catch (e) {
