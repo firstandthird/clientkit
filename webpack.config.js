@@ -7,11 +7,11 @@ process.env.CK_BASE_CONFIG = path.join(__dirname, 'conf');
 process.env.CK_CONFIG = path.join(__dirname, 'conf');
 process.env.CK_PATH = __dirname;
 
-const run = async function () {
+const run = async () => {
   try {
     const config = await getConfig();
 
-    webpack([config], (err, stats) => {
+    webpack(config, (err, stats) => {
       if (err || stats.hasErrors()) {
         // Handle errors here
       }

@@ -13,7 +13,6 @@ const run = async function() {
   try {
     await main(task);
   } catch (e) {
-    console.log(e);
     process.exit(1);
   }
 };

@@ -1,8 +1,7 @@
 
 const path = require('path');
 
-module.exports = (ctx) => ({
-  custom: ctx.options,
+module.exports = {
   plugins: {
     'postcss-import': {
       // path: this.options.importPaths
@@ -57,4 +56,4 @@ module.exports = (ctx) => ({
       reduceIdents: false
     } //env === 'production' ? options.cssnano : false
   }
-});
+};

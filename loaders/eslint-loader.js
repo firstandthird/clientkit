@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = (options) => {
+module.exports = options => {
   return {
     test: /\.js$/,
     enforce: 'pre',
@@ -8,7 +8,7 @@ module.exports = (options) => {
     use: {
       loader: 'eslint-loader',
       options: Object.assign({
-        configFile: path.resolve(__dirname, '.eslintrc')
+        // configFile: path.resolve(__dirname, '.eslintrc')
       }, options)
     }
   };
