@@ -1,5 +1,5 @@
 const svgLoader = require('./svg-loader');
-const cssLoader = require('./css-loader');
+const cssLoader = require('./css');
 const eslintLoader = require('./eslint-loader');
 const jsLoader = require('./js-loader');
 
