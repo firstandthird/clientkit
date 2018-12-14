@@ -1,6 +1,6 @@
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
 module.exports = new ExtractCssChunks({
-  filename: '[name]',
-  chunkFilename: '[name]'
+  filename: '[name].css',
+  chunkFilename: '[id].css'
 });

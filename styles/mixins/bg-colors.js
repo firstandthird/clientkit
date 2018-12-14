@@ -10,7 +10,7 @@ module.exports = function (config) {
     colors.forEach(color => {
       if (isBgColor(color)) {
         let selector = '';
-        let value = '';
+        let value = {};
 
         if (isBgTextColor(color)) {
           const bg = `.bg-${color.replace('background-text-', '')}`;
