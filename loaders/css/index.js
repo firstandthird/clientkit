@@ -1,5 +1,7 @@
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const loadMixins = require('./load-mixins');
+const loadVars = require('./load-variables');
+const loadMedia = require('./load-media');
 
 module.exports = config => {
   const cssConfig = config.stylesheets;
@@ -21,6 +23,7 @@ module.exports = config => {
           path: cssConfig.importPaths
         }),
         require('postcss-font-magician')({
+          display: 'swap',
           foundries: ['custom', 'hosted', 'google']
         }),
         require('postcss-mixins')({
@@ -35,12 +38,12 @@ module.exports = config => {
           warnForDuplicates: false,
           features: {
             customProperties: {
-              variables: cssConfig.vars,
+              variables: loadVars(cssConfig),
               preserve: 'computed',
               strict: false
             },
             customMedia: {
-              extensions: cssConfig.customMedia
+              extensions: loadMedia(cssConfig)
             },
             autoprefixer: cssConfig.autoprefixer,
             nesting: false
@@ -61,7 +64,7 @@ module.exports = config => {
     }
   };
 
-  if (config.env === 'production') {
+  if (cssConfig.minify) {
     postCSSLoader.plugins.push(require('cssnano')({
       zindex: false,
       reduceIdents: false
