@@ -1,6 +1,7 @@
 stylesheets:
   files:
     common: './common.css'
+    other: './other.css'
 svgsprite:
   files:
     'sprite.symbol':
