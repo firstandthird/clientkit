@@ -1,6 +1,7 @@
 stylesheets:
   files:
     'common.css': './common.css'
+    'other.css': './other.css'
 scripts:
   files:
     'common.js': './common.js'
