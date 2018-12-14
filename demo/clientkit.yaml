@@ -1,9 +1,12 @@
 stylesheets:
   files:
-    common: './common.css'
+    'common.css': './common.css'
+scripts:
+  files:
+    'common.js': './common.js'
 svgsprite:
   files:
-    'sprite.symbol':
+    'sprite.symbol.svg':
       - './fixtures/one.svg'
       - './fixtures/two.svg'
       - './fixtures/three.svg'

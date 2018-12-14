@@ -7,7 +7,7 @@ module.exports = options => ({
       loader: 'svg-sprite-loader',
       options: {
         extract: true,
-        spriteFilename: '[chunkname].svg'
+        spriteFilename: '[chunkname]'
       }
     },
     'svg-fill-loader',
