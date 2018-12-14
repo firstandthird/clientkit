@@ -37,7 +37,7 @@
     "clientkit-css": "^2.4.0",
     "clientkit-styleguide": "^1.1.1",
     "confi": "^9.8.0",
-    "css-loader": "^2.0.0",
+    "css-loader": "^2.0.1",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.7",
     "eslint-loader": "^2.1.1",
