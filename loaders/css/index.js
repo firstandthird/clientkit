@@ -22,10 +22,6 @@ module.exports = config => {
         require('postcss-import')({
           path: cssConfig.importPaths
         }),
-        require('postcss-font-magician')({
-          display: 'swap',
-          foundries: ['custom', 'hosted', 'google']
-        }),
         require('postcss-mixins')({
           mixins: loadMixins(cssConfig)
         }),
@@ -59,7 +55,11 @@ module.exports = config => {
 
             return bv - av;
           }
-        })
+        }),
+        require('postcss-font-magician')({
+          foundries: ['custom', 'hosted', 'google'],
+          display: 'swap'
+        }),
       ]
     }
   };
