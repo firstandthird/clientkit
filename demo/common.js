@@ -1,3 +1,4 @@
 import test from './scripts';
+import a from './common-a';
 
-test();
+a(test());
