@@ -7,7 +7,7 @@
     "clientkit": "index.js"
   },
   "scripts": {
-    "start": "cd demo && webpack --config ../index.js",
+    "start": "cd demo && node ../index.js",
     "dev": "npm run start",
     "test": "cd test && node ../index.js && cd .. && tap -J -Rmin ./test/*.test.js"
   },
