@@ -10,4 +10,4 @@ const loaders = [
   jsLoader
 ];
 
-module.exports = config => loaders.map(config);
+module.exports = config => loaders.map(loader => loader(config));

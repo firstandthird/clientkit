@@ -1,8 +1,0 @@
-tasks:
-  styleguide: 'clientkit-styleguide'
-
-styleguide:
-  output: '{{dist}}/styleguide.html'
-  mapping: '{{dist}}/assets.json'
-  css:
-    - 'common.css'

@@ -1,9 +1,2 @@
-tasks:
-  eslint: 'taskkit-eslint'
 eslint:
   failOnError: '{{failOnError}}'
-  ignore:
-    - 'node_modules'
-    - '{{dist}}'
-  files:
-     - '{{assetPath}}/**/*.js'

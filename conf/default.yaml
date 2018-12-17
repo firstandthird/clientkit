@@ -3,20 +3,3 @@ dist: '{{CWD}}/dist'
 assetPath: '{{CWD}}/assets'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
 failOnError: '{{ENV.NODE_ENV === "production"}}'
-tasks:
-  default:
-    -
-      - 'clean'
-      - 'eslint'
-    -
-      - 'stylesheets'
-      - 'scripts'
-      - 'svgsprite'
-      - 'styleguide'
-  dev:
-    - 'default'
-    - 'watcher'
-  prod:
-    - 'default'
-    - 'hash'
-    - 'styleguide'
