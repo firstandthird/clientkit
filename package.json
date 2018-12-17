@@ -56,7 +56,6 @@
     "postcss-nested": "^4.1.0",
     "postcss-svgo": "^4.0.1",
     "postcss-triangle": "^2.0.0",
-    "rename-webpack-plugin": "^2.0.0",
     "require-all": "^3.0.0",
     "style-loader": "^0.23.1",
     "svg-fill-loader": "^0.0.8",
