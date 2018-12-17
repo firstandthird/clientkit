@@ -32,6 +32,7 @@ module.exports = config => {
         require('postcss-nested')(),
         require('postcss-cssnext')({
           warnForDuplicates: false,
+          browsers: config.browserlist,
           features: {
             customProperties: {
               variables: loadVars(cssConfig),
@@ -41,7 +42,6 @@ module.exports = config => {
             customMedia: {
               extensions: loadMedia(cssConfig)
             },
-            autoprefixer: cssConfig.autoprefixer,
             nesting: false
           }
         }),

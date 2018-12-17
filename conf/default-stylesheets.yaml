@@ -36,12 +36,6 @@ stylesheets:
       col: sm
       default: '{{stylesheets.mobileFirst}}'
 
-
-  fontParsingWhitelist: 'default.css'
-  autoprefixer:
-    browsers:
-      - 'last 2 versions'
-      - 'iOS 9'
   grid:
     columns: 12
     gutters: '15px'
