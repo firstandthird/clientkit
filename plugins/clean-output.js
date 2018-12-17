@@ -1,8 +1,8 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = config => new CleanWebpackPlugin(
+module.exports = (paths = []) => new CleanWebpackPlugin(
   [
-    config.dist
+    ...paths
   ],
   {
     watch: false,
