@@ -1,21 +1,26 @@
-const path = require('path');
+module.exports = options => {
+  const loadConfig = {
+    test: /\.svg$/,
+    use: [
+      {
+        loader: 'svg-sprite-loader',
+        options: {
+          extract: true,
+          spriteFilename: '[chunkname]'
+        }
+      },
+      'svg-fill-loader'
+    ]
+  };
 
-module.exports = options => ({
-  test: /\.svg$/,
-  use: [
-    {
-      loader: 'svg-sprite-loader',
-      options: {
-        extract: true,
-        spriteFilename: '[chunkname]'
-      }
-    },
-    'svg-fill-loader',
-    {
+  if (options.svgsprite.useSVGO) {
+    loadConfig.use.push({
       loader: 'svgo-loader',
       options: {
-        externalConfig: path.resolve(__dirname, '../svgo-config.yml')
+        plugins: options.svgsprite.svgoConfig
       }
-    }
-  ]
-});
+    });
+  }
+
+  return loadConfig;
+};
