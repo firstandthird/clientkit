@@ -8,6 +8,7 @@ module.exports = config => {
   const cssLoader = {
     loader: 'css-loader',
     options: {
+      url: false,
       sourceMap: true,
       importLoaders: 1,
       localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
