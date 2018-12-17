@@ -65,7 +65,7 @@ module.exports = config => {
   };
 
   if (cssConfig.minify) {
-    postCSSLoader.plugins.push(require('cssnano')({
+    postCSSLoader.options.plugins.push(require('cssnano')({
       zindex: false,
       reduceIdents: false
     }));
