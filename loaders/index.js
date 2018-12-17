@@ -3,9 +3,11 @@ const cssLoader = require('./css');
 const eslintLoader = require('./eslint-loader');
 const jsLoader = require('./js-loader');
 
-module.exports = config => [
-  svgLoader(config),
-  cssLoader(config),
-  eslintLoader(config),
+const loaders = [
+  svgLoader,
+  cssLoader,
+  eslintLoader,
   jsLoader
 ];
+
+module.exports = config => loaders.map(config);

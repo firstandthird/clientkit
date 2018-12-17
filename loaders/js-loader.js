@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = () => ({
   test: /\.m?js$/,
   exclude: /node_modules/,
   use: {
@@ -9,4 +9,4 @@ module.exports = {
       ]
     }
   }
-};
+});
