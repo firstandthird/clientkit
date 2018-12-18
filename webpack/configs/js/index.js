@@ -21,7 +21,7 @@ module.exports = config => {
     plugins: []
   };
 
-  if (paths.isProduction) {
+  if (paths.isProduction || paths.task !== 'dev') {
     jsConfig.plugins.push(assetsManifest(config));
   }
 

@@ -20,7 +20,7 @@ module.exports = config => {
     ]
   };
 
-  if (paths.isProduction) {
+  if (paths.isProduction || paths.task !== 'dev') {
     svgConfig.plugins.push(assetsManifest(config));
   }
 
