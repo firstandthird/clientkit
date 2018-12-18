@@ -2,6 +2,7 @@ const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const loadMixins = require('./load-mixins');
 const loadVars = require('./load-variables');
 const loadMedia = require('./load-media');
+const paths = require('../../../paths');
 
 module.exports = config => {
   const cssConfig = config.stylesheets;
@@ -65,7 +66,7 @@ module.exports = config => {
     }
   };
 
-  if (cssConfig.minify) {
+  if (cssConfig.minify || paths.task !== 'dev') {
     postCSSLoader.options.plugins.push(require('cssnano')({
       zindex: false,
       reduceIdents: false
