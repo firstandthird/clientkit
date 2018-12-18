@@ -25,7 +25,7 @@ const getConfig = async () => {
       }
     },
     optimization: {
-      minimize: config.minify || paths.task !== 'dev',
+      minimize: config.minify || paths.isProduction,
       noEmitOnErrors: true
     },
     target: 'web',

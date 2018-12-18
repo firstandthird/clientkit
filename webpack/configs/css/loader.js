@@ -66,7 +66,7 @@ module.exports = config => {
     }
   };
 
-  if (cssConfig.minify || paths.task !== 'dev') {
+  if (cssConfig.minify || paths.isProduction) {
     postCSSLoader.options.plugins.push(require('cssnano')({
       zindex: false,
       reduceIdents: false

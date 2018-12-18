@@ -21,7 +21,7 @@ module.exports = config => {
     ]
   };
 
-  if (paths.isProduction || paths.task !== 'dev') {
+  if (paths.isProduction) {
     cssConfig.plugins.push(assetsManifest(config));
   }
 
