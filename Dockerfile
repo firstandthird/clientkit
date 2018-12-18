@@ -9,8 +9,9 @@ RUN mkdir -p /ck && mkdir -p /app
 WORKDIR /app
 
 COPY package.json /ck/
-
 RUN cd /ck && npm install --production
 COPY . /ck
 
-CMD [ "node", "/ck/index.js" ]
+RUN ln -s /ck/index.js /usr/local/bin/clientkit
+
+ENTRYPOINT ["clientkit"]
