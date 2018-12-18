@@ -29,7 +29,7 @@ const getConfig = async () => {
       noEmitOnErrors: true
     },
     target: 'web',
-    watch: !paths.isProduction
+    watch: paths.task === 'dev'
   };
 
   const compilers = [];

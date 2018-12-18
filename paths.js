@@ -1,5 +1,6 @@
 const path = require('path');
 
+const task = process.argv[2] || 'default';
 const env = process.env.NODE_ENV || 'production';
 const isProduction = env === 'production';
 const prefix = process.env.CK_PREFIX || 'clientkit';
@@ -14,6 +15,7 @@ process.env.CK_PATH = clientkitPath;
 
 module.exports = {
   env,
+  task,
   isProduction,
   prefix,
   clientkitPath,
