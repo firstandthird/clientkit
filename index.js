@@ -10,9 +10,17 @@ process.env.CK_CONFIG = path.join(__dirname, 'conf');
 process.env.CK_PATH = __dirname;
 
 const run = async function() {
-  try {
-    const config = await getConfig();
+  let config = null;
 
+  try {
+    config = await getConfig();
+  } catch (error) {
+    console.log('There was an error getting the config!');
+    console.log(error);
+    process.exit(1);
+  }
+
+  try {
     webpack(config, (err, stats) => {
       if (err) {
         console.error(err.stack || err);
@@ -34,6 +42,9 @@ const run = async function() {
       }
     });
   } catch (error) {
+    console.log('There was an error running clientkit!');
+    console.log('Config was:');
+    console.log(config);
     console.log(error);
     process.exit(1);
   }
