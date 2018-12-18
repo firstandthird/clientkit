@@ -1,7 +1,8 @@
-const { eslintLoader, jsLoader } = require('../loaders');
-const paths = require('../paths');
-const entryNormalizer = require('./entry-normalizer');
-const { assetsManifest } = require('../plugins');
+const eslintRules = require('./eslint-rules');
+const jsRules = require('./js-rules');
+const paths = require('../../../paths');
+const entryNormalizer = require('../../entry-normalizer');
+const { assetsManifest } = require('../../plugins');
 
 module.exports = config => {
   const jsConfig = {
@@ -9,8 +10,8 @@ module.exports = config => {
     devtool: (paths.isProduction) ? false : 'source-map',
     module: {
       rules: [
-        eslintLoader(config),
-        jsLoader(config)
+        eslintRules(config),
+        jsRules(config)
       ]
     },
     output: {

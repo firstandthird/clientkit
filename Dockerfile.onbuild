@@ -12,9 +12,7 @@ COPY package.json /ck/
 RUN cd /ck && npm install --production
 COPY . /ck
 
-RUN ln -s /ck/index.js /usr/local/bin/clientkit
-
 ONBUILD COPY package.json package-lock.* /app/
 ONBUILD RUN npm install
 
-ENTRYPOINT ["clientkit"]
+CMD [ "node", "/ck/index.js" ]

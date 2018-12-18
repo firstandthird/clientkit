@@ -1,7 +1,7 @@
-const { spriteLoader, fixStyleEntries, assetsManifest } = require('../plugins');
-const { svgLoader } = require('../loaders');
-const entryNormalizer = require('./entry-normalizer');
-const paths = require('../paths');
+const { spriteLoader, fixStyleEntries, assetsManifest } = require('../../plugins');
+const svgLoader = require('./loader');
+const entryNormalizer = require('../../entry-normalizer');
+const paths = require('../../../paths');
 
 module.exports = config => {
   const svgConfig = {

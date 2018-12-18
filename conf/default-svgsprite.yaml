@@ -1,4 +1,5 @@
 svgsprite:
+  dist: '{{dist}}'
   useSVGO: true
   # Config: https://github.com/svg/svgo#what-it-can-do
   svgoConfig:

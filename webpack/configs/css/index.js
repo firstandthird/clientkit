@@ -1,7 +1,7 @@
-const { extractCss, fixStyleEntries, assetsManifest } = require('../plugins');
-const { cssLoader } = require('../loaders');
-const paths = require('../paths');
-const entryNormalizer = require('./entry-normalizer');
+const { extractCss, fixStyleEntries, assetsManifest } = require('../../plugins');
+const loader = require('./loader');
+const paths = require('../../../paths');
+const entryNormalizer = require('../../entry-normalizer');
 
 module.exports = config => {
   const cssConfig = {
@@ -9,7 +9,7 @@ module.exports = config => {
     devtool: paths.isProduction ? false : 'source-map',
     module: {
       rules: [
-        cssLoader(config)
+        loader(config)
       ]
     },
     output: {

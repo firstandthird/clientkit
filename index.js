@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 const path = require('path');
-const getConfig = require('./lib/get-config');
+const getConfig = require('./webpack/get-config');
 const webpack = require('webpack');
 
 process.env.CK_PREFIX = 'clientkit';
