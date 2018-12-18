@@ -1,13 +1,7 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
-const path = require('path');
 const getConfig = require('./webpack/get-config');
 const webpack = require('webpack');
-
-process.env.CK_PREFIX = 'clientkit';
-process.env.CK_BASE_CONFIG = path.join(__dirname, 'conf');
-process.env.CK_CONFIG = path.join(__dirname, 'conf');
-process.env.CK_PATH = __dirname;
 
 const run = async function() {
   let config = null;
