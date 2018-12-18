@@ -41,7 +41,7 @@ const getConfig = async () => {
     }
   };
 
-  if (config.svgsprite) {
+  if (config.svgsprite && config.svgsprite.files) {
     const svgConfig = Object.assign({}, commonConfig, compilerConfigs.svg(config));
     addDistDirectory(config.svgsprite.dist);
     compilers.push(svgConfig);
@@ -50,7 +50,7 @@ const getConfig = async () => {
     console.log('[SVG] Dist folder "%s"', config.svgsprite.dist);
   }
 
-  if (config.scripts) {
+  if (config.scripts && config.scripts.files) {
     const jsConfig = Object.assign({}, commonConfig, compilerConfigs.js(config));
     addDistDirectory(config.scripts.dist);
     compilers.push(jsConfig);
@@ -59,7 +59,7 @@ const getConfig = async () => {
     console.log('[JS] Dist folder "%s"', config.scripts.dist);
   }
 
-  if (config.stylesheets) {
+  if (config.stylesheets && config.stylesheets.files) {
     const cssConfig = Object.assign({}, commonConfig, compilerConfigs.css(config));
     addDistDirectory(config.stylesheets.dist);
     compilers.push(cssConfig);
