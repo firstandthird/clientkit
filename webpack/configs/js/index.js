@@ -22,7 +22,7 @@ module.exports = config => {
   };
 
   if (paths.isProduction) {
-    jsConfig.plugins.push(assetsManifest);
+    jsConfig.plugins.push(assetsManifest(config));
   }
 
   return jsConfig;

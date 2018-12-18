@@ -21,7 +21,7 @@ module.exports = config => {
   };
 
   if (paths.isProduction) {
-    svgConfig.plugins.push(assetsManifest);
+    svgConfig.plugins.push(assetsManifest(config));
   }
 
   return svgConfig;
