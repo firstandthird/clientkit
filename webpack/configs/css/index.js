@@ -7,6 +7,9 @@ module.exports = config => {
   const cssConfig = {
     entry: entryNormalizer(config.stylesheets.files),
     devtool: paths.isProduction ? false : 'source-map',
+    resolve: {
+      extensions: ['.css', '.scss']
+    },
     module: {
       rules: [
         loader(config)

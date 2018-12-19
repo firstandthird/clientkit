@@ -5,6 +5,7 @@ const loadConfi = require('./load-confi');
 const paths = require('../paths');
 const { cleanOutput } = require('./plugins');
 const compilerConfigs = require('./configs');
+const mergeOptions = require('merge-options');
 
 const getConfig = async () => {
   const config = await loadConfi();
@@ -15,18 +16,21 @@ const getConfig = async () => {
       timings: !paths.isProduction
     },
     resolveLoader: {
-      modules: ['/ck/node_modules', 'node_modules'],
+      modules: [
+        path.resolve(__dirname, '../node_modules'),
+        'node_modules'
+      ],
       extensions: ['.js', '.json'],
       mainFields: ['loader', 'main']
     },
     resolve: {
       modules: [
         paths.clientkitPath,
-        path.resolve(__dirname, 'node_modules'),
+        path.resolve(__dirname, '../node_modules'),
         path.resolve(process.cwd(), 'node_modules')
       ],
       alias: {
-        lib: path.resolve(__dirname, 'node_modules')
+        lib: path.resolve(__dirname, '../node_modules')
       }
     },
     optimization: {
@@ -47,7 +51,7 @@ const getConfig = async () => {
   };
 
   if (config.svgsprite && config.svgsprite.files) {
-    const svgConfig = Object.assign({}, commonConfig, compilerConfigs.svg(config));
+    const svgConfig = mergeOptions({}, commonConfig, compilerConfigs.svg(config));
     addDistDirectory(config.svgsprite.dist);
     compilers.push(svgConfig);
 
@@ -56,7 +60,7 @@ const getConfig = async () => {
   }
 
   if (config.scripts && config.scripts.files) {
-    const jsConfig = Object.assign({}, commonConfig, compilerConfigs.js(config));
+    const jsConfig = mergeOptions({}, commonConfig, compilerConfigs.js(config));
     addDistDirectory(config.scripts.dist);
     compilers.push(jsConfig);
 
@@ -65,13 +69,16 @@ const getConfig = async () => {
   }
 
   if (config.stylesheets && config.stylesheets.files) {
-    const cssConfig = Object.assign({}, commonConfig, compilerConfigs.css(config));
+    const cssConfig = mergeOptions({}, commonConfig, compilerConfigs.css(config));
     addDistDirectory(config.stylesheets.dist);
     compilers.push(cssConfig);
 
     console.log('Loading CSS Compiler');
     console.log('[CSS] Dist folder "%s"', config.stylesheets.dist);
   }
+  
+  console.log('Paths config:');
+  console.log(paths);
 
   // Clean dist directories before compiling
   if (compilers.length) {
