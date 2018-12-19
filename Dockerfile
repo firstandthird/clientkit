@@ -12,6 +12,6 @@ COPY package.json /ck/
 RUN cd /ck && npm install --production
 COPY . /ck
 
-RUN ln -s /ck/index.js /usr/local/bin/clientkit
+RUN chmod 777 /ck/index.js && ln -s /ck/index.js /usr/local/bin/clientkit
 
-ENTRYPOINT ["clientkit"]
+ENTRYPOINT ["/usr/local/bin/clientkit"]
