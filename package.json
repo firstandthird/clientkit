@@ -23,9 +23,6 @@
   },
   "homepage": "https://github.com/firstandthird/clientkit#readme",
   "devDependencies": {
-    "eslint": "^5.10.0",
-    "eslint-config-firstandthird": "^4.3.0",
-    "eslint-plugin-import": "^2.14.0",
     "tap": "^11.0.1"
   },
   "dependencies": {
@@ -42,6 +39,9 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.7",
     "eslint-loader": "^2.1.1",
+    "eslint": "^5.10.0",
+    "eslint-config-firstandthird": "^4.3.0",
+    "eslint-plugin-import": "^2.14.0",
     "extract-css-chunks-webpack-plugin": "^3.2.1",
     "file-loader": "^2.0.0",
     "normalize.css": "^8.0.1",

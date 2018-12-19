@@ -14,6 +14,11 @@ const getConfig = async () => {
     stats: {
       timings: !paths.isProduction
     },
+    resolveLoader: {
+      modules: ['/ck/node_modules', 'node_modules'],
+      extensions: ['.js', '.json'],
+      mainFields: ['loader', 'main']
+    },
     resolve: {
       modules: [
         paths.clientkitPath,
