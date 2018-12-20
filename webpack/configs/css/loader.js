@@ -1,4 +1,5 @@
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
+const sortCSSmq = require('sort-css-media-queries');
 const loadMixins = require('./load-mixins');
 const loadVars = require('./load-variables');
 const loadMedia = require('./load-media');
@@ -47,21 +48,13 @@ module.exports = config => {
             nesting: false
           }
         }),
-        require('css-mqpacker')({
-          sort: (a, b) => {
-            const reg = /\((max|min)-width: (\d+)(px|vw)\)/i;
-            const aVal = a.match(reg);
-            const bVal = b.match(reg);
-            const av = aVal ? ~~aVal[2] : 0;
-            const bv = bVal ? ~~bVal[2] : 0;
-
-            return bv - av;
-          }
-        }),
         require('postcss-font-magician')({
           foundries: ['custom', 'hosted', 'google'],
           display: 'swap'
         }),
+        require('css-mqpacker')({
+          sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
+        })
       ]
     }
   };
