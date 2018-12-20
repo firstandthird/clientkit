@@ -16,12 +16,16 @@ module.exports = function (config) {
     }
     const allPositions = {};
     positions.forEach((curPosition, index) => {
-      for (const breakpoint of spacingBreakpoints) {
+      spacingBreakpoints.forEach(breakpoint => {
+        if (typeof config.spacing[breakpoint][size] === 'undefined') {
+          return;
+        }
+
         if (!styles[breakpoint]) {
           styles[breakpoint] = {};
         }
         styles[breakpoint][`${prop}-${curPosition}`] = `${config.spacing[breakpoint][size]}`;
-      }
+      });
     });
     Object.assign(allPositions, breakpointHelper(styles, config));
     return allPositions;
