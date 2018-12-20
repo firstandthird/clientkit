@@ -3057,6 +3057,35 @@ hr {
     min-width: 75%
 }
 }
+@media(max-width: 767px) and (min-width: 320px) {
+.button {
+    font-size: 14px;
+}
+.button-secondary {
+    font-size: 14px;
+}
+.button-outline {
+    font-size: 14px;
+}
+.ugc {
+    font-size: 18px;
+}
+body {
+    font-size: 14px
+}
+.font-large {
+    font-size: 16px
+}
+.font-small {
+    font-size: 12px
+}
+.font-body {
+    font-size: 14px
+}
+.font-article {
+    font-size: 18px
+}
+  }
 @media (max-width: 767px) {
 .container {
     width: 100%;
@@ -3698,35 +3727,6 @@ hr {
     padding-right: 10px
 }
 }
-@media(max-width: 767px) and (min-width: 320px) {
-.button {
-    font-size: 14px;
-}
-.button-secondary {
-    font-size: 14px;
-}
-.button-outline {
-    font-size: 14px;
-}
-.ugc {
-    font-size: 18px;
-}
-body {
-    font-size: 14px
-}
-.font-large {
-    font-size: 16px
-}
-.font-small {
-    font-size: 12px
-}
-.font-body {
-    font-size: 14px
-}
-.font-article {
-    font-size: 18px
-}
-  }
 
 
 /*# sourceMappingURL=slim.css.map*/
