@@ -1,4 +1,0 @@
-tasks:
-  analyze: 'taskkit-analyze'
-analyze:
-  files: '{{dist}}/*.+(js|css)'

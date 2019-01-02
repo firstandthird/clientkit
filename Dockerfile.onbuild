@@ -1,4 +1,4 @@
-FROM node:8.9-alpine
+FROM node:10.14-alpine
 
 ENV NODE_ENV production
 ENV FORCE_COLOR 1
@@ -12,9 +12,9 @@ COPY package.json /ck/
 RUN cd /ck && npm install --production
 COPY . /ck
 
-RUN ln -s /ck/index.js /usr/local/bin/clientkit
+RUN chmod 777 /ck/index.js && ln -s /ck/index.js /usr/local/bin/clientkit
 
 ONBUILD COPY package.json package-lock.* /app/
 ONBUILD RUN npm install
 
-ENTRYPOINT ["clientkit"]
+ENTRYPOINT ["/usr/local/bin/clientkit"]

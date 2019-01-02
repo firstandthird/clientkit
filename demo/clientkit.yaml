@@ -1,13 +1,13 @@
 stylesheets:
   files:
-    common.css: './common.css'
-watcher:
+    'common.css': './common.css'
+    'other.css': './other.css'
+scripts:
   files:
-    'common.css': 'stylesheets'
-    'clientkit.yaml': 'default'
+    'common.js': './common.js'
 svgsprite:
   files:
     'sprite.symbol.svg':
-      - 'fixtures/one.svg'
-      - 'fixtures/two.svg'
-      - 'fixtures/three.svg'
+      - './fixtures/one.svg'
+      - './fixtures/two.svg'
+      - './fixtures/three.svg'
