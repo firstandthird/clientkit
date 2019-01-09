@@ -18,7 +18,8 @@ module.exports = config => {
       path: config.scripts.dist || config.dist,
       filename: paths.isProduction ? '[name].[contenthash].js' : '[name].js'
     },
-    plugins: []
+    plugins: [],
+    mode: paths.isProduction ? 'production' : 'development'
   };
 
   if (paths.isProduction) {
