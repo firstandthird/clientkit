@@ -4,4 +4,4 @@ assetPath: '{{CWD}}/assets'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
 failOnError: '{{ENV.NODE_ENV === "production"}}'
 browserlist:
-  - ">0.25%"
+  - ">1%"
