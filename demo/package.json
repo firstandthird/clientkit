@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "animate.css": "^3.7.0",
-    "domassist": "^1.12.0",
+    "domassist": "^2.0.0",
     "domodule": "^5.2.0"
   }
 }
