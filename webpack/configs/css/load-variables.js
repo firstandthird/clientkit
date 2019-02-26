@@ -14,31 +14,31 @@ module.exports = config => {
 
   if (config.color) {
     Object.keys(config.color).forEach(color => {
-      cssVars[`color-${color}`] = config.color[color];
+      cssVars[`--color-${color}`] = config.color[color];
     });
   }
 
   if (typeof config.spacing === 'object' && config.spacing.default) {
     Object.keys(config.spacing.default).forEach(spacing => {
-      cssVars[`spacing-${spacing}`] = config.spacing.default[spacing];
+      cssVars[`--spacing-${spacing}`] = config.spacing.default[spacing];
     });
   }
 
   if (config.grid) {
     Object.keys(config.grid).forEach(prop => {
-      cssVars[`grid-${prop}`] = config.grid[prop];
+      cssVars[`--grid-${prop}`] = config.grid[prop];
     });
   }
 
   if (config.vars) {
     Object.keys(config.vars).forEach(varName => {
-      addVarObject(varName, config.vars[varName], cssVars);
+      addVarObject(`--${varName}`, config.vars[varName], cssVars);
     });
   }
 
   if (config.breakpoints) {
     Object.keys(config.breakpoints).forEach(breakpoint => {
-      cssVars[`breakpoint-${breakpoint}`] = config.breakpoints[breakpoint]['max-width'];
+      cssVars[`--breakpoint-${breakpoint}`] = config.breakpoints[breakpoint]['max-width'];
     });
   }
 

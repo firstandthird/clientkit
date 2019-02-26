@@ -19,16 +19,16 @@ module.exports = config => {
 
       // Last one should be mobile, so no down
       if (i !== bps.length < 1) {
-        media[`${breakpoint}-down`] = `(max-width: ${breakpointObj.max})`;
+        media[`--${breakpoint}-down`] = `(max-width: ${breakpointObj.max})`;
       }
 
       // First one should be wide desktop so no up
       if (i !== 0) {
-        media[`${breakpoint}-up`] = `(min-width: ${breakpointObj.min})`;
+        media[`--${breakpoint}-up`] = `(min-width: ${breakpointObj.min})`;
       }
 
-      media[breakpoint] = mediaquery;
-      media[`${breakpoint}-only`] = mediaqueryOnly;
+      media[`--${breakpoint}`] = mediaquery;
+      media[`--${breakpoint}-only`] = mediaqueryOnly;
     });
   }
 
