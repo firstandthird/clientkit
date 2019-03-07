@@ -49,7 +49,7 @@ const runWebpack = async function () {
 const run = () => {
   runWebpack();
 
-  if (!paths.isProduction) {
+  if (paths.isDevTask) {
     try {
       const watcher = chokidar.watch('./**/*.yaml', {
         cwd: paths.baseConfig,
