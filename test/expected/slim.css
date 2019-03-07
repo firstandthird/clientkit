@@ -870,42 +870,42 @@ body {
   width: auto;
 }
 .heading-1 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   color: #333;
   line-height: 1.2;
   font-weight: bold;
   font-size: 45px;
 }
 .heading-2 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   color: #333;
   line-height: 1.2;
   font-weight: bold;
   font-size: 30px;
 }
 .heading-3 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   color: #333;
   line-height: 1.2;
   font-weight: bold;
   font-size: 25px;
 }
 .heading-4 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   color: #333;
   line-height: 1.2;
   font-weight: bold;
   font-size: 20px;
 }
 .heading-5 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   color: #333;
   line-height: 1.2;
   font-weight: bold;
   font-size: 16px;
 }
 .heading-6 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   color: #333;
   line-height: 1.2;
   font-weight: bold;
@@ -1260,7 +1260,7 @@ a:hover, .button-link:hover {
   background-color: #336699;
   line-height: 1;
   text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   font-size: 14px;
   padding: 12px 14px;
   border-radius: 3px;
@@ -1293,7 +1293,7 @@ a:hover, .button-link:hover {
   background-color: #ffa500;
   line-height: 1;
   text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   font-size: 14px;
   padding: 12px 14px;
   border-radius: 3px;
@@ -1326,7 +1326,7 @@ a:hover, .button-link:hover {
   background-color: transparent;
   line-height: 1;
   text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   font-size: 14px;
   padding: 12px 14px;
   border-radius: 3px;
@@ -1378,7 +1378,7 @@ a:hover, .button-link:hover {
     padding-left: 5px;
   }
 .form label {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     color: #808080;
     font-size: 14px;
     line-height: 1.5;
@@ -1403,7 +1403,7 @@ a:hover, .button-link:hover {
     border: 0;
     box-shadow: 0 1px 0 0 #333;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #333;
@@ -1454,7 +1454,7 @@ a:hover, .button-link:hover {
       border: 0;
       box-shadow: 0 1px 0 0 #ff0000;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
       font-size: 16px;
       line-height: 1.5;
       color: #333;
@@ -1598,42 +1598,42 @@ a:hover, .button-link:hover {
     margin-bottom: 30px;
   }
 .ugc h1 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     color: #333;
     line-height: 1.2;
     font-weight: bold;
     font-size: 45px;
   }
 .ugc h2 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     color: #333;
     line-height: 1.2;
     font-weight: bold;
     font-size: 30px;
   }
 .ugc h3 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     color: #333;
     line-height: 1.2;
     font-weight: bold;
     font-size: 25px;
   }
 .ugc h4 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     color: #333;
     line-height: 1.2;
     font-weight: bold;
     font-size: 20px;
   }
 .ugc h5 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     color: #333;
     line-height: 1.2;
     font-weight: bold;
     font-size: 16px;
   }
 .ugc h6 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
     color: #333;
     line-height: 1.2;
     font-weight: bold;
@@ -1852,17 +1852,17 @@ a:hover, .button-link:hover {
   left: auto;
 }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.1;
   color: #333;
 }
 .font-primary {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue !important;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif !important;
 }
 .font-secondary {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue !important;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif !important;
 }
 .text-left {
   text-align: left;

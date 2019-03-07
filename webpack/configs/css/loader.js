@@ -32,7 +32,9 @@ module.exports = config => {
         require('postcss-inline-svg')(),
         require('postcss-svgo')(),
         require('postcss-triangle')(),
+        require('postcss-nested')(),
         require('postcss-preset-env')({
+          stage: 0,
           browsers: config.browserlist,
           features: {
             'color-mod-function': { unresolved: 'warn' },
@@ -40,12 +42,12 @@ module.exports = config => {
             'nesting-rules': false
           },
           importFrom: [{
-            'custom-properties': loadVars(cssConfig),
-            'custom-media': loadMedia(cssConfig)
+            customProperties: loadVars(cssConfig),
+            customMedia: loadMedia(cssConfig)
           }],
           preserve: false
         }),
-        require('postcss-nested')(),
+        require('postcss-color-function')(),
         require('postcss-calc')(),
         require('postcss-font-magician')({
           foundries: ['custom', 'hosted', 'google'],
