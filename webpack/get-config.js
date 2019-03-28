@@ -42,17 +42,9 @@ const getConfig = async () => {
   };
 
   const compilers = [];
-  const distFolders = [];
-
-  const addDistDirectory = (directory) => {
-    if (directory && !distFolders.includes(directory)) {
-      distFolders.push(directory);
-    }
-  };
 
   if (config.svgsprite && config.svgsprite.files) {
     const svgConfig = mergeOptions({}, commonConfig, compilerConfigs.svg(config));
-    addDistDirectory(config.svgsprite.dist);
     compilers.push(svgConfig);
 
     console.log('Loading SVGSprite Compiler');
@@ -61,7 +53,6 @@ const getConfig = async () => {
 
   if (config.scripts && config.scripts.files) {
     const jsConfig = mergeOptions({}, commonConfig, compilerConfigs.js(config));
-    addDistDirectory(config.scripts.dist);
     compilers.push(jsConfig);
 
     console.log('Loading JS Compiler');
@@ -70,13 +61,12 @@ const getConfig = async () => {
 
   if (config.stylesheets && config.stylesheets.files) {
     const cssConfig = mergeOptions({}, commonConfig, compilerConfigs.css(config));
-    addDistDirectory(config.stylesheets.dist);
     compilers.push(cssConfig);
 
     console.log('Loading CSS Compiler');
     console.log('[CSS] Dist folder "%s"', config.stylesheets.dist);
   }
-  
+
   console.log('Paths config:');
   console.log(paths);
 
@@ -85,9 +75,9 @@ const getConfig = async () => {
     const firstCompilerPlugins = compilers[0].plugins;
 
     if (firstCompilerPlugins && firstCompilerPlugins.length) {
-      firstCompilerPlugins.unshift(cleanOutput(distFolders));
+      firstCompilerPlugins.unshift(cleanOutput());
     } else {
-      compilers[0].plugins = [cleanOutput(distFolders)];
+      compilers[0].plugins = [cleanOutput()];
     }
   }
 
