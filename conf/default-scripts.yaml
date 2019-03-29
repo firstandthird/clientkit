@@ -1,4 +1,5 @@
 scripts:
+  commonChunk: false
   assetPath: '{{assetPath}}'
   dist: '{{dist}}'
   minify: '{{minify}}'

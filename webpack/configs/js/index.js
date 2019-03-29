@@ -22,6 +22,22 @@ module.exports = config => {
     mode: paths.isProduction ? 'production' : 'development'
   };
 
+  if (config.scripts.commonChunk) {
+    const name = typeof config.scripts.commonChunk === 'string' ? config.scripts.commonChunk : 'commons';
+
+    jsConfig.optimization = {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            name,
+            chunks: 'all',
+            minChunks: 1
+          }
+        }
+      }
+    };
+  }
+
   if (paths.isProduction) {
     jsConfig.plugins.push(assetsManifest(config));
   }

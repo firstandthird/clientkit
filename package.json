@@ -48,7 +48,6 @@
     "postcss": "^7.0.14",
     "postcss-calc": "^7.0.1",
     "postcss-color-function": "^4.0.1",
-    "postcss-custom-properties": "github:postcss/postcss-custom-properties#pull/171/head",
     "postcss-easings": "^2.0.0",
     "postcss-font-magician": "git+https://github.com/Antonio-Laguna/postcss-font-magician.git#6eb7e5fd656f2a00112db1d130c4955a0af2fa2a",
     "postcss-import": "^12.0.1",
