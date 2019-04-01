@@ -13,9 +13,6 @@ const getConfig = async () => {
 
   const commonConfig = {
     mode: paths.env,
-    stats: {
-      timings: !paths.isProduction
-    },
     resolveLoader: {
       modules: [
         path.resolve(__dirname, '../node_modules'),
@@ -70,7 +67,7 @@ const getConfig = async () => {
   }
 
   console.log('Paths config:');
-  console.log(paths);
+  console.table(paths);
 
   // Clean dist directories before compiling
   if (compilers.length) {

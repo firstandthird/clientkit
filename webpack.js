@@ -29,8 +29,20 @@ const runWebpack = async function () {
       }
 
       console.log(stats.toString({
+        timings: !paths.isProduction,
+        builtAt: false,
+        assets: false,
+        cached: false,
+        cachedAssets: false,
+        colors: true,
         chunks: false,
-        colors: true
+        chunkGroups: false,
+        chunkModules: false,
+        chunkOrigins: false,
+        hash: false,
+        modules: false,
+        moduleTrace: false,
+        version: false
       }));
 
       if (err || stats.hasErrors()) {
