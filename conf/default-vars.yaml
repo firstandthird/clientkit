@@ -32,6 +32,18 @@ stylesheets:
     #headings
     heading:
       line-height: 1.2
+      1-line-height: 1.2
+      2-line-height: 1.2
+      3-line-height: 1.2
+      4-line-height: 1.2
+      5-line-height: 1.2
+      6-line-height: 1.2
+      1-mobile-line-height: 1.2
+      2-mobile-line-height: 1.2
+      3-mobile-line-height: 1.2
+      4-mobile-line-height: 1.2
+      5-mobile-line-height: 1.2
+      6-mobile-line-height: 1.2
       font-weight: bold
       1-size: 45px
       1-mobile-size: 30px

@@ -3,8 +3,10 @@ stylesheets:
     'common.css': './common.css'
     'other.css': './other.css'
 scripts:
+  commonChunk: 'common-chunks'
   files:
-    'common.js': './common.js'
+    'entry-1.js': './entry-1.js'
+    'entry-2.js': './entry-2.js'
 svgsprite:
   files:
     'sprite.symbol.svg':

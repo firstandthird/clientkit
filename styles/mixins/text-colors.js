@@ -8,6 +8,8 @@ module.exports = function (config) {
     const getColorObject = color => ({ color: config.color[color] });
     const root = {};
 
+    root['/* postcss-custom-properties: off '] = ' */';
+
     colors.forEach(color => {
       if (isWhitelisted(color)) {
         const colorName = color.replace('text-', '');

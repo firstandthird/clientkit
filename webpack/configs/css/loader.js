@@ -33,21 +33,22 @@ module.exports = config => {
         require('postcss-svgo')(),
         require('postcss-triangle')(),
         require('postcss-nested')(),
-        require('postcss-cssnext')({
-          warnForDuplicates: false,
+        require('postcss-preset-env')({
+          stage: 0,
           browsers: config.browserlist,
           features: {
-            customProperties: {
-              variables: loadVars(cssConfig),
-              preserve: 'computed',
-              strict: false
-            },
-            customMedia: {
-              extensions: loadMedia(cssConfig)
-            },
-            nesting: false
-          }
+            'color-mod-function': { unresolved: 'warn' },
+            'custom-media-queries': true,
+            'nesting-rules': false
+          },
+          importFrom: [{
+            customProperties: loadVars(cssConfig),
+            customMedia: loadMedia(cssConfig)
+          }],
+          preserve: false
         }),
+        require('postcss-color-function')(),
+        require('postcss-calc')(),
         require('postcss-font-magician')({
           foundries: ['custom', 'hosted', 'google'],
           display: 'swap'

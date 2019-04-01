@@ -6,15 +6,13 @@ const paths = require('../paths');
 const { cleanOutput } = require('./plugins');
 const compilerConfigs = require('./configs');
 const mergeOptions = require('merge-options');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const getConfig = async () => {
   const config = await loadConfi();
 
   const commonConfig = {
     mode: paths.env,
-    stats: {
-      timings: !paths.isProduction
-    },
     resolveLoader: {
       modules: [
         path.resolve(__dirname, '../node_modules'),
@@ -35,6 +33,7 @@ const getConfig = async () => {
     },
     optimization: {
       minimize: config.minify || paths.isProduction,
+      minimizer: [new TerserPlugin()],
       noEmitOnErrors: true
     },
     target: 'web',
@@ -68,7 +67,7 @@ const getConfig = async () => {
   }
 
   console.log('Paths config:');
-  console.log(paths);
+  console.table(paths);
 
   // Clean dist directories before compiling
   if (compilers.length) {
