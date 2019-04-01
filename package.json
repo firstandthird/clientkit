@@ -50,6 +50,7 @@
     "postcss-color-function": "^4.0.1",
     "postcss-easings": "^2.0.0",
     "postcss-font-magician": "git+https://github.com/Antonio-Laguna/postcss-font-magician.git#6eb7e5fd656f2a00112db1d130c4955a0af2fa2a",
+    "postcss-custom-properties": "git+https://github.com/Antonio-Laguna/postcss-custom-properties.git#98c94cccabab823e635737be1cb86e94dc126c99",
     "postcss-import": "^12.0.1",
     "postcss-inline-svg": "^3.1.1",
     "postcss-loader": "^3.0.0",

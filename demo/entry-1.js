@@ -4,7 +4,7 @@ import Domodule from 'domodule';
 
 class Button extends Domodule {
   postInit() {
-    // eslint-disable-line no-console
+    // eslint-disable-next-line no-console
     console.log('Initialized');
     this.a = 'b';
   }
