@@ -6,7 +6,7 @@ const { assetsManifest } = require('../../plugins');
 
 module.exports = config => {
   const jsConfig = {
-    entry: entryNormalizer(config.scripts.files),
+    entry: entryNormalizer(config.scripts.files, config.tags),
     devtool: (paths.isProduction) ? false : 'source-map',
     module: {
       rules: [

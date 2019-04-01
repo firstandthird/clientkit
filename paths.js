@@ -1,6 +1,7 @@
 const path = require('path');
 
 const task = process.argv[2] || 'default';
+const tags = process.argv[3] || '';
 const env = process.env.NODE_ENV || (task === 'prod' ? 'production' : 'development');
 const isDevTask = task === 'dev';
 const isProduction = task === 'prod' || env === 'production';
@@ -16,6 +17,7 @@ process.env.CK_PATH = clientkitPath;
 
 module.exports = {
   env,
+  tags,
   task,
   isDevTask,
   isProduction,

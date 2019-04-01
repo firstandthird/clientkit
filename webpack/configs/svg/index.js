@@ -5,7 +5,7 @@ const paths = require('../../../paths');
 
 module.exports = config => {
   const svgConfig = {
-    entry: entryNormalizer(config.svgsprite.files),
+    entry: entryNormalizer(config.svgsprite.files, config.tags),
     module: {
       rules: [
         svgLoader(config)
