@@ -2299,6 +2299,10 @@ hr {
 .display-flex {
   display: flex;
 }
+.display-flex-column {
+  display: flex;
+  flex-direction: column;
+}
 .display-inline-flex {
   display: inline-flex;
 }
