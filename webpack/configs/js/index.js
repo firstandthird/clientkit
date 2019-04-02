@@ -5,8 +5,10 @@ const entryNormalizer = require('../../entry-normalizer');
 const { assetsManifest } = require('../../plugins');
 
 module.exports = config => {
+  const entryFiles = entryNormalizer(config.scripts.files, paths.tags);
+
   const jsConfig = {
-    entry: entryNormalizer(config.scripts.files, paths.tags),
+    entry: entryFiles,
     devtool: (paths.isProduction) ? false : 'source-map',
     module: {
       rules: [
@@ -24,6 +26,7 @@ module.exports = config => {
 
   if (config.scripts.commonChunk) {
     const name = typeof config.scripts.commonChunk === 'string' ? config.scripts.commonChunk : 'commons';
+    const minChunks = Math.ceil(Object.keys(entryFiles).length / 3);
 
     jsConfig.optimization = {
       splitChunks: {
@@ -31,7 +34,7 @@ module.exports = config => {
           commons: {
             name,
             chunks: 'all',
-            minChunks: 1
+            minChunks
           }
         }
       }
