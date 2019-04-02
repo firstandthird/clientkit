@@ -1,6 +1,5 @@
-tasks:
-  scripts: 'taskkit-rollup'
 scripts:
+  commonChunk: false
   assetPath: '{{assetPath}}'
   dist: '{{dist}}'
   minify: '{{minify}}'

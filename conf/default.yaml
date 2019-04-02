@@ -1,22 +1,7 @@
-CKDIR: '{{ENV.TASKKIT_CKDIR}}'
+CKDIR: '{{ENV.CK_PATH}}'
 dist: '{{CWD}}/dist'
 assetPath: '{{CWD}}/assets'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
-crashOnError: '{{ENV.NODE_ENV === "production"}}'
-tasks:
-  default:
-    -
-      - 'clean'
-      - 'eslint'
-    -
-      - 'stylesheets'
-      - 'scripts'
-      - 'svgsprite'
-      - 'styleguide'
-  dev:
-    - 'default'
-    - 'watcher'
-  prod:
-    - 'default'
-    - 'hash'
-    - 'styleguide'
+failOnError: '{{ENV.NODE_ENV === "production"}}'
+browserlist:
+  - ">1%"

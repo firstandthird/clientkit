@@ -1,11 +1,14 @@
 #!/usr/bin/env node
-
-const main = require('taskkit');
+const { fork } = require('child_process');
 const path = require('path');
 
-process.env.TASKKIT_PREFIX = 'clientkit';
-process.env.TASKKIT_BASECONFIG = path.join(__dirname, 'conf');
-process.env.TASKKIT_CKDIR = __dirname;
-const task = process.argv[2] || 'default';
-process.on('unhandledRejection', r => console.log(r)); // eslint-disable-line no-console
-main(task);
+const run = () => {
+  const child = fork(path.resolve(__dirname, 'webpack.js'), [process.argv[2] || '']);
+
+  child.on('message', message => {
+    child.kill();
+    run();
+  });
+};
+
+run();
