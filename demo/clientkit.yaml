@@ -1,15 +1,27 @@
 stylesheets:
   files:
-    'common.css': './common.css'
+    'common.css':
+      source: './common.css'
+      required: true
+      tags:
+        - 'common'
+        - 'basic'
     'other.css': './other.css'
 scripts:
   commonChunk: 'common-chunks'
   files:
     'entry-1.js': './entry-1.js'
-    'entry-2.js': './entry-2.js'
+    'entry-2.js':
+      source: './entry-2.js'
+      tags: 'basic'
 svgsprite:
   files:
     'sprite.symbol.svg':
       - './fixtures/one.svg'
       - './fixtures/two.svg'
       - './fixtures/three.svg'
+    'sprite-slim.symbol.svg':
+      source:
+        - './fixtures/one.svg'
+        - './fixtures/two.svg'
+      tags: 'basic'
