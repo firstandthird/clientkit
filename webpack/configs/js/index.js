@@ -3,6 +3,7 @@ const jsRules = require('./js-rules');
 const paths = require('../../../paths');
 const entryNormalizer = require('../../entry-normalizer');
 const { assetsManifest } = require('../../plugins');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = config => {
   const entryFiles = entryNormalizer(config.scripts.files, paths.tags);
@@ -15,6 +16,11 @@ module.exports = config => {
         eslintRules(config),
         jsRules(config)
       ]
+    },
+    optimization: {
+      minimizer: [new TerserPlugin({
+        parallel: true
+      })]
     },
     output: {
       path: config.scripts.dist || config.dist,

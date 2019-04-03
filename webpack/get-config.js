@@ -6,7 +6,6 @@ const paths = require('../paths');
 const { cleanOutput } = require('./plugins');
 const compilerConfigs = require('./configs');
 const mergeOptions = require('merge-options');
-const TerserPlugin = require('terser-webpack-plugin');
 
 const getConfig = async () => {
   const config = await loadConfi();
@@ -33,7 +32,7 @@ const getConfig = async () => {
     },
     optimization: {
       minimize: config.minify || paths.isProduction,
-      minimizer: [new TerserPlugin()],
+      nodeEnv: paths.env,
       noEmitOnErrors: true
     },
     target: 'web',
