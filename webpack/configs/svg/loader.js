@@ -11,7 +11,7 @@ module.exports = options => {
           spriteFilename: paths.isProduction ? '[chunkname].[hash].svg' : '[chunkname].svg'
         }
       },
-      'svg-fill-loader'
+      'svg-transform-loader'
     ]
   };
 
