@@ -1,12 +1,10 @@
 stylesheets:
-  logColor: 'green'
   importPaths:
     - '{{CKDIR}}/styles'
   mixinPath: '{{CKDIR}}/styles/mixins/*.css'
   globalMixins: '{{CKDIR}}/styles/mixins'
   assetPath: '{{assetPath}}'
   dist: '{{dist}}'
-  minify: '{{minify}}'
 
   mobileFirst: false
 
