@@ -26,7 +26,12 @@ module.exports = config => {
       path: config.scripts.dist || config.dist,
       filename: paths.isProduction ? '[name].[contenthash].js' : '[name].js'
     },
-    plugins: [],
+    plugins: [
+      '@babel/plugin-syntax-dynamic-import',
+      [
+        '@babel/plugin-transform-runtime', { regenerator: true }
+      ]
+    ],
     mode: paths.isProduction ? 'production' : 'development'
   };
 

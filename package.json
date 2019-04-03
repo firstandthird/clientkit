@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "4.0.2",
+  "version": "4.1.4",
   "description": "Client kit for websites",
   "main": "index.js",
   "bin": {
@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.2",
     "async": "^2.6.2",
     "babel-loader": "^8.0.5",
