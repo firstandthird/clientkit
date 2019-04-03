@@ -5,7 +5,7 @@ const entryNormalizer = require('../../entry-normalizer');
 
 module.exports = config => {
   const cssConfig = {
-    entry: entryNormalizer(config.stylesheets.files),
+    entry: entryNormalizer(config.stylesheets.files, paths.tags),
     devtool: paths.isProduction ? false : 'source-map',
     resolve: {
       extensions: ['.css', '.scss']
