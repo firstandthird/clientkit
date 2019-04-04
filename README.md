@@ -16,6 +16,7 @@ A UI framework for building client projects efficiently and effectively.
   - [Scripts](#scripts)
   - [SVGSprite](#Ssvgsprite)
   - [Hash](#hash)
+- [ES2015+ Builds](#es2015+-builds)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Copyright](#copyright)
@@ -56,7 +57,7 @@ List of environment variables used by Clientkit:
 
 | Option           | Type    | Default (if not set)   | Description |
 |------------------|---------|------------------------|-------------|
-| `NODE_ENV`       | String  | `'development'`        | Environment set [in run _MODE_ option](#usage) |
+| `NODE_ENV`       | String  | `'development'`        | Environment set in [run _MODE_ option](#usage) |
 | `CK_PREFIX`      | String  | `'clientkit'`          | Clientkit's directory name |
 | `CK_BASE_CONFIG` | String  | `'./conf'`             | Clientkit's base configuration directory path |
 | `CK_CONFIG`      | String  | `'./{{CK_PREFIX}}'`    | Clientkit's custom configuration directory name |
@@ -88,9 +89,9 @@ List of available options:
 | `mixinPath`    | String  | `'{{CKDIR}}/styles/mixins/*.css'` | Path to Clientkit's mixins files |
 | `globalMixins` | String  | `{{CKDIR}}/styles/mixins` | Clientkit global mixins directory |
 | `mobileFirst`  | Boolean | `false`   | Indicates whether assets are mobile first or not (changes CSS breakpoints) |
-| `files`        | Object  | [Sample config](./demo/clientkit.yaml#10)       | List of CSS files to generate |
-| `color`        | Object  | [Default colors](./demo/clientkit.yaml#10)      | Object of CSS colors to include |
-| `vars`         | Object  | [Default variables](./conf/default-vars.yaml#2) | Object of CSS variables to include |
+| `files`        | Object  | [Sample config](./demo/clientkit.yaml#L2)       | List of CSS files to generate |
+| `color`        | Object  | [Default colors](./conf/default-colors.yaml)      | Object of CSS colors to include |
+| `vars`         | Object  | [Default variables](./conf/default-vars.yaml) | Object of CSS variables to include |
 
 > Both `color` and `vars` default values can be extended using your own configuration file. Use different key names to avoid name clashing.
 
@@ -105,7 +106,7 @@ List of available options:
 | `dist`        | String  | [Default value](#default-common-configuration)   | Target directory for JavaScript output files |
 | `assetPath`   | String  | [Default value](#default-common-configuration)   | Path to public assets directory (used to resolve path of external resources) |
 | `commonChunk` | Boolean | `true` if production, `false` otherwise          | Enable/disable chunk splitting [(more info)](https://webpack.js.org/plugins/split-chunks-plugin/) |
-| `files`       | Object  | [Sample config](./demo/clientkit.yaml#10)        | List of JavaScript files to generate |
+| `files`       | Object  | [Sample config](./demo/clientkit.yaml#L7)        | List of JavaScript files to generate |
 
 ### SVGSprite
 
@@ -117,8 +118,8 @@ List of available options:
 |-------------------|---------|--------------------------------------------------|-------------|
 | `dist`            | String  | [Default value](#default-common-configuration)   | Target directory for SVG output files |
 | `useSVGO`         | Boolean | `true`                                           | Whether to use SVGO or not to generate the sprite |
-| `svgoConfig`      | Object  | [Sample config](./conf/default-svgsprite.yaml#5) | SVGO configuration object, ([available options](https://github.com/svg/svgo#what-it-can-do)) |
-| `files`           | Object  | [Sample config](./demo/clientkit.yaml#10)        | List of SVG files to merge into one single sprite |
+| `svgoConfig`      | Object  | [Sample config](./conf/default-svgsprite.yaml#L5) | SVGO configuration object, ([available options](https://github.com/svg/svgo#what-it-can-do)) |
+| `files`           | Object  | [Sample config](./demo/clientkit.yaml#L11)        | List of SVG files to merge into one single sprite |
 
 ### Hash
 
@@ -130,6 +131,10 @@ List of available options:
 |-----------------|--------|------------------------------------------------|-------------------------------------------|
 | `dist`          | String | [Default value](#default-common-configuration) | Target directory for hashed output files  |
 | `mappingFile`   | String | `'assets.json'`                                | File name of the manifest file            |
+
+## ES2015+ Builds
+
+
 
 ## Bugs and feature requests
 
