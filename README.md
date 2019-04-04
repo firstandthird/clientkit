@@ -2,11 +2,12 @@
 
 [![Build Status](https://travis-ci.org/firstandthird/clientkit.svg?branch=master)](https://travis-ci.org/firstandthird/clientkit)
 
-A UI framework for building client projects efficiently and effectively.
+An opinionated UI framework for building client projects efficiently and effectively. Clientkit is a wrapper around Webpack 4 trying to ease the pain of configuring and leveraging YAMLs to provide as less configuration as possible.
+
+It's using Webpack in multi-configuration mode for the 3 different assets that are being handled.
 
 ## Table of Contents
 
-- [Requirements](#requirements)
 - [Configuration](#configuration)
   - [Specific environment configuration](#specific-environment-configuration)
   - [Usage](#usage)
@@ -21,18 +22,13 @@ A UI framework for building client projects efficiently and effectively.
 - [Contributing](#contributing)
 - [Copyright](#copyright)
 
-## Requirements
-
-When working on clientkit make sure you have the following tools installed:
-
-   - For your editor: [eslint](http://eslint.org/), [stylelint](https://stylelint.io/), [editorconfig](http://editorconfig.org/)
-   - [Nodenv](http://ekalinin.github.io/nodeenv/) or similar (should match the version in .node-version)
-
-Project has been setup to be run and debug from inside VS Code, but can be run on other editors as well.
-
 ## Configuration
 
-Clientkit uses YAML files to setup its configuration. By default, Clientkit will look for configuration files in the `conf` directory (this location can be overriten setting the desired path on the env var: `CK_PREFIX`, please see the full list of [Clientkit environment variables](#environment-variables)). The configuration can be splitted into different and independent YAML files which will be merged later into one single configuration object, which means you should be careful as same name variables can be overriten.
+Clientkit uses YAML files to setup its configuration. By default, Clientkit will look for configuration files in the `conf` directory (this location can be overridden setting the desired path on the env var: `CK_PREFIX`, please see the full list of [Clientkit environment variables](#environment-variables)). 
+
+The configuration can be splitted into different and independent YAML files which will be merged later into one single configuration object, which means you should be careful as same name variables can be overridden.
+
+See [confi](https://github.com/firstandthird/confi) for more information on the YAML configuration.
 
 ### Specific environment configuration
 
@@ -47,7 +43,7 @@ npm run start # Available options: start|dev|build|test
 | Mode    | Description                                              |
 |---------|----------------------------------------------------------|
 | `start` | **Default**. Generate bundle using default configuration |
-| `dev`   | Run Clientkit for development (reloads on file change)   |
+| `dev`   | Run Clientkit for development (reloads on config  change)|
 | `build` | Generate bundle for production                           |
 | `test`  | Run Clientkit tests                                      |
 
@@ -57,7 +53,7 @@ List of environment variables used by Clientkit:
 
 | Option           | Type    | Default (if not set)   | Description |
 |------------------|---------|------------------------|-------------|
-| `NODE_ENV`       | String  | `'development'`        | Environment set in [run _MODE_ option](#usage) |
+| `NODE_ENV`       | String  | `'development'`        | Environment set in [run _MODE_ option](#usage). This affects Webpack's [mode](https://webpack.js.org/configuration/mode/) |
 | `CK_PREFIX`      | String  | `'clientkit'`          | Clientkit's directory name |
 | `CK_BASE_CONFIG` | String  | `'./conf'`             | Clientkit's base configuration directory path |
 | `CK_CONFIG`      | String  | `'./{{CK_PREFIX}}'`    | Clientkit's custom configuration directory name |
@@ -95,6 +91,18 @@ List of available options:
 
 > Both `color` and `vars` default values can be extended using your own configuration file. Use different key names to avoid name clashing.
 
+#### Color naming conventions
+
+To ease development process, some names create classes automatically that can be used.
+
+  * `background-[NAME]`: This will create a `bg-[NAME]` class which will apply the color as a background. So, `background-dark: #000` will create a `.bg-dark` class which will add a black background.
+  * `text-color-[NAME]`: This will create a `color-[NAME]` class which will apply the color as a text-color. So, `text-color-danger: #f00` will create a `.color-danger` class which will add change text to red.
+  * `background-text-[NAME]`: This will change text's color under a given background. So, having `background-text-dark: #fff` would mean that text inside of a `.bg-dark` class would be white.
+  
+#### Other configurations
+
+Clientkit does a lot on the CSS side and provides a lot of classes and utilities to help you quickly scaffold any project. We plan on adding more docs around this. There are a lot of assumptions made in terms of fonts, sizes, spacing, etc which can be seen here: [conf/default-vars.yaml](conf/default-vars.yaml).
+
 ### Scripts
 
 Clientkit supports ES6 features by default, which are transpiled using Babel to make the code backwards-compatible with different browsers and versions. Targeted browsers can be configured using the [browserlist](https://github.com/browserslist/browserslist) property [described above](#default-common-configuration).
@@ -131,10 +139,6 @@ List of available options:
 |-----------------|--------|------------------------------------------------|-------------------------------------------|
 | `dist`          | String | [Default value](#default-common-configuration) | Target directory for hashed output files  |
 | `mappingFile`   | String | `'assets.json'`                                | File name of the manifest file            |
-
-## ES2015+ Builds
-
-
 
 ## Bugs and feature requests
 
