@@ -8,23 +8,31 @@ It's using Webpack in multi-configuration mode for the 3 different assets that a
 
 ## Table of Contents
 
+- [Usage](#usage)
 - [Configuration](#configuration)
   - [Specific environment configuration](#specific-environment-configuration)
-  - [Usage](#usage)
+  - [Run options](#run-options)
   - [Environment variables](#environment-variables)
   - [Default common configuration](#default-common-configuration)
   - [Stylesheets](#stylesheets)
   - [Scripts](#scripts)
   - [SVGSprite](#Ssvgsprite)
   - [Hash](#hash)
-- [ES2015+ Builds](#es2015+-builds)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Copyright](#copyright)
 
+## Usage
+
+```sh
+npm run start
+```
+
+Full list of [run options](#run-options).
+
 ## Configuration
 
-Clientkit uses YAML files to setup its configuration. By default, Clientkit will look for configuration files in the `conf` directory (this location can be overridden setting the desired path on the env var: `CK_PREFIX`, please see the full list of [Clientkit environment variables](#environment-variables)). 
+Clientkit uses YAML files to setup its configuration. By default, Clientkit will look for configuration files in the `conf` directory (this location can be overridden setting the desired path on the env var: `CK_PREFIX`, please see the full list of [Clientkit environment variables](#environment-variables)).
 
 The configuration can be splitted into different and independent YAML files which will be merged later into one single configuration object, which means you should be careful as same name variables can be overridden.
 
@@ -34,11 +42,17 @@ See [confi](https://github.com/firstandthird/confi) for more information on the 
 
 Clientkit allow having different options depending on the environment (dev, stage, production or custom).
 
-### Usage
+### Run Options
+
+#### Mode
+
+Optimize build for multiple environments.
 
 ```sh
-npm run start # Available options: start|dev|build|test
+npm run MODE
 ```
+
+List of available run modes:
 
 | Mode    | Description                                              |
 |---------|----------------------------------------------------------|
@@ -53,7 +67,7 @@ List of environment variables used by Clientkit:
 
 | Option           | Type    | Default (if not set)   | Description |
 |------------------|---------|------------------------|-------------|
-| `NODE_ENV`       | String  | `'development'`        | Environment set in [run _MODE_ option](#usage). This affects Webpack's [mode](https://webpack.js.org/configuration/mode/) |
+| `NODE_ENV`       | String  | `'development'`        | Environment set in [run _MODE_ option](#mode). This affects Webpack's [mode](https://webpack.js.org/configuration/mode/) |
 | `CK_PREFIX`      | String  | `'clientkit'`          | Clientkit's directory name |
 | `CK_BASE_CONFIG` | String  | `'./conf'`             | Clientkit's base configuration directory path |
 | `CK_CONFIG`      | String  | `'./{{CK_PREFIX}}'`    | Clientkit's custom configuration directory name |
@@ -98,7 +112,7 @@ To ease development process, some names create classes automatically that can be
   * `background-[NAME]`: This will create a `bg-[NAME]` class which will apply the color as a background. So, `background-dark: #000` will create a `.bg-dark` class which will add a black background.
   * `text-color-[NAME]`: This will create a `color-[NAME]` class which will apply the color as a text-color. So, `text-color-danger: #f00` will create a `.color-danger` class which will add change text to red.
   * `background-text-[NAME]`: This will change text's color under a given background. So, having `background-text-dark: #fff` would mean that text inside of a `.bg-dark` class would be white.
-  
+
 #### Other configurations
 
 Clientkit does a lot on the CSS side and provides a lot of classes and utilities to help you quickly scaffold any project. We plan on adding more docs around this. There are a lot of assumptions made in terms of fonts, sizes, spacing, etc which can be seen here: [conf/default-vars.yaml](conf/default-vars.yaml).
