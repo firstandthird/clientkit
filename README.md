@@ -10,7 +10,6 @@ It's using Webpack in multi-configuration mode for the 3 different assets that a
 
 - [Usage](#usage)
 - [Configuration](#configuration)
-  - [Specific environment configuration](#specific-environment-configuration)
   - [Run options](#run-options)
   - [Environment variables](#environment-variables)
   - [Default common configuration](#default-common-configuration)
@@ -37,10 +36,6 @@ Clientkit uses YAML files to setup its configuration. By default, Clientkit will
 The configuration can be splitted into different and independent YAML files which will be merged later into one single configuration object, which means you should be careful as same name variables can be overridden.
 
 See [confi](https://github.com/firstandthird/confi) for more information on the YAML configuration.
-
-### Specific environment configuration
-
-Clientkit allow having different options depending on the environment (dev, stage, production or custom).
 
 ### Run Options
 
