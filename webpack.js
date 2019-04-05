@@ -4,6 +4,7 @@ const getConfig = require('./webpack/get-config');
 const chokidar = require('chokidar');
 const webpack = require('webpack');
 const paths = require('./paths');
+const path = require('path');
 
 const runWebpack = async function () {
   let config = null;
@@ -63,7 +64,12 @@ const run = () => {
 
   if (paths.isDevTask) {
     try {
-      const watcher = chokidar.watch('./**/*.yaml', {
+      const configPaths = [
+        path.join(paths.baseConfig, '/**/*.yaml'),
+        path.join(paths.primaryConfig, '/**/*.yaml')
+      ];
+
+      const watcher = chokidar.watch(configPaths, {
         cwd: paths.baseConfig,
         ignoreInitial: true,
         interval: 300,
@@ -75,7 +81,7 @@ const run = () => {
       watcher.on('all', event => {
         if (events.includes(event)) {
           if (process.send) {
-            process.send('Child process finished');
+            process.send('Config file change');
           }
         }
       });
