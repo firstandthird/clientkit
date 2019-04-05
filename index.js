@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 const { fork } = require('child_process');
 const path = require('path');
 
@@ -9,6 +10,7 @@ const run = () => {
 
   child.on('message', message => {
     child.kill();
+    console.log('Reloading config');
     run();
   });
 };
