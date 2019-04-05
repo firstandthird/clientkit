@@ -26,12 +26,7 @@ module.exports = config => {
       path: config.scripts.dist || config.dist,
       filename: paths.isProduction ? '[name].[contenthash].js' : '[name].js'
     },
-    plugins: [
-      '@babel/plugin-syntax-dynamic-import',
-      [
-        '@babel/plugin-transform-runtime', { regenerator: true }
-      ]
-    ],
+    plugins: [],
     mode: paths.isProduction ? 'production' : 'development'
   };
 
@@ -39,14 +34,12 @@ module.exports = config => {
     const name = typeof config.scripts.commonChunk === 'string' ? config.scripts.commonChunk : 'commons';
     const minChunks = Math.ceil(Object.keys(entryFiles).length / 3);
 
-    jsConfig.optimization = {
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            name,
-            chunks: 'all',
-            minChunks
-          }
+    jsConfig.optimization.splitChunks = {
+      cacheGroups: {
+        commons: {
+          name,
+          chunks: 'all',
+          minChunks
         }
       }
     };

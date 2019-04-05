@@ -17,6 +17,12 @@ module.exports = config => ({
           }
         ]
       ],
+      plugins: [
+        '@babel/plugin-syntax-dynamic-import',
+        [
+          '@babel/plugin-transform-runtime', { regenerator: true }
+        ]
+      ],
       cacheDirectory: true,
       cacheCompression: config.minify,
       compact: config.minify
