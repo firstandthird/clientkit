@@ -26,7 +26,8 @@ module.exports = config => {
           path: cssConfig.importPaths
         }),
         require('postcss-mixins')({
-          mixins: loadMixins(cssConfig)
+          mixins: loadMixins(cssConfig),
+          mixinsFiles: cssConfig.mixinPath
         }),
         require('postcss-easings')(),
         require('postcss-inline-svg')(),
