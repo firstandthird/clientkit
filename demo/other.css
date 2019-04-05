@@ -1,1 +1,11 @@
 @import 'node_modules/animate.css';
+
+.triangle-lg {
+  @mixin triangle 20px;
+  margin-left: 20px;
+
+  @media (min-width: 768px) {
+    @mixin triangle 40px;
+    margin-left: 40px;
+  }
+}
