@@ -34,14 +34,12 @@ module.exports = config => {
     const name = typeof config.scripts.commonChunk === 'string' ? config.scripts.commonChunk : 'commons';
     const minChunks = Math.ceil(Object.keys(entryFiles).length / 3);
 
-    jsConfig.optimization = {
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            name,
-            chunks: 'all',
-            minChunks
-          }
+    jsConfig.optimization.splitChunks = {
+      cacheGroups: {
+        commons: {
+          name,
+          chunks: 'all',
+          minChunks
         }
       }
     };
