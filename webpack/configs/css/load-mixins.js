@@ -10,8 +10,9 @@ module.exports = config => {
         dirname: path.join(config.globalMixins),
         resolve: m => m(config)
       });
-    } catch (e) {
-      this.log(e);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
     }
   }
 
