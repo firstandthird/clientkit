@@ -19,12 +19,12 @@ module.exports = config => {
       path: config.stylesheets.dist || config.dist
     },
     plugins: [
-      extractCss,
+      extractCss(config),
       fixStyleEntries
     ]
   };
 
-  if (paths.isProduction) {
+  if (paths.isProduction && !config.hash.disabled) {
     cssConfig.plugins.push(assetsManifest(config));
   }
 

@@ -1,4 +1,4 @@
-const paths = require('../../../paths');
+const fileNameGetter = require('../../file-name-getter');
 
 module.exports = options => {
   const loadConfig = {
@@ -8,7 +8,7 @@ module.exports = options => {
         loader: 'svg-sprite-loader',
         options: {
           extract: true,
-          spriteFilename: paths.isProduction ? '[chunkname].[hash].svg' : '[chunkname].svg'
+          spriteFilename: fileNameGetter(options, '[chunkname].svg', '[chunkname].[hash].svg')
         }
       },
       'svg-transform-loader'

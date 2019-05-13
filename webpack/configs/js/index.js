@@ -2,6 +2,7 @@ const eslintRules = require('./eslint-rules');
 const jsRules = require('./js-rules');
 const paths = require('../../../paths');
 const entryNormalizer = require('../../entry-normalizer');
+const fileNameGetter = require('../../file-name-getter');
 const { assetsManifest } = require('../../plugins');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -24,7 +25,7 @@ module.exports = config => {
     },
     output: {
       path: config.scripts.dist || config.dist,
-      filename: paths.isProduction ? '[name].[contenthash].js' : '[name].js'
+      filename: fileNameGetter(config, '[name].js', '[name].[contenthash].js')
     },
     plugins: [],
     mode: paths.isProduction ? 'production' : 'development'
@@ -45,7 +46,7 @@ module.exports = config => {
     };
   }
 
-  if (paths.isProduction) {
+  if (paths.isProduction && !config.hash.disabled) {
     jsConfig.plugins.push(assetsManifest(config));
   }
 
