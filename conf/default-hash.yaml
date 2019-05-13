@@ -1,4 +1,4 @@
 hash:
-  disabled: true
+  disabled: false
   dist: '{{dist}}'
   mappingFile: 'assets.json'
