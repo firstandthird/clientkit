@@ -20,7 +20,7 @@ module.exports = config => {
     ]
   };
 
-  if (paths.isProduction) {
+  if (paths.isProduction && !config.hash.disabled) {
     svgConfig.plugins.push(assetsManifest(config));
   }
 

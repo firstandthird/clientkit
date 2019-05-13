@@ -1,7 +1,7 @@
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
-const paths = require('../../paths');
+const fileNameGetter = require('../file-name-getter');
 
-module.exports = new ExtractCssChunks({
-  filename: paths.isProduction ? '[name].[contenthash].css' : '[name].css',
+module.exports = (options = {}) => new ExtractCssChunks({
+  filename: fileNameGetter(options, '[name].css', '[name].[contenthash].css'),
   chunkFilename: '[id]'
 });
