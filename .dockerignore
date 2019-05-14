@@ -4,3 +4,4 @@ examples
 docs
 demo
 dist
+.nyc_output

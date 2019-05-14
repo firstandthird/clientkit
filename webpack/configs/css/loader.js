@@ -54,8 +54,10 @@ module.exports = config => {
           foundries: ['custom', 'hosted', 'google'],
           display: 'swap'
         }),
-        require('css-mqpacker')({
-          sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
+        require('postcss-extract-media-query')({
+          output: {
+            path: null
+          }
         })
       ]
     }

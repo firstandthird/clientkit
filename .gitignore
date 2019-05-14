@@ -8,3 +8,4 @@ test/out
 .DS_Store
 .vscode
 demo/dist
+.nyc_output
