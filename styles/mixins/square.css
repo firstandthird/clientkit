@@ -1,0 +1,4 @@
+@define-mixin square $width {
+  width: $width;
+  height: $width;
+}

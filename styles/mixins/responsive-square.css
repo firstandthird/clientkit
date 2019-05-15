@@ -1,0 +1,9 @@
+@define-mixin responsive-square $width {
+  width: $width;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+}

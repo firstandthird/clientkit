@@ -1,0 +1,4 @@
+@define-mixin circle $width {
+  @mixin $width;
+  border-radius: 50%;
+}
