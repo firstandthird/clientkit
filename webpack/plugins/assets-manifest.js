@@ -1,24 +1,21 @@
 const path = require('path');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 
+const data = Object.create(null);
+
 module.exports = (options = {}) => {
   const distFolder = options.dist || options.hash.dist;
   const defaultMappingFile = (options.hash && options.hash.mappingFile) ? options.hash.mappingFile : 'assets.json';
+  const output = path.resolve(distFolder, defaultMappingFile);
 
   return new WebpackAssetsManifest({
-    output: path.resolve(distFolder, defaultMappingFile),
-    merge: true,
-    // Since the SVG is virtual, it is not based on any entry, hence the hash is
-    // present in both ends
-    transform(manifest) {
-      const transformed = {};
-
-      Object.keys(manifest).forEach(key => {
-        const newKey = key.replace(/.[a-f0-9]{32}./gi, '.');
-        transformed[newKey] = manifest[key];
-      });
-
-      return transformed;
+    output,
+    assets: data,
+    merge: 'customize',
+    customize(entry) {
+      if (entry.key.includes('.svg')) {
+        entry.key = entry.key.replace(/.[a-f0-9]{32}./gi, '.');
+      }
     }
   });
 };
