@@ -26,25 +26,25 @@ module.exports = config => {
       // Due to https://github.com/kisenka/svg-sprite-loader/issues/320
       {
         apply: (compiler) => {
-          const files = {};
-          let assets = null;
-
-          if (enableHashing) {
-            const contents = fs.readFileSync(`${dist}/assets.json`, 'utf8');
-            assets = JSON.parse(contents);
-          }
-
-          Object.keys(entry).forEach(file => {
-            const fileName = `${file}.svg`;
-
-            if (assets !== null) {
-              files[assets[fileName]] = entry[file];
-            } else {
-              files[fileName] = entry[file];
-            }
-          });
-
           compiler.hooks.afterEmit.tapAsync('SVGSpriteTask', (c, done) => {
+            const files = {};
+            let assets = null;
+
+            if (enableHashing) {
+              const contents = fs.readFileSync(`${dist}/assets.json`, 'utf8');
+              assets = JSON.parse(contents);
+            }
+
+            Object.keys(entry).forEach(file => {
+              const fileName = `${file}.svg`;
+
+              if (assets !== null) {
+                files[assets[fileName]] = entry[file];
+              } else {
+                files[fileName] = entry[file];
+              }
+            });
+
             const task = new SVGSpriteTask('sprite', {
               dist,
               disableSVGO: !config.svgsprite.useSVGO,
