@@ -4,3 +4,11 @@ docs
 dist
 demo
 .nyc_output
+.idea
+.github
+test/
+.dockerignore
+.editorconfig
+.travis.yml
+Dockerfile*
+.DS_Store
