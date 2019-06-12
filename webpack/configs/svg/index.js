@@ -8,7 +8,7 @@ const fs = require('fs');
 module.exports = config => {
   const entry = entryNormalizer(config.svgsprite.files, paths.tags);
   const dist = config.svgsprite.dist || config.dist;
-  const enableHashing = paths.isProduction && !config.hash.disabled;
+  const enableHashing = !config.hash.disabled;
 
   const svgConfig = {
     entry,

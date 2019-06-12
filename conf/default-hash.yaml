@@ -1,4 +1,4 @@
 hash:
-  disabled: false
+  disabled: '{{ ENV.NODE_ENV !== "production"}}'
   dist: '{{dist}}'
   mappingFile: 'assets.json'

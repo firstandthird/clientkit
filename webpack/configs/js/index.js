@@ -46,7 +46,7 @@ module.exports = config => {
     };
   }
 
-  if (paths.isProduction && !config.hash.disabled) {
+  if (!config.hash.disabled) {
     jsConfig.plugins.push(assetsManifest(config));
   }
 
