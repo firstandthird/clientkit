@@ -35,7 +35,9 @@ module.exports = config => {
         require('postcss-nested')(),
         require('postcss-preset-env')({
           stage: 0,
-          browsers: config.browserlist,
+          autoprefixer: {
+            overrideBrowserslist: config.browserlist
+          },
           features: {
             'color-mod-function': { unresolved: 'warn' },
             'custom-media-queries': true,
