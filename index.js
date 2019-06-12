@@ -13,6 +13,12 @@ const run = () => {
     console.log('Reloading config');
     run();
   });
+
+  child.on('exit', code => {
+    if (code) {
+      process.exit(code);
+    }
+  });
 };
 
 run();
