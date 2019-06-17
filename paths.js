@@ -14,6 +14,7 @@ process.env.CK_PREFIX = prefix;
 process.env.CK_BASE_CONFIG = baseConfig;
 process.env.CK_CONFIG = primaryConfig;
 process.env.CK_PATH = clientkitPath;
+process.env.NODE_ENV = env;
 
 module.exports = {
   env,

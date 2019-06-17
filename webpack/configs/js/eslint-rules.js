@@ -5,6 +5,7 @@ module.exports = options => ({
   use: {
     loader: 'eslint-loader',
     options: {
+      emitWarning: !options.failOnError,
       failOnWarning: options.failOnError,
       failOnError: options.failOnError
     }
