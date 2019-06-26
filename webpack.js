@@ -5,9 +5,20 @@ const chokidar = require('chokidar');
 const webpack = require('webpack');
 const paths = require('./paths');
 const path = require('path');
+const Styleguide = require('clientkit-styleguide');
+
+const runStyleguide = function(config) {
+  if (!config.styleguide.disabled) {
+    const styleguide = new Styleguide('clientkit-styleguide', config.styleguide);
+    styleguide.kit = {
+      config
+    };
+    styleguide.execute(() => {});
+  }
+};
 
 const runWebpack = async function () {
-  let config = null;
+  let config = {};
 
   try {
     config = await getConfig();
@@ -18,7 +29,7 @@ const runWebpack = async function () {
   }
 
   try {
-    webpack(config, (err, stats) => {
+    webpack(config.compilers, (err, stats) => {
       if (err) {
         console.error(err.stack || err);
 
@@ -26,8 +37,12 @@ const runWebpack = async function () {
           console.error(err.details);
         }
 
-        process.exit(1);
+        if (config.config.failOnError) {
+          process.exit(1);
+        }
       }
+
+      runStyleguide(config.config);
 
       console.log(stats.toString({
         timings: !paths.isProduction,

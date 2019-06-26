@@ -79,7 +79,7 @@ const getConfig = async () => {
     }
   }
 
-  return compilers;
+  return { compilers, config };
 };
 
 module.exports = getConfig;
