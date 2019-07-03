@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "animate.css": "^3.7.0",
-    "domassist": "^2.0.2",
-    "domodule": "^6.0.0"
+    "animate.css": "^3.7.2",
+    "domassist": "^2.2.0",
+    "domodule": "^6.1.0"
   }
 }
