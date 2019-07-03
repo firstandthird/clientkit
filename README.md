@@ -1,5 +1,6 @@
 # Clientkit
 
+![npm](https://img.shields.io/npm/v/clientkit.svg)
 [![Build Status](https://travis-ci.org/firstandthird/clientkit.svg?branch=master)](https://travis-ci.org/firstandthird/clientkit)
 
 A UI framework for building client projects efficiently and effectively.
@@ -39,4 +40,4 @@ Editor preferences are available in the [editor config](https://github.com/first
 
 ## Copyright
 
-© 2016. First and Third, Inc. Maintained by [@firstandthird](https://github.com/orgs/firstandthird/people).
+© 2019. First and Third, Inc. Maintained by [@firstandthird](https://github.com/orgs/firstandthird/people).
