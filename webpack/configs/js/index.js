@@ -31,6 +31,12 @@ module.exports = config => {
     mode: paths.isProduction ? 'production' : 'development'
   };
 
+  if (config.scripts.resolveAlias) {
+    jsConfig.resolve = {
+      alias: config.scripts.resolveAlias
+    };
+  }
+
   if (config.scripts.commonChunk) {
     const name = typeof config.scripts.commonChunk === 'string' ? config.scripts.commonChunk : 'commons';
     const minChunks = Math.ceil(Object.keys(entryFiles).length / 3);
