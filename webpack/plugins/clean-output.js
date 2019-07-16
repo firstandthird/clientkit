@@ -1,6 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = () => new CleanWebpackPlugin({
-  verbose: true,
+  verbose: false,
   cleanOnceBeforeBuildPatterns: [] // Prevents files from being removed that shouldnt
 });
