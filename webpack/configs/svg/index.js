@@ -3,6 +3,7 @@ const svgLoader = require('./loader');
 const entryNormalizer = require('../../entry-normalizer');
 const paths = require('../../../paths');
 const SVGSpriteTask = require('taskkit-svg-sprite');
+const path = require('path');
 const fs = require('fs');
 
 module.exports = config => {
@@ -31,7 +32,7 @@ module.exports = config => {
             let assets = null;
 
             if (enableHashing) {
-              const contents = fs.readFileSync(`${dist}/assets.json`, 'utf8');
+              const contents = fs.readFileSync(path.join(dist, config.hash.mappingFile), 'utf8');
               assets = JSON.parse(contents);
             }
 
