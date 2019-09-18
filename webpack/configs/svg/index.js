@@ -32,7 +32,7 @@ module.exports = config => {
             let assets = null;
 
             if (enableHashing) {
-              const contents = fs.readFileSync(path.join(dist, config.hash.mappingFile), 'utf8');
+              const contents = fs.readFileSync(config.hash.mappingFile, 'utf8');
               assets = JSON.parse(contents);
             }
 
