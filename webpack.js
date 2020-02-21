@@ -10,9 +10,7 @@ const Styleguide = require('clientkit-styleguide');
 const runStyleguide = function(config) {
   if (!config.styleguide.disabled) {
     const styleguide = new Styleguide('clientkit-styleguide', config.styleguide);
-    styleguide.kit = {
-      config
-    };
+    styleguide.fullConfig = config;
     styleguide.execute(() => {});
   }
 };
