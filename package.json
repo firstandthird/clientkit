@@ -10,7 +10,8 @@
     "start": "cd demo && node ../index.js",
     "dev": "cd demo && node ../index.js dev",
     "build": "cd demo && node ../index.js prod",
-    "test": "cd test && node ../index.js && cd .. && tap -J -Rmin ./test/*.test.js"
+    "test": "cd test && node ../index.js && cd .. && tap -J -Rmin ./test/*.test.js",
+    "prepublishOnly": "npm run test"
   },
   "repository": {
     "type": "git",
