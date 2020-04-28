@@ -40,4 +40,4 @@ Editor preferences are available in the [editor config](https://github.com/first
 
 ## Copyright
 
-© 2019. First and Third, Inc. Maintained by [@firstandthird](https://github.com/orgs/firstandthird/people).
+© 2020. First and Third, Inc. Maintained by [@firstandthird](https://github.com/orgs/firstandthird/people).
