@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/firstandthird/clientkit#readme",
   "devDependencies": {
-    "tap": "^14.10.6"
+    "tap": "^14.10.7"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
