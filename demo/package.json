@@ -12,6 +12,6 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "domassist": "^2.2.0",
-    "domodule": "^6.1.0"
+    "domodule": "^7.0.0"
   }
 }
