@@ -59,7 +59,7 @@ const runWebpack = async function () {
         version: false
       }));
 
-      if (err || stats.hasErrors()) {
+      if (config.config.failOnError && (err || stats.hasErrors())) {
         process.exit(1);
       }
     });
