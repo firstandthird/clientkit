@@ -4,6 +4,9 @@ const loadMixins = require('./load-mixins');
 const loadVars = require('./load-variables');
 const loadMedia = require('./load-media');
 const paths = require('../../../paths');
+const fontMagician = require('postcss-font-magician');
+const removeEmpty = require('../../util/remove-empty');
+const invokeIf = require('../../util/invoke-if');
 
 module.exports = config => {
   const cssConfig = config.stylesheets;
@@ -20,7 +23,7 @@ module.exports = config => {
     loader: 'postcss-loader',
     options: {
       ident: 'postcss',
-      plugins: [
+      plugins: removeEmpty([
         require('postcss-import')({
           path: cssConfig.importPaths
         }),
@@ -51,14 +54,14 @@ module.exports = config => {
         }),
         require('postcss-color-function')(),
         require('postcss-calc')(),
-        require('postcss-font-magician')({
+        invokeIf(() => fontMagician({
           foundries: ['custom', 'hosted', 'google'],
           display: 'swap'
-        }),
+        }), !cssConfig.disableFontMagician),
         require('css-mqpacker')({
           sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
         })
-      ]
+      ])
     }
   };
 
