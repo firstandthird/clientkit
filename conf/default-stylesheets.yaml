@@ -7,7 +7,7 @@ stylesheets:
   assetPath: '{{assetPath}}'
   dist: '{{dist}}'
   minify: '{{minify}}'
-
+  disableFontMagician: false
   mobileFirst: false
 
   #siteMaxWidth: '1600px' #will wrap body in max-width with margin autos. disabled by default
