@@ -30,6 +30,7 @@ module.exports = config => {
       {
         apply: (compiler) => {
           compiler.hooks.afterEmit.tapAsync('SVGSpriteTask', (c, done) => {
+            const hrstart = process.hrtime();
             const outputFiles = [];
             const files = {};
             const hashes = {};
@@ -57,19 +58,29 @@ module.exports = config => {
                   const fileName = path.basename(file);
                   const newFileName = `${path.basename(file, '.svg')}.${hash}.svg`;
                   const newFilePath = path.resolve(dist, newFileName);
-
+                  console.log('Hashing: %s ➜ %s', fileName, newFileName);
                   fs.renameSync(file, newFilePath);
                   hashes[fileName] = newFileName;
                 });
               }
 
               if (enableHashing) {
-                const contents = fs.readFileSync(config.hash.mappingFile, 'utf8');
-                const assets = JSON.parse(contents);
-                const newHashes = { ...assets, ...hashes };
+                let assets = {};
 
-                fs.writeFileSync(config.hash.mappingFile, JSON.stringify(newHashes, null, 2));
+                if (fs.existsSync(config.hash.mappingFile)) {
+                  const contents = fs.readFileSync(config.hash.mappingFile, 'utf8');
+                  assets = JSON.parse(contents);
+                }
+
+                Object.keys(hashes).forEach(hash => {
+                  assets[hash] = hashes[hash];
+                });
+
+                fs.writeFileSync(config.hash.mappingFile, JSON.stringify(assets, null, 2));
               }
+
+              const hrend = process.hrtime(hrstart);
+              console.info('Execution time: %dms', hrend[1] / 1000000);
 
               done();
             });
@@ -78,10 +89,6 @@ module.exports = config => {
       }
     ]
   };
-
-  if (enableHashing) {
-    svgConfig.plugins.push(assetsManifest(config));
-  }
 
   return svgConfig;
 };
