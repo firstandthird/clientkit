@@ -9,6 +9,7 @@ stylesheets:
   minify: '{{minify}}'
   disableFontMagician: false
   mobileFirst: false
+  stylelintPath:
 
   #siteMaxWidth: '1600px' #will wrap body in max-width with margin autos. disabled by default
   breakpoints:
