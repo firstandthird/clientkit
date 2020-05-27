@@ -8,6 +8,7 @@ module.exports = options => {
         loader: 'svg-sprite-loader',
         options: {
           extract: true,
+          esModule: false,
           spriteFilename: fileNameGetter(options, '[chunkname].svg', '[chunkname].[hash].svg')
         }
       },

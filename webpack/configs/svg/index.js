@@ -3,6 +3,7 @@ const svgLoader = require('./loader');
 const entryNormalizer = require('../../entry-normalizer');
 const paths = require('../../../paths');
 const SVGSpriteTask = require('taskkit-svg-sprite');
+const crypto = require('crypto');
 const path = require('path');
 const fs = require('fs');
 
@@ -25,25 +26,20 @@ module.exports = config => {
       spriteLoader,
       fixStyleEntries,
       // Due to https://github.com/kisenka/svg-sprite-loader/issues/320
+      // This should probably just be transformed to a custom webpack plugin, will wait for WP5
       {
         apply: (compiler) => {
           compiler.hooks.afterEmit.tapAsync('SVGSpriteTask', (c, done) => {
+            const outputFiles = [];
             const files = {};
-            let assets = null;
-
-            if (enableHashing) {
-              const contents = fs.readFileSync(config.hash.mappingFile, 'utf8');
-              assets = JSON.parse(contents);
-            }
+            const hashes = {};
 
             Object.keys(entry).forEach(file => {
               const fileName = `${file}.svg`;
+              files[fileName] = entry[file];
+              hashes[fileName] = fileName;
 
-              if (assets !== null) {
-                files[assets[fileName]] = entry[file];
-              } else {
-                files[fileName] = entry[file];
-              }
+              outputFiles.push(path.resolve(dist, fileName));
             });
 
             const task = new SVGSpriteTask('sprite', {
@@ -52,7 +48,31 @@ module.exports = config => {
               files
             }, {});
 
-            task.execute().then(() => done());
+            task.execute().then(() => {
+              // Transform to hash
+              if (paths.isProduction) {
+                outputFiles.forEach(file => {
+                  const content = fs.readFileSync(file, 'utf8');
+                  const hash = crypto.createHash('md5').update(content).digest('hex');
+                  const fileName = path.basename(file);
+                  const newFileName = `${path.basename(file, '.svg')}.${hash}.svg`;
+                  const newFilePath = path.resolve(dist, newFileName);
+
+                  fs.renameSync(file, newFilePath);
+                  hashes[fileName] = newFileName;
+                });
+              }
+
+              if (enableHashing) {
+                const contents = fs.readFileSync(config.hash.mappingFile, 'utf8');
+                const assets = JSON.parse(contents);
+                const newHashes = { ...assets, ...hashes };
+
+                fs.writeFileSync(config.hash.mappingFile, JSON.stringify(newHashes, null, 2));
+              }
+
+              done();
+            });
           });
         }
       }
