@@ -44,7 +44,8 @@ module.exports = config => {
           features: {
             'color-mod-function': { unresolved: 'warn' },
             'custom-media-queries': true,
-            'nesting-rules': false
+            'nesting-rules': false,
+            'focus-within-pseudo-class': { preserve: true }
           },
           importFrom: [{
             customProperties: loadVars(cssConfig),

@@ -4,6 +4,10 @@
   @mixin triangle 20px;
   margin-left: 20px;
 
+  &:focus-within {
+    background-color: #000;
+  }
+
   @media (min-width: 768px) {
     @mixin triangle 40px;
     margin-left: 40px;
