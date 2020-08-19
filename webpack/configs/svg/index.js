@@ -51,7 +51,7 @@ module.exports = config => {
 
             task.execute().then(() => {
               // Transform to hash
-              if (paths.isProduction) {
+              if (paths.isProduction && enableHashing) {
                 outputFiles.forEach(file => {
                   const content = fs.readFileSync(file, 'utf8');
                   const hash = crypto.createHash('md5').update(content).digest('hex');
