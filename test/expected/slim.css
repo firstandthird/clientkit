@@ -276,7 +276,12 @@ template {
 [hidden] {
   display: none;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 p {
@@ -285,7 +290,9 @@ p {
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 body {
@@ -926,7 +933,7 @@ a:hover, .button-link:hover {
      -moz-appearance: none;
           appearance: none;
   background: transparent;
-  border: none;
+  border: 0;
   padding: 0;
 }
 .padding-none {
@@ -1358,11 +1365,13 @@ a:hover, .button-link:hover {
 .button-lg {
   border-radius: 5px;
   padding: 16px 20px;
-  font-size: 16px}
+  font-size: 16px;
+}
 .button-sm {
   border-radius: 2px;
   padding: 8px 12px;
-  font-size: 12px}
+  font-size: 12px;
+}
 .list-unstyled {
   list-style: none;
   margin: 0;
@@ -1384,19 +1393,19 @@ a:hover, .button-link:hover {
     font-size: 14px;
     line-height: 1.5;
   }
-.form input[type="text"],
-  .form input[type="email"],
-  .form input[type="password"],
-  .form input[type="url"],
-  .form input[type="tel"],
-  .form input[type="search"],
-  .form input[type="number"],
-  .form input[type="date"],
-  .form input[type="datetime"],
-  .form input[type="datetime-local"],
-  .form input[type="month"],
-  .form input[type="week"],
-  .form input[type="time"],
+.form input[type=text],
+  .form input[type=email],
+  .form input[type=password],
+  .form input[type=url],
+  .form input[type=tel],
+  .form input[type=search],
+  .form input[type=number],
+  .form input[type=date],
+  .form input[type=datetime],
+  .form input[type=datetime-local],
+  .form input[type=month],
+  .form input[type=week],
+  .form input[type=time],
   .form textarea {
     width: 100%;
     transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
@@ -1409,19 +1418,19 @@ a:hover, .button-link:hover {
     line-height: 1.5;
     color: #333;
   }
-.form input[type="text"]:focus, .form input[type="email"]:focus, .form input[type="password"]:focus, .form input[type="url"]:focus, .form input[type="tel"]:focus, .form input[type="search"]:focus, .form input[type="number"]:focus, .form input[type="date"]:focus, .form input[type="datetime"]:focus, .form input[type="datetime-local"]:focus, .form input[type="month"]:focus, .form input[type="week"]:focus, .form input[type="time"]:focus, .form textarea:focus {
+.form input[type=text]:focus, .form input[type=email]:focus, .form input[type=password]:focus, .form input[type=url]:focus, .form input[type=tel]:focus, .form input[type=search]:focus, .form input[type=number]:focus, .form input[type=date]:focus, .form input[type=datetime]:focus, .form input[type=datetime-local]:focus, .form input[type=month]:focus, .form input[type=week]:focus, .form input[type=time]:focus, .form textarea:focus {
     outline: none;
     box-shadow: 0 2px 0 0 #336699;
   }
-.form input[type="text"]:disabled, .form input[type="email"]:disabled, .form input[type="password"]:disabled, .form input[type="url"]:disabled, .form input[type="tel"]:disabled, .form input[type="search"]:disabled, .form input[type="number"]:disabled, .form input[type="date"]:disabled, .form input[type="datetime"]:disabled, .form input[type="datetime-local"]:disabled, .form input[type="month"]:disabled, .form input[type="week"]:disabled, .form input[type="time"]:disabled, .form textarea:disabled {
+.form input[type=text]:disabled, .form input[type=email]:disabled, .form input[type=password]:disabled, .form input[type=url]:disabled, .form input[type=tel]:disabled, .form input[type=search]:disabled, .form input[type=number]:disabled, .form input[type=date]:disabled, .form input[type=datetime]:disabled, .form input[type=datetime-local]:disabled, .form input[type=month]:disabled, .form input[type=week]:disabled, .form input[type=time]:disabled, .form textarea:disabled {
     box-shadow: none;
-    border-bottom: 1px dashed #808080;
+    border-bottom: 1px dashed var(--color-input-disable);
     color: #808080;
   }
-.form input[type="text"]:-moz-read-only, .form input[type="email"]:-moz-read-only, .form input[type="password"]:-moz-read-only, .form input[type="url"]:-moz-read-only, .form input[type="tel"]:-moz-read-only, .form input[type="search"]:-moz-read-only, .form input[type="number"]:-moz-read-only, .form input[type="date"]:-moz-read-only, .form input[type="datetime"]:-moz-read-only, .form input[type="datetime-local"]:-moz-read-only, .form input[type="month"]:-moz-read-only, .form input[type="week"]:-moz-read-only, .form input[type="time"]:-moz-read-only, .form textarea:-moz-read-only {
+.form input[type=text]:-moz-read-only, .form input[type=email]:-moz-read-only, .form input[type=password]:-moz-read-only, .form input[type=url]:-moz-read-only, .form input[type=tel]:-moz-read-only, .form input[type=search]:-moz-read-only, .form input[type=number]:-moz-read-only, .form input[type=date]:-moz-read-only, .form input[type=datetime]:-moz-read-only, .form input[type=datetime-local]:-moz-read-only, .form input[type=month]:-moz-read-only, .form input[type=week]:-moz-read-only, .form input[type=time]:-moz-read-only, .form textarea:-moz-read-only {
     cursor: text;
   }
-.form input[type="text"]:read-only, .form input[type="email"]:read-only, .form input[type="password"]:read-only, .form input[type="url"]:read-only, .form input[type="tel"]:read-only, .form input[type="search"]:read-only, .form input[type="number"]:read-only, .form input[type="date"]:read-only, .form input[type="datetime"]:read-only, .form input[type="datetime-local"]:read-only, .form input[type="month"]:read-only, .form input[type="week"]:read-only, .form input[type="time"]:read-only, .form textarea:read-only {
+.form input[type=text]:read-only, .form input[type=email]:read-only, .form input[type=password]:read-only, .form input[type=url]:read-only, .form input[type=tel]:read-only, .form input[type=search]:read-only, .form input[type=number]:read-only, .form input[type=date]:read-only, .form input[type=datetime]:read-only, .form input[type=datetime-local]:read-only, .form input[type=month]:read-only, .form input[type=week]:read-only, .form input[type=time]:read-only, .form textarea:read-only {
     cursor: text;
   }
 .form select {
@@ -1435,19 +1444,19 @@ a:hover, .button-link:hover {
       color: #ff0000;
       font-size: 12px;
     }
-.form .error input[type="text"],
-    .form .error input[type="email"],
-    .form .error input[type="password"],
-    .form .error input[type="url"],
-    .form .error input[type="tel"],
-    .form .error input[type="search"],
-    .form .error input[type="number"],
-    .form .error input[type="date"],
-    .form .error input[type="datetime"],
-    .form .error input[type="datetime-local"],
-    .form .error input[type="month"],
-    .form .error input[type="week"],
-    .form .error input[type="time"],
+.form .error input[type=text],
+    .form .error input[type=email],
+    .form .error input[type=password],
+    .form .error input[type=url],
+    .form .error input[type=tel],
+    .form .error input[type=search],
+    .form .error input[type=number],
+    .form .error input[type=date],
+    .form .error input[type=datetime],
+    .form .error input[type=datetime-local],
+    .form .error input[type=month],
+    .form .error input[type=week],
+    .form .error input[type=time],
     .form .error textarea {
       width: 100%;
       transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
@@ -1460,37 +1469,37 @@ a:hover, .button-link:hover {
       line-height: 1.5;
       color: #333;
     }
-.form .error input[type="text"]:focus, .form .error input[type="email"]:focus, .form .error input[type="password"]:focus, .form .error input[type="url"]:focus, .form .error input[type="tel"]:focus, .form .error input[type="search"]:focus, .form .error input[type="number"]:focus, .form .error input[type="date"]:focus, .form .error input[type="datetime"]:focus, .form .error input[type="datetime-local"]:focus, .form .error input[type="month"]:focus, .form .error input[type="week"]:focus, .form .error input[type="time"]:focus, .form .error textarea:focus {
+.form .error input[type=text]:focus, .form .error input[type=email]:focus, .form .error input[type=password]:focus, .form .error input[type=url]:focus, .form .error input[type=tel]:focus, .form .error input[type=search]:focus, .form .error input[type=number]:focus, .form .error input[type=date]:focus, .form .error input[type=datetime]:focus, .form .error input[type=datetime-local]:focus, .form .error input[type=month]:focus, .form .error input[type=week]:focus, .form .error input[type=time]:focus, .form .error textarea:focus {
     outline: none;
     box-shadow: 0 2px 0 0 #ff0000;
   }
-.form .error input[type="text"]:disabled, .form .error input[type="email"]:disabled, .form .error input[type="password"]:disabled, .form .error input[type="url"]:disabled, .form .error input[type="tel"]:disabled, .form .error input[type="search"]:disabled, .form .error input[type="number"]:disabled, .form .error input[type="date"]:disabled, .form .error input[type="datetime"]:disabled, .form .error input[type="datetime-local"]:disabled, .form .error input[type="month"]:disabled, .form .error input[type="week"]:disabled, .form .error input[type="time"]:disabled, .form .error textarea:disabled {
+.form .error input[type=text]:disabled, .form .error input[type=email]:disabled, .form .error input[type=password]:disabled, .form .error input[type=url]:disabled, .form .error input[type=tel]:disabled, .form .error input[type=search]:disabled, .form .error input[type=number]:disabled, .form .error input[type=date]:disabled, .form .error input[type=datetime]:disabled, .form .error input[type=datetime-local]:disabled, .form .error input[type=month]:disabled, .form .error input[type=week]:disabled, .form .error input[type=time]:disabled, .form .error textarea:disabled {
     box-shadow: none;
     border-bottom: 1px dashed #ff0000;
     color: #808080;
   }
-.form .error input[type="text"]:-moz-read-only, .form .error input[type="email"]:-moz-read-only, .form .error input[type="password"]:-moz-read-only, .form .error input[type="url"]:-moz-read-only, .form .error input[type="tel"]:-moz-read-only, .form .error input[type="search"]:-moz-read-only, .form .error input[type="number"]:-moz-read-only, .form .error input[type="date"]:-moz-read-only, .form .error input[type="datetime"]:-moz-read-only, .form .error input[type="datetime-local"]:-moz-read-only, .form .error input[type="month"]:-moz-read-only, .form .error input[type="week"]:-moz-read-only, .form .error input[type="time"]:-moz-read-only, .form .error textarea:-moz-read-only {
+.form .error input[type=text]:-moz-read-only, .form .error input[type=email]:-moz-read-only, .form .error input[type=password]:-moz-read-only, .form .error input[type=url]:-moz-read-only, .form .error input[type=tel]:-moz-read-only, .form .error input[type=search]:-moz-read-only, .form .error input[type=number]:-moz-read-only, .form .error input[type=date]:-moz-read-only, .form .error input[type=datetime]:-moz-read-only, .form .error input[type=datetime-local]:-moz-read-only, .form .error input[type=month]:-moz-read-only, .form .error input[type=week]:-moz-read-only, .form .error input[type=time]:-moz-read-only, .form .error textarea:-moz-read-only {
     cursor: text;
   }
-.form .error input[type="text"]:read-only, .form .error input[type="email"]:read-only, .form .error input[type="password"]:read-only, .form .error input[type="url"]:read-only, .form .error input[type="tel"]:read-only, .form .error input[type="search"]:read-only, .form .error input[type="number"]:read-only, .form .error input[type="date"]:read-only, .form .error input[type="datetime"]:read-only, .form .error input[type="datetime-local"]:read-only, .form .error input[type="month"]:read-only, .form .error input[type="week"]:read-only, .form .error input[type="time"]:read-only, .form .error textarea:read-only {
+.form .error input[type=text]:read-only, .form .error input[type=email]:read-only, .form .error input[type=password]:read-only, .form .error input[type=url]:read-only, .form .error input[type=tel]:read-only, .form .error input[type=search]:read-only, .form .error input[type=number]:read-only, .form .error input[type=date]:read-only, .form .error input[type=datetime]:read-only, .form .error input[type=datetime-local]:read-only, .form .error input[type=month]:read-only, .form .error input[type=week]:read-only, .form .error input[type=time]:read-only, .form .error textarea:read-only {
     cursor: text;
   }
 .form .input-group {
     font-size: 0;
   }
-.form .input-group input[type="text"],
-    .form .input-group input[type="email"],
-    .form .input-group input[type="password"],
-    .form .input-group input[type="url"],
-    .form .input-group input[type="tel"],
-    .form .input-group input[type="search"],
-    .form .input-group input[type="number"],
-    .form .input-group input[type="date"],
-    .form .input-group input[type="datetime"],
-    .form .input-group input[type="datetime-local"],
-    .form .input-group input[type="month"],
-    .form .input-group input[type="week"],
-    .form .input-group input[type="time"] {
+.form .input-group input[type=text],
+    .form .input-group input[type=email],
+    .form .input-group input[type=password],
+    .form .input-group input[type=url],
+    .form .input-group input[type=tel],
+    .form .input-group input[type=search],
+    .form .input-group input[type=number],
+    .form .input-group input[type=date],
+    .form .input-group input[type=datetime],
+    .form .input-group input[type=datetime-local],
+    .form .input-group input[type=month],
+    .form .input-group input[type=week],
+    .form .input-group input[type=time] {
       display: inline-block;
       width: inherit;
       height: 42px;
@@ -1503,7 +1512,7 @@ a:hover, .button-link:hover {
       background-color: #f1f1f1;
       font-size: 14px;
     }
-.form .input-group input[type="text"]:focus, .form .input-group input[type="email"]:focus, .form .input-group input[type="password"]:focus, .form .input-group input[type="url"]:focus, .form .input-group input[type="tel"]:focus, .form .input-group input[type="search"]:focus, .form .input-group input[type="number"]:focus, .form .input-group input[type="date"]:focus, .form .input-group input[type="datetime"]:focus, .form .input-group input[type="datetime-local"]:focus, .form .input-group input[type="month"]:focus, .form .input-group input[type="week"]:focus, .form .input-group input[type="time"]:focus {
+.form .input-group input[type=text]:focus, .form .input-group input[type=email]:focus, .form .input-group input[type=password]:focus, .form .input-group input[type=url]:focus, .form .input-group input[type=tel]:focus, .form .input-group input[type=search]:focus, .form .input-group input[type=number]:focus, .form .input-group input[type=date]:focus, .form .input-group input[type=datetime]:focus, .form .input-group input[type=datetime-local]:focus, .form .input-group input[type=month]:focus, .form .input-group input[type=week]:focus, .form .input-group input[type=time]:focus {
         box-shadow: none;
       }
 .form .input-group .input-group-btn {
@@ -1521,25 +1530,25 @@ a:hover, .button-link:hover {
       position: relative;
       top: 10px;
     }
-.form .floating-label input[type="text"],
-    .form .floating-label input[type="email"],
-    .form .floating-label input[type="password"],
-    .form .floating-label input[type="url"],
-    .form .floating-label input[type="tel"],
-    .form .floating-label input[type="search"],
-    .form .floating-label input[type="number"],
-    .form .floating-label input[type="date"],
-    .form .floating-label input[type="datetime"],
-    .form .floating-label input[type="datetime-local"],
-    .form .floating-label input[type="month"],
-    .form .floating-label input[type="week"],
-    .form .floating-label input[type="time"],
+.form .floating-label input[type=text],
+    .form .floating-label input[type=email],
+    .form .floating-label input[type=password],
+    .form .floating-label input[type=url],
+    .form .floating-label input[type=tel],
+    .form .floating-label input[type=search],
+    .form .floating-label input[type=number],
+    .form .floating-label input[type=date],
+    .form .floating-label input[type=datetime],
+    .form .floating-label input[type=datetime-local],
+    .form .floating-label input[type=month],
+    .form .floating-label input[type=week],
+    .form .floating-label input[type=time],
     .form .floating-label textarea {
       border: 1px solid #333;
       box-shadow: none;
       padding: 10px;
     }
-.form .floating-label input[type="text"]:disabled, .form .floating-label input[type="email"]:disabled, .form .floating-label input[type="password"]:disabled, .form .floating-label input[type="url"]:disabled, .form .floating-label input[type="tel"]:disabled, .form .floating-label input[type="search"]:disabled, .form .floating-label input[type="number"]:disabled, .form .floating-label input[type="date"]:disabled, .form .floating-label input[type="datetime"]:disabled, .form .floating-label input[type="datetime-local"]:disabled, .form .floating-label input[type="month"]:disabled, .form .floating-label input[type="week"]:disabled, .form .floating-label input[type="time"]:disabled, .form .floating-label textarea:disabled {
+.form .floating-label input[type=text]:disabled, .form .floating-label input[type=email]:disabled, .form .floating-label input[type=password]:disabled, .form .floating-label input[type=url]:disabled, .form .floating-label input[type=tel]:disabled, .form .floating-label input[type=search]:disabled, .form .floating-label input[type=number]:disabled, .form .floating-label input[type=date]:disabled, .form .floating-label input[type=datetime]:disabled, .form .floating-label input[type=datetime-local]:disabled, .form .floating-label input[type=month]:disabled, .form .floating-label input[type=week]:disabled, .form .floating-label input[type=time]:disabled, .form .floating-label textarea:disabled {
         border: 1px dashed #808080;
       }
 .pull-left {
@@ -1574,7 +1583,7 @@ a:hover, .button-link:hover {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 .hide {
@@ -1769,15 +1778,24 @@ a:hover, .button-link:hover {
     height: 1em;
     margin-left: .25rem;
     vertical-align: middle;
+
     display: inline-block;
+
     width: 0;
+
     height: 0;
+
     vertical-align: middle;
+
     content: "";
+
     border-top: 8px solid;
+
     border-right: 8px solid transparent;
+
     border-left: 8px solid transparent;
-    border-bottom: none;
+
+    border-bottom: 0;
     content: '';
   }
 .dropdown-toggle:focus {
@@ -1844,7 +1862,8 @@ a:hover, .button-link:hover {
     border-bottom: 8px solid;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
-    border-top: none;
+
+    border-top: 0;
   }
 .open > .dropdown-menu {
     display: block;
@@ -1907,9 +1926,6 @@ body {
 .font-light {
   font-weight: 300;
 }
-.font-body {
-  font-weight: 400;
-}
 .font-bold,
 strong,
 em {
@@ -1923,6 +1939,7 @@ em {
 }
 .font-body {
   font-size: 14px;
+  font-weight: 400;
 }
 .font-article {
   font-size: 18px;
@@ -3062,7 +3079,7 @@ hr {
     min-width: 75%
 }
 }
-@media(max-width: 767px) and (min-width: 320px) {
+@media (max-width: 767px) and (min-width: 320px) {
 .button {
     font-size: 14px;
 }
