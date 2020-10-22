@@ -5,6 +5,7 @@
 .message-success {
   @mixin message var(--color-message-success);
 }
+
 .message-error {
   @mixin message var(--color-message-error);
 }

@@ -2,6 +2,7 @@
 
 .triangle-lg {
   @mixin triangle 20px;
+
   margin-left: 20px;
 
   &:focus-within {
@@ -10,6 +11,7 @@
 
   @media (min-width: 768px) {
     @mixin triangle 40px;
+
     margin-left: 40px;
   }
 }

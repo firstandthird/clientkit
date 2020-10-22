@@ -6,6 +6,6 @@ a,
 .button-link {
   appearance: none;
   background: transparent;
-  border: none;
+  border: 0;
   padding: 0;
 }

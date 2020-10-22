@@ -1,77 +1,77 @@
 .form {
-  & label {
+  label {
     font-family: var(--font-label);
     color: var(--color-input-label);
     font-size: var(--font-size-body);
     line-height: var(--line-height-large);
   }
 
-  & input[type="text"],
-  & input[type="email"],
-  & input[type="password"],
-  & input[type="url"],
-  & input[type="tel"],
-  & input[type="search"],
-  & input[type="number"],
-  & input[type="date"],
-  & input[type="datetime"],
-  & input[type="datetime-local"],
-  & input[type="month"],
-  & input[type="week"],
-  & input[type="time"],
-  & textarea {
-    @mixin input var(--color-input-background), var(--color-body), var(--color-input-disabled), var(--color-input-border), var(--color-input-border-focus), var(--color-input-disabled);
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=url],
+  input[type=tel],
+  input[type=search],
+  input[type=number],
+  input[type=date],
+  input[type=datetime],
+  input[type=datetime-local],
+  input[type=month],
+  input[type=week],
+  input[type=time],
+  textarea {
+    @mixin input var(--color-input-background), var(--color-body), var(--color-input-disabled), var(--color-input-border), var(--color-input-border-focus), var(--color-input-disable);
   }
 
-  & select {
+  select {
     width: 100%;
   }
 
-  & small {
+  small {
     display: none;
   }
 
-  & .error {
-    & small {
+  .error {
+    small {
       display: block;
       color: var(--color-input-error);
       font-size: var(--font-size-small);
     }
 
-    & input[type="text"],
-    & input[type="email"],
-    & input[type="password"],
-    & input[type="url"],
-    & input[type="tel"],
-    & input[type="search"],
-    & input[type="number"],
-    & input[type="date"],
-    & input[type="datetime"],
-    & input[type="datetime-local"],
-    & input[type="month"],
-    & input[type="week"],
-    & input[type="time"],
-    & textarea {
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    input[type=url],
+    input[type=tel],
+    input[type=search],
+    input[type=number],
+    input[type=date],
+    input[type=datetime],
+    input[type=datetime-local],
+    input[type=month],
+    input[type=week],
+    input[type=time],
+    textarea {
       @mixin input var(--color-input-background), var(--color-body), var(--color-input-disabled), var(--color-input-error), var(--color-input-error), var(--color-input-error);
     }
   }
 
-  & .input-group {
+  .input-group {
     font-size: 0;
 
-    & input[type="text"],
-    & input[type="email"],
-    & input[type="password"],
-    & input[type="url"],
-    & input[type="tel"],
-    & input[type="search"],
-    & input[type="number"],
-    & input[type="date"],
-    & input[type="datetime"],
-    & input[type="datetime-local"],
-    & input[type="month"],
-    & input[type="week"],
-    & input[type="time"] {
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    input[type=url],
+    input[type=tel],
+    input[type=search],
+    input[type=number],
+    input[type=date],
+    input[type=datetime],
+    input[type=datetime-local],
+    input[type=month],
+    input[type=week],
+    input[type=time] {
       display: inline-block;
       width: inherit;
       height: 42px;
@@ -88,7 +88,8 @@
         box-shadow: none;
       }
     }
-    & .input-group-btn {
+
+    .input-group-btn {
       display: inline-block;
       vertical-align: middle;
       border-radius: 0 var(--border-radius-default) var(--border-radius-default) 0;
@@ -106,19 +107,19 @@
       top: var(--spacing-xs);
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="url"],
-    input[type="tel"],
-    input[type="search"],
-    input[type="number"],
-    input[type="date"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="month"],
-    input[type="week"],
-    input[type="time"],
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    input[type=url],
+    input[type=tel],
+    input[type=search],
+    input[type=number],
+    input[type=date],
+    input[type=datetime],
+    input[type=datetime-local],
+    input[type=month],
+    input[type=week],
+    input[type=time],
     textarea {
       border: var(--border-size) solid var(--color-input-border);
       box-shadow: none;

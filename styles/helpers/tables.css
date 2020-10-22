@@ -4,6 +4,7 @@ table {
   /* Reset for nesting within parents with `background-color`. */
   background-color: var(--table-bg);
 }
+
 caption {
   padding-top: var(--table-cell-padding);
   padding-bottom: var(--table-cell-padding);
@@ -11,10 +12,12 @@ caption {
   text-align: left;
   caption-side: bottom;
 }
+
 td,
 th {
   padding: 0;
 }
+
 th {
   /* Centered by default, but left-align-ed to match the `td`s below. */
   text-align: left;
@@ -25,59 +28,59 @@ th {
   max-width: 100%;
   margin-bottom: var(--spacing-sm);
 
-  & th,
-  & td {
+  th,
+  td {
     padding: var(--table-cell-padding);
     line-height: var(--line-height);
     vertical-align: top;
     border-top: var(--table-border-width) solid var(--table-border-color);
   }
 
-  & thead th {
+  thead th {
     vertical-align: bottom;
     border-bottom: calc(2 * var(--table-border-width)) solid var(--table-border-color);
   }
 
-  & tbody + tbody {
+  tbody + tbody {
     border-top: calc(2 * var(--table-border-width)) solid var(--table-border-color);
   }
 
-  & .table {
+  .table {
     background-color: var(--color-body);
   }
 }
 
 .table-sm {
-  & th,
-  & td {
-    padding: calc( var(--table-cell-padding) / 2);
+  th,
+  td {
+    padding: calc(var(--table-cell-padding) / 2);
   }
 }
 
 .table-bordered {
   border: var(--table-border-width) solid var(--table-border-color);
 
-  & th,
-  & td {
+  th,
+  td {
     border: var(--table-border-width) solid var(--table-border-color);
   }
 
-  & thead {
-    & th,
-    & td {
+  thead {
+    th,
+    td {
       border-bottom-width: calc(2 * var(--table-border-width));
     }
   }
 }
 
 .table-striped {
-  & tbody tr:nth-of-type(odd) {
+  tbody tr:nth-of-type(odd) {
     background-color: var(--table-bg-accent);
   }
 }
 
 .table-hover {
-  & tbody tr {
+  tbody tr {
     &:hover {
       background-color: var(--table-bg-hover);
     }
@@ -87,6 +90,6 @@ th {
 .table-responsive {
   display: block;
   width: 100%;
-  min-height: 0.01%;
+  min-height: .01%;
   overflow-x: auto;
 }

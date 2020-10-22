@@ -1,7 +1,7 @@
 @media print {
   *,
-  *:before,
-  *:after {
+  *::before,
+  *::after {
     background: transparent !important;
     color: #000 !important;
     box-shadow: none !important;
@@ -13,18 +13,18 @@
     text-decoration: underline;
   }
 
-  a[href]:after {
-    content: " (" attr(href) ")";
+  a[href]::after {
+    content: ' (" attr(href) ")';
   }
 
-  abbr[title]:after {
-    content: " (" attr(title) ")";
+  abbr[title]::after {
+    content: ' (" attr(title) ")';
   }
 
   /* Don't show links that are fragment identifiers, or use the `javascript:` pseudo protocol */
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
+  a[href^='#']::after,
+  a[href^='javascript:']::after {
+    content: '';
   }
 
   pre,
@@ -58,6 +58,7 @@
     page-break-after: avoid;
   }
 }
+
 /* end html5bp */
 
 /* custom helpers for clientkit */
@@ -69,6 +70,7 @@
     display: block !important;
   }
 }
+
 .show-print-inline {
   display: none !important;
 
@@ -76,6 +78,7 @@
     display: inline !important;
   }
 }
+
 .show-print-inline-block {
   display: none !important;
 
@@ -92,7 +95,7 @@
 
 .row-print-stacked {
   @media print {
-    & [class*=col-] {
+    [class*=col-] {
       width: 100% !important;
     }
   }
