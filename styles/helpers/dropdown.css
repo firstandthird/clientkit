@@ -12,8 +12,10 @@
     height: 1em;
     margin-left: .25rem;
     vertical-align: middle;
+
     @mixin triangle 8px;
-    border-bottom: none;
+
+    border-bottom: 0;
     content: '';
   }
 
@@ -82,16 +84,17 @@
 }
 
 .open {
-  & > .dropdown-toggle::after {
+  > .dropdown-toggle::after {
     @mixin triangle 8px, up;
-    border-top: none;
+
+    border-top: 0;
   }
 
-  & > .dropdown-menu {
+  > .dropdown-menu {
     display: block;
   }
 
-  & > a {
+  > a {
     outline: 0;
   }
 }
@@ -100,4 +103,3 @@
   right: 0;
   left: auto;
 }
-

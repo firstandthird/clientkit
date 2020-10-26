@@ -11,9 +11,9 @@
 }
 
 .button-lg {
-  @mixin button-size 16px, 20px, var(--font-size-large), var(--button-radius-lg)
+  @mixin button-size 16px, 20px, var(--font-size-large), var(--button-radius-lg);
 }
 
 .button-sm {
-  @mixin button-size 8px, 12px, var(--font-size-small), var(--button-radius-sm)
+  @mixin button-size 8px, 12px, var(--font-size-small), var(--button-radius-sm);
 }

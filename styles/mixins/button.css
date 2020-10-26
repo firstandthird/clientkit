@@ -13,7 +13,7 @@
   transition: color .25s var(--easing-out), background-color .25s var(--easing-out);
   color: $color;
 
-  @media(--mobile-only) {
+  @media (--mobile-only) {
     font-size: var(--font-mobile-size-button);
   }
 

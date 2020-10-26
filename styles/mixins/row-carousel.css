@@ -10,7 +10,7 @@
   scroll-snap-destination: 0% 100%;
   scroll-snap-points-x: repeat(100%);
 
-  & [class*="col-"] {
+  [class*='col-'] {
     display: inline-block;
     float: none;
     vertical-align: top;

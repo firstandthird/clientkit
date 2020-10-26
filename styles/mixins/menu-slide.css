@@ -1,13 +1,13 @@
 @define-mixin menu-slide $menuColor, $closeColor {
-  & .menu-btn {
+  .menu-btn {
     position: absolute;
     visibility: hidden;
     width: 28px;
     height: 28px;
     margin-left: -999em;
-    -webkit-appearance: none;
+    appearance: none;
 
-    & + label {
+    + label {
       display: block;
       float: right;
       width: 28px;
@@ -15,7 +15,7 @@
       margin: 0;
       transition: color .3s var(--easing-in-out);
       cursor: pointer;
-      user-select:none;
+      user-select: none;
 
       &::after {
         display: inline-block;
@@ -24,14 +24,15 @@
         padding: 0;
         background: transparent;
         color: $menuColor;
-        font-family: Arial;
+        font-family: Arial, sans-serif;
         font-size: 36px;
         line-height: 1;
         content: '\2261';
       }
     }
+
     &:checked {
-      & + label {
+      + label {
         &::after {
           position: absolute;
           top: 0;
@@ -45,48 +46,52 @@
           content: '\00d7';
         }
       }
-      & ~ .menu-container {
+
+      ~ .menu-container {
         right: 60%;
         overflow-y: auto;
       }
     }
-    & ~ .menu-container {
+
+    ~ .menu-container {
       position: fixed;
       top: 0;
       right: -60%;
       z-index: 10;
       width: 60%;
       height: 100%;
-      box-shadow: -3px 0 3px 0 rgba(0, 0, 0, 0.25);
+      box-shadow: -3px 0 3px 0 rgba(0, 0, 0, .25);
       padding: var(--spacing-sm) 0 var(--spacing-lg);
       padding-top: 80px;
       background-color: $menuColor;
       transform: translate3d(100%, 0, 0);
-      transition: transform 250ms var(--easing-out),
-                  right 250ms var(--easing-out) 300ms;
+      transition: transform 250ms var(--easing-out), right 250ms var(--easing-out) 300ms;
     }
   }
+
   &.menu-left {
-    & .menu-btn {
-      & + label {
+    .menu-btn {
+      + label {
         float: left;
       }
+
       &:checked {
-        & + label::after {
+        + label::after {
           right: auto;
           left: 0;
         }
-        & ~ .menu-container {
+
+        ~ .menu-container {
           left: 60%;
         }
       }
-      & ~ .menu-container {
+
+      ~ .menu-container {
         right: auto;
         left: -60%;
-        box-shadow: 3px 0 3px 0 rgba(0, 0, 0, 0.25);
+        box-shadow: 3px 0 3px 0 rgba(0, 0, 0, .25);
         transform: translate3d(-100%, 0, 0);
-        transition: transform 250ms var(--easing-out),
-                    left 250ms var(--easing-out) 300ms;
+        transition: transform 250ms var(--easing-out), left 250ms var(--easing-out) 300ms;
       }
     }
   }

@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "animate.css": "^3.7.2",
+    "animate.css": "^4.1.1",
     "domassist": "^2.2.0",
     "domodule": "^7.0.0"
   }

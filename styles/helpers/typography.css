@@ -5,7 +5,7 @@ body {
   line-height: var(--line-height);
   color: var(--color-body);
 
-  @media(--mobile-only) {
+  @media (--mobile-only) {
     font-size: var(--font-mobile-size-body);
   }
 }
@@ -68,10 +68,6 @@ body {
   font-weight: var(--font-weight-light);
 }
 
-.font-body {
-  font-weight: var(--font-weight-body);
-}
-
 .font-bold,
 strong,
 em {
@@ -81,7 +77,7 @@ em {
 .font-large {
   font-size: var(--font-size-large);
 
-  @media(--mobile-only) {
+  @media (--mobile-only) {
     font-size: var(--font-mobile-size-large);
   }
 }
@@ -89,15 +85,16 @@ em {
 .font-small {
   font-size: var(--font-size-small);
 
-  @media(--mobile-only) {
+  @media (--mobile-only) {
     font-size: var(--font-mobile-size-small);
   }
 }
 
 .font-body {
   font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
 
-  @media(--mobile-only) {
+  @media (--mobile-only) {
     font-size: var(--font-mobile-size-body);
   }
 }
@@ -106,7 +103,7 @@ em {
   font-size: var(--font-size-article);
   line-height: var(--line-height-article);
 
-  @media(--mobile-only) {
+  @media (--mobile-only) {
     font-size: var(--font-mobile-size-article);
   }
 }

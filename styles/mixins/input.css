@@ -9,15 +9,18 @@
   font-size: var(--font-size-large);
   line-height: var(--line-height-large);
   color: $color;
+
   &:focus {
     outline: none;
     box-shadow: 0 2px 0 0 $borderFocus;
   }
+
   &:disabled {
     box-shadow: none;
     border-bottom: 1px dashed $borderDisabled;
     color: $colorDisabled;
   }
+
   &:read-only {
     cursor: text;
   }
