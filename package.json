@@ -68,7 +68,7 @@
     "postcss-triangle": "^2.0.0",
     "require-all": "^3.0.0",
     "sort-css-media-queries": "^1.5.2",
-    "stylelint-config-firstandthird": "^1.1.0",
+    "stylelint-config-firstandthird": "^1.1.1",
     "stylelint-webpack-plugin": "^2.1.1",
     "svg-sprite-loader": "^4.3.0",
     "svg-transform-loader": "^2.0.13",
@@ -86,6 +86,12 @@
     "extends": "firstandthird"
   },
   "stylelint": {
-    "extends": "stylelint-config-firstandthird"
+    "extends": "stylelint-config-firstandthird",
+    "rules": {
+      "at-rule-no-unknown": [true, {
+          "ignoreAtRules": ["define-mixin", "mixin"]
+        }
+      ]
+    }
   }
 }
