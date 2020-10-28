@@ -1,6 +1,6 @@
 CKDIR: '{{ENV.CK_PATH}}'
 dist: '{{CWD}}/dist'
-assetPath: '{{CWD}}/assets'
+assetPath: '{{CWD}}'
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
 failOnError: '{{ENV.NODE_ENV === "production"}}'
 browserlist:
