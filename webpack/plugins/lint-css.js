@@ -1,8 +1,16 @@
 const StylelintPlugin = require('stylelint-webpack-plugin');
 
-module.exports = (files, options) => new StylelintPlugin({
-  files,
-  emitWarning: !options.stylelint.failOnError || !options.failOnError,
-  failOnWarning: options.stylelint.failOnError || options.failOnError,
-  failOnError: options.stylelint.failOnError || options.failOnError
-});
+module.exports = options => {
+  const context = options.stylesheets.assetPath;
+  const shoudlWarn = !options.stylelint.failOnError || !options.failOnError;
+  const shouldFail = options.stylelint.failOnError || options.failOnError;
+
+  return new StylelintPlugin({
+    configFile: `${options.CKDIR}/package.json`,
+    ignorePath: `${options.CKDIR}/.stylelintignore`,
+    context,
+    emitWarning: shoudlWarn,
+    failOnWarning: shouldFail,
+    failOnError: shouldFail
+  });
+};

@@ -4,10 +4,8 @@ const paths = require('../../../paths');
 const entryNormalizer = require('../../entry-normalizer');
 
 module.exports = config => {
-  const entryFiles = entryNormalizer(config.stylesheets.files, paths.tags);
-
   const cssConfig = {
-    entry: entryFiles,
+    entry: entryNormalizer(config.stylesheets.files, paths.tags),
     devtool: paths.isProduction ? false : 'source-map',
     resolve: {
       extensions: ['.css', '.scss']
@@ -23,7 +21,7 @@ module.exports = config => {
     plugins: [
       extractCss(config),
       fixStyleEntries,
-      lintCss(Object.values(entryFiles), config)
+      lintCss(config)
     ]
   };
 
