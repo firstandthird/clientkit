@@ -1,3 +1,5 @@
+assetPath: '{{CWD}}'
+
 stylesheets:
   files:
     'common.css':
