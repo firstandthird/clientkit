@@ -937,82 +937,82 @@ a:hover, .button-link:hover {
   padding: 0;
 }
 .padding-none {
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
+}
+.padding-xl3 {
+  padding: 100px;
+}
+.padding-xl2 {
+  padding: 90px;
 }
 .padding-xl {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 80px;
+}
+.padding-lg3 {
+  padding: 70px;
+}
+.padding-lg2 {
+  padding: 60px;
 }
 .padding-lg {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 50px;
 }
 .padding-md {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 30px;
 }
 .padding-sm {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
 }
 .padding-xs {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
 }
 .margin-none {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
+}
+.margin-xl3 {
+  margin: 100px;
+}
+.margin-xl2 {
+  margin: 90px;
 }
 .margin-xl {
-  margin-top: 80px;
-  margin-bottom: 80px;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin: 80px;
+}
+.margin-lg3 {
+  margin: 70px;
+}
+.margin-lg2 {
+  margin: 60px;
 }
 .margin-lg {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 50px;
 }
 .margin-md {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin: 30px;
 }
 .margin-sm {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 20px;
 }
 .margin-xs {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
 }
 .padding-top-none {
   padding-top: 0;
 }
+.padding-top-xl3 {
+  padding-top: 100px;
+}
+.padding-top-xl2 {
+  padding-top: 90px;
+}
 .padding-top-xl {
   padding-top: 80px;
+}
+.padding-top-lg3 {
+  padding-top: 70px;
+}
+.padding-top-lg2 {
+  padding-top: 60px;
 }
 .padding-top-lg {
   padding-top: 50px;
@@ -1029,8 +1029,20 @@ a:hover, .button-link:hover {
 .padding-left-none {
   padding-left: 0;
 }
+.padding-left-xl3 {
+  padding-left: 100px;
+}
+.padding-left-xl2 {
+  padding-left: 90px;
+}
 .padding-left-xl {
   padding-left: 80px;
+}
+.padding-left-lg3 {
+  padding-left: 70px;
+}
+.padding-left-lg2 {
+  padding-left: 60px;
 }
 .padding-left-lg {
   padding-left: 50px;
@@ -1047,8 +1059,20 @@ a:hover, .button-link:hover {
 .padding-right-none {
   padding-right: 0;
 }
+.padding-right-xl3 {
+  padding-right: 100px;
+}
+.padding-right-xl2 {
+  padding-right: 90px;
+}
 .padding-right-xl {
   padding-right: 80px;
+}
+.padding-right-lg3 {
+  padding-right: 70px;
+}
+.padding-right-lg2 {
+  padding-right: 60px;
 }
 .padding-right-lg {
   padding-right: 50px;
@@ -1065,8 +1089,20 @@ a:hover, .button-link:hover {
 .padding-bottom-none {
   padding-bottom: 0;
 }
+.padding-bottom-xl3 {
+  padding-bottom: 100px;
+}
+.padding-bottom-xl2 {
+  padding-bottom: 90px;
+}
 .padding-bottom-xl {
   padding-bottom: 80px;
+}
+.padding-bottom-lg3 {
+  padding-bottom: 70px;
+}
+.padding-bottom-lg2 {
+  padding-bottom: 60px;
 }
 .padding-bottom-lg {
   padding-bottom: 50px;
@@ -1084,9 +1120,25 @@ a:hover, .button-link:hover {
   padding-left: 0;
   padding-right: 0;
 }
+.padding-xaxis-xl3 {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.padding-xaxis-xl2 {
+  padding-left: 90px;
+  padding-right: 90px;
+}
 .padding-xaxis-xl {
   padding-left: 80px;
   padding-right: 80px;
+}
+.padding-xaxis-lg3 {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+.padding-xaxis-lg2 {
+  padding-left: 60px;
+  padding-right: 60px;
 }
 .padding-xaxis-lg {
   padding-left: 50px;
@@ -1108,9 +1160,25 @@ a:hover, .button-link:hover {
   padding-top: 0;
   padding-bottom: 0;
 }
+.padding-yaxis-xl3 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.padding-yaxis-xl2 {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
 .padding-yaxis-xl {
   padding-top: 80px;
   padding-bottom: 80px;
+}
+.padding-yaxis-lg3 {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.padding-yaxis-lg2 {
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 .padding-yaxis-lg {
   padding-top: 50px;
@@ -1131,8 +1199,20 @@ a:hover, .button-link:hover {
 .margin-top-none {
   margin-top: 0;
 }
+.margin-top-xl3 {
+  margin-top: 100px;
+}
+.margin-top-xl2 {
+  margin-top: 90px;
+}
 .margin-top-xl {
   margin-top: 80px;
+}
+.margin-top-lg3 {
+  margin-top: 70px;
+}
+.margin-top-lg2 {
+  margin-top: 60px;
 }
 .margin-top-lg {
   margin-top: 50px;
@@ -1149,8 +1229,20 @@ a:hover, .button-link:hover {
 .margin-left-none {
   margin-left: 0;
 }
+.margin-left-xl3 {
+  margin-left: 100px;
+}
+.margin-left-xl2 {
+  margin-left: 90px;
+}
 .margin-left-xl {
   margin-left: 80px;
+}
+.margin-left-lg3 {
+  margin-left: 70px;
+}
+.margin-left-lg2 {
+  margin-left: 60px;
 }
 .margin-left-lg {
   margin-left: 50px;
@@ -1167,8 +1259,20 @@ a:hover, .button-link:hover {
 .margin-right-none {
   margin-right: 0;
 }
+.margin-right-xl3 {
+  margin-right: 100px;
+}
+.margin-right-xl2 {
+  margin-right: 90px;
+}
 .margin-right-xl {
   margin-right: 80px;
+}
+.margin-right-lg3 {
+  margin-right: 70px;
+}
+.margin-right-lg2 {
+  margin-right: 60px;
 }
 .margin-right-lg {
   margin-right: 50px;
@@ -1182,31 +1286,59 @@ a:hover, .button-link:hover {
 .margin-right-xs {
   margin-right: 10px;
 }
-.margin-bottom-none {
+.spacing-none {
   margin-bottom: 0;
 }
-.margin-bottom-xl {
+.spacing-xl3 {
+  margin-bottom: 100px;
+}
+.spacing-xl2 {
+  margin-bottom: 90px;
+}
+.spacing-xl {
   margin-bottom: 80px;
 }
-.margin-bottom-lg {
+.spacing-lg3 {
+  margin-bottom: 70px;
+}
+.spacing-lg2 {
+  margin-bottom: 60px;
+}
+.spacing-lg {
   margin-bottom: 50px;
 }
-.margin-bottom-md {
+.spacing-md {
   margin-bottom: 30px;
 }
-.margin-bottom-sm {
+.spacing-sm {
   margin-bottom: 20px;
 }
-.margin-bottom-xs {
+.spacing-xs {
   margin-bottom: 10px;
 }
 .margin-xaxis-none {
   margin-left: 0;
   margin-right: 0;
 }
+.margin-xaxis-xl3 {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.margin-xaxis-xl2 {
+  margin-left: 90px;
+  margin-right: 90px;
+}
 .margin-xaxis-xl {
   margin-left: 80px;
   margin-right: 80px;
+}
+.margin-xaxis-lg3 {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+.margin-xaxis-lg2 {
+  margin-left: 60px;
+  margin-right: 60px;
 }
 .margin-xaxis-lg {
   margin-left: 50px;
@@ -1228,9 +1360,25 @@ a:hover, .button-link:hover {
   margin-top: 0;
   margin-bottom: 0;
 }
+.margin-yaxis-xl3 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.margin-yaxis-xl2 {
+  margin-top: 90px;
+  margin-bottom: 90px;
+}
 .margin-yaxis-xl {
   margin-top: 80px;
   margin-bottom: 80px;
+}
+.margin-yaxis-lg3 {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+.margin-yaxis-lg2 {
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 .margin-yaxis-lg {
   margin-top: 50px;
@@ -1246,21 +1394,6 @@ a:hover, .button-link:hover {
 }
 .margin-yaxis-xs {
   margin-top: 10px;
-  margin-bottom: 10px;
-}
-.spacing-xl {
-  margin-bottom: 80px;
-}
-.spacing-lg {
-  margin-bottom: 50px;
-}
-.spacing-md {
-  margin-bottom: 30px;
-}
-.spacing-sm {
-  margin-bottom: 20px;
-}
-.spacing-xs {
   margin-bottom: 10px;
 }
 .button {
@@ -1732,13 +1865,7 @@ a:hover, .button-link:hover {
   justify-content: center;
   display: flex;
 
-  padding-top: 30px;
-
-  padding-bottom: 30px;
-
-  padding-left: 30px;
-
-  padding-right: 30px;
+  padding: 30px;
 }
 .border-all,
 .border-right,
@@ -3743,10 +3870,7 @@ body {
       right: 2px
   }
 .modal-content {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px
+    padding: 10px
 }
 }
 
