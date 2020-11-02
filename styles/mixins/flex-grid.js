@@ -1,6 +1,6 @@
 'use strict';
-
 const breakpointHelper = require('../../lib/breakpoint-helper');
+
 module.exports = function (config) {
   const horizontalAlignments = {
     left: 'flex-start',
@@ -120,22 +120,21 @@ module.exports = function (config) {
         'flex-grow': 0
       };
 
+      const gutterSelector = [];
+
       for (let i = 1; i <= cols; i++) {
-        block[`.${prefix}-${i}`] = {
-          width: `${(100 / (12 / i))}%`,
-          'flex-basis': 'auto',
-          'padding-left': gutters,
-          'padding-right': gutters
+        const selector = `.${prefix}-${i}`;
+        block[selector] = {
+          width: `${(100 / (12 / i))}%`
         };
 
-        block[`.${prefix}-offset-${i}`] = {
-          'margin-left': `${(100 / (12 / i))}%`
-        };
-
-        block[`.${prefix}-suffix-${i}`] = {
-          'margin-right': `${(100 / (12 / i))}%`
-        };
+        gutterSelector.push(selector);
       }
+
+      block[gutterSelector.join(',\n')] = {
+        'padding-left': gutters,
+        'padding-right': gutters
+      };
 
       block[`[class*=${layoutPrefix}-columns]>[class*=flex-]`] = {
         width: 'auto'

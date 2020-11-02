@@ -19,7 +19,13 @@ module.exports = function (config) {
 
     positions.forEach(curPosition => {
       spacingBreakpoints.forEach(breakpoint => {
-        if (typeof config.spacing[breakpoint][size] === 'undefined') {
+        const hasNoMatchingSize = typeof config.spacing[breakpoint][size] === 'undefined';
+        // Do not generate extra markup to behave similarly as default
+        const sizeIsDifferentThanDefault = !hasNoMatchingSize
+          && breakpoint !== 'default'
+          && config.spacing[breakpoint][size] === config.spacing.default[size];
+
+        if (hasNoMatchingSize || sizeIsDifferentThanDefault) {
           return;
         }
 
@@ -34,6 +40,7 @@ module.exports = function (config) {
         }
       });
     });
+
     Object.assign(allPositions, breakpointHelper(styles, config));
 
     return allPositions;
@@ -51,7 +58,7 @@ module.exports = function (config) {
     const positions = ['top', 'left', 'right', 'bottom', 'xaxis', 'yaxis'];
     const sizes = Object.keys(config.spacing.default);
 
-    // first add the classes of the form <propery>-<size>:
+    // first add the classes of the form <property>-<size>:
     properties.forEach(property => {
       sizes.forEach(curSize => {
         styles[`.${property}-${curSize}`] = spacingMixin(property, 'all', curSize);
@@ -72,6 +79,25 @@ module.exports = function (config) {
         });
       });
     });
+
+    const breakpoints = Object.keys(config.breakpoints);
+    const responsiveSpacing = {};
+
+    for (const breakpoint of breakpoints) {
+      if (!config.breakpoints[breakpoint].default) {
+        responsiveSpacing[breakpoint] = {};
+        const block = responsiveSpacing[breakpoint];
+
+        sizes.forEach(curSize => {
+          const selector = `.spacing-${breakpoint}-${curSize}`;
+          block[selector] = {
+            'margin-bottom': curSize === 'none' ? '0' : config.spacing.default[curSize]
+          };
+        });
+      }
+    }
+
+    Object.assign(styles, breakpointHelper(responsiveSpacing, config));
 
     return styles;
   };
