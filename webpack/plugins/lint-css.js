@@ -6,8 +6,8 @@ module.exports = options => {
   const shouldFail = options.stylelint.failOnError || options.failOnError;
 
   return new StylelintPlugin({
-    configFile: `${options.CKDIR}/package.json`,
-    ignorePath: `${options.CKDIR}/.stylelintignore`,
+    configFile: options.stylelint.configFile,
+    ignorePath: options.stylelint.ignorePath,
     context,
     emitWarning: shoudlWarn,
     failOnWarning: shouldFail,
