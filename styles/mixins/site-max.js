@@ -3,6 +3,7 @@ module.exports = function(config) {
     if (!config.siteMaxWidth) {
       return {};
     }
+
     return {
       'max-width': config.siteMaxWidth,
       'margin-left': 'auto',
