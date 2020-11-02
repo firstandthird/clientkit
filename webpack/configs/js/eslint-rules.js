@@ -1,5 +1,5 @@
 module.exports = options => {
-  const shoudlWarn = !options.eslint.failOnError || !options.failOnError;
+  const shouldWarn = !options.eslint.failOnError || !options.failOnError;
   const shouldFail = options.eslint.failOnError || options.failOnError;
 
   return {
@@ -9,7 +9,7 @@ module.exports = options => {
     use: {
       loader: 'eslint-loader',
       options: {
-        emitWarning: shoudlWarn,
+        emitWarning: shouldWarn,
         failOnWarning: shouldFail,
         failOnError: shouldFail
       }
