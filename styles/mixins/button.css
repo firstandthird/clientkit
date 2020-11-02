@@ -5,7 +5,7 @@
   text-align: center;
   font-family: var(--font-button);
   font-size: var(--font-size-button);
-  padding: 12px 14px;
+  padding: var(--button-padding-default-y) var(--button-padding-default-x);
   border-radius: $borderRadius;
   border: $borderWidth solid $border;
   vertical-align: middle;
