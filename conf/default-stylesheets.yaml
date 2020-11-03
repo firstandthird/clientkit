@@ -42,8 +42,23 @@ stylesheets:
   spacing:
     default:
       none: 0
+      xl3: 100px
+      xl2: 90px
       xl: 80px
+      lg3: 70px
+      lg2: 60px
       lg: 50px
       md: 30px
+      sm: 20px
+      xs: 10px
+    mobile:
+      none: 0
+      xl3: 40px
+      xl2: 40px
+      xl: 40px
+      lg3: 30px
+      lg2: 30px
+      lg: 30px
+      md: 25px
       sm: 20px
       xs: 10px

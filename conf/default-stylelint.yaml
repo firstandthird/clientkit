@@ -1,2 +1,4 @@
 stylelint:
   failOnError: '{{failOnError}}'
+  configFile: '{{CKDIR}}/package.json'
+  ignorePath: '{{CKDIR}}/.stylelintignore'
