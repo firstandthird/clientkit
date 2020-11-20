@@ -20,7 +20,7 @@
   input[type=week],
   input[type=time],
   textarea {
-    @mixin input var(--color-input-background), var(--color-body), var(--color-input-disabled), var(--color-input-border), var(--color-input-border-focus), var(--color-input-disable);
+    @mixin input var(--color-input-background), var(--color-body), var(--color-input-disabled), var(--color-input-border), var(--color-input-border-focus), var(--color-input-disabled);
   }
 
   select {

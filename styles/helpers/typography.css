@@ -7,7 +7,7 @@ body {
 
   @media (--mobile-only) {
     font-size: var(--font-mobile-size-body);
-    line-height: var(--font-mobile-line-height);
+    line-height: var(--mobile-line-height);
   }
 }
 

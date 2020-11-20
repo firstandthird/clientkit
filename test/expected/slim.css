@@ -1199,7 +1199,7 @@ a:hover, .button-link:hover {
   }
 .form input[type=text]:disabled, .form input[type=email]:disabled, .form input[type=password]:disabled, .form input[type=url]:disabled, .form input[type=tel]:disabled, .form input[type=search]:disabled, .form input[type=number]:disabled, .form input[type=date]:disabled, .form input[type=datetime]:disabled, .form input[type=datetime-local]:disabled, .form input[type=month]:disabled, .form input[type=week]:disabled, .form input[type=time]:disabled, .form textarea:disabled {
     box-shadow: none;
-    border-bottom: 1px dashed var(--color-input-disable);
+    border-bottom: 1px dashed #808080;
     color: #808080;
   }
 .form input[type=text]:-moz-read-only, .form input[type=email]:-moz-read-only, .form input[type=password]:-moz-read-only, .form input[type=url]:-moz-read-only, .form input[type=tel]:-moz-read-only, .form input[type=search]:-moz-read-only, .form input[type=number]:-moz-read-only, .form input[type=date]:-moz-read-only, .form input[type=datetime]:-moz-read-only, .form input[type=datetime-local]:-moz-read-only, .form input[type=month]:-moz-read-only, .form input[type=week]:-moz-read-only, .form input[type=time]:-moz-read-only, .form textarea:-moz-read-only {
@@ -2226,7 +2226,7 @@ hr {
 }
 body {
     font-size: 16px;
-    line-height: var(--font-mobile-line-height)
+    line-height: 1.56
 }
 .font-large {
     font-size: 18px;
