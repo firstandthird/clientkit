@@ -1086,11 +1086,17 @@ body {
 .padding-lg {
   padding: 50px;
 }
+.padding-md2 {
+  padding: 40px;
+}
 .padding-md {
   padding: 30px;
 }
 .padding-sm {
   padding: 20px;
+}
+.padding-xs2 {
+  padding: 15px;
 }
 .padding-xs {
   padding: 10px;
@@ -1116,11 +1122,17 @@ body {
 .margin-lg {
   margin: 50px;
 }
+.margin-md2 {
+  margin: 40px;
+}
 .margin-md {
   margin: 30px;
 }
 .margin-sm {
   margin: 20px;
+}
+.margin-xs2 {
+  margin: 15px;
 }
 .margin-xs {
   margin: 10px;
@@ -1146,11 +1158,17 @@ body {
 .padding-top-lg {
   padding-top: 50px;
 }
+.padding-top-md2 {
+  padding-top: 40px;
+}
 .padding-top-md {
   padding-top: 30px;
 }
 .padding-top-sm {
   padding-top: 20px;
+}
+.padding-top-xs2 {
+  padding-top: 15px;
 }
 .padding-top-xs {
   padding-top: 10px;
@@ -1176,11 +1194,17 @@ body {
 .padding-left-lg {
   padding-left: 50px;
 }
+.padding-left-md2 {
+  padding-left: 40px;
+}
 .padding-left-md {
   padding-left: 30px;
 }
 .padding-left-sm {
   padding-left: 20px;
+}
+.padding-left-xs2 {
+  padding-left: 15px;
 }
 .padding-left-xs {
   padding-left: 10px;
@@ -1206,11 +1230,17 @@ body {
 .padding-right-lg {
   padding-right: 50px;
 }
+.padding-right-md2 {
+  padding-right: 40px;
+}
 .padding-right-md {
   padding-right: 30px;
 }
 .padding-right-sm {
   padding-right: 20px;
+}
+.padding-right-xs2 {
+  padding-right: 15px;
 }
 .padding-right-xs {
   padding-right: 10px;
@@ -1236,11 +1266,17 @@ body {
 .padding-bottom-lg {
   padding-bottom: 50px;
 }
+.padding-bottom-md2 {
+  padding-bottom: 40px;
+}
 .padding-bottom-md {
   padding-bottom: 30px;
 }
 .padding-bottom-sm {
   padding-bottom: 20px;
+}
+.padding-bottom-xs2 {
+  padding-bottom: 15px;
 }
 .padding-bottom-xs {
   padding-bottom: 10px;
@@ -1273,6 +1309,10 @@ body {
   padding-left: 50px;
   padding-right: 50px;
 }
+.padding-xaxis-md2 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
 .padding-xaxis-md {
   padding-left: 30px;
   padding-right: 30px;
@@ -1280,6 +1320,10 @@ body {
 .padding-xaxis-sm {
   padding-left: 20px;
   padding-right: 20px;
+}
+.padding-xaxis-xs2 {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .padding-xaxis-xs {
   padding-left: 10px;
@@ -1313,6 +1357,10 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+.padding-yaxis-md2 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 .padding-yaxis-md {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -1320,6 +1368,10 @@ body {
 .padding-yaxis-sm {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+.padding-yaxis-xs2 {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .padding-yaxis-xs {
   padding-top: 10px;
@@ -1346,11 +1398,17 @@ body {
 .margin-top-lg {
   margin-top: 50px;
 }
+.margin-top-md2 {
+  margin-top: 40px;
+}
 .margin-top-md {
   margin-top: 30px;
 }
 .margin-top-sm {
   margin-top: 20px;
+}
+.margin-top-xs2 {
+  margin-top: 15px;
 }
 .margin-top-xs {
   margin-top: 10px;
@@ -1376,11 +1434,17 @@ body {
 .margin-left-lg {
   margin-left: 50px;
 }
+.margin-left-md2 {
+  margin-left: 40px;
+}
 .margin-left-md {
   margin-left: 30px;
 }
 .margin-left-sm {
   margin-left: 20px;
+}
+.margin-left-xs2 {
+  margin-left: 15px;
 }
 .margin-left-xs {
   margin-left: 10px;
@@ -1406,11 +1470,17 @@ body {
 .margin-right-lg {
   margin-right: 50px;
 }
+.margin-right-md2 {
+  margin-right: 40px;
+}
 .margin-right-md {
   margin-right: 30px;
 }
 .margin-right-sm {
   margin-right: 20px;
+}
+.margin-right-xs2 {
+  margin-right: 15px;
 }
 .margin-right-xs {
   margin-right: 10px;
@@ -1436,11 +1506,17 @@ body {
 .spacing-lg {
   margin-bottom: 50px;
 }
+.spacing-md2 {
+  margin-bottom: 40px;
+}
 .spacing-md {
   margin-bottom: 30px;
 }
 .spacing-sm {
   margin-bottom: 20px;
+}
+.spacing-xs2 {
+  margin-bottom: 15px;
 }
 .spacing-xs {
   margin-bottom: 10px;
@@ -1473,6 +1549,10 @@ body {
   margin-left: 50px;
   margin-right: 50px;
 }
+.margin-xaxis-md2 {
+  margin-left: 40px;
+  margin-right: 40px;
+}
 .margin-xaxis-md {
   margin-left: 30px;
   margin-right: 30px;
@@ -1480,6 +1560,10 @@ body {
 .margin-xaxis-sm {
   margin-left: 20px;
   margin-right: 20px;
+}
+.margin-xaxis-xs2 {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .margin-xaxis-xs {
   margin-left: 10px;
@@ -1513,6 +1597,10 @@ body {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+.margin-yaxis-md2 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 .margin-yaxis-md {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -1520,6 +1608,10 @@ body {
 .margin-yaxis-sm {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.margin-yaxis-xs2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .margin-yaxis-xs {
   margin-top: 10px;
@@ -1867,11 +1959,17 @@ hr {
 .spacing-desktop-lg {
     margin-bottom: 50px;
   }
+.spacing-desktop-md2 {
+    margin-bottom: 40px;
+  }
 .spacing-desktop-md {
     margin-bottom: 30px;
   }
 .spacing-desktop-sm {
     margin-bottom: 20px;
+  }
+.spacing-desktop-xs2 {
+    margin-bottom: 15px;
   }
 .spacing-desktop-xs {
     margin-bottom: 10px;
@@ -2108,11 +2206,17 @@ hr {
 .spacing-tablet-lg {
     margin-bottom: 50px;
   }
+.spacing-tablet-md2 {
+    margin-bottom: 40px;
+  }
 .spacing-tablet-md {
     margin-bottom: 30px;
   }
 .spacing-tablet-sm {
     margin-bottom: 20px;
+  }
+.spacing-tablet-xs2 {
+    margin-bottom: 15px;
   }
 .spacing-tablet-xs {
     margin-bottom: 10px;
@@ -2455,6 +2559,9 @@ body {
 .padding-lg {
     padding: 30px;
   }
+.padding-md2 {
+    padding: 25px;
+  }
 .padding-md {
     padding: 25px;
   }
@@ -2475,6 +2582,9 @@ body {
   }
 .margin-lg {
     margin: 30px;
+  }
+.margin-md2 {
+    margin: 25px;
   }
 .margin-md {
     margin: 25px;
@@ -2497,6 +2607,9 @@ body {
 .padding-top-lg {
     padding-top: 30px;
   }
+.padding-top-md2 {
+    padding-top: 25px;
+  }
 .padding-top-md {
     padding-top: 25px;
   }
@@ -2517,6 +2630,9 @@ body {
   }
 .padding-left-lg {
     padding-left: 30px;
+  }
+.padding-left-md2 {
+    padding-left: 25px;
   }
 .padding-left-md {
     padding-left: 25px;
@@ -2539,6 +2655,9 @@ body {
 .padding-right-lg {
     padding-right: 30px;
   }
+.padding-right-md2 {
+    padding-right: 25px;
+  }
 .padding-right-md {
     padding-right: 25px;
   }
@@ -2559,6 +2678,9 @@ body {
   }
 .padding-bottom-lg {
     padding-bottom: 30px;
+  }
+.padding-bottom-md2 {
+    padding-bottom: 25px;
   }
 .padding-bottom-md {
     padding-bottom: 25px;
@@ -2586,6 +2708,10 @@ body {
 .padding-xaxis-lg {
     padding-left: 30px;
     padding-right: 30px;
+  }
+.padding-xaxis-md2 {
+    padding-left: 25px;
+    padding-right: 25px;
   }
 .padding-xaxis-md {
     padding-left: 25px;
@@ -2615,6 +2741,10 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
   }
+.padding-yaxis-md2 {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
 .padding-yaxis-md {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -2637,6 +2767,9 @@ body {
 .margin-top-lg {
     margin-top: 30px;
   }
+.margin-top-md2 {
+    margin-top: 25px;
+  }
 .margin-top-md {
     margin-top: 25px;
   }
@@ -2657,6 +2790,9 @@ body {
   }
 .margin-left-lg {
     margin-left: 30px;
+  }
+.margin-left-md2 {
+    margin-left: 25px;
   }
 .margin-left-md {
     margin-left: 25px;
@@ -2679,6 +2815,9 @@ body {
 .margin-right-lg {
     margin-right: 30px;
   }
+.margin-right-md2 {
+    margin-right: 25px;
+  }
 .margin-right-md {
     margin-right: 25px;
   }
@@ -2699,6 +2838,9 @@ body {
   }
 .spacing-lg {
     margin-bottom: 30px;
+  }
+.spacing-md2 {
+    margin-bottom: 25px;
   }
 .spacing-md {
     margin-bottom: 25px;
@@ -2726,6 +2868,10 @@ body {
 .margin-xaxis-lg {
     margin-left: 30px;
     margin-right: 30px;
+  }
+.margin-xaxis-md2 {
+    margin-left: 25px;
+    margin-right: 25px;
   }
 .margin-xaxis-md {
     margin-left: 25px;
@@ -2755,6 +2901,10 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
   }
+.margin-yaxis-md2 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
 .margin-yaxis-md {
     margin-top: 25px;
     margin-bottom: 25px;
@@ -2780,11 +2930,17 @@ body {
 .spacing-mobile-lg {
     margin-bottom: 50px;
   }
+.spacing-mobile-md2 {
+    margin-bottom: 40px;
+  }
 .spacing-mobile-md {
     margin-bottom: 30px;
   }
 .spacing-mobile-sm {
     margin-bottom: 20px;
+  }
+.spacing-mobile-xs2 {
+    margin-bottom: 15px;
   }
 .spacing-mobile-xs {
     margin-bottom: 10px;

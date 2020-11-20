@@ -48,8 +48,10 @@ stylesheets:
       lg3: 70px
       lg2: 60px
       lg: 50px
+      md2: 40px
       md: 30px
       sm: 20px
+      xs2: 15px
       xs: 10px
     mobile:
       none: 0
@@ -59,6 +61,8 @@ stylesheets:
       lg3: 30px
       lg2: 30px
       lg: 30px
+      md2: 25px
       md: 25px
       sm: 20px
+      xs2: 15px
       xs: 10px
