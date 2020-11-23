@@ -1,0 +1,38 @@
+@define-mixin ck-headings {
+  .heading-1 {
+    @mixin heading var(--heading-1-size),
+    var(--heading-1-line-height),
+    var(--heading-1-mobile-size),
+    var(--heading-1-mobile-line-height);
+  }
+  .heading-2 {
+    @mixin heading var(--heading-2-size),
+    var(--heading-2-line-height),
+    var(--heading-2-mobile-size),
+    var(--heading-2-mobile-line-height);
+  }
+  .heading-3 {
+    @mixin heading var(--heading-3-size),
+    var(--heading-3-line-height),
+    var(--heading-3-mobile-size),
+    var(--heading-3-mobile-line-height);
+  }
+  .heading-4 {
+    @mixin heading var(--heading-4-size),
+    var(--heading-4-line-height),
+    var(--heading-4-mobile-size),
+    var(--heading-4-mobile-line-height);
+  }
+  .heading-5 {
+    @mixin heading var(--heading-5-size),
+    var(--heading-5-line-height),
+    var(--heading-5-mobile-size),
+    var(--heading-5-mobile-line-height);
+  }
+  .heading-6 {
+    @mixin heading var(--heading-6-size),
+    var(--heading-6-line-height),
+    var(--heading-6-mobile-size),
+    var(--heading-6-mobile-line-height);
+  }
+}

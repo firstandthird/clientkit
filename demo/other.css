@@ -15,11 +15,3 @@
     margin-left: 40px;
   }
 }
-
-.icon-forward-a {
-  @mixin icon ios-arrow-forward, var(--icon-size), body;
-}
-
-.icon-mobile {
-  @mixin icon iphone;
-}

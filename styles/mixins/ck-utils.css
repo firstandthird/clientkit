@@ -1,0 +1,51 @@
+@define-mixin ck-utils {
+  .pull-left {
+    float: left;
+  }
+
+  .pull-right {
+    float: right;
+  }
+
+  .display-block {
+    display: block;
+  }
+
+  .display-inline {
+    display: inline;
+  }
+
+  .display-inline-block {
+    display: inline-block;
+  }
+
+  .display-flex {
+    display: flex;
+  }
+
+  .display-flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .display-inline-flex {
+    display: inline-flex;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  @mixin hide;
+}

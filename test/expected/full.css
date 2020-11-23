@@ -491,103 +491,103 @@ body {
   width: auto;
 }
 .fade-in {
-  opacity: 0;
-  transition: opacity .5s ease;
-}
+    opacity: 0;
+    transition: opacity .5s ease;
+  }
 .fade-in--up {
-    transform: translate3d(0, 10%, 0);
-    transition: opacity .5s ease, transform .5s ease;
-  }
+      transform: translate3d(0, 10%, 0);
+      transition: opacity .5s ease, transform .5s ease;
+    }
 .fade-in--left {
-    transform: translate3d(-10%, 0, 0);
-    transition: opacity .5s ease, transform .5s ease;
-  }
+      transform: translate3d(-10%, 0, 0);
+      transition: opacity .5s ease, transform .5s ease;
+    }
 .fade-in--right {
-    transform: translate3d(10%, 0, 0);
-    transition: opacity .5s ease, transform .5s ease;
-  }
+      transform: translate3d(10%, 0, 0);
+      transition: opacity .5s ease, transform .5s ease;
+    }
 .fade-in--delayed {
-    transition-delay: .4s;
-  }
+      transition-delay: .4s;
+    }
 .visible .fade-in,
-.visible.fade-in {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
+  .visible.fade-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 .heading-1 {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  color: #333;
-  line-height: 1.14;
-  font-weight: bold;
-  font-size: 70px;
-}
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    color: #333;
+    line-height: 1.14;
+    font-weight: bold;
+    font-size: 70px;
+  }
 .heading-2 {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  color: #333;
-  line-height: 1.16;
-  font-weight: bold;
-  font-size: 60px;
-}
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    color: #333;
+    line-height: 1.16;
+    font-weight: bold;
+    font-size: 60px;
+  }
 .heading-3 {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  color: #333;
-  line-height: 1.1;
-  font-weight: bold;
-  font-size: 50px;
-}
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    color: #333;
+    line-height: 1.1;
+    font-weight: bold;
+    font-size: 50px;
+  }
 .heading-4 {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  color: #333;
-  line-height: 1.2;
-  font-weight: bold;
-  font-size: 40px;
-}
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    color: #333;
+    line-height: 1.2;
+    font-weight: bold;
+    font-size: 40px;
+  }
 .heading-5 {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  color: #333;
-  line-height: 1.16;
-  font-weight: bold;
-  font-size: 30px;
-}
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    color: #333;
+    line-height: 1.16;
+    font-weight: bold;
+    font-size: 30px;
+  }
 .heading-6 {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  color: #333;
-  line-height: 1.12;
-  font-weight: bold;
-  font-size: 25px;
-}
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    color: #333;
+    line-height: 1.12;
+    font-weight: bold;
+    font-size: 25px;
+  }
 a,
-.button-link {
-  color: #336699;
-  cursor: pointer;
-  text-decoration: none;
-}
+  .button-link {
+    color: #336699;
+    cursor: pointer;
+    text-decoration: none;
+  }
 a:hover, .button-link:hover {
     color: rgb(51, 77, 102);
   }
 .button-link {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background: transparent;
-  border: 0;
-  padding: 0;
-}
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
 .button {
-  display: inline-block;
-  background-color: #336699;
-  line-height: 1;
-  text-align: center;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  font-size: 16px;
-  padding: 12px 14px;
-  border-radius: 3px;
-  border: 2px solid transparent;
-  vertical-align: middle;
-  cursor: pointer;
-  transition: color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99);
-  color: #fff;
-}
+    display: inline-block;
+    background-color: #336699;
+    line-height: 1;
+    text-align: center;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    font-size: 16px;
+    padding: 12px 14px;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99);
+    color: #fff;
+  }
 .button:hover,
   .button:active,
   .button.active,
@@ -607,20 +607,20 @@ a:hover, .button-link:hover {
       color: #fff;
     }
 .button-secondary {
-  display: inline-block;
-  background-color: #ffa500;
-  line-height: 1;
-  text-align: center;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  font-size: 16px;
-  padding: 12px 14px;
-  border-radius: 3px;
-  border: 2px solid transparent;
-  vertical-align: middle;
-  cursor: pointer;
-  transition: color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99);
-  color: #fff;
-}
+    display: inline-block;
+    background-color: #ffa500;
+    line-height: 1;
+    text-align: center;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    font-size: 16px;
+    padding: 12px 14px;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99);
+    color: #fff;
+  }
 .button-secondary:hover,
   .button-secondary:active,
   .button-secondary.active,
@@ -640,20 +640,20 @@ a:hover, .button-link:hover {
       color: #fff;
     }
 .button-outline {
-  display: inline-block;
-  background-color: transparent;
-  line-height: 1;
-  text-align: center;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-  font-size: 16px;
-  padding: 12px 14px;
-  border-radius: 3px;
-  border: 2px solid #336699;
-  vertical-align: middle;
-  cursor: pointer;
-  transition: color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99);
-  color: #336699;
-}
+    display: inline-block;
+    background-color: transparent;
+    line-height: 1;
+    text-align: center;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    font-size: 16px;
+    padding: 12px 14px;
+    border-radius: 3px;
+    border: 2px solid #336699;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99), background-color .25s cubic-bezier(0.35, 0.97, 0.57, 0.99);
+    color: #336699;
+  }
 .button-outline:hover,
   .button-outline:active,
   .button-outline.active,
@@ -673,61 +673,51 @@ a:hover, .button-link:hover {
       color: #336699;
     }
 .button-lg {
-  border-radius: 5px;
-  padding: 8px 12px;
-  font-size: 20px;
-}
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 20px;
+  }
 .button-sm {
-  border-radius: 2px;
-  padding: 16px 20px;
-  font-size: 14px;
-}
+    border-radius: 2px;
+    padding: 16px 20px;
+    font-size: 14px;
+  }
 .list-unstyled {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-.list-inline {
-  margin-left: -5px;
-  padding-left: 0;
-  list-style: none;
-}
-.list-inline > li {
-    display: inline-block;
-    padding-right: 5px;
-    padding-left: 5px;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
   }
 .form label {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-    color: #808080;
-    font-size: 16px;
-    line-height: 1.4;
-  }
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      color: #808080;
+      font-size: 16px;
+      line-height: 1.4;
+    }
 .form input[type=text],
-  .form input[type=email],
-  .form input[type=password],
-  .form input[type=url],
-  .form input[type=tel],
-  .form input[type=search],
-  .form input[type=number],
-  .form input[type=date],
-  .form input[type=datetime],
-  .form input[type=datetime-local],
-  .form input[type=month],
-  .form input[type=week],
-  .form input[type=time],
-  .form textarea {
-    width: 100%;
-    transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
-    background-color: #fff;
-    border: 0;
-    box-shadow: 0 1px 0 0 #333;
-    padding: 0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-    font-size: 20px;
-    line-height: 1.4;
-    color: #333;
-  }
+    .form input[type=email],
+    .form input[type=password],
+    .form input[type=url],
+    .form input[type=tel],
+    .form input[type=search],
+    .form input[type=number],
+    .form input[type=date],
+    .form input[type=datetime],
+    .form input[type=datetime-local],
+    .form input[type=month],
+    .form input[type=week],
+    .form input[type=time],
+    .form textarea {
+      width: 100%;
+      transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
+      background-color: #fff;
+      border: 0;
+      box-shadow: 0 1px 0 0 #333;
+      padding: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      font-size: 20px;
+      line-height: 1.4;
+      color: #333;
+    }
 .form input[type=text]:focus, .form input[type=email]:focus, .form input[type=password]:focus, .form input[type=url]:focus, .form input[type=tel]:focus, .form input[type=search]:focus, .form input[type=number]:focus, .form input[type=date]:focus, .form input[type=datetime]:focus, .form input[type=datetime-local]:focus, .form input[type=month]:focus, .form input[type=week]:focus, .form input[type=time]:focus, .form textarea:focus {
     outline: none;
     box-shadow: 0 2px 0 0 #336699;
@@ -744,41 +734,41 @@ a:hover, .button-link:hover {
     cursor: text;
   }
 .form select {
-    width: 100%;
-  }
-.form small {
-    display: none;
-  }
-.form .error small {
-      display: block;
-      color: #ff0000;
-      font-size: 14px;
-    }
-.form .error input[type=text],
-    .form .error input[type=email],
-    .form .error input[type=password],
-    .form .error input[type=url],
-    .form .error input[type=tel],
-    .form .error input[type=search],
-    .form .error input[type=number],
-    .form .error input[type=date],
-    .form .error input[type=datetime],
-    .form .error input[type=datetime-local],
-    .form .error input[type=month],
-    .form .error input[type=week],
-    .form .error input[type=time],
-    .form .error textarea {
       width: 100%;
-      transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
-      background-color: #fff;
-      border: 0;
-      box-shadow: 0 1px 0 0 #ff0000;
-      padding: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-      font-size: 20px;
-      line-height: 1.4;
-      color: #333;
     }
+.form small {
+      display: none;
+    }
+.form .error small {
+        display: block;
+        color: #ff0000;
+        font-size: 14px;
+      }
+.form .error input[type=text],
+      .form .error input[type=email],
+      .form .error input[type=password],
+      .form .error input[type=url],
+      .form .error input[type=tel],
+      .form .error input[type=search],
+      .form .error input[type=number],
+      .form .error input[type=date],
+      .form .error input[type=datetime],
+      .form .error input[type=datetime-local],
+      .form .error input[type=month],
+      .form .error input[type=week],
+      .form .error input[type=time],
+      .form .error textarea {
+        width: 100%;
+        transition: box-shadow cubic-bezier(0.35, 0.97, 0.57, 0.99) 250ms;
+        background-color: #fff;
+        border: 0;
+        box-shadow: 0 1px 0 0 #ff0000;
+        padding: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+        font-size: 20px;
+        line-height: 1.4;
+        color: #333;
+      }
 .form .error input[type=text]:focus, .form .error input[type=email]:focus, .form .error input[type=password]:focus, .form .error input[type=url]:focus, .form .error input[type=tel]:focus, .form .error input[type=search]:focus, .form .error input[type=number]:focus, .form .error input[type=date]:focus, .form .error input[type=datetime]:focus, .form .error input[type=datetime-local]:focus, .form .error input[type=month]:focus, .form .error input[type=week]:focus, .form .error input[type=time]:focus, .form .error textarea:focus {
     outline: none;
     box-shadow: 0 2px 0 0 #ff0000;
@@ -795,72 +785,72 @@ a:hover, .button-link:hover {
     cursor: text;
   }
 .form .input-group {
-    font-size: 0;
-  }
+      font-size: 0;
+    }
 .form .input-group input[type=text],
-    .form .input-group input[type=email],
-    .form .input-group input[type=password],
-    .form .input-group input[type=url],
-    .form .input-group input[type=tel],
-    .form .input-group input[type=search],
-    .form .input-group input[type=number],
-    .form .input-group input[type=date],
-    .form .input-group input[type=datetime],
-    .form .input-group input[type=datetime-local],
-    .form .input-group input[type=month],
-    .form .input-group input[type=week],
-    .form .input-group input[type=time] {
-      display: inline-block;
-      width: inherit;
-      height: 42px;
-      vertical-align: middle;
-      box-shadow: none;
-      margin-right: -1px;
-      padding-right: 14px;
-      padding-left: 14px;
-      border-radius: 3px 0 0 3px;
-      background-color: #f1f1f1;
-      font-size: 16px;
-    }
-.form .input-group input[type=text]:focus, .form .input-group input[type=email]:focus, .form .input-group input[type=password]:focus, .form .input-group input[type=url]:focus, .form .input-group input[type=tel]:focus, .form .input-group input[type=search]:focus, .form .input-group input[type=number]:focus, .form .input-group input[type=date]:focus, .form .input-group input[type=datetime]:focus, .form .input-group input[type=datetime-local]:focus, .form .input-group input[type=month]:focus, .form .input-group input[type=week]:focus, .form .input-group input[type=time]:focus {
+      .form .input-group input[type=email],
+      .form .input-group input[type=password],
+      .form .input-group input[type=url],
+      .form .input-group input[type=tel],
+      .form .input-group input[type=search],
+      .form .input-group input[type=number],
+      .form .input-group input[type=date],
+      .form .input-group input[type=datetime],
+      .form .input-group input[type=datetime-local],
+      .form .input-group input[type=month],
+      .form .input-group input[type=week],
+      .form .input-group input[type=time] {
+        display: inline-block;
+        width: inherit;
+        height: 42px;
+        vertical-align: middle;
         box-shadow: none;
+        margin-right: -1px;
+        padding-right: 14px;
+        padding-left: 14px;
+        border-radius: 3px 0 0 3px;
+        background-color: #f1f1f1;
+        font-size: 16px;
       }
+.form .input-group input[type=text]:focus, .form .input-group input[type=email]:focus, .form .input-group input[type=password]:focus, .form .input-group input[type=url]:focus, .form .input-group input[type=tel]:focus, .form .input-group input[type=search]:focus, .form .input-group input[type=number]:focus, .form .input-group input[type=date]:focus, .form .input-group input[type=datetime]:focus, .form .input-group input[type=datetime-local]:focus, .form .input-group input[type=month]:focus, .form .input-group input[type=week]:focus, .form .input-group input[type=time]:focus {
+          box-shadow: none;
+        }
 .form .input-group .input-group-btn {
-      display: inline-block;
-      vertical-align: middle;
-      border-radius: 0 3px 3px 0;
-    }
-.form .floating-label {
-    position: relative;
-  }
-.form .floating-label label {
-      background: #fff;
-      left: 5px;
-      padding: 5px;
-      position: relative;
-      top: 10px;
-    }
-.form .floating-label input[type=text],
-    .form .floating-label input[type=email],
-    .form .floating-label input[type=password],
-    .form .floating-label input[type=url],
-    .form .floating-label input[type=tel],
-    .form .floating-label input[type=search],
-    .form .floating-label input[type=number],
-    .form .floating-label input[type=date],
-    .form .floating-label input[type=datetime],
-    .form .floating-label input[type=datetime-local],
-    .form .floating-label input[type=month],
-    .form .floating-label input[type=week],
-    .form .floating-label input[type=time],
-    .form .floating-label textarea {
-      border: 1px solid #333;
-      box-shadow: none;
-      padding: 10px;
-    }
-.form .floating-label input[type=text]:disabled, .form .floating-label input[type=email]:disabled, .form .floating-label input[type=password]:disabled, .form .floating-label input[type=url]:disabled, .form .floating-label input[type=tel]:disabled, .form .floating-label input[type=search]:disabled, .form .floating-label input[type=number]:disabled, .form .floating-label input[type=date]:disabled, .form .floating-label input[type=datetime]:disabled, .form .floating-label input[type=datetime-local]:disabled, .form .floating-label input[type=month]:disabled, .form .floating-label input[type=week]:disabled, .form .floating-label input[type=time]:disabled, .form .floating-label textarea:disabled {
-        border: 1px dashed #808080;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 0 3px 3px 0;
       }
+.form .floating-label {
+      position: relative;
+    }
+.form .floating-label label {
+        background: #fff;
+        left: 5px;
+        padding: 5px;
+        position: relative;
+        top: 10px;
+      }
+.form .floating-label input[type=text],
+      .form .floating-label input[type=email],
+      .form .floating-label input[type=password],
+      .form .floating-label input[type=url],
+      .form .floating-label input[type=tel],
+      .form .floating-label input[type=search],
+      .form .floating-label input[type=number],
+      .form .floating-label input[type=date],
+      .form .floating-label input[type=datetime],
+      .form .floating-label input[type=datetime-local],
+      .form .floating-label input[type=month],
+      .form .floating-label input[type=week],
+      .form .floating-label input[type=time],
+      .form .floating-label textarea {
+        border: 1px solid #333;
+        box-shadow: none;
+        padding: 10px;
+      }
+.form .floating-label input[type=text]:disabled, .form .floating-label input[type=email]:disabled, .form .floating-label input[type=password]:disabled, .form .floating-label input[type=url]:disabled, .form .floating-label input[type=tel]:disabled, .form .floating-label input[type=search]:disabled, .form .floating-label input[type=number]:disabled, .form .floating-label input[type=date]:disabled, .form .floating-label input[type=datetime]:disabled, .form .floating-label input[type=datetime-local]:disabled, .form .floating-label input[type=month]:disabled, .form .floating-label input[type=week]:disabled, .form .floating-label input[type=time]:disabled, .form .floating-label textarea:disabled {
+          border: 1px dashed #808080;
+        }
 .ugc {
   font-size: 18px;
   line-height: 1.5;
@@ -1012,30 +1002,30 @@ a:hover, .button-link:hover {
   display: none !important;
 }
 .border-all,
-.border-right,
-.border-left,
-.border-top,
-.border-bottom {
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 0;
-}
+  .border-right,
+  .border-left,
+  .border-top,
+  .border-bottom {
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 0;
+  }
 .border-all {
-  border-width: 1px;
-  border-radius: 3px;
-}
+    border-width: 1px;
+    border-radius: 3px;
+  }
 .border-right {
-  border-right-width: 1px;
-}
+    border-right-width: 1px;
+  }
 .border-left {
-  border-left-width: 1px;
-}
+    border-left-width: 1px;
+  }
 .border-top {
-  border-top-width: 1px;
-}
+    border-top-width: 1px;
+  }
 .border-bottom {
-  border-bottom-width: 1px;
-}
+    border-bottom-width: 1px;
+  }
 body {
   background-color: #fff;
 }
@@ -1625,124 +1615,124 @@ body {
   color: #333;
 }
 .font-primary {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif !important;
-}
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif !important;
+  }
 .font-secondary {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif !important;
-}
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif !important;
+  }
 .text-left {
-  text-align: left;
-}
+    text-align: left;
+  }
 .text-center {
-  text-align: center;
-}
+    text-align: center;
+  }
 .text-right {
-  text-align: right;
-}
+    text-align: right;
+  }
 .text-justify {
-  text-align: justify;
-}
+    text-align: justify;
+  }
 .text-nowrap {
-  white-space: nowrap;
-}
+    white-space: nowrap;
+  }
 .text-truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 .text-stretched {
-  letter-spacing: 2px;
-}
+    letter-spacing: 2px;
+  }
 .text-lowercase {
-  text-transform: lowercase;
-}
+    text-transform: lowercase;
+  }
 .text-uppercase {
-  text-transform: uppercase;
-}
+    text-transform: uppercase;
+  }
 .text-capitalize {
-  text-transform: capitalize;
-}
+    text-transform: capitalize;
+  }
 .text-underline {
-  text-decoration: underline;
-}
+    text-decoration: underline;
+  }
 .font-light {
-  font-weight: 300;
-}
+    font-weight: 300;
+  }
 .font-bold,
-strong,
-em {
-  font-weight: 700;
-}
+  strong,
+  em {
+    font-weight: 700;
+  }
 .font-large {
-  font-size: 20px;
-  line-height: 1.4;
-}
+    font-size: 20px;
+    line-height: 1.4;
+  }
 .font-small {
-  font-size: 14px;
-  line-height: 1.57;
-}
+    font-size: 14px;
+    line-height: 1.57;
+  }
 .font-disclaimer {
-  font-size: 12px;
-  line-height: 1.58;
-}
+    font-size: 12px;
+    line-height: 1.58;
+  }
 .font-body {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.56;
-}
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.56;
+  }
 .font-article {
-  font-size: 18px;
-  line-height: 1.5;
-}
+    font-size: 18px;
+    line-height: 1.5;
+  }
 hr {
-  width: 100%;
-  max-width: 3.5em;
-  height: 3px;
-  background-color: #333;
-  margin: 0;
-  border: 0;
-}
+    width: 100%;
+    max-width: 3.5em;
+    height: 3px;
+    background-color: #333;
+    margin: 0;
+    border: 0;
+  }
 .svg-icon {
-  fill: currentColor;
-}
+    fill: currentColor;
+  }
 .pull-left {
-  float: left;
-}
+    float: left;
+  }
 .pull-right {
-  float: right;
-}
+    float: right;
+  }
 .display-block {
-  display: block;
-}
+    display: block;
+  }
 .display-inline {
-  display: inline;
-}
+    display: inline;
+  }
 .display-inline-block {
-  display: inline-block;
-}
+    display: inline-block;
+  }
 .display-flex {
-  display: flex;
-}
+    display: flex;
+  }
 .display-flex-column {
-  display: flex;
-  flex-direction: column;
-}
+    display: flex;
+    flex-direction: column;
+  }
 .display-inline-flex {
-  display: inline-flex;
-}
+    display: inline-flex;
+  }
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
 .hide {
-  display: none !important;
-}
+    display: none !important;
+  }
 .hide-xl {
   display: none !important;
 }
@@ -2243,13 +2233,13 @@ hr {
 @media (max-width: 767px) and (min-width: 320px) {
 .button {
     font-size: 16px;
-}
+  }
 .button-secondary {
     font-size: 16px;
-}
+  }
 .button-outline {
     font-size: 16px;
-}
+  }
 .ugc {
     font-size: 18px;
 }
@@ -2258,25 +2248,25 @@ body {
     line-height: 1.56
 }
 .font-large {
-    font-size: 18px;
-    line-height: 1.5
-}
+      font-size: 18px;
+      line-height: 1.5
+  }
 .font-small {
-    font-size: 14px;
-    line-height: 1.57
-}
+      font-size: 14px;
+      line-height: 1.57
+  }
 .font-disclaimer {
-    font-size: 12px;
-    line-height: 1.58
-}
+      font-size: 12px;
+      line-height: 1.58
+  }
 .font-body {
-    font-size: 16px;
-    line-height: 1.56
-}
+      font-size: 16px;
+      line-height: 1.56
+  }
 .font-article {
-    font-size: 18px;
-    line-height: 1.5
-}
+      font-size: 18px;
+      line-height: 1.5
+  }
   }
 @media (max-width: 767px) {
 .container {
@@ -2470,27 +2460,27 @@ body {
 .heading-1 {
     font-size: 40px;
     line-height: 1.2;
-}
+  }
 .heading-2 {
     font-size: 40px;
     line-height: 1.2;
-}
+  }
 .heading-3 {
     font-size: 35px;
     line-height: 1.2;
-}
+  }
 .heading-4 {
     font-size: 30px;
     line-height: 1.6;
-}
+  }
 .heading-5 {
     font-size: 25px;
     line-height: 1.4;
-}
+  }
 .heading-6 {
     font-size: 22px;
     line-height: 1.27;
-}
+  }
 .ugc h1,
   .ugc h2,
   .ugc h3,
@@ -2965,12 +2955,12 @@ body {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .fade-in {
-    opacity: 1;
-    transform: none;
-    transition: none;
+    .fade-in {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
-}
 @media print {
   *,
   *::before,

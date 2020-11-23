@@ -1,0 +1,129 @@
+@define-mixin ck-typography {
+  .font-primary {
+    font-family: var(--font-primary) !important;
+  }
+
+  .font-secondary {
+    font-family: var(--font-secondary) !important;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-justify {
+    text-align: justify;
+  }
+
+  .text-nowrap {
+    white-space: nowrap;
+  }
+
+  .text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .text-stretched {
+    letter-spacing: var(--stretch-spacing);
+  }
+
+  .text-lowercase {
+    text-transform: lowercase;
+  }
+
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+
+  .text-capitalize {
+    text-transform: capitalize;
+  }
+
+  .text-underline {
+    text-decoration: underline;
+  }
+
+  .font-light {
+    font-weight: var(--font-weight-light);
+  }
+
+  .font-bold,
+  strong,
+  em {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .font-large {
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+
+    @media (--mobile-only) {
+      font-size: var(--font-mobile-size-large);
+      line-height: var(--mobile-line-height-large);
+    }
+  }
+
+  .font-small {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+
+    @media (--mobile-only) {
+      font-size: var(--font-mobile-size-small);
+      line-height: var(--mobile-line-height-small);
+    }
+  }
+
+  .font-disclaimer {
+    font-size: var(--font-size-disclaimer);
+    line-height: var(--line-height-disclaimer);
+
+    @media (--mobile-only) {
+      font-size: var(--font-mobile-size-disclaimer);
+      line-height: var(--mobile-line-height-disclaimer);
+    }
+  }
+
+  .font-body {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height);
+
+    @media (--mobile-only) {
+      font-size: var(--font-mobile-size-body);
+      line-height: var(--mobile-line-height);
+    }
+  }
+
+  .font-article {
+    font-size: var(--font-size-article);
+    line-height: var(--line-height-article);
+
+    @media (--mobile-only) {
+      font-size: var(--font-mobile-size-article);
+      line-height: var(--mobile-line-height-article);
+    }
+  }
+
+  hr {
+    width: 100%;
+    max-width: var(--hr-max-width);
+    height: var(--hr-height);
+    background-color: var(--hr-color);
+    margin: 0;
+    border: 0;
+  }
+
+  .svg-icon {
+    fill: currentColor;
+  }
+}
