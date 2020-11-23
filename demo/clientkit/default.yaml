@@ -9,6 +9,7 @@ stylesheets:
         - 'common'
         - 'basic'
     'other.css': './other.css'
+    'scoped.css': './scoped.css'
 scripts:
   commonChunk: 'common-chunks'
   files:

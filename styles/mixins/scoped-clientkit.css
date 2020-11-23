@@ -1,0 +1,47 @@
+@define-mixin scoped-clientkit {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height);
+  color: var(--color-body);
+
+  @media (--mobile-only) {
+    font-size: var(--font-mobile-size-body);
+    line-height: var(--mobile-line-height);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  .container {
+    @mixin container;
+  }
+
+  @mixin flex-grid;
+  @mixin ck-animations;
+  @mixin ck-headings;
+  @mixin ck-links;
+  @mixin ck-buttons;
+  @mixin ck-lists;
+  @mixin ck-form;
+
+  .ugc {
+    @mixin ugc;
+  }
+
+  .bg-image {
+    @mixin bg-image;
+  }
+
+  @mixin ck-borders;
+  @mixin bg-colors;
+  @mixin text-colors;
+  @mixin spacing;
+  @mixin ck-typography;
+  @mixin typography;
+  @mixin ck-utils;
+}

@@ -1,0 +1,13 @@
+@define-mixin ck-links {
+  a,
+  .button-link {
+    @mixin link var(--color-link), var(--color-link-hover);
+  }
+
+  .button-link {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+}
