@@ -4,7 +4,7 @@ const loadMixins = require('./load-mixins');
 const loadVars = require('./load-variables');
 const loadMedia = require('./load-media');
 const paths = require('../../../paths');
-const fontMagician = require('postcss-font-magician');
+const fontMagician = require('@alaguna/postcss-font-magician');
 const removeEmpty = require('../../util/remove-empty');
 const invokeIf = require('../../util/invoke-if');
 
@@ -59,7 +59,7 @@ module.exports = config => {
           foundries: ['custom', 'hosted', 'google'],
           display: 'swap'
         }), !cssConfig.disableFontMagician),
-        require('css-mqpacker')({
+        require('@alaguna/css-mqpacker')({
           sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
         })
       ])

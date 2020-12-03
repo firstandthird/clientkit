@@ -1,6 +1,6 @@
 {
   "name": "clientkit",
-  "version": "6.2.1",
+  "version": "6.3.0",
   "description": "Client kit for websites",
   "main": "index.js",
   "bin": {
@@ -42,7 +42,7 @@
     "clientkit-styleguide": "^2.0.0",
     "confi": "^9.10.1",
     "css-loader": "^3.6.0",
-    "css-mqpacker": "git+https://github.com/Antonio-Laguna/node-css-mqpacker.git#d5cbdd9fee12b69e712f338e19fa28845e7e0b80",
+    "@alaguna/css-mqpacker": "^8.0.1",
     "cssnano": "^4.1.10",
     "eslint": "^7.3.1",
     "eslint-config-firstandthird": "^5.0.0",
@@ -57,7 +57,7 @@
     "postcss-color-function": "^4.1.0",
     "postcss-custom-properties": "^9.2.0",
     "postcss-easings": "^2.0.0",
-    "postcss-font-magician": "git+https://github.com/Antonio-Laguna/postcss-font-magician.git#6eb7e5fd656f2a00112db1d130c4955a0af2fa2a",
+    "@alaguna/postcss-font-magician": "^2.2.1",
     "postcss-import": "^12.0.1",
     "postcss-inline-svg": "^4.1.0",
     "postcss-loader": "^3.0.0",
