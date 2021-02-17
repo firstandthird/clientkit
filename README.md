@@ -1,10 +1,12 @@
 <h1 align="center">Clientkit</h1>
 
 <p align="center">
+  <a href="https://www.npmjs.com/package/clientkit">
+    <img src="https://img.shields.io/npm/v/clientkit.svg?label=npm&style=for-the-badge" alt="NPM" />
+  </a>
   <a href="https://github.com/firstandthird/domodule/actions">
     <img src="https://img.shields.io/github/workflow/status/firstandthird/clientkit/Test/master?label=Tests&style=for-the-badge" alt="Test Status"/>
   </a>
-  <img src="https://img.shields.io/npm/v/clientkit.svg?label=npm&style=for-the-badge" alt="NPM" />
 </p>
 
 [![Build Status](https://travis-ci.org/firstandthird/clientkit.svg?branch=master)](https://travis-ci.org/firstandthird/clientkit)
