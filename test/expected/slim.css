@@ -572,7 +572,6 @@ a:hover, .button-link:hover {
   }
 .button-link {
     -webkit-appearance: none;
-       -moz-appearance: none;
             appearance: none;
     background: transparent;
     border: 0;
@@ -1284,9 +1283,6 @@ a:hover, .button-link:hover {
     border-bottom: 1px dashed #808080;
     color: #808080;
   }
-.form input[type=text]:-moz-read-only, .form input[type=email]:-moz-read-only, .form input[type=password]:-moz-read-only, .form input[type=url]:-moz-read-only, .form input[type=tel]:-moz-read-only, .form input[type=search]:-moz-read-only, .form input[type=number]:-moz-read-only, .form input[type=date]:-moz-read-only, .form input[type=datetime]:-moz-read-only, .form input[type=datetime-local]:-moz-read-only, .form input[type=month]:-moz-read-only, .form input[type=week]:-moz-read-only, .form input[type=time]:-moz-read-only, .form textarea:-moz-read-only {
-    cursor: text;
-  }
 .form input[type=text]:read-only, .form input[type=email]:read-only, .form input[type=password]:read-only, .form input[type=url]:read-only, .form input[type=tel]:read-only, .form input[type=search]:read-only, .form input[type=number]:read-only, .form input[type=date]:read-only, .form input[type=datetime]:read-only, .form input[type=datetime-local]:read-only, .form input[type=month]:read-only, .form input[type=week]:read-only, .form input[type=time]:read-only, .form textarea:read-only {
     cursor: text;
   }
@@ -1334,9 +1330,6 @@ a:hover, .button-link:hover {
     box-shadow: none;
     border-bottom: 1px dashed #ff0000;
     color: #808080;
-  }
-.form .error input[type=text]:-moz-read-only, .form .error input[type=email]:-moz-read-only, .form .error input[type=password]:-moz-read-only, .form .error input[type=url]:-moz-read-only, .form .error input[type=tel]:-moz-read-only, .form .error input[type=search]:-moz-read-only, .form .error input[type=number]:-moz-read-only, .form .error input[type=date]:-moz-read-only, .form .error input[type=datetime]:-moz-read-only, .form .error input[type=datetime-local]:-moz-read-only, .form .error input[type=month]:-moz-read-only, .form .error input[type=week]:-moz-read-only, .form .error input[type=time]:-moz-read-only, .form .error textarea:-moz-read-only {
-    cursor: text;
   }
 .form .error input[type=text]:read-only, .form .error input[type=email]:read-only, .form .error input[type=password]:read-only, .form .error input[type=url]:read-only, .form .error input[type=tel]:read-only, .form .error input[type=search]:read-only, .form .error input[type=number]:read-only, .form .error input[type=date]:read-only, .form .error input[type=datetime]:read-only, .form .error input[type=datetime-local]:read-only, .form .error input[type=month]:read-only, .form .error input[type=week]:read-only, .form .error input[type=time]:read-only, .form .error textarea:read-only {
     cursor: text;

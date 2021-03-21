@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "modules": "common.js",
+  "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +13,6 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "domassist": "^2.2.0",
-    "domodule": "^7.0.0"
+    "domodule": "^8.1.0"
   }
 }
