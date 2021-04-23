@@ -3,10 +3,10 @@ svgsprite:
   useSVGO: true
   # Config: https://github.com/svg/svgo#what-it-can-do
   svgoConfig:
-    - cleanupAttrs: true
-    - inlineStyles: true
-    - removeTitle: true
-    - convertPathData: false
-    - convertColors:
-        shorthex: false
-    - minifyStyles: true
+    cleanupAttrs: true
+    inlineStyles: true
+    removeTitle: true
+    convertPathData: false
+    convertColors:
+      shorthex: false
+    minifyStyles: true

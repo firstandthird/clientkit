@@ -19,9 +19,7 @@ module.exports = options => {
   if (options.svgsprite.useSVGO) {
     loadConfig.use.push({
       loader: 'svgo-loader',
-      options: {
-        plugins: options.svgsprite.svgoConfig
-      }
+      options: options.svgsprite.svgoConfig
     });
   }
 

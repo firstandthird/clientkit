@@ -44,7 +44,7 @@ module.exports = config => {
     jsConfig.optimization.splitChunks = {
       cacheGroups: {
         commons: {
-          name,
+          idHint: name,
           chunks: 'all',
           minChunks
         }
