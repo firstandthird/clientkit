@@ -4,9 +4,6 @@ const getConfig = require('./webpack/get-config');
 const chokidar = require('chokidar');
 const webpack = require('webpack');
 const paths = require('./paths');
-process.traceDeprecation = true;
-
-
 const path = require('path');
 const Styleguide = require('clientkit-styleguide');
 

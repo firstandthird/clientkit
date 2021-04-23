@@ -2,7 +2,6 @@
 /* eslint-disable no-console */
 const { fork } = require('child_process');
 const path = require('path');
-process.traceDeprecation = true;
 
 const run = () => {
   const taskName = process.argv[2] || '';
