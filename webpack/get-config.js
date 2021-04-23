@@ -33,7 +33,7 @@ const getConfig = async () => {
     optimization: {
       minimize: config.minify || paths.isProduction,
       nodeEnv: paths.env,
-      noEmitOnErrors: true
+      emitOnErrors: false
     },
     target: 'web',
     watch: paths.task === 'dev'

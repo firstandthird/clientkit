@@ -1,6 +1,6 @@
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
-module.exports = new SpriteLoaderPlugin({
+module.exports = new SVGSpritemapPlugin({
   plainSprite: true,
   spriteAttrs: {
     width: '0',

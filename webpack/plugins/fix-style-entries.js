@@ -1,9 +1,8 @@
-const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
+const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
-module.exports = new FixStyleOnlyEntriesPlugin({
+module.exports = new RemoveEmptyScriptsPlugin({
   extensions: [
     'css',
     'svg'
-  ],
-  silent: true
+  ]
 });
