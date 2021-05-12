@@ -52,7 +52,7 @@
     "merge-options": "^2.0.0",
     "normalize.css": "^8.0.1",
     "path-exists": "^4.0.0",
-    "postcss": "^7.0.35",
+    "postcss": "^8.2.10",
     "postcss-calc": "^7.0.2",
     "postcss-color-function": "^4.1.0",
     "postcss-custom-properties": "^9.2.0",
