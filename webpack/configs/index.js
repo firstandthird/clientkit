@@ -5,5 +5,11 @@ const jsConfig = require('./js');
 module.exports = {
   svg: svgConfig,
   css: cssConfig,
-  js: jsConfig
+  js: jsConfig,
+  infrastructureLogging: {
+    level: 'none'
+  },
+  stats: {
+    children: false
+  }
 };

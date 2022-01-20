@@ -5,6 +5,7 @@ const entryNormalizer = require('../../entry-normalizer');
 const fileNameGetter = require('../../file-name-getter');
 const { assetsManifest } = require('../../plugins');
 const TerserPlugin = require('terser-webpack-plugin');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = config => {
   const entryFiles = entryNormalizer(config.scripts.files, paths.tags);
@@ -19,9 +20,15 @@ module.exports = config => {
       ]
     },
     optimization: {
-      minimizer: [new TerserPlugin({
-        parallel: true
-      })]
+      minimizer: [
+        new ESBuildMinifyPlugin({
+          css: true,
+          parallel: true
+        })
+        // new TerserPlugin({
+        //   parallel: true
+        // })
+      ]
     },
     output: {
       path: config.scripts.dist || config.dist,

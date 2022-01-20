@@ -9,7 +9,10 @@ const mergeOptions = require('merge-options');
 
 const getConfig = async () => {
   const config = await loadConfi();
-
+  console.log('defualt config is');
+  console.log('defualt config is');
+  console.log('defualt config is');
+  console.log(config);
   const commonConfig = {
     mode: paths.env,
     resolveLoader: {
@@ -25,7 +28,7 @@ const getConfig = async () => {
         paths.clientkitPath,
         path.resolve(process.cwd(), 'node_modules'),
         path.resolve(__dirname, '../node_modules')
-      ],
+      ], 
       alias: {
         lib: path.resolve(__dirname, '../node_modules')
       }
@@ -36,7 +39,10 @@ const getConfig = async () => {
       noEmitOnErrors: true
     },
     target: 'web',
-    watch: paths.task === 'dev'
+    watch: paths.task === 'dev',
+    stats: {
+      children: false
+    }
   };
 
   const compilers = [];
