@@ -42,23 +42,25 @@ const runWebpack = async function () {
 
       runStyleguide(config.config);
 
-      console.log(stats.toString({
-        timings: !paths.isProduction,
-        builtAt: false,
-        assets: false,
-        cached: false,
-        cachedAssets: false,
-        colors: true,
-        chunks: false,
-        chunkGroups: false,
-        chunkModules: false,
-        chunkOrigins: false,
-        hash: false,
-        modules: false,
-        moduleTrace: false,
-        version: false
-      }));
-
+      if (stats.hasErrors()) {
+        const statStr = stats.toString({
+          timings: !paths.isProduction,
+          builtAt: false,
+          assets: false,
+          cached: false,
+          cachedAssets: false,
+          colors: true,
+          chunks: false,
+          chunkGroups: false,
+          chunkModules: false,
+          chunkOrigins: false,
+          hash: false,
+          modules: false,
+          moduleTrace: false,
+          version: false
+        });
+        console.table(statStr);
+      }
       if (config.config.failOnError && (err || stats.hasErrors())) {
         process.exit(1);
       }
