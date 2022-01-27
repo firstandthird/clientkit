@@ -22,52 +22,57 @@ module.exports = config => {
   const postCSSLoader = {
     loader: 'postcss-loader',
     options: {
-      ident: 'postcss',
-      plugins: removeEmpty([
-        require('postcss-import')({
-          path: cssConfig.importPaths
-        }),
-        require('postcss-mixins')({
-          mixins: loadMixins(cssConfig),
-          mixinsFiles: cssConfig.mixinPath
-        }),
-        require('postcss-easings')(),
-        require('postcss-inline-svg')(),
-        require('postcss-svgo')(),
-        require('postcss-triangle')(),
-        require('postcss-nested')(),
-        require('postcss-preset-env')({
-          stage: 0,
-          autoprefixer: {
-            overrideBrowserslist: config.browserlist
-          },
-          features: {
-            'color-mod-function': { unresolved: 'warn' },
-            'custom-media-queries': true,
-            'nesting-rules': false,
-            'focus-within-pseudo-class': { preserve: true }
-          },
-          importFrom: [{
-            customProperties: loadVars(cssConfig),
-            customMedia: loadMedia(cssConfig)
-          }],
-          preserve: false
-        }),
-        require('postcss-color-function')(),
-        require('postcss-calc')(),
-        invokeIf(() => fontMagician({
-          foundries: ['custom', 'hosted', 'google'],
-          display: 'swap'
-        }), !cssConfig.disableFontMagician),
-        require('@alaguna/css-mqpacker')({
-          sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
-        })
-      ])
+      postcssOptions: {
+        plugins: removeEmpty([
+          // used to handle import statements in css:
+          require('postcss-import')({
+            path: cssConfig.importPaths
+          }),
+          // used to handle mixins like icon etc:
+          require('postcss-mixins')({
+            mixins: loadMixins(cssConfig),
+            mixinsFiles: cssConfig.mixinPath
+          }),
+          require('postcss-easings')(),
+          require('postcss-inline-svg')(),
+          require('postcss-svgo')(),
+          require('postcss-triangle')(),
+          require('postcss-nested')(),
+          require('postcss-preset-env')({
+            stage: 0,
+            autoprefixer: {
+              overrideBrowserslist: config.browserlist
+            },
+            features: {
+              'color-mod-function': { unresolved: 'warn' },
+              'custom-media-queries': true,
+              'nesting-rules': false,
+              'focus-within-pseudo-class': { preserve: true }
+            },
+            importFrom: [{
+              customProperties: loadVars(cssConfig),
+              customMedia: loadMedia(cssConfig)
+            }],
+            preserve: false
+          }),
+          require('postcss-color-function')(),
+          require('postcss-calc')(),
+          invokeIf(() => fontMagician({
+            foundries: ['custom', 'hosted', 'google'],
+            display: 'swap'
+          }), !cssConfig.disableFontMagician),
+          require('@alaguna/css-mqpacker')({
+            sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
+          })
+        ])
+      }
     }
   };
 
   if (cssConfig.minify || paths.isProduction) {
-    postCSSLoader.options.plugins.push(require('cssnano')({
+    // plugin list could be in one of two different places currently:
+    const pluginList = postCSSLoader.options.postcssOptions ? postCSSLoader.options.postcssOptions.plugins : postCSSLoader.options.plugins;
+    pluginList.push(require('postcss-clean')({
       zindex: false,
       reduceIdents: false
     }));

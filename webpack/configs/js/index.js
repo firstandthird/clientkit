@@ -1,10 +1,11 @@
+// this file assembles the js compiler config that webpack will use
+// to transpile our js bundles
 const eslintRules = require('./eslint-rules');
 const jsRules = require('./js-rules');
 const paths = require('../../../paths');
 const entryNormalizer = require('../../entry-normalizer');
 const fileNameGetter = require('../../file-name-getter');
 const { assetsManifest } = require('../../plugins');
-const TerserPlugin = require('terser-webpack-plugin');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = config => {
@@ -22,12 +23,8 @@ module.exports = config => {
     optimization: {
       minimizer: [
         new ESBuildMinifyPlugin({
-          css: true,
-          parallel: true
+          target: 'es2015'
         })
-        // new TerserPlugin({
-        //   parallel: true
-        // })
       ]
     },
     output: {
