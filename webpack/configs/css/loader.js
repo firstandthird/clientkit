@@ -7,6 +7,7 @@ const paths = require('../../../paths');
 const fontMagician = require('@alaguna/postcss-font-magician');
 const removeEmpty = require('../../util/remove-empty');
 const invokeIf = require('../../util/invoke-if');
+const tailwind = require('tailwindcss');
 
 module.exports = config => {
   const cssConfig = config.stylesheets;
@@ -57,6 +58,9 @@ module.exports = config => {
           }),
           require('postcss-color-function')(),
           require('postcss-calc')(),
+          tailwind({
+            content: config.tailwind.content
+          }),
           invokeIf(() => fontMagician({
             foundries: ['custom', 'hosted', 'google'],
             display: 'swap'

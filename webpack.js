@@ -92,7 +92,7 @@ const runWebpack = async function () {
       // if there are no build errors present
       // even if there are errors it will try to suppress
       // some of the more verbose plugins from spamming the channel
-      if (stats.hasErrors() && printAllErrors) {
+      if (stats?.hasErrors() && printAllErrors) {
         logErrors(config, stats);
       }
       if (config.config.failOnError && (err || stats.hasErrors())) {
