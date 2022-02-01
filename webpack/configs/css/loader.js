@@ -58,9 +58,7 @@ module.exports = config => {
           }),
           require('postcss-color-function')(),
           require('postcss-calc')(),
-          tailwind({
-            content: config.tailwind.content
-          }),
+          tailwind(config.tailwind),
           invokeIf(() => fontMagician({
             foundries: ['custom', 'hosted', 'google'],
             display: 'swap'

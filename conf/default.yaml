@@ -10,7 +10,7 @@ CKDIR: '{{ENV.CK_PATH}}'
 dist: '{{CWD}}/dist'
 # the default asset path
 assetPath: '{{CWD}}/assets'
-# tailwind's 'content' field, where tailwind will look for DOM nodes to transform:
+# tailwind's config, put your"tailwing.config.js" here:
 tailwind:
   content:
     - './views/**/*.njk',
