@@ -13,7 +13,7 @@ assetPath: '{{CWD}}/assets'
 # tailwind's config, put your"tailwing.config.js" here:
 tailwind:
   content:
-    - './views/**/*.njk',
+    - './views/**/*.njk'
 # whether to minify or not
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
 # does not seem to matter
