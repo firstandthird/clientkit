@@ -4,8 +4,8 @@ module.exports = config => ({
   use: {
     loader: 'esbuild-loader',
     options: {
-      minify: true,
-      sourcemap: true,
     }
   }
 });
+
+
