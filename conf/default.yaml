@@ -10,7 +10,9 @@ CKDIR: '{{ENV.CK_PATH}}'
 dist: '{{CWD}}/dist'
 # the default asset path
 assetPath: '{{CWD}}/assets'
-# tailwind's config, put your"tailwing.config.js" here:
+# to use tailwind in a view.njk, it must <link> a css file containing the '@tailwind' includes
+# see the /styles/tailwind.css file for an example css file you can use in your project
+# tailwind's config, see "tailwing.config.js" format for options:
 tailwind:
   content:
     - './views/**/*.njk'

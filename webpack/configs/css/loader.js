@@ -75,8 +75,7 @@ module.exports = config => {
     // plugin list could be in one of two different places currently:
     const pluginList = postCSSLoader.options.postcssOptions ? postCSSLoader.options.postcssOptions.plugins : postCSSLoader.options.plugins;
     pluginList.push(require('postcss-clean')({
-      zindex: false,
-      reduceIdents: false
+      level: 2
     }));
   }
 

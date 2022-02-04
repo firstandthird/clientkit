@@ -6,10 +6,4 @@ module.exports = {
   svg: svgConfig,
   css: cssConfig,
   js: jsConfig,
-  infrastructureLogging: {
-    level: 'none'
-  },
-  stats: {
-    children: false
-  }
 };
