@@ -10,6 +10,8 @@ CKDIR: '{{ENV.CK_PATH}}'
 dist: '{{CWD}}/dist'
 # the default asset path
 assetPath: '{{CWD}}/assets'
+# list of any additional dependency paths:
+dependencyPaths:
 # whether to minify or not
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
 # does not seem to matter

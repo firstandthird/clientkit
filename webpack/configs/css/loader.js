@@ -61,9 +61,11 @@ module.exports = config => {
             foundries: ['custom', 'hosted', 'google'],
             display: 'swap'
           }), !cssConfig.disableFontMagician),
-          require('@alaguna/css-mqpacker')({
-            sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
-          })
+          // todo: see if this is important, i think modern
+          // postcss plugins are already handling this:
+          // require('@alaguna/css-mqpacker')({
+          //   sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
+          // })
         ])
       }
     }

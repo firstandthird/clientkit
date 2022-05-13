@@ -1,5 +1,7 @@
 // this file assembles the js compiler config that webpack will use
 // to transpile our js bundles
+// under the hood it is using esbuild which is a *binary*
+// and must be installed for the specific platform you are running it on
 const eslintRules = require('./eslint-rules');
 const jsRules = require('./js-rules');
 const paths = require('../../../paths');
@@ -10,7 +12,6 @@ const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 module.exports = config => {
   const entryFiles = entryNormalizer(config.scripts.files, paths.tags);
-
   const jsConfig = {
     entry: entryFiles,
     devtool: (paths.isProduction) ? false : 'source-map',
@@ -58,6 +59,15 @@ module.exports = config => {
 
   if (!config.hash.disabled) {
     jsConfig.plugins.push(assetsManifest(config));
+  }
+
+  // webpack has to know where to look for dependencies
+  // other than its own local node_modules
+  // this can be set in default.yml:
+  if (config.dependencyPaths) {
+    console.log('Adding dependency paths to webpack config');
+    console.log(config.dependencyPaths);
+    jsConfig.resolve = { modules: config.dependencyPaths };
   }
 
   return jsConfig;

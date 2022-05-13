@@ -28,7 +28,6 @@
     "tap": "^14.10.8"
   },
   "dependencies": {
-    "@alaguna/css-mqpacker": "^8.0.1",
     "@alaguna/postcss-font-magician": "^2.2.1",
     "autoprefixer": "^9.8.6",
     "chokidar": "^3.5.3",
@@ -36,28 +35,28 @@
     "clientkit-styleguide": "^2.0.0",
     "confi": "^9.10.1",
     "css-loader": "^3.6.0",
-    "esbuild": "^0.14.13",
-    "esbuild-loader": "^2.18.0",
-    "eslint": "^7.3.1",
+    "eslint": "^6.8.0",
     "eslint-config-firstandthird": "^5.0.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "^2.22.0",
+    "esbuild": "^0.14.39",
+    "esbuild-loader": "^2.18.0",
     "extract-css-chunks-webpack-plugin": "^4.7.5",
     "merge-options": "^2.0.0",
     "normalize.css": "^8.0.1",
     "path-exists": "^4.0.0",
-    "postcss": "^7.0.35",
+    "postcss": "^8.0.35",
     "postcss-calc": "^7.0.2",
     "postcss-clean": "^1.2.2",
     "postcss-color-function": "^4.1.0",
     "postcss-custom-properties": "^9.2.0",
     "postcss-easings": "^2.0.0",
-    "postcss-import": "^12.0.1",
+    "postcss-import": "^14.1.0",
     "postcss-inline-svg": "^4.1.0",
     "postcss-loader": "^4.3.0",
-    "postcss-mixins": "^6.2.3",
+    "postcss-mixins": "^7.0.3",
     "postcss-nested": "^4.2.3",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "^7.5.0",
     "postcss-svgo": "^4.0.2",
     "postcss-triangle": "^2.0.0",
     "require-all": "^3.0.0",
@@ -76,20 +75,12 @@
     "webpack-fix-style-only-entries": "^0.5.2"
   },
   "eslintConfig": {
-    "extends": "firstandthird"
-  },
-  "stylelint": {
-    "extends": "stylelint-config-firstandthird",
+    "extends": "firstandthird",
+    "env": {
+      "browser": true
+    },
     "rules": {
-      "at-rule-no-unknown": [
-        true,
-        {
-          "ignoreAtRules": [
-            "define-mixin",
-            "mixin"
-          ]
-        }
-      ]
+      "no-underscore-dangle": 0
     }
   }
 }
