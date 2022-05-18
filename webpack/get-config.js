@@ -1,4 +1,7 @@
 /* eslint-disable no-console */
+// this file exports getConfig
+// it loads confi and then
+// loads svg, css and js build options
 const path = require('path');
 
 const loadConfi = require('./load-confi');
@@ -9,7 +12,6 @@ const mergeOptions = require('merge-options');
 
 const getConfig = async () => {
   const config = await loadConfi();
-
   const commonConfig = {
     mode: paths.env,
     resolveLoader: {
@@ -36,7 +38,10 @@ const getConfig = async () => {
       noEmitOnErrors: true
     },
     target: 'web',
-    watch: paths.task === 'dev'
+    watch: paths.task === 'dev',
+    stats: {
+      children: false
+    }
   };
 
   const compilers = [];
@@ -51,8 +56,11 @@ const getConfig = async () => {
 
   if (config.scripts && config.scripts.files) {
     const jsConfig = mergeOptions({}, commonConfig, compilerConfigs.js(config));
+    // add any additional node modules locations
+    if (Array.isArray(config.additionalModules)) {
+      jsConfig.resolve.modules = jsConfig.resolve.modules.concat(config.additionalModules);
+    }
     compilers.push(jsConfig);
-
     console.log('Loading JS Compiler');
     console.log('[JS] Dist folder "%s"', config.scripts.dist);
   }

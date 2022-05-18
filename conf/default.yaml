@@ -1,7 +1,25 @@
+# default clientkit options
+# you can override any of these in your project's clientkit/conf/default.yaml
+
+# beep on build error by default
+annoyingErrorBeep: true
+# you can use an env variable to specify where clientkit runs
+# todo: find out if this is used somehow by the Docker build, otherwise remove it
 CKDIR: '{{ENV.CK_PATH}}'
+# the default output directory
 dist: '{{CWD}}/dist'
+# the default asset path
 assetPath: '{{CWD}}/assets'
+# list of any additional dependency paths:
+dependencyPaths:
+# whether to minify or not
 minify: '{{ENV.MINIFY || ENV.NODE_ENV === "production"}}'
+# does not seem to matter
 failOnError: '{{ENV.NODE_ENV === "production"}}'
+# the output will try to satisfy the browsers given by browserlist
+# browserslist will just auto-load these targets if you don't override this setting
+# occasionally clientkit will ask you to update your browserslists:
+#        npx browserslist@latest --update-db
+# see https://github.com/browserslist/browserslist for more info on how it all works
 browserlist:
   - ">1%"

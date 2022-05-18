@@ -21,7 +21,7 @@ module.exports = config => {
     plugins: [
       extractCss(config),
       fixStyleEntries,
-      lintCss(config)
+      // lintCss(config)
     ]
   };
 

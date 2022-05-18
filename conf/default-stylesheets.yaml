@@ -1,7 +1,10 @@
 stylesheets:
   logColor: 'green'
+  # this is where postcss-import looks up dependencies:
   importPaths:
     - '{{CKDIR}}/styles'
+    - '{{CWD}}/node_modules'
+    - '{{CWD}}/clientkit/node_modules'
   mixinPath: '{{CKDIR}}/styles/mixins/*.css'
   globalMixins: '{{CKDIR}}/styles/mixins'
   assetPath: '{{assetPath}}'
