@@ -40,18 +40,24 @@ const logErrors = (config, stats) => {
     version: false
   });
   const array = statStr.split('\n');
+  let hasError = false;
   for (let index = 0; index < array.length; index++) {
     const line = array[index];
     // optional annoying beep on errors:
     if (config.config.annoyingErrorBeep && line.includes('ERROR')) {
+      hasError = index + 25;
       console.log('\007');
+    }
+    if (hasError && index === hasError) {
+      console.log('exit');
+      // break;
     }
     // this plugin spams your channel, so ignore it:
     if (line.includes('extract-css-chunks-webpack-plugin')) {
-      return;
+      continue;
     }
     if (line.includes('extract-css-chunks-webpage-plugin')) {
-      return;
+      continue;
     }
     console.log(line);
   }
@@ -64,6 +70,7 @@ const runWebpack = async function () {
   let config = {};
   try {
     config = await getConfig();
+    console.log(config);
   } catch (error) {
     console.log('There was an error getting the config!');
     console.log(error);

@@ -9,3 +9,4 @@ test/out
 .vscode
 demo/dist
 .nyc_output
+web/public/_dist

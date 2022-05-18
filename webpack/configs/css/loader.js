@@ -44,8 +44,8 @@ module.exports = config => {
               overrideBrowserslist: config.browserlist
             },
             features: {
-              'color-mod-function': { unresolved: 'warn' },
-              'custom-media-queries': true,
+              // 'color-mod-function': { unresolved: 'warn' },
+              // 'custom-media-queries': true,
               'nesting-rules': false,
               'focus-within-pseudo-class': { preserve: true }
             },
@@ -61,10 +61,23 @@ module.exports = config => {
             foundries: ['custom', 'hosted', 'google'],
             display: 'swap'
           }), !cssConfig.disableFontMagician),
+          require('postcss-sort-media-queries')({
+            sort: 'desktop-first'
+            // sort: function(a, b) {
+            //   // custom sorting function
+            // }
+          }),
           // todo: see if this is important, i think modern
           // postcss plugins are already handling this:
-          // require('@alaguna/css-mqpacker')({
-          //   sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
+          // require('postcss-preset-env')({
+          //   stage: 1,
+          // }),
+          // require('./media-queries.js')({
+          //   sort: sortCSSmq.desktopFirst
+          // })
+          // require('./media-queries')({
+          // sort: true
+          // sort: cssConfig.mobileFirst ? sortCSSmq : sortCSSmq.desktopFirst
           // })
         ])
       }
